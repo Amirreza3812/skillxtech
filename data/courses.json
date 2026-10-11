@@ -4,7 +4,7 @@
     "subtitle": "درس‌ها، تمرین‌ها و پروژه‌ها در یک جا"
   },
 
-  "today": "web/01-css-display",
+  "today": "web/01-html-basics",
 
   "courses": [
     {
@@ -48,8 +48,20 @@
         {
           "id": "03-hover-transition-shadows",
           "title": "شبه کلاس ها",
-          "summary": "چیدن عناصر در یک ردیف یا ستون",
-          "status": "soon"
+          "summary": "آموزش  استفاده از شبه کلاس ها  و زیبا سازی آن",
+          "status": "ready"
+        },
+        {
+          "id": "04-devtools",
+          "title": "Chrome Devtools",
+          "summary": "آموزش  استفاده ابزار کروم",
+          "status": "ready"
+        },
+        {
+          "id": "05-text-style",
+          "title": "TextStyle",
+          "summary": "استایل دادن به متن ها",
+          "status": "ready"
         },
         {
           "id": "04-javascript-basics",

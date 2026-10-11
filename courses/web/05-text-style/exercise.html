@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین استایل متن و لیست‌ها | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="05-text-style" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: استایل متن و لیست‌ها</h1>
+        <p class="lead">کد هر تمرین را ویرایش کن و نتیجه را کنارش ببین. اگر چیزی عوض نشد، اول املا و واحدها را چک کن.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>چهار نوع تراز</h3>
+          <p>
+            هر چهار پاراگراف کلاس دارند. با کلاس‌ها اولی را راست‌چین، دومی را چپ‌چین، سومی را وسط‌چین و چهارمی را جاستیفای کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>برای هر کلاس یک قانون بنویس، مثلاً <code>.p1 { text-align: right; }</code>. مقدارها: <code>right</code>، <code>left</code>، <code>center</code> و <code>justify</code>.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="440">
+<textarea>
+<style>
+  p {
+    border: 1px dashed #8a97a5;
+    padding: 8px;
+  }
+
+  /* write your CSS here */
+</style>
+
+<p class="p1">این پاراگراف اول است و باید راست‌چین شود. متن را طولانی نوشته‌ایم تا چند خط شود و فرق ترازها را بتوانی ببینی.</p>
+<p class="p2">این پاراگراف دوم است و باید چپ‌چین شود. متن را طولانی نوشته‌ایم تا چند خط شود و فرق ترازها را بتوانی ببینی.</p>
+<p class="p3">این پاراگراف سوم است و باید وسط‌چین شود. متن را طولانی نوشته‌ایم تا چند خط شود و فرق ترازها را بتوانی ببینی.</p>
+<p class="p4">این پاراگراف چهارم است و باید جاستیفای شود. متن را طولانی نوشته‌ایم تا چند خط شود و فرق ترازها را بتوانی ببینی.</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>مثل Word</h3>
+          <p>
+            کلاس‌های متن زیر آماده‌اند. فقط CSS بنویس:
+          </p>
+          <ul>
+            <li>عنوان <code>h1</code>: اندازه‌ی ۳۶ پیکسل و رنگ دلخواه</li>
+            <li>کلاس <code>key</code>: ضخیم و قرمز</li>
+            <li>کلاس <code>old</code>: خط‌خورده و خاکستری</li>
+            <li>کلاس <code>quote</code>: کج</li>
+            <li>کلاس <code>en</code>: همه‌ی حروف بزرگ و <code>letter-spacing</code> برابر ۲ پیکسل</li>
+          </ul>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ویژگی‌ها: <code>font-weight</code>، <code>color</code>، <code>text-decoration</code>، <code>font-style</code>، <code>text-transform</code> و <code>letter-spacing</code>.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="380">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<h1>گزارش هفته</h1>
+<p>این هفته <span class="key">مهم‌ترین کار</span> تمام کردن پروژه بود.</p>
+<p>قیمت قبلی: <span class="old">۲۰۰ هزار تومان</span></p>
+<p class="quote">هر روز یک قدم کوچک.</p>
+<p class="en">english title with spacing</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>انتخاب فونت</h3>
+          <p>
+            برای <code>h1</code> فونت Georgia با فونت جایگزین مناسب، برای <code>p</code> فونت Tahoma با جایگزین، و برای <code>code</code> یک فونت <code>monospace</code> انتخاب کن.
+            فونت‌ها را به ترتیب اولویت بنویس.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>مثال: <code>font-family: Georgia, "Times New Roman", serif;</code>. آخرین مورد باید یک خانواده‌ی عمومی (<code>serif</code>، <code>sans-serif</code> یا <code>monospace</code>) باشد.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="260">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<h1>My Title</h1>
+<p>این یک پاراگراف است. This is a paragraph.</p>
+<p>برای چاپ پیام از این کد استفاده کن: <code>console.log("Hello")</code></p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>فاصله‌ها</h3>
+          <p>
+            متن را خواناتر کن: ارتفاع خط پاراگراف‌ها را حدود ۱.۹ بگذار، اول هر پاراگراف را ۲۴ پیکسل تورفتگی بده، و برای عنوان انگلیسی <code>Welcome</code> فاصله‌ی ۳ پیکسل بین حرف‌ها بگذار.
+            آیا می‌شود همین کار را برای عنوان فارسی هم کرد؟ چرا؟
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ویژگی‌ها: <code>line-height</code>، <code>text-indent</code> و <code>letter-spacing</code>. برای بخش آخر، حروف فارسی را وقتی فاصله می‌دهی تصور کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="360">
+<textarea>
+<style>
+  p {
+    font-size: 18px;
+  }
+
+  /* write your CSS here */
+</style>
+
+<h2 class="en-title">Welcome</h2>
+<h2>خوش آمدید</h2>
+<p>این پاراگراف اول است. متن را طولانی نوشته‌ایم تا ارتفاع خط و تورفتگی را روی چند خط ببینی و بتوانی خوانایی آن را قبل و بعد مقایسه کنی.</p>
+<p>این پاراگراف دوم است. متن را طولانی نوشته‌ایم تا ارتفاع خط و تورفتگی را روی چند خط ببینی و بتوانی خوانایی آن را قبل و بعد مقایسه کنی.</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>سه لیست</h3>
+          <p>
+            لیست‌های زیر را استایل بده:
+          </p>
+          <ul>
+            <li>لیست <code>ul</code> با کلاس <code>fruits</code>: نقطه‌ی مربعی و رنگ نقطه‌ها قرمز</li>
+            <li>لیست <code>ol</code> با کلاس <code>steps</code>: شماره‌های فارسی و فاصله‌ی ۸ پیکسل بین آیتم‌ها</li>
+            <li>لیست <code>ul</code> با کلاس <code>menu</code>: بدون نقطه و بدون فاصله‌ی کنار (مثل منوی سایت)</li>
+          </ul>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ویژگی‌ها: <code>list-style-type</code> (مقدارهای <code>square</code>، <code>persian</code> و <code>none</code>)، <code>li::marker</code> برای رنگ نقطه، <code>margin-bottom</code> روی <code>li</code> و <code>padding: 0</code> برای حذف فضای کنار لیست.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="460">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<h3>میوه‌ها</h3>
+<ul class="fruits">
+  <li>سیب</li>
+  <li>پرتقال</li>
+  <li>موز</li>
+</ul>
+
+<h3>مراحل</h3>
+<ol class="steps">
+  <li>باز کردن VS Code</li>
+  <li>ساختن فایل index.html</li>
+  <li>نوشتن کد</li>
+</ol>
+
+<h3>منو</h3>
+<ul class="menu">
+  <li>خانه</li>
+  <li>درباره من</li>
+  <li>تماس</li>
+</ul>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>پیدا کردن خطاها</h3>
+          <p>
+            این کد چهار اشتباه دارد و هیچ‌کدام از استایل‌ها اعمال نمی‌شوند. پیدا و درستشان کن تا عنوان وسط‌چین شود، پاراگراف ۲۰ پیکسلی و با فاصله‌ی خط ۲ شود و لیست نقطه‌ی مربعی بگیرد.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>سه تا از خطاها غلط املایی هستند (یک مقدار، یک اسم ویژگی و یک مقدار دیگر) و یکی یک واحد جا افتاده است.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="380">
+<textarea>
+<style>
+  h1 {
+    text-align: centre;
+  }
+  p {
+    font-size: 20;
+    line-hight: 2;
+  }
+  ul {
+    list-style-type: squre;
+  }
+</style>
+
+<h1>عنوان صفحه</h1>
+<p>این یک پاراگراف است که باید بزرگ‌تر و با فاصله‌ی خط بیشتر دیده شود.</p>
+<ul>
+  <li>مورد اول</li>
+  <li>مورد دوم</li>
+</ul>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>مقاله‌ی خودت را استایل بده</h3>
+          <p>
+            متن زیر یک مقاله‌ی ساده است. هر طور دوست داری استایلش کن و حداقل این‌ها را استفاده کن: فونت دلخواه با جایگزین، <code>line-height</code> مناسب،
+            تراز عنوان و پاراگراف‌ها، رنگ‌هایی که خوانا باشند، یک نقل‌قول با کنار رنگی (<code>border-right</code>) و دو لیست با ظاهر متفاوت.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>اول رنگ و فونت کلی را روی <code>body</code> بگذار. بعد عنوان‌ها، بعد پاراگراف‌ها و در آخر لیست‌ها را استایل بده. با DevTools هر مقدار را زنده امتحان کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="560">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<h1>چرا صبحانه مهم است؟</h1>
+<p class="lead">یک عادت ساده که روز را عوض می‌کند.</p>
+
+<p>صبحانه اولین وعده‌ی غذایی روز است و به بدن انرژی لازم برای شروع کار را می‌دهد. کسانی که صبحانه می‌خورند معمولاً تمرکز بهتری دارند.</p>
+
+<p class="quote">صبحانه را مثل یک پادشاه بخور.</p>
+
+<h3>یک صبحانه‌ی خوب شامل</h3>
+<ul>
+  <li>نان کامل</li>
+  <li>تخم‌مرغ یا پنیر</li>
+  <li>میوه یا سبزی</li>
+</ul>
+
+<h3>مراحل یک صبحانه‌ی سریع</h3>
+<ol>
+  <li>آب جوش را آماده کن</li>
+  <li>نان را برش بزن</li>
+  <li>میوه‌ها را بشوی</li>
+</ol>
+</textarea>
+          </div>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>استایل متن و لیست‌ها | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="05-text-style" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>استایل متن و لیست‌ها</h1>
+        <p class="lead">هر کاری که در Word با متن می‌کنی، در CSS هم می‌شود: تراز، اندازه، فونت، فاصله‌ی خط‌ها و لیست‌های نقطه‌ای و شماره‌دار.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+
+      <!-- ========== ۱ ========== -->
+      <h2 id="word-vs-css">متن در Word و در CSS</h2>
+      <p>
+        در Word برای تغییر متن یک متن را انتخاب می‌کنی و از نوار بالا دکمه‌ای را می‌زنی. در CSS هم هر دکمه‌ی Word یک ویژگی (property) دارد:
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>در Word</th><th>در CSS</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>راست‌چین، چپ‌چین، وسط‌چین، Justify</td><td><code>text-align</code></td></tr>
+            <tr><td>اندازه‌ی فونت</td><td><code>font-size</code></td></tr>
+            <tr><td>رنگ فونت</td><td><code>color</code></td></tr>
+            <tr><td>ضخیم (Bold)</td><td><code>font-weight</code></td></tr>
+            <tr><td>کج (Italic)</td><td><code>font-style</code></td></tr>
+            <tr><td>زیرخط و خط‌خورده</td><td><code>text-decoration</code></td></tr>
+            <tr><td>نوع فونت</td><td><code>font-family</code></td></tr>
+            <tr><td>فاصله‌ی بین خط‌ها</td><td><code>line-height</code></td></tr>
+            <tr><td>فاصله‌ی بین حرف‌ها</td><td><code>letter-spacing</code></td></tr>
+            <tr><td>تورفتگی اول پاراگراف</td><td><code>text-indent</code></td></tr>
+            <tr><td>حروف بزرگ و کوچک انگلیسی</td><td><code>text-transform</code></td></tr>
+            <tr><td>لیست نقطه‌ای و شماره‌دار</td><td><code>ul</code> و <code>ol</code> با <code>list-style-type</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>در ادامه هر کدام را با مثال می‌بینیم. همه‌ی کادرهای «امتحان کن» را ویرایش کن.</p>
+
+      <!-- ========== ۲ ========== -->
+      <h2 id="text-align">تراز متن</h2>
+      <p>ویژگی <code>text-align</code> چهار مقدار اصلی دارد:</p>
+      <ul>
+        <li><code>right</code>: راست‌چین</li>
+        <li><code>left</code>: چپ‌چین</li>
+        <li><code>center</code>: وسط‌چین</li>
+        <li><code>justify</code>: هم‌تراز از دو طرف (مثل کتاب‌ها)</li>
+      </ul>
+
+      <div class="demo" data-title="امتحان کن: تراز متن" data-height="420">
+<textarea>
+<style>
+  p {
+    border: 1px dashed #8a97a5;
+    padding: 8px;
+  }
+  .r { text-align: right; }
+  .l { text-align: left; }
+  .c { text-align: center; }
+  .j { text-align: justify; }
+</style>
+
+<p class="r">راست‌چین: طراحی وب فقط کدنویسی نیست؛ ترکیبی از ساختار، ظاهر و تجربه‌ی کاربر است و هر کدام در ساخت یک سایت خوب نقش دارند.</p>
+<p class="l">چپ‌چین: طراحی وب فقط کدنویسی نیست؛ ترکیبی از ساختار، ظاهر و تجربه‌ی کاربر است و هر کدام در ساخت یک سایت خوب نقش دارند.</p>
+<p class="c">وسط‌چین: طراحی وب فقط کدنویسی نیست؛ ترکیبی از ساختار، ظاهر و تجربه‌ی کاربر است و هر کدام در ساخت یک سایت خوب نقش دارند.</p>
+<p class="j">جاستیفای: طراحی وب فقط کدنویسی نیست؛ ترکیبی از ساختار، ظاهر و تجربه‌ی کاربر است و هر کدام در ساخت یک سایت خوب نقش دارند.</p>
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title">فقط متن چندخطی تفاوت را نشان می‌دهد</p>
+        <p>اثر <code>justify</code> وقتی دیده می‌شود که متن بیش از یک خط باشد. برای متن‌های خیلی کوتاه یا ستون‌های باریک ممکن است فاصله‌ی بین کلمات زشت بشود.</p>
+      </div>
+
+      <!-- ========== ۳ ========== -->
+      <h2 id="size-style">اندازه، ضخامت و استایل</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>ویژگی</th><th>مقدارهای رایج</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>font-size</code></td><td><code>14px</code>، <code>20px</code>، <code>1.5rem</code></td></tr>
+            <tr><td><code>font-weight</code></td><td><code>normal</code>، <code>bold</code>، یا عدد <code>400</code> و <code>700</code></td></tr>
+            <tr><td><code>font-style</code></td><td><code>normal</code>، <code>italic</code></td></tr>
+            <tr><td><code>text-decoration</code></td><td><code>underline</code>، <code>line-through</code>، <code>overline</code>، <code>none</code></td></tr>
+            <tr><td><code>text-transform</code></td><td><code>uppercase</code>، <code>lowercase</code>، <code>capitalize</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: اندازه و استایل" data-height="380">
+<textarea>
+<style>
+  .big { font-size: 28px; }
+  .small { font-size: 14px; }
+  .bold { font-weight: bold; }
+  .italic { font-style: italic; }
+  .under { text-decoration: underline; }
+  .strike { text-decoration: line-through; }
+  .upper { text-transform: uppercase; }
+  .capital { text-transform: capitalize; }
+</style>
+
+<p class="big">متن بزرگ (۲۸ پیکسل)</p>
+<p class="small">متن کوچک (۱۴ پیکسل)</p>
+<p class="bold">متن ضخیم</p>
+<p class="italic">متن کج</p>
+<p class="under">متن زیرخط‌دار</p>
+<p class="strike">متن خط‌خورده</p>
+<p class="upper">english text in uppercase</p>
+<p class="capital">first letter of each word</p>
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title">واحد rem</p>
+        <p>
+          <code>rem</code> یک واحد نسبی است: <code>1rem</code> برابر اندازه‌ی پایه‌ی نوشته در مرورگر است که معمولاً ۱۶ پیکسل است.
+          پس <code>1.5rem</code> یعنی ۲۴ پیکسل. مزیتش این است که اگر کاربر اندازه‌ی نوشته‌ی مرورگرش را بزرگ کرده باشد، متن سایت تو هم متناسب بزرگ می‌شود. اما <code>px</code> این کار را نمی‌کند.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">در فارسی و انگلیسی فرق هست</p>
+        <p>
+          <code>text-transform</code> فقط روی حروف انگلیسی اثر دارد، چون فارسی حرف بزرگ و کوچک ندارد.
+          کج کردن (italic) هم در نوشتار فارسی چندان رایج نیست و معمولاً برای تأکید از ضخیم کردن استفاده می‌شود.
+        </p>
+      </div>
+
+      <!-- ========== ۴ ========== -->
+      <h2 id="color">رنگ متن</h2>
+      <p>
+        رنگ نوشته با <code>color</code> مشخص می‌شود و مثل درس مبانی CSS با نام رنگ، کد هگز یا <code>rgb</code> نوشته می‌شود.
+        رنگ پس‌زمینه‌ی پشت متن هم با <code>background-color</code> است. این دو را همیشه طوری انتخاب کن که تفاوت‌شان زیاد باشد تا متن راحت خوانده شود.
+      </p>
+
+      <div class="demo" data-title="امتحان کن: خوانا یا ناخوانا؟" data-height="260">
+<textarea>
+<style>
+  p { padding: 10px; font-size: 18px; }
+  .good {
+    color: #14263a;
+    background-color: #f2f5f7;
+  }
+  .bad {
+    color: #9aa7b5;
+    background-color: #f2f5f7;
+  }
+  .dark {
+    color: #f2f5f7;
+    background-color: #14263a;
+  }
+</style>
+
+<p class="good">رنگ تیره روی زمینه‌ی روشن: خوانا</p>
+<p class="bad">رنگ کم‌رنگ روی زمینه‌ی روشن: سخت‌خوان</p>
+<p class="dark">رنگ روشن روی زمینه‌ی تیره: خوانا</p>
+</textarea>
+      </div>
+
+      <!-- ========== ۵ ========== -->
+      <h2 id="font-family">نوع فونت</h2>
+      <p>
+        نوع فونت با <code>font-family</code> مشخص می‌شود. چون هر کامپیوتر فونت‌های مختلفی دارد، همیشه چند فونت را به ترتیب اولویت می‌نویسیم.
+        مرورگر اولین فونتی را که روی دستگاه کاربر پیدا کند استفاده می‌کند. آخرین مورد را یکی از این خانواده‌های عمومی بگذار تا حتماً چیزی پیدا شود:
+      </p>
+      <ul>
+        <li><code>sans-serif</code>: فونت‌های بدون زائده (ساده و مدرن)</li>
+        <li><code>serif</code>: فونت‌های دارای زائده، مثل Times</li>
+        <li><code>monospace</code>: فونت‌هایی که همه‌ی حرف‌هایشان یک عرض دارند، مناسب نمایش کد</li>
+      </ul>
+
+      <div class="demo" data-title="امتحان کن: فونت‌ها" data-height="300">
+<textarea>
+<style>
+  p { font-size: 20px; }
+  .a { font-family: Tahoma, sans-serif; }
+  .b { font-family: Georgia, "Times New Roman", serif; }
+  .c { font-family: "Courier New", monospace; }
+</style>
+
+<p class="a">Tahoma: this is a sans-serif font. این یک متن نمونه است.</p>
+<p class="b">Georgia: this is a serif font. این یک متن نمونه است.</p>
+<p class="c">Courier New: this is monospace. 0123456789</p>
+</textarea>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">اسم فونتی که فاصله دارد</p>
+        <p>اگر اسم فونت بیش از یک کلمه است، آن را داخل گیومه بنویس: <code>"Times New Roman"</code>. اسم‌های یک کلمه‌ای مثل <code>Tahoma</code> گیومه نمی‌خواهند.</p>
+      </div>
+
+      <h3>استفاده از فونت‌های Google Fonts</h3>
+      <p>فونت‌های روی کامپیوتر خودت ممکن است روی کامپیوتر بقیه نباشد. برای استفاده از فونتی که همه ببینند، می‌توانی از Google Fonts استفاده کنی. همین سایت هم برای فونت فارسی Vazirmatn از آن استفاده می‌کند:</p>
+      <ol>
+        <li>به سایت <code>fonts.google.com</code> برو و فونت دلخواه را پیدا کن.</li>
+        <li>ضخامت‌های مورد نیازت را انتخاب کن (مثلاً ۴۰۰ و ۷۰۰).</li>
+        <li>کد <code>link</code> را که سایت می‌دهد داخل <code>head</code> صفحه بگذار.</li>
+        <li>اسم فونت را در <code>font-family</code> بنویس و چند فونت جایگزین هم بعدش بگذار.</li>
+      </ol>
+      <pre class="code"><code>&lt;head&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&amp;display=swap"
+        rel="stylesheet"&gt;
+&lt;/head&gt;</code></pre>
+      <pre class="code"><code>body {
+  font-family: "Vazirmatn", Tahoma, sans-serif;
+}</code></pre>
+      <p>این روش به اینترنت نیاز دارد. اگر اینترنت نباشد، مرورگر به فونت‌های جایگزین می‌رود. به همین دلیل لیست جایگزین‌ها مهم است.</p>
+
+      <!-- ========== ۶ ========== -->
+      <h2 id="spacing">فاصله‌ی خط‌ها و حرف‌ها</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>ویژگی</th><th>کاربرد</th><th>مقدار نمونه</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>line-height</code></td><td>ارتفاع هر خط (فاصله‌ی بین خط‌ها)</td><td><code>1.8</code></td></tr>
+            <tr><td><code>text-indent</code></td><td>تورفتگی اول پاراگراف</td><td><code>30px</code></td></tr>
+            <tr><td><code>letter-spacing</code></td><td>فاصله‌ی بین حرف‌ها</td><td><code>2px</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: فاصله‌ها" data-height="460">
+<textarea>
+<style>
+  p {
+    font-size: 18px;
+    border: 1px dashed #8a97a5;
+    padding: 8px;
+  }
+  .tight { line-height: 1.2; }
+  .normal { line-height: 1.8; }
+  .loose { line-height: 2.6; }
+  .indent { text-indent: 30px; line-height: 1.8; }
+  .spaced { letter-spacing: 4px; text-align: left; }
+</style>
+
+<p class="tight">خط‌ها به هم نزدیک: ارتفاع خط ۱.۲ است و متن فشرده به نظر می‌رسد، مخصوصاً وقتی چند خط داشته باشد.</p>
+<p class="normal">ارتفاع خط ۱.۸ است و متن راحت‌تر خوانده می‌شود، مخصوصاً وقتی چند خط داشته باشد.</p>
+<p class="loose">ارتفاع خط ۲.۶ است و خط‌ها خیلی از هم دورند، مخصوصاً وقتی چند خط داشته باشد.</p>
+<p class="indent">تورفتگی اول پاراگراف با text-indent ساخته شده است و فقط خط اول جلو می‌رود، مخصوصاً وقتی چند خط داشته باشد.</p>
+<p class="spaced">LETTER SPACING</p>
+</textarea>
+      </div>
+
+      <div class="callout tip">
+        <p class="callout-title">عدد بدون واحد برای line-height</p>
+        <p>
+          <code>line-height: 1.8</code> یعنی ارتفاع هر خط ۱.۸ برابر اندازه‌ی نوشته. اگر اندازه‌ی نوشته عوض شود، ارتفاع خط هم متناسب عوض می‌شود.
+          برای متن فارسی عدد بین ۱.۷ و ۲ معمولاً راحت‌ترین حالت را می‌دهد.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">letter-spacing را روی متن فارسی نگذار</p>
+        <p>حروف فارسی به هم می‌چسبند. اگر بین آن‌ها فاصله بیندازی، کلمه‌ها شکسته و بدخوانی می‌شوند. این ویژگی را فقط روی متن انگلیسی (مثلاً عنوان‌ها) استفاده کن.</p>
+      </div>
+
+      <!-- ========== ۷ ========== -->
+      <h2 id="lists">لیست‌ها</h2>
+      <p>
+        لیست‌های نقطه‌ای و شماره‌دار Word در HTML با <code>ul</code> و <code>ol</code> ساخته می‌شوند و هر آیتم داخل <code>li</code> است.
+        ظاهر نقطه یا شماره‌ی هر آیتم با ویژگی <code>list-style-type</code> تعیین می‌شود.
+      </p>
+
+      <h3>نوع نقطه یا شماره</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>برای</th><th>مقدار</th><th>نتیجه</th></tr>
+          </thead>
+          <tbody>
+            <tr><td rowspan="4"><code>ul</code></td><td><code>disc</code></td><td>دایره‌ی توپر (پیش‌فرض)</td></tr>
+            <tr><td><code>circle</code></td><td>دایره‌ی توخالی</td></tr>
+            <tr><td><code>square</code></td><td>مربع</td></tr>
+            <tr><td><code>none</code></td><td>بدون نقطه</td></tr>
+            <tr><td rowspan="6"><code>ol</code></td><td><code>decimal</code></td><td>1, 2, 3 (پیش‌فرض)</td></tr>
+            <tr><td><code>persian</code></td><td>شماره‌های فارسی: ۱، ۲، ۳</td></tr>
+            <tr><td><code>decimal-leading-zero</code></td><td>01, 02, 03</td></tr>
+            <tr><td><code>lower-alpha</code> / <code>upper-alpha</code></td><td>a, b, c یا A, B, C</td></tr>
+            <tr><td><code>lower-roman</code> / <code>upper-roman</code></td><td>i, ii, iii یا I, II, III</td></tr>
+            <tr><td><code>none</code></td><td>بدون شماره</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: نوع لیست" data-height="480">
+<textarea>
+<style>
+  li { margin-bottom: 6px; }
+  .sq { list-style-type: square; }
+  .circle { list-style-type: circle; }
+  .none { list-style-type: none; padding: 0; }
+  .fa { list-style-type: persian; }
+  .roman { list-style-type: upper-roman; }
+  .alpha { list-style-type: lower-alpha; }
+</style>
+
+<ul class="sq">
+  <li>مربع</li>
+  <li>مربع</li>
+</ul>
+<ul class="circle">
+  <li>دایره‌ی توخالی</li>
+  <li>دایره‌ی توخالی</li>
+</ul>
+<ul class="none">
+  <li>بدون نقطه</li>
+  <li>بدون نقطه</li>
+</ul>
+<ol class="fa">
+  <li>شماره‌ی فارسی</li>
+  <li>شماره‌ی فارسی</li>
+</ol>
+<ol class="roman">
+  <li>عدد رومی</li>
+  <li>عدد رومی</li>
+</ol>
+<ol class="alpha">
+  <li>حروف انگلیسی</li>
+  <li>حروف انگلیسی</li>
+</ol>
+</textarea>
+      </div>
+
+      <h3>تورفتگی، فاصله و رنگ نقطه‌ها</h3>
+      <ul>
+        <li><code>padding</code>: لیست‌ها به‌طور پیش‌فرض از کنار فضای خالی دارند. با <code>padding: 0</code> یا <code>padding-right</code> (در صفحه‌ی راست‌به‌چپ) می‌توانی این فضا را کنترل کنی.</li>
+        <li><code>margin-bottom</code> روی <code>li</code>: فاصله‌ی بین آیتم‌ها.</li>
+        <li><code>list-style-position</code>: مقدار <code>inside</code> نقطه را داخل متن و مقدار <code>outside</code> (پیش‌فرض) آن را بیرون از متن می‌گذارد.</li>
+        <li><code>li::marker</code>: انتخاب خود نقطه یا شماره، مثلاً برای تغییر رنگ آن.</li>
+      </ul>
+
+      <div class="demo" data-title="امتحان کن: لیست معمولی و لیست استایل‌داده" data-height="400">
+<textarea>
+<style>
+  .custom {
+    list-style-type: square;
+    padding-right: 20px;
+    color: #14263a;
+  }
+  .custom li {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  .custom li::marker {
+    color: crimson;
+  }
+</style>
+
+<p>لیست معمولی:</p>
+<ul>
+  <li>وسیله‌ی اول</li>
+  <li>وسیله‌ی دوم</li>
+  <li>وسیله‌ی سوم</li>
+</ul>
+
+<p>لیست استایل‌داده:</p>
+<ul class="custom">
+  <li>وسیله‌ی اول</li>
+  <li>وسیله‌ی دوم</li>
+  <li>وسیله‌ی سوم</li>
+</ul>
+</textarea>
+      </div>
+
+      <h3>لیست تو در تو و شماره‌گذاری</h3>
+      <p>
+        مثل لیست‌های چندسطحی Word، می‌توانی یک لیست را داخل یک آیتم لیست دیگر بگذاری.
+        در <code>ol</code> هم با ویژگی‌های HTML می‌توانی از عدد دلخواه شروع کنی (<code>start</code>) یا معکوس بشماری (<code>reversed</code>).
+      </p>
+
+      <div class="demo" data-title="امتحان کن: لیست تو در تو" data-height="400">
+<textarea>
+<style>
+  ol { list-style-type: persian; }
+  ul { list-style-type: circle; }
+</style>
+
+<ol>
+  <li>
+    مبانی
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+    </ul>
+  </li>
+  <li>پیشرفته</li>
+</ol>
+
+<p>از عدد ۵ شروع می‌شود:</p>
+<ol start="5">
+  <li>مورد پنجم</li>
+  <li>مورد ششم</li>
+</ol>
+
+<p>معکوس:</p>
+<ol reversed>
+  <li>مورد سوم</li>
+  <li>مورد دوم</li>
+  <li>مورد اول</li>
+</ol>
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title">منوی سایت هم یک لیست است</p>
+        <p>منوی بالای بیشتر سایت‌ها در اصل یک <code>ul</code> است که نقطه‌هایش با <code>list-style-type: none</code> حذف شده و ظاهرش تغییر کرده است. چیدن آن‌ها در یک ردیف را در درس‌های بعدی یاد می‌گیریم.</p>
+      </div>
+
+      <!-- ========== ۸ ========== -->
+      <h2 id="together">همه با هم: یک مقاله‌ی خوانا</h2>
+      <p>حالا همه‌ی چیزهایی که یاد گرفتی را روی یک متن واقعی می‌گذاریم:</p>
+
+      <div class="demo" data-title="امتحان کن: مقاله‌ی استایل‌داده" data-height="560">
+<textarea>
+<style>
+  body {
+    font-family: Tahoma, sans-serif;
+    color: #14263a;
+    padding: 10px;
+  }
+  h1 {
+    font-size: 30px;
+    text-align: center;
+    color: #2f5bea;
+  }
+  .lead {
+    font-size: 20px;
+    line-height: 2;
+    color: #5b6b7b;
+    text-align: center;
+  }
+  p {
+    line-height: 1.9;
+    text-align: justify;
+  }
+  .quote {
+    font-style: italic;
+    color: #5b6b7b;
+    border-right: 4px solid #2f5bea;
+    padding-right: 12px;
+  }
+  ul {
+    list-style-type: square;
+  }
+  ol {
+    list-style-type: persian;
+  }
+  li {
+    margin-bottom: 6px;
+  }
+  li::marker {
+    color: #2f5bea;
+  }
+</style>
+
+<h1>چرا طراحی وب را یاد بگیریم؟</h1>
+<p class="lead">راهی برای ساختن چیزهایی که همه بتوانند ببینند.</p>
+
+<p>طراحی وب مهارتی است که هم خلاقیت می‌خواهد و هم منطق. با چند خط کد می‌توانی صفحه‌ای بسازی که هر کسی در دنیا آن را باز کند و ببیند.</p>
+
+<p class="quote">بهترین راه یادگیری، ساختن است.</p>
+
+<h3>چیزهایی که می‌سازی</h3>
+<ul>
+  <li>وب‌سایت شخصی</li>
+  <li>صفحه‌ی معرفی یک کسب‌وکار</li>
+  <li>بازی و ابزار کوچک</li>
+</ul>
+
+<h3>مسیر یادگیری</h3>
+<ol>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ol>
+</textarea>
+      </div>
+
+      <!-- ========== ۹ ========== -->
+      <h2 id="mistakes">اشتباه‌های رایج</h2>
+      <ul>
+        <li><strong>غلط املایی در مقدار.</strong> <code>text-align: centre</code> یا <code>list-style-type: squre</code> خطا نمی‌دهند ولی کار هم نمی‌کنند.</li>
+        <li><strong>یادت رفته واحد بنویسی.</strong> <code>font-size: 20</code> بدون <code>px</code> نامعتبر است و نادیده گرفته می‌شود. استثنا فقط <code>line-height</code> است که بدون واحد مجاز و بهتر است.</li>
+        <li><strong>letter-spacing روی فارسی.</strong> حروف فارسی را از هم جدا می‌کند و متن را خراب می‌کند.</li>
+        <li><strong>فونت جایگزین ننوشتن.</strong> اگر فونت اصلی نبود، مرورگر یک فونت نامناسب انتخاب می‌کند. همیشه در آخر <code>sans-serif</code> یا <code>serif</code> را بگذار.</li>
+        <li><strong>تراز یک المان داخلی.</strong> <code>text-align</code> را روی المانی بنویس که متن داخل آن است، مثلاً <code>p</code> یا <code>div</code>، نه روی خود متن.</li>
+        <li><strong>justify برای متن کوتاه.</strong> فاصله‌ی بین کلمات زشت می‌شود.</li>
+        <li><strong>رنگ متن خیلی نزدیک به پس‌زمینه.</strong> متن سخت خوانده می‌شود.</li>
+      </ul>
+
+      <!-- ========== ۱۰ ========== -->
+      <h2 id="summary">خلاصه</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>می‌خواهم...</th><th>CSS</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>تراز متن</td><td><code>text-align: right | left | center | justify</code></td></tr>
+            <tr><td>اندازه‌ی نوشته</td><td><code>font-size: 18px</code></td></tr>
+            <tr><td>ضخیم و کج کردن</td><td><code>font-weight: bold</code> و <code>font-style: italic</code></td></tr>
+            <tr><td>خط زیر یا وسط نوشته</td><td><code>text-decoration: underline | line-through | none</code></td></tr>
+            <tr><td>نوع فونت</td><td><code>font-family: "Vazirmatn", Tahoma, sans-serif</code></td></tr>
+            <tr><td>فاصله‌ی خط‌ها</td><td><code>line-height: 1.8</code></td></tr>
+            <tr><td>تورفتگی اول پاراگراف</td><td><code>text-indent: 30px</code></td></tr>
+            <tr><td>نوع نقطه یا شماره</td><td><code>list-style-type: square | persian | none</code></td></tr>
+            <tr><td>رنگ نقطه‌ی لیست</td><td><code>li::marker { color: red; }</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

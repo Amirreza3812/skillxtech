@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین Chrome DevTools | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="04-chrome-devtools" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: Chrome DevTools</h1>
+        <p class="lead">این تمرین‌ها را با خود DevTools انجام بده. جواب‌ها را روی کاغذ یادداشت کن و در کلاس با هم مقایسه کنید.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>باز کردن DevTools</h3>
+          <p>
+            یک سایت دلخواه باز کن و DevTools را با سه روش مختلف باز و بسته کن: راست‌کلیک و Inspect، کلید <code>F12</code>
+            و کلید <code>Ctrl+Shift+C</code> (که المان را با موس انتخاب می‌کند).
+            بعد پنل‌های <code>Elements</code>، <code>Console</code> و <code>Network</code> را یک‌بار باز کن و بگو هر کدام به چه درد می‌خورد.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>در مک به‌جای <code>Ctrl</code> از <code>Cmd</code> و به‌جای <code>F12</code> از <code>Cmd+Option+I</code> استفاده کن.</p>
+          </details>
+        </li>
+
+        <li class="task">
+          <h3>اندازه‌ی واقعی جعبه</h3>
+          <p>
+            روی جعبه‌ی نتیجه Inspect کن و نمودار جعبه را در تب Computed ببین. بعد جواب بده: عرض کل جعبه (محتوا، <code>padding</code> و <code>border</code> با هم)
+            چقدر است؟ فضایی که جعبه با <code>margin</code> در صفحه اشغال می‌کند چقدر است؟
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>عرض کل = عرض محتوا + دو برابر padding + دو برابر border. برای فضای اشغال‌شده، دو برابر margin را هم اضافه کن. بعد با نمودار DevTools مقایسه‌اش کن.</p>
+          </details>
+          <div class="demo" data-title="جعبه را Inspect کن" data-height="300">
+<textarea>
+<style>
+  .box {
+    width: 180px;
+    padding: 15px;
+    border: 5px solid #0e8f6e;
+    margin: 20px;
+    background-color: #e4f5ef;
+  }
+</style>
+
+<div class="box">جعبه‌ی من</div>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر زنده‌ی CSS</h3>
+          <p>
+            عنوان و پاراگراف زیر را Inspect کن و فقط با پنل Styles ظاهرشان را بهتر کن: رنگ، اندازه‌ی نوشته و <code>padding</code> را عوض کن.
+            وقتی نتیجه را پسندیدی، مقدارها را در کادر کد وارد کن تا تغییرها دائمی شوند (چون با رفرش از بین می‌روند).
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>روی مقدار هر ویژگی در Styles کلیک کن. برای عدد، از کلیدهای بالا و پایین استفاده کن. برای ویژگی جدید روی فضای خالی داخل قانون کلیک کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="260">
+<textarea>
+<style>
+  h1 {
+    color: gray;
+    font-size: 20px;
+  }
+  p {
+    color: #5b6b7b;
+  }
+</style>
+
+<h1>عنوان صفحه</h1>
+<p>این یک پاراگراف است که ظاهر آن را با DevTools بهتر می‌کنیم.</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>پیدا کردن استایل hover</h3>
+          <p>
+            دکمه‌ی نتیجه را Inspect کن و با دکمه‌ی <code>:hov</code> حالت <code>:hover</code> را روشن کن. حالا در پنل Styles رنگ پس‌زمینه‌ی hover را عوض کن تا رنگی پیدا کنی که دوست داری.
+            بعد آن را در کادر کد بنویس.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>دکمه‌ی <code>:hov</code> بالای پنل Styles و کنار <code>.cls</code> است. با تیک زدن <code>:hover</code> قانون hover فعال می‌شود و در لیست Styles می‌توانی مقدارش را ویرایش کنی.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="240">
+<textarea>
+<style>
+  button {
+    background-color: #2f5bea;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #14263a;
+  }
+</style>
+
+<button>دکمه‌ی من</button>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>فونت و رنگ یک سایت واقعی</h3>
+          <p>
+            یک سایت دلخواه باز کن (مثلاً یک سایت خبری یا فروشگاهی). عنوان اصلی صفحه را Inspect کن و این سه چیز را پیدا و یادداشت کن:
+            <code>font-family</code>، <code>font-size</code> و <code>color</code> آن. بعد یک دکمه یا لینک در همان سایت را انتخاب کن و بگو
+            آیا برایش <code>border-radius</code> یا <code>box-shadow</code> تعریف شده یا نه.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>اگر ویژگی را در Styles پیدا نکردی، تب <code>Computed</code> مقدار نهایی همه‌ی ویژگی‌ها را نشان می‌دهد.</p>
+          </details>
+        </li>
+
+        <li class="task">
+          <h3>پیدا کردن یک تصویر</h3>
+          <p>
+            یک سایت عکس رایگان باز کن (مثلاً Unsplash یا Pexels). با Inspect آدرس یکی از تصویرها را از <code>src</code> پیدا کن و آن را در یک زبانه‌ی جدید باز کن.
+            بعد سعی کن همین تصویر را با پنل <code>Network</code> و فیلتر <code>Img</code> هم پیدا کنی.
+            آخر هم یک المان با <code>background-image</code> در یک سایت پیدا کن و آدرس تصویرش را از پنل Styles بیرون بکش.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>اگر تصویر در Network نیامد، صفحه را رفرش کن و تا پایین اسکرول کن. فقط تصویرهایی را برای پروژه‌ی خودت استفاده کن که مجوز آزاد دارند.</p>
+          </details>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chrome DevTools | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+
+  <!-- استایل مخصوص دو شکل این درس (نمای کلی DevTools و نمودار جعبه) -->
+  <style>
+    figure { margin: 1.6em 0; }
+    figcaption {
+      direction: rtl;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    /* نمای کلی پنجره‌ی DevTools */
+    .dt-mock {
+      direction: ltr;
+      max-width: 640px;
+      margin-inline: auto;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      font-size: 0.85rem;
+    }
+    .dt-tabs {
+      display: flex;
+      gap: 2px;
+      padding: 6px 8px 0;
+      background: #e6ecf1;
+    }
+    .dt-tabs span {
+      padding: 4px 12px;
+      border-radius: 6px 6px 0 0;
+      color: var(--muted);
+    }
+    .dt-tabs .on {
+      background: #fff;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .dt-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .dt-pane {
+      min-height: 150px;
+      padding: 12px 14px;
+      font-family: var(--font-code);
+      line-height: 1.8;
+      white-space: pre;
+      overflow-x: auto;
+    }
+    .dt-pane + .dt-pane {
+      border-left: 1px solid var(--line);
+    }
+    .dt-pane h4 {
+      display: block;
+      margin: 0 0 6px;
+      font-family: var(--font-text);
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: normal;
+    }
+    .dt-sel {
+      display: block;
+      background: #cfe0ff;
+    }
+
+    /* نمودار جعبه شبیه Computed در DevTools */
+    .bm-wrap {
+      direction: ltr;
+      max-width: 440px;
+      margin-inline: auto;
+    }
+    .bm {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas:
+        ". t ."
+        "l inner r"
+        ". b .";
+      align-items: center;
+      padding: 4px 10px;
+      border: 1px dashed rgba(20, 38, 58, 0.45);
+      color: #1f2a36;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .bm .t { grid-area: t; }
+    .bm .l { grid-area: l; }
+    .bm .r { grid-area: r; }
+    .bm .b { grid-area: b; }
+    .bm .in { grid-area: inner; margin: 2px 4px; }
+    .bm-title {
+      position: absolute;
+      top: 2px;
+      left: 8px;
+      font-size: 0.7rem;
+    }
+    .bm-margin  { background: #f9cc9d; }
+    .bm-border  { background: #fddd9b; }
+    .bm-padding { background: #c3d08b; }
+    .bm-content {
+      padding: 10px 6px;
+      background: #8cb6c0;
+      border: 1px solid rgba(20, 38, 58, 0.45);
+    }
+
+    @media (max-width: 640px) {
+      .dt-body { grid-template-columns: 1fr; }
+      .dt-pane + .dt-pane { border-left: 0; border-top: 1px solid var(--line); }
+    }
+  </style>
+</head>
+<body data-course="web" data-lesson="04-chrome-devtools" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>Chrome DevTools</h1>
+        <p class="lead">کد هر سایتی را ببین، جعبه‌ی المان‌ها را بررسی کن و بدون نوشتن حتی یک خط در فایلت، CSS را روی صفحه امتحان کن.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+
+      <!-- ========== ۱ ========== -->
+      <h2 id="why-devtools">DevTools برای چیست؟</h2>
+      <p>
+        تا حالا از خودت پرسیده‌ای فلان سایت زیبا چطور ساخته شده؟ یا چرا فاصله‌ی بین دو المان در صفحه‌ی خودت اندازه‌ی دلخواه نیست؟
+        مرورگر جواب هر دو سؤال را دارد: ابزاری به اسم <strong>DevTools</strong> (ابزارهای توسعه‌دهنده) که در Chrome و Edge و Firefox هست.
+      </p>
+      <p>با این ابزار می‌توانی:</p>
+      <ul>
+        <li>HTML و CSS هر صفحه را ببینی و بفهمی هر چیز با چه کدی ساخته شده</li>
+        <li>CSS را روی صفحه تغییر بدهی و نتیجه را همان لحظه ببینی</li>
+        <li>جعبه‌ی هر المان (<code>margin</code>، <code>border</code> و <code>padding</code>) را دقیق ببینی</li>
+        <li>بفهمی چرا یک المان آن‌طور که می‌خواستی دیده نمی‌شود</li>
+        <li>فایل‌های یک صفحه مثل تصویرها را پیدا کنی</li>
+      </ul>
+      <p>در این درس از Chrome استفاده می‌کنیم. در Edge تقریباً همه چیز یکی است.</p>
+
+      <!-- ========== ۲ ========== -->
+      <h2 id="open-devtools">باز کردن Inspect</h2>
+      <p>چند راه برای باز کردن DevTools هست. ساده‌ترینش این است: روی هر قسمت از یک صفحه راست‌کلیک کن و گزینه‌ی <strong>Inspect</strong> را بزن.</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>کار</th><th>ویندوز و لینوکس</th><th>مک</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>باز و بسته کردن DevTools</td><td><code>F12</code> یا <code>Ctrl+Shift+I</code></td><td><code>Cmd+Option+I</code></td></tr>
+            <tr><td>انتخاب یک المان با موس</td><td><code>Ctrl+Shift+C</code></td><td><code>Cmd+Shift+C</code></td></tr>
+            <tr><td>حالت نمایش موبایل</td><td><code>Ctrl+Shift+M</code></td><td><code>Cmd+Shift+M</code></td></tr>
+            <tr><td>دیدن کد اصلی صفحه (View Source)</td><td><code>Ctrl+U</code></td><td><code>Cmd+Option+U</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>پنجره‌ی DevTools چند «پنل» دارد که در نوار بالای آن دیده می‌شوند. فعلاً این‌ها برایمان مهم‌اند:</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>پنل</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>Elements</code></td><td>دیدن و تغییر دادن HTML و CSS صفحه</td></tr>
+            <tr><td><code>Console</code></td><td>نمایش خطاها و پیام‌ها (در درس‌های JavaScript زیاد از آن استفاده می‌کنیم)</td></tr>
+            <tr><td><code>Sources</code></td><td>دیدن فایل‌های سایت مثل HTML، CSS و JS</td></tr>
+            <tr><td><code>Network</code></td><td>فهرست همه‌ی چیزهایی که صفحه دانلود کرده، مثل عکس‌ها</td></tr>
+            <tr><td><code>Application</code></td><td>اطلاعاتی که سایت در مرورگر ذخیره کرده</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ========== ۳ ========== -->
+      <h2 id="elements-panel">پنل Elements</h2>
+      <p>مهم‌ترین پنل برای ما همین است. دو بخش اصلی دارد:</p>
+
+      <figure>
+        <div class="dt-mock" role="img" aria-label="نمای ساده‌ی پنل Elements: درخت HTML در سمت چپ و پنل Styles در سمت راست">
+          <div class="dt-tabs">
+            <span class="on">Elements</span><span>Console</span><span>Sources</span><span>Network</span><span>Application</span>
+          </div>
+          <div class="dt-body">
+            <div class="dt-pane"><h4>DOM tree</h4><span>&lt;body&gt;</span>
+<span class="dt-sel">  &lt;h1&gt;Hello&lt;/h1&gt;</span><span>  &lt;p&gt;A paragraph&lt;/p&gt;</span>
+<span>&lt;/body&gt;</span></div>
+            <div class="dt-pane"><h4>Styles / Computed</h4><span>h1 {</span>
+<span>  ☑ color: #2f5bea;</span>
+<span>  ☑ font-size: 32px;</span>
+<span>}</span></div>
+          </div>
+        </div>
+        <figcaption>شکل ساده‌شده‌ی پنل Elements. سمت چپ HTML صفحه و سمت راست CSS المانی که انتخاب شده است.</figcaption>
+      </figure>
+
+      <ul>
+        <li><strong>درخت HTML:</strong> همه‌ی تگ‌های صفحه. وقتی موس را روی یکی از آن‌ها ببری، همان المان در صفحه رنگی می‌شود.</li>
+        <li><strong>پنل Styles:</strong> همه‌ی قانون‌های CSS که روی المان انتخاب‌شده اثر دارند.</li>
+      </ul>
+
+      <h3>چطور CSS را زنده تغییر بدهیم؟</h3>
+      <ol>
+        <li>روی المان مورد نظر راست‌کلیک کن و Inspect را بزن (یا با <code>Ctrl+Shift+C</code> روی آن کلیک کن).</li>
+        <li>در پنل Styles روی مقدار یک ویژگی کلیک کن و آن را عوض کن، مثلاً رنگ را. تغییر همان لحظه روی صفحه دیده می‌شود.</li>
+        <li>با تیک کنار هر ویژگی می‌توانی آن را موقتاً خاموش و روشن کنی تا بفهمی چه اثری دارد.</li>
+        <li>با کلیک روی یک مقدار عددی و فشردن کلیدهای بالا و پایین می‌توانی عدد را کم و زیاد کنی (مثلاً <code>padding</code>).</li>
+        <li>با کلیک روی فضای خالی داخل قانون می‌توانی یک ویژگی جدید اضافه کنی.</li>
+        <li>متن صفحه را هم می‌شود تغییر داد: روی متن داخل درخت HTML دوبار کلیک کن.</li>
+      </ol>
+
+      <div class="callout warn">
+        <p class="callout-title">تغییرها موقتی‌اند</p>
+        <p>
+          DevTools سایت واقعی را عوض نمی‌کند، فقط نسخه‌ی داخل مرورگر خودت را. با رفرش صفحه همه چیز به حالت اول برمی‌گردد.
+          وقتی چیزی را که می‌خواستی پیدا کردی، باید مقدار آن را در فایل CSS خودت بنویسی.
+        </p>
+      </div>
+
+      <h3>دیدن حالت hover</h3>
+      <p>
+        در درس قبل حالت <code>:hover</code> را یاد گرفتی. اما وقتی بخواهی استایل hover را در DevTools ببینی، موس را باید به پنجره‌ی DevTools ببری و hover از بین می‌رود.
+        راه حلش دکمه‌ی <code>:hov</code> در بالای پنل Styles است: با آن می‌توانی حالت‌های <code>:hover</code>، <code>:active</code> و <code>:focus</code> را روی المان انتخاب‌شده اجباری روشن کنی.
+      </p>
+
+      <div class="demo" data-title="امتحان کن: حالت hover در DevTools" data-height="220">
+<textarea>
+<style>
+  button {
+    background-color: #2f5bea;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #14263a;
+  }
+</style>
+
+<button>روی من Inspect بزن</button>
+</textarea>
+      </div>
+      <p>روی دکمه‌ی نتیجه (سمت راست کادر) راست‌کلیک کن و Inspect را بزن. بعد در پنل Styles روی <code>:hov</code> کلیک کن و تیک <code>:hover</code> را بزن. رنگ دکمه عوض می‌شود، بدون این‌که موس روی آن باشد.</p>
+
+      <!-- ========== ۴ ========== -->
+      <h2 id="box-model">Box Model در DevTools</h2>
+      <p>
+        در درس مبانی CSS دیدیم هر المان یک جعبه است با چهار لایه: محتوا، <code>padding</code>، <code>border</code> و <code>margin</code>.
+        DevTools این جعبه را برایت نشان می‌دهد. المان را انتخاب کن و به تب <strong>Computed</strong> برو (در بعضی نسخه‌ها نمودار پایین پنل Styles هم هست):
+      </p>
+
+      <figure class="bm-wrap">
+        <div class="bm bm-margin">
+          <span class="bm-title">margin</span>
+          <span class="n t">30</span><span class="n l">30</span>
+          <div class="in">
+            <div class="bm bm-border">
+              <span class="bm-title">border</span>
+              <span class="n t">4</span><span class="n l">4</span>
+              <div class="in">
+                <div class="bm bm-padding">
+                  <span class="bm-title">padding</span>
+                  <span class="n t">20</span><span class="n l">20</span>
+                  <div class="in"><div class="bm-content">200 × 24</div></div>
+                  <span class="n r">20</span><span class="n b">20</span>
+                </div>
+              </div>
+              <span class="n r">4</span><span class="n b">4</span>
+            </div>
+          </div>
+          <span class="n r">30</span><span class="n b">30</span>
+        </div>
+        <figcaption>نمودار جعبه در DevTools. عدد وسط اندازه‌ی محتواست و بقیه‌ی عددها اندازه‌ی هر لایه از هر چهار طرف است.</figcaption>
+      </figure>
+
+      <ul>
+        <li><strong>آبی:</strong> محتوا (عرض و ارتفاع)</li>
+        <li><strong>سبز:</strong> <code>padding</code></li>
+        <li><strong>زرد:</strong> <code>border</code></li>
+        <li><strong>نارنجی:</strong> <code>margin</code></li>
+      </ul>
+      <p>
+        اگر موس را روی نمودار ببری، همان لایه در صفحه با همان رنگ مشخص می‌شود. حتی با بردن موس روی هر تگ در درخت HTML،
+        جعبه‌ی آن المان روی صفحه رنگ‌آمیزی می‌شود. این روش بهترین راه برای فهمیدن این است که فضای خالی دور یک المان از کجاست.
+      </p>
+
+      <div class="demo" data-title="امتحان کن: جعبه را بررسی کن" data-height="300">
+<textarea>
+<style>
+  .box {
+    width: 200px;
+    padding: 20px;
+    border: 4px solid #2f5bea;
+    margin: 30px;
+    background-color: #e8eefe;
+  }
+</style>
+
+<div class="box">این جعبه را Inspect کن</div>
+</textarea>
+      </div>
+      <p>روی جعبه‌ی نتیجه Inspect بزن و ببین عددهای نمودار با کد برابرند یا نه. بعد در Styles عدد <code>padding</code> را با کلیدهای بالا و پایین تغییر بده و نمودار را نگاه کن.</p>
+
+      <div class="callout tip">
+        <p class="callout-title">وقتی فاصله‌ها را نمی‌فهمی</p>
+        <p>اگر یک المان جای عجیبی افتاده یا فاصله‌ای بیشتر از انتظارت دارد، آن و المان‌های کنارش را Inspect کن. معمولاً یک <code>margin</code> یا <code>padding</code> که یادت رفته است دلیلش است.</p>
+      </div>
+
+      <!-- ========== ۵ ========== -->
+      <h2 id="reading-code">دیدن کد سایت‌های دیگر</h2>
+      <p>برای هر سایتی که دوست داشتی می‌توانی بفهمی چطور ساخته شده:</p>
+      <ol>
+        <li>روی بخش مورد نظر راست‌کلیک و Inspect کن.</li>
+        <li>در درخت HTML ببین آن بخش با چه تگ‌هایی ساخته شده.</li>
+        <li>در پنل Styles ببین چه ویژگی‌هایی ظاهرش را ساخته‌اند، مثل <code>box-shadow</code> یا <code>border-radius</code>.</li>
+        <li>مقدارها را عوض کن و ببین هر کدام چه کاری می‌کنند.</li>
+      </ol>
+
+      <h3>View Source یا Elements؟</h3>
+      <p>
+        با <code>Ctrl+U</code> کد اصلی صفحه را همان‌طور که سرور فرستاده می‌بینی.
+        پنل Elements ولی وضعیت فعلی صفحه را نشان می‌دهد، یعنی بعد از این‌که JavaScript صفحه را تغییر داده است.
+        در سایت‌های امروزی معمولاً چیزی که می‌خواهی را باید در Elements پیدا کنی.
+      </p>
+
+      <h3>پیدا کردن فایل CSS</h3>
+      <p>
+        بالای سمت راست هر قانون در پنل Styles اسم فایل و شماره‌ی خط نوشته شده، مثل <code>style.css:25</code>. اگر روی آن کلیک کنی، آن فایل در پنل Sources باز می‌شود.
+        اگر کد فشرده و در یک خط بود، دکمه‌ی <code>{ }</code> پایین پنجره‌ی Sources آن را مرتب می‌کند.
+      </p>
+
+      <h3>کپی کردن کد</h3>
+      <p>روی یک المان در درخت HTML راست‌کلیک کن و از منوی <code>Copy</code> یکی از این‌ها را انتخاب کن: <code>Copy element</code> برای کد HTML و <code>Copy styles</code> برای CSS آن.</p>
+
+      <div class="callout note">
+        <p class="callout-title">یاد بگیر، کپی نکن</p>
+        <p>
+          خواندن کد دیگران بهترین راه یادگیری است، ولی طراحی و کد هر سایت متعلق به سازنده‌ی آن است.
+          تکنیک را یاد بگیر و کد را خودت بنویس. کپی کردن کامل یک سایت و منتشر کردنش به اسم خودت درست نیست.
+        </p>
+      </div>
+
+      <!-- ========== ۶ ========== -->
+      <h2 id="images">پیدا کردن تصویرها (مثل کاور)</h2>
+      <p>
+        گاهی می‌خواهی ببینی یک تصویر، مثل کاور یک آهنگ یا پوستر یک فیلم، با چه آدرسی در صفحه آمده است. چند راه وجود دارد:
+      </p>
+
+      <h3>راه اول: از طریق Elements</h3>
+      <ol>
+        <li>روی تصویر راست‌کلیک و Inspect کن.</li>
+        <li>در درخت HTML تگ <code>img</code> انتخاب می‌شود. آدرس تصویر در ویژگی <code>src</code> است.</li>
+        <li>روی آدرس راست‌کلیک کن و <code>Open in new tab</code> را بزن.</li>
+        <li>در زبانه‌ی جدید، تصویر به‌تنهایی باز می‌شود. روی آن راست‌کلیک و <code>Save image as</code> را بزن.</li>
+      </ol>
+
+      <pre class="code"><code>&lt;img src="/covers/album.jpg" alt="کاور آلبوم"&gt;</code></pre>
+
+      <p>گاهی تصویر با ویژگی <code>srcset</code> چند اندازه دارد. در این حالت اندازه‌ی بزرگ‌تر کیفیت بهتری دارد:</p>
+      <pre class="code"><code>&lt;img src="small.jpg"
+     srcset="small.jpg 300w, large.jpg 1200w"
+     alt="کاور"&gt;</code></pre>
+
+      <h3>راه دوم: تصویری که در CSS است</h3>
+      <p>بعضی تصویرها اصلاً تگ <code>img</code> ندارند و در CSS با <code>background-image</code> گذاشته شده‌اند. در این حالت المان را Inspect کن و در پنل Styles دنبال خطی مثل این بگرد. روی آدرس داخل <code>url()</code> کلیک کن تا تصویر باز شود:</p>
+      <pre class="code"><code>.cover {
+  background-image: url("images/cover.jpg");
+}</code></pre>
+
+      <h3>راه سوم: پنل Network</h3>
+      <ol>
+        <li>DevTools را باز کن و به پنل <code>Network</code> برو.</li>
+        <li>در نوار فیلتر روی <code>Img</code> کلیک کن تا فقط تصویرها دیده شوند.</li>
+        <li>صفحه را رفرش کن (<code>Ctrl+R</code>) تا همه‌ی تصویرها در فهرست بیایند.</li>
+        <li>روی یک فایل کلیک کن و در تب <code>Preview</code> آن را ببین. با راست‌کلیک و <code>Open in new tab</code> هم باز می‌شود.</li>
+      </ol>
+
+      <div class="callout tip">
+        <p class="callout-title">اگر تصویر پیدا نشد</p>
+        <ul>
+          <li>بعضی سایت‌ها تصویرها را موقع اسکرول بارگذاری می‌کنند، پس اول صفحه را تا پایین اسکرول کن.</li>
+          <li>ممکن است فایل با پسوند <code>.webp</code> ذخیره شود. این یک فرمت رایج و سبک برای وب است و بیشتر برنامه‌ها آن را باز می‌کنند.</li>
+        </ul>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">حق کپی‌رایت را رعایت کن</p>
+        <p>
+          کاور آهنگ، پوستر فیلم و عکس‌های یک سایت متعلق به صاحبان آن‌ها هستند. برای یادگیری یا استفاده‌ی شخصی (مثلاً مشاهده در کامپیوتر خودت) مشکلی نیست،
+          ولی برای گذاشتن در سایت خودت باید اجازه داشته باشی. برای پروژه‌های خودت از تصویرهای رایگان با مجوز آزاد (مثل Unsplash یا Pexels) استفاده کن.
+        </p>
+      </div>
+
+      <!-- ========== ۷ ========== -->
+      <h2 id="tips">نکته‌های کاربردی</h2>
+      <ul>
+        <li><strong>نمایش موبایل:</strong> با <code>Ctrl+Shift+M</code> می‌توانی ببینی صفحه روی اندازه‌ی گوشی چطور دیده می‌شود.</li>
+        <li><strong>جای DevTools:</strong> اگر پنجره کوچک بود، از سه نقطه‌ی بالای آن گزینه‌ی «Dock side» را عوض کن تا کنار یا زیر صفحه یا در پنجره‌ی جدا باشد.</li>
+        <li><strong>رفرش کامل:</strong> اگر تغییری در CSS دادی و دیده نمی‌شود، <code>Ctrl+Shift+R</code> را بزن تا کش مرورگر پاک شود.</li>
+        <li><strong>هنگام ساختن سایت خودت:</strong> برای هر مشکل ظاهری اول Inspect کن و بعد کد را عوض کن.</li>
+      </ul>
+
+      <!-- ========== ۸ ========== -->
+      <h2 id="summary">خلاصه</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>می‌خواهم...</th><th>چه کنم؟</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>باز کردن DevTools</td><td>راست‌کلیک و Inspect، یا <code>F12</code></td></tr>
+            <tr><td>دیدن CSS یک المان</td><td>پنل Elements و بخش Styles</td></tr>
+            <tr><td>امتحان یک مقدار جدید</td><td>روی مقدار در Styles کلیک کن و عوضش کن (موقتی است)</td></tr>
+            <tr><td>دیدن حالت hover</td><td>دکمه‌ی <code>:hov</code> در Styles</td></tr>
+            <tr><td>دیدن جعبه‌ی المان</td><td>تب Computed و نمودار جعبه</td></tr>
+            <tr><td>پیدا کردن تصویر</td><td><code>src</code> در Elements، <code>url()</code> در Styles یا پنل Network</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>
