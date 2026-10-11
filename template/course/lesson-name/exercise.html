@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<!--
+  ===================== قالب تمرین =====================
+  کنار index.html همان درس بگذار و مقدارهای data-course و data-lesson را
+  مثل صفحه‌ی درس عوض کن. برای هر تمرین یک <li class="task"> کپی کن.
+  شماره‌ی تمرین‌ها خودکار ساخته می‌شود.
+
+  یادآوری: این سایت عمومی است. جواب تمرین‌ها را داخل ریپازیتوی عمومی نگذار.
+  ======================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین عنوان درس | نام دوره</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="COURSE-ID" data-lesson="NN-lesson-name" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">نام دوره</p>
+        <h1>تمرین: عنوان درس</h1>
+        <p class="lead">یک جمله درباره‌ی نحوه‌ی انجام تمرین‌ها.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- page single = یک ستون، بدون فهرست کناری -->
+  <div class="wrap page single">
+    <article class="lesson">
+
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>عنوان تمرین</h3>
+          <p>صورت تمرین.</p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>متن راهنمایی.</p>
+          </details>
+          <!-- کادر کدنویسی با کد شروع -->
+          <div class="demo" data-title="جای کدنویسی" data-height="180">
+<textarea>
+<!-- starter code -->
+
+</textarea>
+          </div>
+        </li>
+
+        <!-- تمرین بعدی: همین li را کپی کن -->
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

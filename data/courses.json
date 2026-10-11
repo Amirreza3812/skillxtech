@@ -1,0 +1,98 @@
+{
+  "site": {
+    "title": "کلاس‌های من",
+    "subtitle": "درس‌ها، تمرین‌ها و پروژه‌ها در یک جا"
+  },
+
+  "today": "web/01-css-display",
+
+  "courses": [
+    {
+      "id": "computer-basics",
+      "title": "مبانی کامپیوتر",
+      "description": "آشنایی با کامپیوتر، سیستم‌عامل و فایل‌ها",
+      "color": "#0E8F6E",
+      "lessons": [
+        {
+          "id": "01-what-is-a-computer",
+          "title": "کامپیوتر چیست؟",
+          "summary": "سخت‌افزار، نرم‌افزار و کارهایی که کامپیوتر انجام می‌دهد",
+          "status": "soon"
+        },
+        {
+          "id": "02-files-and-folders",
+          "title": "فایل و پوشه",
+          "summary": "ساختن، جابه‌جا کردن و پیدا کردن فایل‌ها",
+          "status": "soon"
+        }
+      ]
+    },
+    {
+      "id": "web",
+      "title": "طراحی وب",
+      "description": "از HTML تا JavaScript",
+      "color": "#2F5BEA",
+      "lessons": [
+        {
+          "id": "01-html-basics",
+          "title": "مبانی HTML",
+          "summary": "تگ‌ها، عنوان‌ها، لینک‌ها و تصویر",
+          "status": "ready"
+        },
+        {
+          "id": "02-css-basics",
+          "title": "مبانی CSS",
+          "summary": "clss id style",
+          "status": "ready"
+        },
+        {
+          "id": "03-hover-transition-shadows",
+          "title": "شبه کلاس ها",
+          "summary": "چیدن عناصر در یک ردیف یا ستون",
+          "status": "soon"
+        },
+        {
+          "id": "04-javascript-basics",
+          "title": "مبانی JavaScript",
+          "summary": "متغیر، شرط و حلقه",
+          "status": "soon"
+        },
+        {
+          "id": "05-dom",
+          "title": "DOM",
+          "summary": "تغییر دادن صفحه با JavaScript",
+          "status": "soon"
+        }
+      ]
+    },
+    {
+      "id": "python",
+      "title": "پایتون",
+      "description": "اولین قدم‌های برنامه‌نویسی",
+      "color": "#B7791F",
+      "lessons": [
+        {
+          "id": "01-variables",
+          "title": "متغیرها",
+          "summary": "ذخیره کردن عدد و متن",
+          "status": "soon"
+        }
+      ]
+    }
+  ],
+
+  "projects": [
+    {
+      "id": "todo-list",
+      "title": "لیست کارها",
+      "summary": "ترکیب HTML، CSS و JavaScript در یک برنامه کوچک",
+      "status": "soon"
+    },
+    {
+      "id": "snake-game",
+      "title": "بازی مار",
+      "summary": "پروژه پایانی دوره وب",
+      "status": "soon"
+    }
+  ]
+}

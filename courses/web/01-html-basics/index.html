@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مبانی HTML | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="01-html-basics" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>مبانی HTML</h1>
+        <p class="lead">یاد می‌گیری یک صفحه‌ی وب از چه تکه‌هایی ساخته می‌شود و اولین صفحه‌ی خودت را می‌نویسی.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+
+      <!-- ========== ۱ ========== -->
+      <h2 id="what-is-html">HTML چیست؟</h2>
+      <p>
+        HTML مخفف <code>HyperText Markup Language</code> است. کارش این است که به مرورگر بگوید
+        هر تکه از صفحه چیست: این یک تیتر است، این یک پاراگراف است، این یک لینک است، این یک تصویر است.
+      </p>
+      <p>
+        سه تکنولوژی اصلی وب هر کدام کار جدایی دارند:
+      </p>
+      <ul>
+        <li><strong>HTML</strong>: ساختار و محتوای صفحه (اسکلت ساختمان)</li>
+        <li><strong>CSS</strong>: ظاهر صفحه، مثل رنگ، فونت و چیدمان (نما و رنگ‌آمیزی)</li>
+        <li><strong>JavaScript</strong>: رفتار صفحه، مثل واکنش به کلیک (برق و آسانسور)</li>
+      </ul>
+      <div class="callout note">
+        <p class="callout-title">HTML برنامه‌نویسی نیست</p>
+        <p>HTML زبان «نشانه‌گذاری» است: فقط محتوا را برچسب می‌زند. شرط، حلقه و محاسبه ندارد. برنامه‌نویسی از JavaScript شروع می‌شود.</p>
+      </div>
+
+      <!-- ========== ۲ ========== -->
+      <h2 id="first-page">اولین صفحه‌ی وب</h2>
+      <p>برای ساختن یک صفحه فقط یک ویرایشگر متن (مثل VS Code) و یک مرورگر لازم داری:</p>
+      <ol>
+        <li>یک پوشه بساز، مثلاً <code>my-site</code>.</li>
+        <li>داخلش یک فایل به اسم <code>index.html</code> بساز.</li>
+        <li>کد زیر را در آن بنویس و ذخیره کن.</li>
+        <li>روی فایل دابل‌کلیک کن تا در مرورگر باز شود.</li>
+      </ol>
+
+      <div class="demo" data-title="امتحان کن: اولین صفحه" data-height="260">
+<textarea>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>صفحه‌ی اول من</title>
+</head>
+<body>
+  <h1>سلام دنیا!</h1>
+  <p>این اولین صفحه‌ی وب من است.</p>
+</body>
+</html>
+</textarea>
+      </div>
+
+      <p>هر خط این ساختار کاری دارد:</p>
+      <dl class="parts">
+        <dt><code>&lt;!DOCTYPE html&gt;</code></dt>
+        <dd>به مرورگر می‌گوید این سند از نسخه‌ی جدید HTML استفاده می‌کند. همیشه خط اول است.</dd>
+
+        <dt><code>&lt;html lang="fa" dir="rtl"&gt;</code></dt>
+        <dd>ریشه‌ی صفحه. <code>lang</code> زبان صفحه را مشخص می‌کند و <code>dir="rtl"</code> جهت متن را از راست به چپ می‌کند. برای صفحه‌ی فارسی هر دو را بنویس.</dd>
+
+        <dt><code>&lt;head&gt;</code></dt>
+        <dd>اطلاعات پشت‌صحنه‌ی صفحه. چیزی از آن در خود صفحه دیده نمی‌شود.</dd>
+
+        <dt><code>&lt;meta charset="UTF-8"&gt;</code></dt>
+        <dd>نوع کدگذاری متن. بدون آن حروف فارسی ممکن است به شکل علامت‌های عجیب دیده شوند.</dd>
+
+        <dt><code>&lt;title&gt;</code></dt>
+        <dd>عنوانی که روی زبانه‌ی مرورگر نمایش داده می‌شود (در کادر نمونه‌ی بالا دیده نمی‌شود).</dd>
+
+        <dt><code>&lt;body&gt;</code></dt>
+        <dd>هر چیزی که کاربر در صفحه می‌بیند اینجا نوشته می‌شود.</dd>
+      </dl>
+
+      <!-- ========== ۳ ========== -->
+      <h2 id="tags-elements-attributes">تگ، المان و ویژگی</h2>
+      <p>HTML از تگ‌ها ساخته می‌شود. بیشتر تگ‌ها یک جفت‌اند: تگ باز و تگ بسته. هر چه بین این دو باشد محتوای المان است.</p>
+
+      <div class="anatomy">
+        <p class="anatomy-line"><span class="t-tag">&lt;a</span> <span class="t-attr">href</span><span class="t-text">=</span><span class="t-value">"https://example.com"</span><span class="t-tag">&gt;</span><span class="t-text">برو به سایت</span><span class="t-tag">&lt;/a&gt;</span></p>
+        <ul class="anatomy-legend">
+          <li class="l-tag">تگ باز و بسته</li>
+          <li class="l-attr">نام ویژگی</li>
+          <li class="l-value">مقدار ویژگی</li>
+          <li class="l-text">محتوا</li>
+        </ul>
+      </div>
+
+      <ul>
+        <li><strong>تگ</strong>: خود برچسب، مثل <code>&lt;p&gt;</code> یا <code>&lt;/p&gt;</code></li>
+        <li><strong>المان</strong>: مجموعه‌ی تگ باز، محتوا و تگ بسته</li>
+        <li><strong>ویژگی (attribute)</strong>: اطلاعات اضافه که داخل تگ باز و به شکل <code>name="value"</code> نوشته می‌شود</li>
+      </ul>
+      <p>چند تگ محتوا ندارند و تگ بسته هم ندارند، مثل <code>&lt;img&gt;</code>، <code>&lt;br&gt;</code>، <code>&lt;hr&gt;</code> و <code>&lt;meta&gt;</code>.</p>
+
+      <div class="callout tip">
+        <p class="callout-title">عادت خوب</p>
+        <p>مقدار ویژگی‌ها را همیشه داخل گیومه بنویس و تگ‌ها را با حروف کوچک بنویس.</p>
+      </div>
+
+      <!-- ========== ۴ ========== -->
+      <h2 id="text">تیتر و متن</h2>
+      <p>تیترها از <code>h1</code> (مهم‌ترین) تا <code>h6</code> (کم‌اهمیت‌ترین) هستند. متن معمولی داخل <code>p</code> (پاراگراف) نوشته می‌شود.</p>
+
+      <div class="demo" data-title="امتحان کن: تیتر و متن">
+<textarea>
+<h1>عنوان اصلی صفحه</h1>
+<h2>یک بخش</h2>
+<p>این یک پاراگراف است. کلمه‌ی <strong>مهم</strong> را پررنگ و کلمه‌ی <em>تأکیدی</em> را مورب می‌کنیم.</p>
+<hr>
+<p>خط اول<br>خط دوم، در همان پاراگراف</p>
+</textarea>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">تیتر را برای بزرگ کردن متن استفاده نکن</p>
+        <p>
+          <code>h1</code> تا <code>h6</code> برای ساختار صفحه‌اند، نه برای اندازه‌ی فونت. موتورهای جستجو و
+          ابزارهای کمکی برای نابینایان از تیترها برای فهمیدن صفحه استفاده می‌کنند. اندازه‌ی متن را بعداً با CSS تغییر می‌دهیم.
+          معمولاً هر صفحه یک <code>h1</code> دارد.
+        </p>
+      </div>
+
+      <h3>فاصله‌ها در HTML</h3>
+      <p>مرورگر چند فاصله یا چند خط خالی پشت‌سرهم را یکی حساب می‌کند. این را امتحان کن:</p>
+
+      <div class="demo" data-title="امتحان کن: فاصله‌ها" data-height="160">
+<textarea>
+<p>این      متن    فاصله‌های
+زیادی
+
+و چند خط خالی دارد.</p>
+</textarea>
+      </div>
+      <p>برای رفتن به خط بعد از <code>&lt;br&gt;</code> یا یک پاراگراف جدید استفاده کن، نه از Enter.</p>
+
+      <!-- ========== ۵ ========== -->
+      <h2 id="lists">لیست‌ها</h2>
+      <p>لیست بدون ترتیب با <code>ul</code> و لیست شماره‌دار با <code>ol</code> ساخته می‌شود. هر آیتم داخل <code>li</code> می‌رود.</p>
+
+      <div class="demo" data-title="امتحان کن: لیست‌ها">
+<textarea>
+<h3>وسایل لازم</h3>
+<ul>
+  <li>لپ‌تاپ</li>
+  <li>VS Code</li>
+  <li>مرورگر</li>
+</ul>
+
+<h3>مراحل ساخت صفحه</h3>
+<ol>
+  <li>ساختن پوشه</li>
+  <li>ساختن فایل index.html</li>
+  <li>نوشتن کد</li>
+</ol>
+</textarea>
+      </div>
+      <p>می‌توانی یک لیست را داخل <code>li</code> لیست دیگر بگذاری تا لیست تو در تو بسازی.</p>
+
+      <!-- ========== ۶ ========== -->
+      <h2 id="links">لینک‌ها</h2>
+      <p>تگ <code>a</code> لینک می‌سازد و آدرس مقصد در ویژگی <code>href</code> نوشته می‌شود.</p>
+
+      <div class="demo" data-title="امتحان کن: لینک‌ها">
+<textarea>
+<p><a href="https://developer.mozilla.org" target="_blank" rel="noopener">مستندات MDN</a></p>
+<p><a href="about.html">صفحه‌ی درباره‌ی من (در همین پوشه)</a></p>
+</textarea>
+      </div>
+
+      <ul>
+        <li><code>target="_blank"</code> لینک را در زبانه‌ی جدید باز می‌کند. همراهش <code>rel="noopener"</code> بنویس.</li>
+        <li>آدرسی که با <code>https://</code> شروع می‌شود لینک به سایت دیگر است.</li>
+        <li>آدرس <code>about.html</code> لینک به فایلی در همان پوشه‌ی صفحه‌ی فعلی است. به این «مسیر نسبی» می‌گویند.</li>
+      </ul>
+      <div class="callout note">
+        <p>لینک دوم در نمونه‌ی بالا جایی را باز نمی‌کند، چون فایل <code>about.html</code> وجود ندارد. در پروژه‌ی واقعی باید فایلش را کنار صفحه بسازی.</p>
+      </div>
+
+      <!-- ========== ۷ ========== -->
+      <h2 id="images">تصویر</h2>
+      <p><code>img</code> یک تگ بدون محتواست و دو ویژگی ضروری دارد: <code>src</code> برای مسیر عکس و <code>alt</code> برای توضیح متنی آن.</p>
+
+      <div class="demo" data-title="امتحان کن: تصویر" data-height="200">
+<textarea>
+<img src="https://placehold.co/260x140?text=HTML" alt="مستطیل آبی با نوشته‌ی HTML" width="260">
+</textarea>
+      </div>
+
+      <p><code>alt</code> وقتی عکس لود نشود نمایش داده می‌شود و کاربران نابینا آن را می‌شنوند. عکس‌های خودت را معمولاً داخل یک پوشه‌ی <code>images</code> کنار صفحه نگه می‌داری:</p>
+
+      <pre class="code"><code>my-site/
+├── index.html
+└── images/
+    └── photo.jpg</code></pre>
+
+      <pre class="code"><code>&lt;img src="images/photo.jpg" alt="عکس من"&gt;</code></pre>
+
+      <div class="callout warn">
+        <p class="callout-title">مراقب اسم فایل‌ها باش</p>
+        <p>
+          اسم فایل‌ها را انگلیسی، با حروف کوچک و بدون فاصله بنویس (مثلاً <code>my-photo.jpg</code>).
+          روی GitHub Pages حروف بزرگ و کوچک فرق دارند: <code>Photo.JPG</code> و <code>photo.jpg</code> دو فایل متفاوت‌اند.
+        </p>
+      </div>
+
+      <!-- ========== ۸ ========== -->
+      <h2 id="semantic">ساختار صفحه با تگ‌های معنادار</h2>
+      <p>
+        به‌جای ریختن همه چیز در یک جا، بخش‌های صفحه را با تگ‌هایی که معنی دارند مشخص می‌کنیم.
+        این تگ‌ها ظاهر خاصی ندارند، ولی به مرورگر و ابزارهای کمکی می‌گویند هر بخش چه نقشی دارد:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>تگ</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>header</code></td><td>سربرگ صفحه یا یک بخش (لوگو، عنوان)</td></tr>
+            <tr><td><code>nav</code></td><td>منوی لینک‌های اصلی</td></tr>
+            <tr><td><code>main</code></td><td>محتوای اصلی صفحه (در هر صفحه یک بار)</td></tr>
+            <tr><td><code>section</code></td><td>یک بخش موضوعی داخل محتوا</td></tr>
+            <tr><td><code>article</code></td><td>محتوایی که به‌تنهایی معنی دارد، مثل یک مطلب</td></tr>
+            <tr><td><code>footer</code></td><td>پایین صفحه (حقوق، تماس)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>در نمونه‌ی زیر برای دیدن مرز هر بخش، یک خط CSS ساده اضافه کرده‌ایم. CSS را در جلسه‌های بعد یاد می‌گیریم.</p>
+
+      <div class="demo" data-title="امتحان کن: ساختار صفحه" data-height="280">
+<textarea>
+<style>
+  header, nav, main, section, footer {
+    border: 2px dashed #8a97a5;
+    margin: 6px;
+    padding: 6px;
+  }
+</style>
+
+<header>
+  <h1>وب‌سایت من</h1>
+  <nav>
+    <a href="#">خانه</a> | <a href="#">درباره من</a>
+  </nav>
+</header>
+
+<main>
+  <section>
+    <h2>درباره من</h2>
+    <p>من در حال یادگیری طراحی وب هستم.</p>
+  </section>
+</main>
+
+<footer>
+  <p>ساخته شده در کلاس طراحی وب</p>
+</footer>
+</textarea>
+      </div>
+
+      <div class="callout tip">
+        <p class="callout-title">پس <code>div</code> و <code>span</code> برای چیست؟</p>
+        <p>
+          وقتی هیچ تگ معناداری به کارت نمی‌آید، <code>div</code> یک جعبه‌ی بدون معنی برای گروه کردن چند المان است
+          و <code>span</code> همین کار را برای تکه‌ای از متن انجام می‌دهد. اول سراغ تگ معنادار برو و اگر نبود از اینها استفاده کن.
+        </p>
+      </div>
+
+      <!-- ========== ۹ ========== -->
+      <h2 id="mistakes">اشتباه‌های رایج</h2>
+      <ul>
+        <li><strong>بستن تگ را فراموش کردن.</strong> مرورگر خطا نمی‌دهد، فقط صفحه به شکل عجیبی نمایش داده می‌شود.</li>
+        <li><strong>گیومه‌ی باز و بسته‌نشده.</strong> یک <code>"</code> جا افتاده می‌تواند بقیه‌ی خط را خراب کند.</li>
+        <li><strong>پسوند اشتباه فایل.</strong> اگر فایل <code>index.html.txt</code> ذخیره شده باشد، مرورگر آن را به‌عنوان متن ساده نشان می‌دهد. پسوند فایل‌ها را در سیستم‌عامل قابل مشاهده کن.</li>
+        <li><strong>مسیر اشتباه عکس.</strong> اگر عکس نمی‌آید، اول اسم فایل، پوشه و حروف بزرگ و کوچک را چک کن.</li>
+        <li><strong>تغییر دادم ولی چیزی عوض نشد.</strong> فایل را ذخیره (Ctrl+S) کرده‌ای و صفحه را در مرورگر رفرش (F5) کرده‌ای؟</li>
+        <li><strong>تو در تو شدن اشتباه تگ‌ها.</strong> تگی که آخر باز شده باید اول بسته شود: <code>&lt;p&gt;&lt;strong&gt;متن&lt;/strong&gt;&lt;/p&gt;</code>.</li>
+      </ul>
+
+      <!-- ========== ۱۰ ========== -->
+      <h2 id="summary">خلاصه</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>تگ</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>h1</code> تا <code>h6</code></td><td>تیتر</td></tr>
+            <tr><td><code>p</code></td><td>پاراگراف</td></tr>
+            <tr><td><code>strong</code> / <code>em</code></td><td>تأکید قوی / تأکید معمولی</td></tr>
+            <tr><td><code>ul</code> / <code>ol</code> / <code>li</code></td><td>لیست بدون ترتیب / شماره‌دار / آیتم لیست</td></tr>
+            <tr><td><code>a</code></td><td>لینک (ویژگی <code>href</code>)</td></tr>
+            <tr><td><code>img</code></td><td>تصویر (ویژگی‌های <code>src</code> و <code>alt</code>)</td></tr>
+            <tr><td><code>header</code> <code>nav</code> <code>main</code> <code>footer</code></td><td>بخش‌های اصلی صفحه</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

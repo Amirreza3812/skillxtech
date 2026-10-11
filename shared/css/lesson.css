@@ -1,0 +1,668 @@
+/* ==========================================================
+   استایل مشترک صفحه‌های درس و تمرین
+   همه‌ی صفحه‌ها فقط همین فایل را لینک می‌کنند.
+   رنگ‌ها و فونت‌ها با داشبورد یکی است؛ برای تغییر ظاهر کل سایت
+   فقط متغیرهای بالای همین فایل را عوض کن.
+   ========================================================== */
+
+:root {
+  --paper: #f2f5f7;
+  --surface: #ffffff;
+  --ink: #14263a;
+  --muted: #5b6b7b;
+  --line: #d5dde4;
+  --accent: #2f5bea;
+  --chalk: #f5d04c;
+  --radius: 10px;
+
+  --code-bg: #0f1d2e;
+  --code-text: #e6edf3;
+  --tok-tag: #7fb2ff;
+  --tok-attr: #ffd866;
+  --tok-value: #7ee0a8;
+  --tok-text: #e6edf3;
+
+  --font-text: "Vazirmatn", Tahoma, "Segoe UI", sans-serif;
+  --font-code: "Cascadia Code", Consolas, "SF Mono", Menlo, monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.9;
+  font-size: 1.05rem;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* ---------- سربرگ: نوار بالا + عنوان درس ---------- */
+
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.topbar .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-block: 14px;
+}
+
+.topbar a {
+  color: #c9d5e1;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.topbar a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.topbar .to-exercise {
+  background: var(--chalk);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 4px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.topbar .to-exercise:hover {
+  background: #f8dd7a;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.hero {
+  padding-block: 28px 44px;
+}
+
+.hero-course {
+  margin: 0;
+  color: var(--chalk);
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.lead {
+  margin: 10px 0 0;
+  max-width: 40rem;
+  color: #c9d5e1;
+  font-size: 1.1rem;
+}
+
+/* ---------- چیدمان صفحه: متن + فهرست ---------- */
+
+.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 48px;
+  padding-block: 40px 64px;
+}
+
+.page.single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.page.single .lesson {
+  margin-inline: auto;
+}
+
+.toc {
+  order: 2;
+  align-self: start;
+  position: sticky;
+  top: 20px;
+  font-size: 0.95rem;
+}
+
+.toc-title {
+  margin: 0 0 8px;
+  font-weight: 800;
+}
+
+.toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-inline-start: 2px solid var(--line);
+}
+
+.toc a {
+  display: block;
+  padding: 3px 14px;
+  margin-inline-start: -2px;
+  border-inline-start: 2px solid transparent;
+  color: var(--muted);
+  text-decoration: none;
+  line-height: 1.7;
+}
+
+.toc a:hover {
+  color: var(--ink);
+}
+
+.toc a[aria-current="true"] {
+  color: var(--ink);
+  font-weight: 700;
+  border-inline-start-color: var(--accent);
+}
+
+/* ---------- متن درس ---------- */
+
+.lesson {
+  width: 100%;
+  max-width: 760px;
+}
+
+.lesson h2 {
+  margin: 2.6em 0 0.5em;
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.lesson h2:first-child {
+  margin-top: 0;
+}
+
+.lesson h3 {
+  margin: 1.8em 0 0.3em;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.lesson p {
+  margin: 0.7em 0;
+}
+
+.lesson ul,
+.lesson ol {
+  padding-inline-start: 1.5em;
+}
+
+.lesson li {
+  margin-block: 0.3em;
+}
+
+.lesson hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin-block: 2.5em;
+}
+
+/* کد داخل متن: ‎<p>‎ و مانند آن */
+code {
+  font-family: var(--font-code);
+  font-size: 0.9em;
+  direction: ltr;
+  unicode-bidi: isolate;
+  background: rgba(20, 38, 58, 0.08);
+  padding: 1px 7px;
+  border-radius: 5px;
+}
+
+/* ---------- بلوک کد ثابت (فقط نمایش) ---------- */
+
+.codewrap {
+  position: relative;
+  margin-block: 1.4em;
+}
+
+pre.code {
+  margin: 0;
+  padding: 38px 18px 16px; /* جای دکمه‌ی کپی بالای کد */
+  background: var(--code-bg);
+  color: var(--code-text);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  direction: ltr;
+  text-align: left;
+  font-family: var(--font-code);
+  font-size: 0.92rem;
+  line-height: 1.75;
+  tab-size: 2;
+}
+
+pre.code code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  unicode-bidi: normal;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 2px 12px;
+  border: 1px solid #3a4d63;
+  border-radius: 6px;
+  background: #1b3047;
+  color: #c9d5e1;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: #26425f;
+  color: #fff;
+}
+
+/* رنگ‌بندی ساده‌ی کد (دستی، با span) */
+.t-tag { color: var(--tok-tag); }
+.t-attr { color: var(--tok-attr); }
+.t-value { color: var(--tok-value); }
+.t-text { color: var(--tok-text); }
+
+/* ---------- کالبدشکافی یک تگ ---------- */
+
+.anatomy {
+  margin-block: 1.4em;
+  padding: 22px 20px 16px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  border-radius: var(--radius);
+  direction: ltr;
+  overflow-x: auto;
+}
+
+.anatomy-line {
+  margin: 0 0 14px;
+  font-family: var(--font-code);
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+.anatomy-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  direction: rtl;
+  font-size: 0.92rem;
+}
+
+.anatomy-legend li {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.anatomy-legend li::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--dot);
+}
+
+.anatomy-legend .l-tag { --dot: var(--tok-tag); }
+.anatomy-legend .l-attr { --dot: var(--tok-attr); }
+.anatomy-legend .l-value { --dot: var(--tok-value); }
+.anatomy-legend .l-text { --dot: var(--tok-text); }
+
+/* ---------- کادر «امتحان کن» (کد قابل ویرایش + نتیجه‌ی زنده) ---------- */
+
+.demo {
+  margin-block: 1.6em;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.demo-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #e6ecf1;
+  font-size: 0.92rem;
+}
+
+.demo-title {
+  font-weight: 700;
+}
+
+.demo-reset {
+  padding: 1px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.demo-reset:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.demo-panes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  direction: ltr; /* کد سمت چپ، نتیجه سمت راست */
+}
+
+.demo-code {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  margin: 0;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 0;
+  resize: vertical;
+  background: var(--code-bg);
+  color: var(--code-text);
+  font-family: var(--font-code);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  direction: ltr;
+  text-align: left;
+  tab-size: 2;
+  white-space: pre;
+  overflow: auto;
+}
+
+.demo-result {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  height: 100%;
+  border: 0;
+  border-inline-start: 1px solid var(--line);
+  background: #fff;
+}
+
+/* ---------- کادرهای نکته ---------- */
+
+.callout {
+  --c: var(--accent);
+  --cbg: #e8eefe;
+  margin-block: 1.6em;
+  padding: 14px 18px;
+  border-inline-start: 5px solid var(--c);
+  border-radius: 4px 10px 10px 4px;
+  background: var(--cbg);
+}
+
+.lesson .callout > :first-child { margin-top: 0; }
+.lesson .callout > :last-child { margin-bottom: 0; }
+
+.callout-title {
+  margin: 0 0 4px;
+  font-weight: 800;
+}
+
+.callout.tip { --c: #0e8f6e; --cbg: #e4f5ef; }
+.callout.warn { --c: #b7791f; --cbg: #fdf2d8; }
+.callout.note { --c: #2f5bea; --cbg: #e8eefe; }
+
+/* ---------- جدول و فهرست تعریف ---------- */
+
+.table-scroll {
+  overflow-x: auto;
+  margin-block: 1.4em;
+}
+
+.lesson table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.lesson th,
+.lesson td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--line);
+  text-align: start;
+}
+
+.lesson th {
+  background: #e6ecf1;
+  font-weight: 700;
+}
+
+.lesson td:first-child {
+  white-space: nowrap;
+}
+
+.parts {
+  margin-block: 1.2em;
+}
+
+.parts dt {
+  margin-top: 0.9em;
+  font-weight: 700;
+}
+
+.parts dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- گام بعدی (دکمه‌ی تمرین) ---------- */
+
+.next-step {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3em;
+  padding: 24px 28px;
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.next-step h2 {
+  margin: 0 !important;
+  font-size: 1.4rem !important;
+}
+
+.next-step p {
+  margin: 0;
+  color: #c9d5e1;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 8px;
+  background: var(--chalk);
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #f8dd7a;
+}
+
+/* ---------- درس قبل / بعد ---------- */
+
+.lesson-nav {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.lesson-nav a,
+.lesson-nav .is-disabled {
+  display: block;
+  flex: 0 1 48%;
+  padding: 12px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.lesson-nav a:hover {
+  border-color: var(--accent);
+}
+
+.lesson-nav .is-disabled {
+  color: var(--muted);
+  background: transparent;
+}
+
+.lesson-nav small {
+  display: block;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.lesson-nav .next {
+  margin-inline-start: auto;
+}
+
+/* ---------- تمرین‌ها ---------- */
+
+.lesson .tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: task;
+}
+
+.lesson .task {
+  position: relative;
+  counter-increment: task;
+  margin-block: 0 28px;
+  padding: 22px 24px 22px 24px;
+  padding-inline-start: 76px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.lesson .task::before {
+  content: counter(task, persian);
+  position: absolute;
+  top: 20px;
+  inset-inline-start: 22px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.task h3 {
+  margin: 0 0 4px !important;
+}
+
+.task details {
+  margin-block: 0.8em;
+  color: var(--muted);
+}
+
+.task summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.task .demo {
+  margin-bottom: 0;
+}
+
+/* ---------- موبایل ---------- */
+
+@media (max-width: 900px) {
+  .page {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toc {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .demo-panes {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-result {
+    border-inline-start: 0;
+    border-top: 1px solid var(--line);
+    min-height: 180px;
+  }
+
+  .task {
+    padding-inline-start: 24px;
+    padding-top: 70px;
+  }
+
+  .lesson-nav {
+    flex-direction: column;
+  }
+
+  .lesson-nav a,
+  .lesson-nav .is-disabled {
+    flex-basis: auto;
+  }
+}

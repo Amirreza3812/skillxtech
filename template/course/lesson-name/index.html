@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<!--
+  ===================== قالب درس =====================
+  روش استفاده:
+  1) پوشه‌ی  template/course/lesson-name  را کپی کن داخل  courses/<دوره>/<شماره-اسم-درس>/
+     مثال:  courses/web/03-flexbox/
+     (عمق پوشه باید همین سه سطح باشد تا مسیرهای ../../../ درست کار کنند)
+  2) در <body> مقدار data-course و data-lesson را عوض کن (باید با id در data/courses.json یکی باشد).
+  3) عنوان، توضیح کوتاه و متن درس را بنویس.
+  4) درس را در data/courses.json اضافه کن.
+
+  بلوک‌های آماده‌ی این صفحه در پایین نمونه شده‌اند:
+  تیتر بخش (h2)، کادر نکته (callout)، کد ثابت (pre.code)،
+  کادر امتحان کن (demo)، جدول و کالبدشکافی تگ (anatomy).
+  ====================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عنوان درس | نام دوره</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="COURSE-ID" data-lesson="NN-lesson-name" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <!-- اگر درس تمرین ندارد این لینک را حذف کن و در courses.json بنویس "exercise": false -->
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">نام دوره</p>
+        <h1>عنوان درس</h1>
+        <p class="lead">یک یا دو جمله درباره‌ی این‌که دانشجو در این درس چه چیزی یاد می‌گیرد.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+
+    <!-- فهرست کناری: خودکار از روی h2ها ساخته می‌شود، چیزی ننویس -->
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+
+      <!-- ===== بخش ===== -->
+      <h2 id="section-one">عنوان بخش اول</h2>
+      <p>متن توضیح. کد داخل متن را این‌طور بنویس: <code>&lt;p&gt;</code></p>
+
+      <!-- کادر نکته: tip (سبز) / warn (زرد) / note (آبی) -->
+      <div class="callout tip">
+        <p class="callout-title">عنوان نکته</p>
+        <p>متن نکته.</p>
+      </div>
+
+      <!-- ===== بخش ===== -->
+      <h2 id="section-two">عنوان بخش دوم</h2>
+
+      <!-- کد ثابت (فقط نمایش، با دکمه‌ی کپی).
+           علامت‌های < و > را با &lt; و &gt; بنویس -->
+      <pre class="code"><code>&lt;p&gt;سلام&lt;/p&gt;</code></pre>
+
+      <!-- کادر امتحان کن: کد را مستقیم و بدون escape داخل textarea بنویس.
+           دانشجو می‌تواند آن را ویرایش کند و نتیجه را زنده ببیند.
+           data-title عنوان کادر و data-height حداقل ارتفاع (پیکسل) است. -->
+      <div class="demo" data-title="امتحان کن" data-height="200">
+<textarea>
+<p>این متن را تغییر بده.</p>
+</textarea>
+      </div>
+
+      <!-- جدول -->
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>مورد</th><th>توضیح</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>نمونه</code></td><td>توضیح نمونه</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- کالبدشکافی یک خط کد: رنگ‌ها با کلاس‌های t-tag، t-attr، t-value، t-text
+      <div class="anatomy">
+        <p class="anatomy-line">...</p>
+        <ul class="anatomy-legend">
+          <li class="l-tag">برچسب اول</li>
+          <li class="l-attr">برچسب دوم</li>
+        </ul>
+      </div>
+      -->
+
+      <!-- ===== دکمه‌ی تمرین (آخر درس) ===== -->
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <!-- درس قبل / بعد: خودکار از روی courses.json پر می‌شود -->
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

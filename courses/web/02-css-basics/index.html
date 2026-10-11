@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>مبانی CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="02-css-basics" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>مبانی CSS</h1>
+        <p class="lead">یاد می‌گیری چطور به صفحه‌ی HTML رنگ، فونت و فاصله بدهی و ظاهرش را خودت بسازی.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+
+      <!-- ========== ۱ ========== -->
+      <h2 id="what-is-css">CSS چیست؟</h2>
+      <p>
+        <code>CSS</code> مخفف <code>Cascading Style Sheets</code> است. در درس قبل با HTML اسکلت صفحه را ساختیم؛
+        CSS ظاهر آن را تعیین می‌کند: رنگ، اندازه‌ی نوشته، فاصله‌ها و حاشیه‌ها.
+      </p>
+      <p>مثال زیر یک HTML ساده است. دکمه‌ی «برگرداندن کد اصلی» را بزن و ببین بدون CSS چه شکلی بود:</p>
+
+      <div class="demo" data-title="امتحان کن: قبل و بعد از CSS" data-height="240">
+<textarea>
+<style>
+  h1 {
+    color: #2f5bea;
+    text-align: center;
+  }
+  p {
+    color: #5b6b7b;
+    font-size: 20px;
+  }
+</style>
+
+<h1>سلام CSS</h1>
+<p>این صفحه با چند خط CSS ظاهر پیدا کرده است.</p>
+</textarea>
+      </div>
+      <p>برای دیدن نسخه‌ی بدون CSS، کل بخش <code>&lt;style&gt;</code> را از کادر بالا پاک کن.</p>
+
+      <!-- ========== ۲ ========== -->
+      <h2 id="adding-css">سه روش اضافه کردن CSS</h2>
+
+      <h3>۱. داخل خود تگ (inline)</h3>
+      <p>CSS را در ویژگی <code>style</code> همان المان می‌نویسیم. فقط روی همان یک المان اثر دارد.</p>
+
+      <div class="demo" data-title="امتحان کن: استایل inline" data-height="120">
+<textarea>
+<p style="color: crimson; font-size: 24px;">این پاراگراف قرمز است.</p>
+<p>این یکی تغییری نکرده.</p>
+</textarea>
+      </div>
+
+      <h3>۲. داخل تگ style در همان صفحه (internal)</h3>
+      <p>
+        CSS را داخل <code>&lt;style&gt;</code> می‌نویسیم، معمولاً داخل <code>&lt;head&gt;</code>.
+        همین روش را در کادرهای «امتحان کن» این درس استفاده کرده‌ایم.
+      </p>
+      <pre class="code"><code>&lt;head&gt;
+  &lt;style&gt;
+    h1 {
+      color: crimson;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+
+      <h3>۳. فایل جدا (external)</h3>
+      <p>CSS را در یک فایل با پسوند <code>.css</code> می‌نویسیم و با تگ <code>link</code> به صفحه وصل می‌کنیم. این بهترین روش است، چون یک فایل CSS را می‌شود برای همه‌ی صفحه‌های سایت استفاده کرد.</p>
+
+      <pre class="code"><code>my-site/
+├── index.html
+└── style.css</code></pre>
+
+      <pre class="code"><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;</code></pre>
+
+      <div class="callout tip">
+        <p class="callout-title">کدام روش را انتخاب کنم؟</p>
+        <p>برای پروژه‌های واقعی از فایل جدا استفاده کن. استایل inline فقط برای تست سریع خوب است و استایل internal برای صفحه‌های تکی و نمونه‌ها.</p>
+      </div>
+
+      <!-- ========== ۳ ========== -->
+      <h2 id="rule-structure">ساختار یک قانون CSS</h2>
+      <p>CSS از «قانون»ها ساخته می‌شود. هر قانون می‌گوید کدام المان‌ها (انتخابگر) چه ویژگی‌هایی با چه مقادیری داشته باشند.</p>
+
+      <div class="anatomy">
+        <p class="anatomy-line"><span class="t-tag">p</span> <span class="t-text">{</span><br>&nbsp;&nbsp;<span class="t-attr">color</span><span class="t-text">:</span> <span class="t-value">gray</span><span class="t-text">;</span><br>&nbsp;&nbsp;<span class="t-attr">font-size</span><span class="t-text">:</span> <span class="t-value">20px</span><span class="t-text">;</span><br><span class="t-text">}</span></p>
+        <ul class="anatomy-legend">
+          <li class="l-tag">انتخابگر (selector)</li>
+          <li class="l-attr">ویژگی (property)</li>
+          <li class="l-value">مقدار (value)</li>
+          <li class="l-text">آکولاد، دونقطه و نقطه‌ویرگول</li>
+        </ul>
+      </div>
+
+      <ul>
+        <li>انتخابگر مشخص می‌کند قانون روی چه چیزی اثر کند.</li>
+        <li>هر ویژگی و مقدارش با <code>:</code> از هم جدا می‌شوند.</li>
+        <li>بعد از هر مقدار <code>;</code> می‌گذاریم.</li>
+        <li>همه‌ی ویژگی‌ها داخل <code>{ }</code> قرار می‌گیرند.</li>
+      </ul>
+
+      <div class="callout warn">
+        <p class="callout-title">نقطه‌ویرگول را فراموش نکن</p>
+        <p>اگر بعد از یک مقدار <code>;</code> نگذاری، مرورگر آن خط و خط بعدش را نادیده می‌گیرد و خطایی هم نشان نمی‌دهد. این رایج‌ترین اشتباه شروع CSS است.</p>
+      </div>
+
+      <!-- ========== ۴ ========== -->
+      <h2 id="selectors">انتخابگرها</h2>
+      <p>چهار نوع انتخابگر ساده برای شروع کافی است:</p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>انتخابگر</th><th>نمونه</th><th>روی چه چیزی اثر می‌گذارد؟</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>تگ</td><td><code>p</code></td><td>همه‌ی المان‌های <code>p</code></td></tr>
+            <tr><td>کلاس</td><td><code>.note</code></td><td>هر المانی که <code>class="note"</code> دارد (با نقطه شروع می‌شود)</td></tr>
+            <tr><td>آیدی</td><td><code>#title</code></td><td>المانی که <code>id="title"</code> دارد (با # شروع می‌شود)</td></tr>
+            <tr><td>گروهی</td><td><code>h2, h3</code></td><td>هر دو تگ با یک قانون (با کاما جدا می‌شوند)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: انتخابگرها" data-height="300">
+<textarea>
+<style>
+  /* tag selector */
+  p {
+    color: #14263a;
+  }
+
+  /* class selector */
+  .highlight {
+    background-color: yellow;
+  }
+
+  /* id selector */
+  #title {
+    color: crimson;
+  }
+
+  /* group selector */
+  h2, h3 {
+    font-family: Tahoma, sans-serif;
+  }
+</style>
+
+<h2 id="title">عنوان با id</h2>
+<h3>یک زیرعنوان</h3>
+<p>یک پاراگراف معمولی.</p>
+<p class="highlight">این پاراگراف کلاس highlight دارد.</p>
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title">کلاس یا آیدی؟</p>
+        <p>
+          یک کلاس را می‌شود روی چند المان گذاشت، ولی یک id باید در صفحه یکتا باشد.
+          در عمل بیشتر از کلاس استفاده می‌کنیم و id را برای المان‌های یکتا نگه می‌داریم.
+        </p>
+      </div>
+
+      <!-- ========== ۵ ========== -->
+      <h2 id="colors">رنگ‌ها</h2>
+      <p>
+        دو ویژگی رنگی که زیاد لازم می‌شوند: <code>color</code> برای رنگ نوشته و <code>background-color</code> برای رنگ پس‌زمینه.
+        رنگ را به سه شکل می‌شود نوشت:
+      </p>
+      <ul>
+        <li><strong>نام رنگ:</strong> <code>red</code>، <code>royalblue</code>، <code>gray</code></li>
+        <li><strong>کد هگز:</strong> <code>#2f5bea</code> (با # شروع می‌شود)</li>
+        <li><strong>rgb:</strong> <code>rgb(14, 143, 110)</code> (میزان قرمز، سبز و آبی از ۰ تا ۲۵۵)</li>
+      </ul>
+
+      <div class="demo" data-title="امتحان کن: رنگ‌ها" data-height="260">
+<textarea>
+<style>
+  .a { color: red; }
+  .b { color: #2f5bea; }
+  .c { color: rgb(14, 143, 110); }
+  .d {
+    color: white;
+    background-color: #14263a;
+  }
+</style>
+
+<p class="a">با نام رنگ</p>
+<p class="b">با کد هگز</p>
+<p class="c">با rgb</p>
+<p class="d">رنگ نوشته و رنگ پس‌زمینه</p>
+</textarea>
+      </div>
+      <p>برای پیدا کردن کد هگز یک رنگ، می‌توانی از «color picker» جستجوی گوگل یا ابزار رنگ‌انتخاب VS Code استفاده کنی.</p>
+
+      <!-- ========== ۶ ========== -->
+      <h2 id="text-styles">استایل متن</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>ویژگی</th><th>کاربرد</th><th>مقدار نمونه</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>font-family</code></td><td>نوع فونت</td><td><code>Tahoma, sans-serif</code></td></tr>
+            <tr><td><code>font-size</code></td><td>اندازه‌ی نوشته</td><td><code>20px</code></td></tr>
+            <tr><td><code>font-weight</code></td><td>ضخامت نوشته</td><td><code>bold</code></td></tr>
+            <tr><td><code>text-align</code></td><td>تراز متن</td><td><code>center</code>، <code>right</code>، <code>left</code></td></tr>
+            <tr><td><code>line-height</code></td><td>فاصله‌ی خط‌ها</td><td><code>1.8</code></td></tr>
+            <tr><td><code>text-decoration</code></td><td>خط زیر یا روی نوشته</td><td><code>underline</code>، <code>none</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: استایل متن" data-height="300">
+<textarea>
+<style>
+  h1 {
+    font-family: Tahoma, sans-serif;
+    font-size: 32px;
+    text-align: center;
+  }
+  p {
+    font-size: 18px;
+    line-height: 2;
+  }
+  .bold {
+    font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+  }
+</style>
+
+<h1>عنوان وسط‌چین</h1>
+<p>این یک پاراگراف طولانی‌تر است تا بتوانی اثر فاصله‌ی بین خط‌ها را روی متن چندخطی ببینی.</p>
+<p class="bold">این پاراگراف ضخیم است.</p>
+<p><a href="#">یک لینک بدون خط زیرش</a></p>
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title"><code>px</code> یعنی چه؟</p>
+        <p>
+          <code>px</code> مخفف پیکسل است و واحد اصلی اندازه‌ها در این درس است.
+          واحدهای دیگری مثل <code>rem</code> و درصد هم وجود دارند که بعداً با آن‌ها آشنا می‌شویم.
+        </p>
+      </div>
+
+      <!-- ========== ۷ ========== -->
+      <h2 id="box-model">جعبه‌ی هر المان</h2>
+      <p>
+        مرورگر هر المان را مثل یک جعبه می‌بیند. این جعبه چهار لایه دارد که از داخل به بیرون این‌ها هستند:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>لایه</th><th>ویژگی</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>محتوا</td><td><code>width</code> / <code>height</code></td><td>اندازه‌ی خود محتوا</td></tr>
+            <tr><td>فضای داخلی</td><td><code>padding</code></td><td>فاصله‌ی بین محتوا و حاشیه</td></tr>
+            <tr><td>حاشیه</td><td><code>border</code></td><td>خط دور جعبه</td></tr>
+            <tr><td>فضای بیرونی</td><td><code>margin</code></td><td>فاصله‌ی جعبه با المان‌های اطراف</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: جعبه" data-height="280">
+<textarea>
+<style>
+  .box {
+    width: 200px;
+    padding: 20px;
+    border: 4px solid #2f5bea;
+    margin: 30px;
+    background-color: #e8eefe;
+  }
+</style>
+
+<div class="box">این یک جعبه است</div>
+</textarea>
+      </div>
+
+      <ul>
+        <li>مقدار <code>border</code> سه بخش دارد: ضخامت، نوع خط و رنگ، مثل <code>4px solid #2f5bea</code>.</li>
+        <li>اگر دو عدد بنویسی، مثل <code>padding: 10px 30px</code>، عدد اول برای بالا و پایین و عدد دوم برای چپ و راست است.</li>
+        <li>اگر چهار عدد بنویسی، ترتیب آن‌ها بالا، راست، پایین، چپ است.</li>
+      </ul>
+
+      <div class="callout tip">
+        <p class="callout-title">فرق padding و margin</p>
+        <p>
+          <code>padding</code> داخل حاشیه است و رنگ پس‌زمینه‌ی المان آن را هم می‌پوشاند.
+          <code>margin</code> بیرون حاشیه است و همیشه شفاف است. در کادر بالا اعدادشان را عوض کن تا فرقشان را ببینی.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">اندازه‌ی واقعی جعبه</p>
+        <p>
+          در حالت پیش‌فرض، <code>width: 200px</code> فقط عرض محتواست. عرض کل جعبه با اضافه شدن padding و border بیشتر می‌شود.
+          در جعبه‌ی بالا عرض کل می‌شود ۲۰۰ + ۴۰ + ۸ = ۲۴۸ پیکسل.
+        </p>
+      </div>
+
+      <!-- ========== ۸ ========== -->
+      <h2 id="priority">وقتی دو قانون با هم تضاد دارند</h2>
+      <p>اگر چند قانون یک ویژگی را روی یک المان تعیین کنند، کدام برنده می‌شود؟ سه قاعده‌ی ساده:</p>
+      <ol>
+        <li>قانونی که پایین‌تر نوشته شده، برنده است (وقتی انتخابگرها هم‌وزن باشند).</li>
+        <li>انتخابگر دقیق‌تر برنده است: <code>id</code> قوی‌تر از کلاس و کلاس قوی‌تر از تگ است.</li>
+        <li>استایل inline از همه‌ی اینها قوی‌تر است.</li>
+      </ol>
+
+      <div class="demo" data-title="امتحان کن: کدام رنگ برنده می‌شود؟" data-height="260">
+<textarea>
+<style>
+  p { color: gray; }
+  .note { color: royalblue; }
+  #special { color: crimson; }
+</style>
+
+<p>فقط تگ p</p>
+<p class="note">تگ و کلاس</p>
+<p class="note" id="special">تگ، کلاس و id</p>
+<p class="note" style="color: green;">کلاس و استایل inline</p>
+</textarea>
+      </div>
+
+      <!-- ========== ۹ ========== -->
+      <h2 id="devtools">دیدن و تست CSS در مرورگر</h2>
+      <p>
+        روی هر قسمت از صفحه راست‌کلیک کن و گزینه‌ی <strong>Inspect</strong> را بزن (یا کلید <code>F12</code>).
+        در پنجره‌ی باز شده می‌بینی کدام قانون CSS روی آن المان اثر گذاشته و می‌توانی مقدارها را همان‌جا عوض کنی و نتیجه را زنده ببینی.
+      </p>
+      <div class="callout note">
+        <p>تغییراتی که در این پنجره می‌دهی موقتی است و با رفرش صفحه از بین می‌رود. برای نگه داشتن تغییرها باید در فایل خودت اعمالشان کنی.</p>
+      </div>
+
+      <!-- ========== ۱۰ ========== -->
+      <h2 id="mistakes">اشتباه‌های رایج</h2>
+      <ul>
+        <li><strong>جا انداختن نقطه‌ویرگول.</strong> مرورگر آن خط را نادیده می‌گیرد.</li>
+        <li><strong>نوشتن <code>=</code> به‌جای <code>:</code></strong> مثلاً <code>color = red</code> اشتباه و <code>color: red</code> درست است.</li>
+        <li><strong>یادت رفته نقطه یا # بگذاری.</strong> <code>note</code> یعنی تگی به اسم note، ولی <code>.note</code> یعنی کلاس note.</li>
+        <li><strong>غلط املایی در اسم ویژگی.</strong> مثلاً <code>colour</code> یا <code>font-sise</code>. مرورگر خطایی نشان نمی‌دهد و ویژگی را نادیده می‌گیرد.</li>
+        <li><strong>مسیر اشتباه فایل CSS.</strong> اگر <code>style.css</code> وصل نمی‌شود، اسم فایل و محل آن نسبت به صفحه را چک کن.</li>
+        <li><strong>تغییر دادی ولی چیزی عوض نشد.</strong> فایل را ذخیره کرده‌ای و صفحه را رفرش کرده‌ای؟ گاهی هم باید کش مرورگر را با <code>Ctrl+F5</code> پاک کنی.</li>
+      </ul>
+
+      <!-- ========== ۱۱ ========== -->
+      <h2 id="summary">خلاصه</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>مفهوم</th><th>یادآوری</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>قانون CSS</td><td><code>selector { property: value; }</code></td></tr>
+            <tr><td>روش‌های اضافه کردن</td><td>inline، تگ <code>style</code> و فایل جدا با <code>link</code></td></tr>
+            <tr><td>انتخابگرها</td><td><code>p</code> / <code>.class</code> / <code>#id</code> / <code>h2, h3</code></td></tr>
+            <tr><td>رنگ</td><td><code>color</code> و <code>background-color</code> با نام، هگز یا rgb</td></tr>
+            <tr><td>متن</td><td><code>font-family</code>، <code>font-size</code>، <code>font-weight</code>، <code>text-align</code>، <code>line-height</code></td></tr>
+            <tr><td>جعبه</td><td><code>width</code>، <code>padding</code>، <code>border</code>، <code>margin</code></td></tr>
+            <tr><td>اولویت</td><td>پایین‌تر، دقیق‌تر و inline برنده می‌شوند</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

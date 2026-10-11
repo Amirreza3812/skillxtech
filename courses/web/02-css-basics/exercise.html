@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین مبانی CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="02-css-basics" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: مبانی CSS</h1>
+        <p class="lead">کد هر تمرین را ویرایش کن و نتیجه را همان لحظه کنارش ببین.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>رنگ‌ها</h3>
+          <p>
+            داخل تگ <code>style</code> دو قانون بنویس: رنگ نوشته‌ی <code>h1</code> را با یک کد هگز آبی (مثلاً <code>#2f5bea</code>) و رنگ نوشته‌ی همه‌ی <code>p</code>ها را خاکستری کن.
+            بعد برای <code>h1</code> یک <code>background-color</code> هم امتحان کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ساختار هر قانون: <code>selector { property: value; }</code>. اگر چیزی عوض نشد، نقطه‌ویرگول‌ها را چک کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="240">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<h1>خوش آمدید</h1>
+<p>این صفحه‌ی تمرین CSS است.</p>
+<p>رنگ‌ها را تغییر بده.</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>کلاس و آیدی</h3>
+          <p>
+            فقط پاراگراف «تمرین CSS» را با یک کلاس به اسم <code>important</code> زرد کن (<code>background-color</code>).
+            بعد با یک آیدی به اسم <code>title</code> رنگ نوشته‌ی <code>h2</code> را قرمز کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ابتدا در HTML ویژگی <code>class="important"</code> را به همان پاراگراف اضافه کن و بعد در CSS با <code>.important</code> انتخابش کن. برای آیدی از <code>#title</code> استفاده کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="260">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<h2>کارهای امروز</h2>
+<p>خرید نان</p>
+<p>تمرین CSS</p>
+<p>تماشای فیلم</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>استایل متن</h3>
+          <p>
+            این کارها را انجام بده: عنوان <code>h1</code> را وسط‌چین و ۳۶ پیکسلی کن. اندازه‌ی پاراگراف را ۱۸ پیکسل و فاصله‌ی خط‌هایش را <code>2</code> کن.
+            خط زیر لینک را بردار و لینک را ضخیم کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ویژگی‌های لازم: <code>text-align</code>، <code>font-size</code>، <code>line-height</code>، <code>text-decoration</code> و <code>font-weight</code>.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="300">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<h1>صفحه‌ی من</h1>
+<p>این یک متن طولانی‌تر است تا بتوانی اثر اندازه‌ی نوشته و فاصله‌ی بین خط‌ها را روی چند خط پشت‌سرهم ببینی و آن را با حالت قبل مقایسه کنی.</p>
+<a href="#">یک لینک</a>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>یک کارت ساده</h3>
+          <p>
+            با کلاس <code>card</code> به این المان ظاهر یک کارت بده: عرض ۲۵۰ پیکسل، <code>padding</code> برابر ۱۶ پیکسل،
+            یک <code>border</code> دو پیکسلی، <code>margin</code> برابر ۲۰ پیکسل و یک رنگ پس‌زمینه‌ی ملایم.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ویژگی <code>border</code> سه بخش دارد: ضخامت، نوع خط و رنگ. مثلاً <code>2px solid gray</code>.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="280">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<div class="card">
+  <h3>کارت من</h3>
+  <p>این یک کارت ساده است.</p>
+</div>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>پیدا کردن خطاها</h3>
+          <p>
+            این کد چهار اشتباه دارد و هیچ‌کدام از استایل‌ها درست اعمال نمی‌شوند. اشتباه‌ها را پیدا و درست کن تا عنوان قرمز،
+            یادداشت زرد و وسط‌چین با فونت ۲۰ پیکسل و مقدمه خاکستری شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>دنبال این‌ها بگرد: غلط املایی در اسم یک ویژگی، علامتی که به‌جای <code>:</code> نوشته شده، یک <code>;</code> جا افتاده و یک انتخابگر که علامتش را ندارد.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="320">
+<textarea>
+<style>
+  h1 {
+    colour: crimson;
+  }
+  .note {
+    background-color = yellow;
+    font-size: 20px
+    text-align: center;
+  }
+  intro {
+    color: gray;
+  }
+</style>
+
+<h1>عنوان</h1>
+<p class="note">این یک یادداشت است.</p>
+<p id="intro">مقدمه</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>فایل CSS جدا</h3>
+          <p>
+            صفحه‌ای که در تمرین «مبانی HTML» ساختی را روی کامپیوتر خودت باز کن. یک فایل <code>style.css</code> کنار آن بساز، با تگ <code>link</code> به صفحه وصلش کن
+            و چند قانون برای رنگ، متن و جعبه‌ی المان‌ها در آن بنویس. صفحه را در مرورگر باز کن و نتیجه را ببین.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>تگ <code>link</code> داخل <code>head</code> می‌رود: <code>&lt;link rel="stylesheet" href="style.css"&gt;</code>. هر دو فایل باید در یک پوشه باشند.</p>
+          </details>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>
