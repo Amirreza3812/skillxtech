@@ -46,6 +46,7 @@ body {
 }
 
 .site-header h1 {
+  text-align: left;
   margin: 0;
   font-size: 1.9rem;
   font-weight: 800;

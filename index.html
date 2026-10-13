@@ -1,48 +1,57 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>داشبورد کلاس</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title id="title">SkillXtech</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared/css/dashboard.css">
-</head>
-<body>
-  <header class="site-header">
-    <div class="wrap">
-      <h1 id="site-title">داشبورد کلاس</h1>
-      <p id="site-subtitle"></p>
-    </div>
-  </header>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="shared/css/dashboard.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <h1 id="site-title">داشبورد کلاس</h1>
+        <p id="site-subtitle">SkillXTech</p>
+      </div>
+    </header>
 
-  <main class="wrap">
-    <section id="today" class="today" aria-live="polite" hidden></section>
+    <main class="wrap">
+      <section id="today" class="today" aria-live="polite" hidden></section>
 
-    <div id="message" class="message" role="status" hidden></div>
+      <div id="message" class="message" role="status" hidden></div>
 
-    <div class="layout" id="layout" hidden>
-      <nav id="nav" class="nav" aria-label="دوره‌ها"></nav>
+      <div class="layout" id="layout" hidden>
+        <nav id="nav" class="nav" aria-label="دوره‌ها"></nav>
 
-      <section class="content">
-        <div class="content-head">
-          <div>
-            <h2 id="view-title"></h2>
-            <p id="view-description" class="muted"></p>
+        <section class="content">
+          <div class="content-head">
+            <div>
+              <h2 id="view-title"></h2>
+              <p id="view-description" class="muted"></p>
+            </div>
+            <input
+              id="search"
+              class="search"
+              type="search"
+              placeholder="جستجوی درس"
+              aria-label="جستجوی درس"
+            />
           </div>
-          <input id="search" class="search" type="search" placeholder="جستجوی درس" aria-label="جستجوی درس">
-        </div>
-        <ul id="list" class="list"></ul>
-      </section>
-    </div>
+          <ul id="list" class="list"></ul>
+        </section>
+      </div>
 
-    <noscript>
-      <p class="message">برای دیدن داشبورد باید JavaScript فعال باشد.</p>
-    </noscript>
-  </main>
+      <noscript>
+        <p class="message">برای دیدن داشبورد باید JavaScript فعال باشد.</p>
+      </noscript>
+    </main>
 
-  <script src="shared/js/dashboard.js"></script>
-</body>
+    <script src="shared/js/dashboard.js"></script>
+  </body>
 </html>

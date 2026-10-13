@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>فرم‌ها | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="07-forms" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>فرم‌ها</h1>
+        <p class="lead">یاد بگیر فرم برای چیست، کادرها را داخل آن بگذار و اطلاعات را آماده‌ی ارسال کن.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+
+      <!-- ========== ۱ ========== -->
+      <h2 id="what-is-form">فرم چیست و برای چه کاری است؟</h2>
+      <p>
+        در درس قبل کادرهای متنی ساختیم، ولی آن کادرها فقط روی صفحه بودند و اطلاعاتشان جایی نمی‌رفت.
+        <strong>فرم</strong> کادرها را کنار هم می‌گذارد و اطلاعات داخلشان را برای ارسال آماده می‌کند، مثل یک برگه‌ی ثبت‌نام کاغذی که پر می‌کنی و تحویل می‌دهی.
+      </p>
+      <p>تقریباً هر جا که از کاربر چیزی می‌گیری، فرم داری:</p>
+      <ul>
+        <li>ثبت‌نام و ورود به حساب</li>
+        <li>کادر جستجو (حتی کادر جستجوی گوگل یک فرم است)</li>
+        <li>نظر دادن و تماس با ما</li>
+        <li>سفارش دادن و پرداخت</li>
+      </ul>
+
+      <h3>وقتی فرم ارسال می‌شود چه اتفاقی می‌افتد؟</h3>
+      <ol>
+        <li>کاربر کادرها را پر می‌کند.</li>
+        <li>روی دکمه‌ی ارسال کلیک می‌کند.</li>
+        <li>مرورگر اطلاعات همه‌ی کادرها را جمع می‌کند و به یک آدرس (که ما مشخص کرده‌ایم) می‌فرستد.</li>
+        <li>یک برنامه در سرور آن اطلاعات را می‌گیرد و کاری با آن می‌کند، مثلاً حساب می‌سازد یا پیام را ذخیره می‌کند.</li>
+        <li>سرور یک صفحه‌ی جواب برمی‌گرداند، مثلاً «ثبت‌نام شد».</li>
+      </ol>
+      <p>در این درس روی قسمت‌های ۱ تا ۳ کار می‌کنیم، یعنی ساختن فرم و آماده کردن اطلاعات. قسمت ۴ (برنامه‌ی سرور) بعداً در درس‌های برنامه‌نویسی می‌آید.</p>
+
+      <div class="callout warn">
+        <p class="callout-title">GitHub Pages سرور ندارد</p>
+        <p>
+          GitHub Pages فقط فایل‌های آماده را نمایش می‌دهد و هیچ برنامه‌ای برای دریافت اطلاعات فرم ندارد. اگر فرم را آنجا بگذاری، ارسالش اطلاعاتی را ذخیره نمی‌کند.
+          برای دریافت واقعی اطلاعات باید فرم را به یک سرویس آماده بفرستی (مثل Google Forms یا سرویس‌های فرم‌ساز که قیمت و محدودیت‌هایشان را باید جدا چک کنی)، یا بعداً سرور خودت را بنویسی.
+          تا آن موقع، هدف ما ساختن فرم درست و خوشگل است.
+        </p>
+      </div>
+
+      <!-- ========== ۲ ========== -->
+      <h2 id="form-structure">ساختار یک فرم</h2>
+      <p>یک فرم از تگ <code>form</code> ساخته می‌شود که کادرها و یک دکمه‌ی ارسال داخل آن هستند. مهم‌ترین نکته‌اش ویژگی <code>name</code> است. بیا یکی بسازیم:</p>
+
+      <div class="demo" data-title="امتحان کن: اولین فرم" data-height="360">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <p>
+    <label for="username">نام کاربری</label><br>
+    <input type="text" id="username" name="username">
+  </p>
+  <p>
+    <label for="email">ایمیل</label><br>
+    <input type="email" id="email" name="email">
+  </p>
+  <button type="submit">ارسال</button>
+</form>
+
+<pre id="out">Press Send to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+      </div>
+
+      <p>
+        چیزی را بنویس و دکمه‌ی «ارسال» را بزن. کادر پایین نشان می‌دهد اگر سرور وجود داشت چه اطلاعاتی برایش می‌رفت.
+        بخش <code>&lt;script&gt;</code> فقط برای نمایش همین کادر است و به JavaScript مربوط است که بعداً یاد می‌گیریم. فعلاً لازم نیست آن را بفهمی.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>بخش</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;form&gt;</code></td><td>همه‌ی کادرها و دکمه‌ی ارسال داخل آن قرار می‌گیرند</td></tr>
+            <tr><td><code>name</code> روی هر کادر</td><td>اسمی که اطلاعات آن کادر با آن ارسال می‌شود</td></tr>
+            <tr><td><code>id</code> روی هر کادر</td><td>برای وصل کردن <code>label</code> و برای CSS و JavaScript</td></tr>
+            <tr><td><code>button type="submit"</code></td><td>دکمه‌ای که فرم را ارسال می‌کند</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">بدون name چیزی ارسال نمی‌شود</p>
+        <p>اگر کادری <code>name</code> نداشته باشد، مقدارش ارسال نمی‌شود، هرچند کاربر داخلش چیزی نوشته باشد. در کد بالا <code>name="email"</code> را پاک کن و دوباره ارسال را بزن تا ببینی ایمیل از خروجی می‌افتد.</p>
+      </div>
+
+      <h3><code>id</code> یا <code>name</code>؟</h3>
+      <p>
+        <code>id</code> برای متصل کردن <code>label</code> و CSS است و <code>name</code> برای ارسال اطلاعات. معمولاً هر دو را می‌نویسیم و می‌توانند یکی باشند.
+        مقدار <code>id</code> باید در صفحه یکتا باشد، ولی چند کادر می‌توانند <code>name</code> یکسان داشته باشند (مثل گزینه‌های یک رادیو).
+      </p>
+
+      <!-- ========== ۳ ========== -->
+      <h2 id="name-value">اطلاعات چطور ارسال می‌شود؟</h2>
+      <p>
+        اطلاعات فرم به شکل جفت‌های <code>name = value</code> ارسال می‌شود. برای کادرهای متنی، <code>value</code> همان چیزی است که کاربر نوشته.
+        برای گزینه‌ها، مقدار را خودمان با ویژگی <code>value</code> مشخص می‌کنیم:
+      </p>
+
+      <div class="demo" data-title="امتحان کن: انواع کادر در فرم" data-height="560">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <p>
+    <label for="n">نام</label><br>
+    <input type="text" id="n" name="fullname">
+  </p>
+
+  <p>سطح شما:</p>
+  <p>
+    <label><input type="radio" name="level" value="beginner"> مبتدی</label>
+    <label><input type="radio" name="level" value="pro"> حرفه‌ای</label>
+  </p>
+
+  <p>علاقه‌مندی‌ها:</p>
+  <p>
+    <label><input type="checkbox" name="interest" value="html"> HTML</label>
+    <label><input type="checkbox" name="interest" value="css"> CSS</label>
+    <label><input type="checkbox" name="interest" value="js"> JavaScript</label>
+  </p>
+
+  <p>
+    <label for="course">دوره</label><br>
+    <select id="course" name="course">
+      <option value="web">طراحی وب</option>
+      <option value="python">پایتون</option>
+    </select>
+  </p>
+
+  <p>
+    <label for="msg">پیام</label><br>
+    <textarea id="msg" name="message" rows="2">&lt;/textarea&gt;
+  </p>
+
+  <button type="submit">ارسال</button>
+</form>
+
+<pre id="out">Press Send to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+      </div>
+
+      <p>با گزینه‌های مختلف چند بار امتحان کن و این‌ها را ببین:</p>
+      <ul>
+        <li><strong>رادیو:</strong> گزینه‌های یک گروه باید <code>name</code> یکسان داشته باشند تا فقط یکی انتخاب شود. مقدار گزینه‌ی انتخاب‌شده ارسال می‌شود.</li>
+        <li><strong>چک‌باکس:</strong> فقط تیک‌خورده‌ها ارسال می‌شوند. اگر چند تا تیک بخورد، چند خط با <code>name</code> یکسان ارسال می‌شود. اگر هیچ‌کدام تیک نخورد، اصلاً چیزی نمی‌رود.</li>
+        <li><strong>لیست کشویی:</strong> <code>value</code> گزینه‌ی انتخاب‌شده ارسال می‌شود، نه متن نمایش‌داده‌شده.</li>
+      </ul>
+
+      <!-- ========== ۴ ========== -->
+      <h2 id="action-method">action و method</h2>
+      <p>دو ویژگی روی تگ <code>form</code> مشخص می‌کنند اطلاعات کجا و چطور برود:</p>
+      <pre class="code"><code>&lt;form action="/signup" method="post"&gt;
+  ...
+&lt;/form&gt;</code></pre>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>ویژگی</th><th>معنی</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>action</code></td><td>آدرسی که اطلاعات به آن فرستاده می‌شود. اگر ننویسی، به همان صفحه‌ی فعلی می‌رود.</td></tr>
+            <tr><td><code>method</code></td><td>روش ارسال: <code>get</code> (پیش‌فرض) یا <code>post</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>get یا post؟</h3>
+      <ul>
+        <li>
+          <strong>get</strong>: اطلاعات به انتهای آدرس اضافه می‌شود. اگر کاربر در فرم بالا نام Ali و ایمیل ali@example.com را بنویسد، آدرس می‌شود:
+          <pre class="code"><code>result.html?username=Ali&amp;email=ali%40example.com</code></pre>
+          مناسب جستجو و فیلتر است، چون می‌شود آدرس را ذخیره یا برای کسی ارسال کرد.
+        </li>
+        <li>
+          <strong>post</strong>: اطلاعات داخل بدنه‌ی درخواست می‌رود و در آدرس دیده نمی‌شود. برای اطلاعات خصوصی، طولانی یا کارهایی که چیزی را تغییر می‌دهند مثل ثبت‌نام و رمز عبور از آن استفاده می‌کنیم.
+        </li>
+      </ul>
+
+      <div class="callout note">
+        <p class="callout-title">چرا در کادرهای این درس ارسال واقعی نمی‌شود؟</p>
+        <p>
+          سرور واقعی وجود ندارد، پس در کادرهای «امتحان کن» با یک کد کوچک ارسال را متوقف می‌کنیم و فقط اطلاعاتی را که فرستاده می‌شد نشان می‌دهیم.
+          برای دیدن ارسال واقعی، کد فرم را در یک فایل <code>.html</code> روی کامپیوترت ذخیره کن. در تمرین این درس همین کار را می‌کنی.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">رمز عبور را با get نفرست</p>
+        <p>اطلاعات get در آدرس می‌ماند و در تاریخچه‌ی مرورگر ذخیره می‌شود. برای رمز عبور و اطلاعات خصوصی همیشه از <code>post</code> و آدرس امن (<code>https</code>) استفاده می‌شود.</p>
+      </div>
+
+      <!-- ========== ۵ ========== -->
+      <h2 id="buttons">دکمه‌ها</h2>
+      <p>دکمه‌های فرم سه نوع دارند:</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>نوع</th><th>کاری که می‌کند</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>type="submit"</code></td><td>فرم را ارسال می‌کند</td></tr>
+            <tr><td><code>type="reset"</code></td><td>همه‌ی کادرها را به حالت اول برمی‌گرداند</td></tr>
+            <tr><td><code>type="button"</code></td><td>هیچ کاری نمی‌کند (برای JavaScript بعدی)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: سه نوع دکمه" data-height="300">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <p><input type="text" name="word" placeholder="چیزی بنویس"></p>
+  <button type="submit">ارسال</button>
+  <button type="reset">پاک کردن</button>
+  <button type="button">بی‌اثر</button>
+</form>
+
+<pre id="out">Press Send to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">نوع پیش‌فرض دکمه، submit است</p>
+        <p>اگر داخل فرم یک <code>&lt;button&gt;</code> بدون <code>type</code> بنویسی، آن هم مثل <code>submit</code> فرم را ارسال می‌کند. برای دکمه‌ای که نباید ارسال کند حتماً <code>type="button"</code> بنویس. دکمه باید داخل تگ <code>form</code> باشد تا فرم را ارسال کند.</p>
+      </div>
+
+      <!-- ========== ۶ ========== -->
+      <h2 id="validation">اعتبارسنجی ساده با HTML</h2>
+      <p>
+        مرورگر می‌تواند قبل از ارسال فرم، بعضی چیزها را خودش چک کند. اگر مقداری درست نباشد، پیام خطا نشان می‌دهد و فرم را ارسال نمی‌کند.
+        فقط کافی است ویژگی‌های مناسب را بنویسی:
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>ویژگی</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>required</code></td><td>پر کردن کادر اجباری است</td></tr>
+            <tr><td><code>minlength</code> و <code>maxlength</code></td><td>کمترین و بیشترین تعداد حرف</td></tr>
+            <tr><td><code>min</code> و <code>max</code></td><td>کمترین و بیشترین مقدار برای عدد و تاریخ</td></tr>
+            <tr><td><code>type="email"</code> و <code>type="url"</code></td><td>مرورگر قالب ایمیل و آدرس سایت را چک می‌کند</td></tr>
+            <tr><td><code>pattern</code></td><td>مقدار باید با یک الگو بخواند (الگوها را «عبارت منظم» می‌نامند)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: اعتبارسنجی" data-height="520">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <p>
+    <label for="u">نام کاربری (حداقل ۳ حرف)</label><br>
+    <input type="text" id="u" name="username" required minlength="3">
+  </p>
+  <p>
+    <label for="e">ایمیل</label><br>
+    <input type="email" id="e" name="email" required>
+  </p>
+  <p>
+    <label for="a">سن (بین ۱۲ تا ۱۰۰)</label><br>
+    <input type="number" id="a" name="age" min="12" max="100" required>
+  </p>
+  <p>
+    <label for="p">شماره‌ی موبایل (مثل 09123456789)</label><br>
+    <input type="tel" id="p" name="phone" pattern="09[0-9]{9}" title="شماره باید با 09 شروع شود و ۱۱ رقم باشد">
+  </p>
+  <button type="submit">ثبت‌نام</button>
+</form>
+
+<pre id="out">Press the button to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+      </div>
+      <p>
+        اول فرم را خالی ارسال کن و پیام مرورگر را ببین. بعد با مقدارهای نامعتبر (ایمیل بدون @، سن ۵) امتحان کن. فقط وقتی همه‌چیز درست باشد، کادر خروجی چیزی نشان می‌دهد.
+        شماره‌ی موبایل اجباری نیست، ولی اگر نوشته شود باید با الگو بخواند. بخش <code>09[0-9]{9}</code> یعنی «۰۹ و بعد دقیقاً ۹ رقم».
+      </p>
+
+      <div class="callout warn">
+        <p class="callout-title">اعتبارسنجی HTML امنیت نیست</p>
+        <p>
+          کاربر می‌تواند با DevTools این ویژگی‌ها را پاک کند و مقدار نامعتبر بفرستد. اعتبارسنجی HTML فقط برای راحتی کاربر است. هر برنامه‌ی سروری که اطلاعات را می‌گیرد باید دوباره همه‌چیز را چک کند.
+        </p>
+      </div>
+
+      <!-- ========== ۷ ========== -->
+      <h2 id="labels-groups">برچسب و گروه‌بندی</h2>
+      <p>یک فرم خوب برای همه قابل استفاده است. دو کار ساده کمک می‌کند:</p>
+      <ul>
+        <li>
+          <strong>همیشه label بگذار:</strong> یا با <code>for</code> و <code>id</code>، یا با گذاشتن کادر داخل <code>label</code>. کلیک روی برچسب، کادر را انتخاب می‌کند و برای گزینه‌های رادیو و چک‌باکس باعث می‌شود سطح کلیک بزرگ‌تر شود.
+        </li>
+        <li>
+          <strong>گزینه‌های مرتبط را با fieldset و legend گروه کن:</strong> <code>fieldset</code> یک قاب دور گروه می‌کشد و <code>legend</code> عنوان آن است. نرم‌افزارهای کمکی از آن می‌فهمند این گزینه‌ها یک سؤال‌اند.
+        </li>
+      </ul>
+
+      <div class="demo" data-title="امتحان کن: fieldset و legend" data-height="280">
+<textarea>
+<form>
+  <fieldset>
+    <legend>روش تماس دلخواه</legend>
+    <p><label><input type="radio" name="contact" value="email" checked> ایمیل</label></p>
+    <p><label><input type="radio" name="contact" value="phone"> تلفن</label></p>
+    <p><label><input type="radio" name="contact" value="none"> تماس نگیرید</label></p>
+  </fieldset>
+</form>
+</textarea>
+      </div>
+
+      <!-- ========== ۸ ========== -->
+      <h2 id="styled-form">یک فرم کامل و زیبا</h2>
+      <p>حالا هر چیزی که یاد گرفتی را کنار هم می‌گذاریم: ساختار فرم، <code>label</code>، کادرهای استایل‌داده با <code>:focus</code>، و یک دکمه با hover و transition:</p>
+
+      <div class="demo" data-title="امتحان کن: فرم ثبت‌نام" data-height="720">
+<textarea>
+<style>
+  body {
+    background-color: #f2f5f7;
+    padding: 12px;
+  }
+  form {
+    max-width: 340px;
+    padding: 24px;
+    background-color: white;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  }
+  h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #14263a;
+  }
+  .field {
+    margin-bottom: 14px;
+  }
+  label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #d5dde4;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #2f5bea;
+    box-shadow: 0 0 0 4px rgba(47, 91, 234, 0.15);
+    outline: none;
+  }
+  textarea { resize: none; }
+  .check label {
+    display: inline;
+    font-weight: normal;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background-color: #2f5bea;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(47, 91, 234, 0.35);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  button:hover {
+    background-color: #1f45c4;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(47, 91, 234, 0.45);
+  }
+  button:active {
+    transform: translateY(0);
+  }
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; margin-top: 12px; }
+</style>
+
+<form>
+  <h2>ثبت‌نام</h2>
+
+  <div class="field">
+    <label for="name">نام</label>
+    <input type="text" id="name" name="name" placeholder="نام و نام خانوادگی" required>
+  </div>
+
+  <div class="field">
+    <label for="email">ایمیل</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+  </div>
+
+  <div class="field">
+    <label for="password">رمز عبور</label>
+    <input type="password" id="password" name="password" minlength="8" required>
+  </div>
+
+  <div class="field">
+    <label for="course">دوره</label>
+    <select id="course" name="course">
+      <option value="web">طراحی وب</option>
+      <option value="python">پایتون</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="note">توضیح</label>
+    <textarea id="note" name="note" rows="3">&lt;/textarea&gt;
+  </div>
+
+  <div class="field check">
+    <label><input type="checkbox" name="agree" value="yes" required> قوانین را می‌پذیرم</label>
+  </div>
+
+  <button type="submit">ثبت‌نام</button>
+</form>
+
+<pre id="out">Fill the form and send it.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title">box-sizing: border-box</p>
+        <p>
+          در این کد <code>box-sizing: border-box</code> را روی کادرها نوشتیم. معمولاً <code>width</code> فقط عرض محتواست و <code>padding</code> و <code>border</code> به آن اضافه می‌شوند.
+          با <code>border-box</code> عرضی که می‌نویسی شامل <code>padding</code> و <code>border</code> هم می‌شود. بدون آن، کادر با عرض <code>100%</code> از فرم بیرون می‌زند.
+        </p>
+      </div>
+
+      <!-- ========== ۹ ========== -->
+      <h2 id="mistakes">اشتباه‌های رایج</h2>
+      <ul>
+        <li><strong>یادت رفته name بدهی.</strong> مقدار آن کادر ارسال نمی‌شود.</li>
+        <li><strong>رادیوهای یک گروه با name متفاوت.</strong> کاربر می‌تواند چند تا را با هم انتخاب کند و هیچ‌کدام از هم‌گروه بودن خبر ندارند.</li>
+        <li><strong>for و id که یکی نیستند.</strong> کلیک روی label کادر را انتخاب نمی‌کند.</li>
+        <li><strong>دکمه‌ی بیرون از form.</strong> دکمه کار نمی‌کند، چون به هیچ فرمی وصل نیست.</li>
+        <li><strong>دکمه‌ی بدون type داخل فرم.</strong> فرم را ارسال می‌کند، حتی اگر نمی‌خواستی.</li>
+        <li><strong>گذاشتن placeholder به‌جای label.</strong> با شروع تایپ ناپدید می‌شود و کاربر یادش می‌رود کادر چه بود.</li>
+        <li><strong>فرستادن اطلاعات خصوصی با get.</strong> در آدرس دیده می‌شود.</li>
+        <li><strong>تکیه‌ی کامل به اعتبارسنجی HTML.</strong> فقط راحتی کاربر است و امنیت نیست.</li>
+        <li><strong>انتظار ذخیره‌شدن اطلاعات روی GitHub Pages.</strong> آنجا سروری برای دریافت اطلاعات نیست.</li>
+      </ul>
+
+      <!-- ========== ۱۰ ========== -->
+      <h2 id="summary">خلاصه</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>می‌خواهم...</th><th>چه بنویسم؟</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>ساختن فرم</td><td><code>&lt;form action="..." method="post"&gt;...&lt;/form&gt;</code></td></tr>
+            <tr><td>ارسال مقدار یک کادر</td><td><code>name</code> روی همان کادر</td></tr>
+            <tr><td>گزینه‌ی انتخابی</td><td><code>radio</code> و <code>checkbox</code> با <code>name</code> و <code>value</code>، یا <code>select</code> با <code>option</code></td></tr>
+            <tr><td>دکمه‌ی ارسال</td><td><code>&lt;button type="submit"&gt;</code></td></tr>
+            <tr><td>پاک کردن فرم</td><td><code>&lt;button type="reset"&gt;</code></td></tr>
+            <tr><td>اجباری بودن</td><td><code>required</code></td></tr>
+            <tr><td>محدودیت مقدار</td><td><code>minlength</code>، <code>min</code>، <code>max</code>، <code>pattern</code>، <code>type="email"</code></td></tr>
+            <tr><td>گروه‌بندی گزینه‌ها</td><td><code>fieldset</code> و <code>legend</code></td></tr>
+            <tr><td>اطلاعات خصوصی</td><td><code>method="post"</code> و آدرس امن</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

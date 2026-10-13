@@ -282,8 +282,8 @@ async function init() {
   }
 
   const data = state.data;
-  document.title = data.site?.title || "داشبورد کلاس";
-  $("site-title").textContent = data.site?.title || "داشبورد کلاس";
+  document.title = data.site?.SiteTitle || "داشبورد کلاس";
+  $("site-title").innerHTML = data.site?.title || "داشبورد کلاس";
   $("site-subtitle").textContent = data.site?.subtitle || "";
 
   renderToday();

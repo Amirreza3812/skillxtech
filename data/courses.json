@@ -1,6 +1,7 @@
 {
   "site": {
-    "title": "کلاس‌های من",
+    "SiteTitle": "SkillXTech",
+    "title": "Skill<span style='color:#f5d04c;'>X</span>Tech",
     "subtitle": "درس‌ها، تمرین‌ها و پروژه‌ها در یک جا"
   },
 
@@ -61,6 +62,18 @@
           "id": "05-text-style",
           "title": "TextStyle",
           "summary": "استایل دادن به متن ها",
+          "status": "ready"
+        },
+        {
+          "id": "06-images-textboxes",
+          "title": "تصویر و کادر متن",
+          "summary": "آدرس عکس، object-fit، کادرها و فرم",
+          "status": "ready"
+        },
+         {
+          "id": "07-forms",
+          "title": "فرم ها",
+          "summary": "استفاده حرفه ای تر از فرم ها",
           "status": "ready"
         },
         {

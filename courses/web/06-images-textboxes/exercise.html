@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین تصویر و کادر متن | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="06-images-textboxes" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: تصویر و کادر متن</h1>
+        <p class="lead">تمرین‌های اول و دوم درباره‌ی آدرس عکس‌اند. بقیه را در کادرهای کدنویسی انجام بده. عکس‌های نمونه به اینترنت نیاز دارند.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>اولین عکس</h3>
+          <p>
+            با تگ <code>img</code> یک عکس از اینترنت به صفحه اضافه کن. آدرس نمونه:
+            <code>https://placehold.co/300x150/0e8f6e/ffffff?text=Hi</code>.
+            عرض را ۳۰۰ پیکسل بگذار و یک <code>alt</code> مناسب برایش بنویس.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>سه ویژگی لازم است: <code>src</code>، <code>alt</code> و <code>width</code>. تگ <code>img</code> تگ بسته ندارد.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+<textarea>
+<!-- write your code here -->
+
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>آدرس‌دهی (روی کاغذ)</h3>
+          <p>پروژه‌ای با این ساختار داریم:</p>
+          <pre class="code"><code>my-site/
+├── index.html
+├── logo.png
+├── images/
+│   ├── photo.jpg
+│   └── icons/
+│       └── star.png
+└── pages/
+    ├── contact.html
+    └── blog/
+        └── post.html</code></pre>
+          <p>مقدار <code>src</code> را برای هر مورد بنویس:</p>
+          <ol>
+            <li>در <code>index.html</code> می‌خواهیم <code>star.png</code> را نشان بدهیم.</li>
+            <li>در <code>pages/contact.html</code> می‌خواهیم <code>star.png</code> را نشان بدهیم.</li>
+            <li>در <code>pages/contact.html</code> می‌خواهیم <code>logo.png</code> را نشان بدهیم.</li>
+            <li>در <code>pages/blog/post.html</code> می‌خواهیم <code>logo.png</code> را نشان بدهیم.</li>
+          </ol>
+          <p>بعد بگو در هر کدام از این‌ها چه اشتباهی هست (فرض کن در <code>pages/contact.html</code> هستیم):</p>
+          <ol>
+            <li><code>&lt;img src="images/photo.jpg"&gt;</code></li>
+            <li><code>&lt;img src="/images/photo.jpg"&gt;</code></li>
+            <li><code>&lt;img src="C:\Users\Ali\Desktop\photo.jpg"&gt;</code></li>
+            <li><code>&lt;img src="../images/Photo.JPG"&gt;</code></li>
+          </ol>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>آدرس را از پوشه‌ای که فایل HTML در آن است شروع کن. هر <code>../</code> یک پوشه بالا می‌رود. بعد با یک پروژه‌ی واقعی در VS Code امتحان کن.</p>
+          </details>
+        </li>
+
+        <li class="task">
+          <h3>جا دادن عکس در قاب</h3>
+          <p>
+            دو عکس زیر یکی عریض و یکی بلند است و داخل قاب مربعی کش آمده‌اند. با <code>object-fit</code> کاری کن که قاب را پر کنند ولی کش نیایند.
+            بعد عکس بلند را دایره‌ای کن و با <code>object-position</code> کاری کن که بالای عکس دیده شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>مقدار مناسب <code>cover</code> است. برای دایره از <code>border-radius: 50%</code> استفاده کن. برای نمایش بالای عکس مقدار <code>object-position: top</code> را امتحان کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="360">
+<textarea>
+<style>
+  img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #2f5bea;
+    margin: 6px;
+  }
+
+  /* write your CSS here */
+</style>
+
+<img class="wide" src="https://placehold.co/600x300/2f5bea/ffffff?text=Wide" alt="عکس عریض">
+<img class="tall" src="https://placehold.co/300x600/0e8f6e/ffffff?text=Tall" alt="عکس بلند">
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>عکس زنده</h3>
+          <p>
+            عکس زیر را گوشه‌گرد و سایه‌دار کن. بعد کاری کن که در حالت عادی سیاه‌وسفید باشد و با رفتن موس رنگی و کمی بزرگ‌تر شود. تغییر باید نرم باشد.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>از <code>filter: grayscale(100%)</code> و <code>transform: scale(1.05)</code> استفاده کن. <code>transition</code> را در قانون حالت عادی بنویس.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="320">
+<textarea>
+<style>
+  body {
+    padding: 20px;
+  }
+  .photo {
+    width: 240px;
+    height: 150px;
+    object-fit: cover;
+  }
+
+  /* write your CSS here */
+</style>
+
+<img class="photo" src="https://placehold.co/480x300/f39c12/ffffff?text=Hover+me" alt="عکس نمونه">
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>کادرهای متنی</h3>
+          <p>
+            یک مجموعه‌ی کادر بساز: نام (متن)، ایمیل، رمز عبور و یک کادر چندخطی برای «درباره‌ی من».
+            هر کدام <code>label</code> داشته باشد که با <code>for</code> و <code>id</code> به کادر وصل شده است، و یک <code>placeholder</code>.
+            بعد با CSS آن‌ها را زیبا کن و حالت <code>:focus</code> را هم استایل بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>نوع کادرها: <code>text</code>، <code>email</code> و <code>password</code>. برای کادر چندخطی از <code>textarea</code> استفاده کن. فراموش نکن <code>font-family: inherit</code> بنویسی.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="440">
+<textarea>
+<style>
+  /* write your CSS here */
+</style>
+
+<!-- write your HTML here -->
+
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>انتخاب گزینه</h3>
+          <p>
+            یک چک‌باکس «قوانین را می‌پذیرم»، یک گروه رادیو با سه گزینه برای انتخاب سطح، و یک لیست کشویی برای انتخاب دوره بساز.
+            مطمئن شو از هر گروه رادیو فقط یک گزینه انتخاب می‌شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>گزینه‌های رادیو باید <code>name</code> یکسان داشته باشند. برای لیست کشویی <code>select</code> و چند <code>option</code> لازم است. می‌توانی <code>input</code> را داخل <code>label</code> بگذاری.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="340">
+<textarea>
+<!-- write your HTML here -->
+
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>پیدا کردن خطاها</h3>
+          <p>
+            این کد چهار اشتباه دارد. درستشان کن تا عکس دایره‌ای و برش‌خورده نمایش داده شود، با کلیک روی «نام» کادر انتخاب شود و فقط یکی از دو رادیو انتخاب شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>اشتباه‌ها: غلط املایی در اسم یک ویژگی HTML، یک مقدار <code>object-fit</code> که وجود ندارد، <code>for</code> و <code>id</code> که یکی نیستند، و دو رادیو که <code>name</code> یکسان ندارند.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="420">
+<textarea>
+<style>
+  .avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: crop;
+    border-radius: 50%;
+  }
+</style>
+
+<img class="avatar" scr="https://placehold.co/300x200/2f5bea/ffffff?text=Me" alt="عکس من">
+
+<p>
+  <label for="name">نام:</label>
+  <input type="text" id="username">
+</p>
+
+<p>سطح:</p>
+<p>
+  <label><input type="radio" name="level1" value="beginner"> مبتدی</label>
+  <label><input type="radio" name="level2" value="pro"> پیشرفته</label>
+</p>
+</textarea>
+          </div>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

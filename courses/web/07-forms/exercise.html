@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین فرم‌ها | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="07-forms" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: فرم‌ها</h1>
+        <p class="lead">در کادرهای کدنویسی، پایین هر فرم یک کادر خاکستری هست که نشان می‌دهد بعد از ارسال چه اطلاعاتی می‌رفت. از آن برای بررسی کارت استفاده کن.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>اولین فرم</h3>
+          <p>
+            داخل تگ <code>form</code> یک فرم تماس بساز: کادر نام، کادر ایمیل و دکمه‌ی ارسال. هر کادر <code>label</code> و <code>name</code> داشته باشد.
+            بعد ارسال کن و ببین هر دو مقدار در کادر خاکستری آمده‌اند.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>اگر مقداری در کادر خاکستری نیامد، <code>name</code> آن کادر را چک کن. نوع ایمیل <code>type="email"</code> است.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="380">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<!-- write your form here -->
+
+<pre id="out">Send the form to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>گزینه‌ها</h3>
+          <p>
+            یک فرم نظرسنجی بساز با این‌ها: یک گروه رادیو برای «سطح» با سه گزینه، سه چک‌باکس برای «علاقه‌مندی‌ها» (همه با <code>name</code> یکسان)
+            و یک لیست کشویی برای «دوره». هر گزینه یک <code>value</code> داشته باشد. بعد ارسال کن و این‌ها را بررسی کن:
+            چه می‌شود اگر هیچ چک‌باکسی تیک نخورد؟ چه می‌شود اگر دو چک‌باکس تیک بخورند؟
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>گزینه‌های رادیو هم‌گروه باید <code>name</code> یکسان داشته باشند. برای لیست کشویی از <code>select</code> و چند <code>option</code> با <code>value</code> استفاده کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="460">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <!-- write your fields here -->
+
+  <button type="submit">ارسال</button>
+</form>
+
+<pre id="out">Send the form to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>اعتبارسنجی</h3>
+          <p>فرم ثبت‌نام زیر را با این قانون‌ها کامل کن:</p>
+          <ul>
+            <li>نام کاربری: اجباری و حداقل ۳ حرف</li>
+            <li>ایمیل: اجباری و از نوع ایمیل</li>
+            <li>رمز عبور: اجباری و حداقل ۸ حرف</li>
+            <li>سن: عددی بین ۱۲ تا ۱۰۰</li>
+          </ul>
+          <p>بعد چند بار با مقدارهای نادرست ارسال کن و پیام‌های مرورگر را ببین.</p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ویژگی‌های لازم: <code>required</code>، <code>minlength</code>، <code>type="email"</code>، <code>type="number"</code> با <code>min</code> و <code>max</code>.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="480">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <p>
+    <label for="u">نام کاربری</label><br>
+    <input type="text" id="u" name="username">
+  </p>
+  <p>
+    <label for="e">ایمیل</label><br>
+    <input type="text" id="e" name="email">
+  </p>
+  <p>
+    <label for="p">رمز عبور</label><br>
+    <input type="password" id="p" name="password">
+  </p>
+  <p>
+    <label for="a">سن</label><br>
+    <input type="text" id="a" name="age">
+  </p>
+  <button type="submit">ثبت‌نام</button>
+</form>
+
+<pre id="out">Send the form to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>دکمه‌ها و گروه‌بندی</h3>
+          <p>
+            به فرم زیر یک دکمه‌ی «پاک کردن» اضافه کن که همه‌ی کادرها را به حالت اول برمی‌گرداند. بعد سه گزینه‌ی رادیو را داخل <code>fieldset</code> با عنوان «دوره‌ی دلخواه» (با <code>legend</code>) بگذار.
+            آخر هم یک دکمه با <code>type="button"</code> اضافه کن و فرق آن را با دکمه‌ی ارسال توضیح بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>دکمه‌ی پاک کردن: <code>type="reset"</code>. عنوان گروه را با <code>&lt;legend&gt;</code> اولین چیز داخل <code>fieldset</code> بنویس.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="460">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <p>
+    <label for="nm">نام</label><br>
+    <input type="text" id="nm" name="name">
+  </p>
+
+  <p><label><input type="radio" name="course" value="html"> HTML</label></p>
+  <p><label><input type="radio" name="course" value="css"> CSS</label></p>
+  <p><label><input type="radio" name="course" value="js"> JavaScript</label></p>
+
+  <button type="submit">ارسال</button>
+</form>
+
+<pre id="out">Send the form to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>ارسال واقعی روی کامپیوتر خودت</h3>
+          <p>
+            کادرهای «امتحان کن» ارسال واقعی ندارند، پس این تمرین را روی کامپیوتر خودت انجام بده:
+          </p>
+          <ol>
+            <li>یک پوشه بساز و فایل <code>form.html</code> را با کد زیر داخلش بساز.</li>
+            <li>یک فایل ساده‌ی <code>result.html</code> کنارش بساز (مثلاً با یک عنوان «ممنون!»).</li>
+            <li><code>form.html</code> را در مرورگر باز کن، فرم را پر کن و ارسال را بزن.</li>
+            <li>به نوار آدرس نگاه کن: اطلاعاتی که نوشته‌ای در آدرس آمده است.</li>
+            <li><code>method</code> را به <code>post</code> تغییر بده و دوباره امتحان کن. تفاوت را در آدرس ببین.</li>
+            <li><code>name</code> یکی از کادرها را بردار و ببین چه تغییری در آدرس می‌افتد.</li>
+          </ol>
+          <pre class="code"><code>&lt;form action="result.html" method="get"&gt;
+  &lt;label for="name"&gt;Name&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+
+  &lt;label for="email"&gt;Email&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>با <code>get</code> اطلاعات به آدرس اضافه می‌شود. با <code>post</code> آدرس تغییر نمی‌کند، ولی اطلاعات در درخواست ارسال شده است. اگر <code>name</code> نباشد، مقدار آن کادر ارسال نمی‌شود.</p>
+          </details>
+          <p>اطلاعات واقعی یا رمز عبور واقعی در این فرم ننویس.</p>
+        </li>
+
+        <li class="task">
+          <h3>یک فرم زیبا</h3>
+          <p>
+            یک فرم تماس با ما طراحی کن و با CSS زیبایش کن. حداقل این‌ها را داشته باشد: قاب سفید گوشه‌گرد با سایه، کادرهای متنی با <code>:focus</code> رنگی،
+            یک <code>textarea</code> برای پیام، و دکمه‌ای با hover و transition. ساختار و رنگ‌ها را خودت انتخاب کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>برای هر کادر و برچسبش یک <code>div</code> با کلاس <code>field</code> بگذار تا فاصله‌گذاری راحت شود. برای این‌که کادر با عرض ۱۰۰٪ از قاب بیرون نزند، <code>box-sizing: border-box</code> بنویس.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="620">
+<textarea>
+<style>
+  body {
+    background-color: #f2f5f7;
+    padding: 12px;
+  }
+
+  /* write your CSS here */
+
+  #out { direction: ltr; text-align: left; background: #fff; padding: 8px; border-radius: 6px; margin-top: 12px; }
+</style>
+
+<form>
+  <h2>تماس با ما</h2>
+  <!-- write your fields here -->
+  <button type="submit">ارسال</button>
+</form>
+
+<pre id="out">Send the form to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>پیدا کردن خطاها</h3>
+          <p>
+            این فرم چهار اشتباه دارد. درستشان کن تا هر سه مقدار (نام، سطح و ایمیل) پس از ارسال در کادر خاکستری بیایند، با کلیک روی برچسب «نام» کادر نام انتخاب شود
+            و فقط یکی از دو رادیو قابل انتخاب باشد.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>اشتباه‌ها: یک کادر که <code>name</code> ندارد، دو رادیو که <code>name</code> یکسان ندارند، <code>for</code> و <code>id</code> که یکی نیستند، و یک دکمه که فرم را ارسال نمی‌کند.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="460">
+<textarea>
+<style>
+  #out { direction: ltr; text-align: left; background: #f2f5f7; padding: 8px; border-radius: 6px; }
+</style>
+
+<form>
+  <p>
+    <label for="name">نام</label><br>
+    <input type="text" id="username" name="name">
+  </p>
+
+  <p>
+    <label><input type="radio" name="level1" value="beginner"> مبتدی</label>
+    <label><input type="radio" name="level2" value="pro"> حرفه‌ای</label>
+  </p>
+
+  <p>
+    <label for="mail">ایمیل</label><br>
+    <input type="email" id="mail">
+  </p>
+
+  <button type="button">ارسال</button>
+</form>
+
+<pre id="out">Send the form to see the data here.</pre>
+<script>
+  document.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var lines = [];
+    new FormData(e.target).forEach(function (value, key) { lines.push(key + " = " + value); });
+    document.getElementById("out").textContent = lines.length ? lines.join("\n") : "(nothing was sent)";
+  });
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>بررسی فرم یک سایت واقعی</h3>
+          <p>
+            صفحه‌ی ورود یا ثبت‌نام یک سایت را باز کن (چیزی را پر یا ارسال نکن). با Inspect این‌ها را پیدا و یادداشت کن:
+            تگ <code>form</code> و مقدار <code>action</code> و <code>method</code> آن، نوع (<code>type</code>) و <code>name</code> هر کادر،
+            و نوع کادر رمز عبور. بگو آیا کادرها <code>required</code> دارند یا نه.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>با <code>Ctrl+Shift+C</code> روی یک کادر کلیک کن و در پنل Elements بالاتر برو تا به تگ <code>form</code> برسی. بعضی سایت‌ها فرم را با JavaScript می‌سازند و ممکن است <code>action</code> نداشته باشند.</p>
+          </details>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

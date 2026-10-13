@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تصویر و کادر متن | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="06-images-textboxes" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تصویر و کادر متن</h1>
+        <p class="lead">عکس را در صفحه بیاور و با <code>object-fit</code> اندازه‌اش را کنترل کن. بعد با کادر متن و چند کادر انتخابی، آماده‌ی ساختن فرم شو.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+
+      <!-- ========== ۱ ========== -->
+      <h2 id="img-tag">تگ img</h2>
+      <p>
+        برای آوردن عکس در صفحه از تگ <code>img</code> استفاده می‌کنیم. این تگ محتوا و تگ بسته ندارد و همه‌ی اطلاعاتش در ویژگی‌هاست:
+      </p>
+      <ul>
+        <li><code>src</code>: آدرس عکس (مهم‌ترین ویژگی)</li>
+        <li><code>alt</code>: توضیح متنی عکس، که اگر عکس نیامد یا کاربر نابینا بود خوانده می‌شود</li>
+        <li><code>width</code> و <code>height</code>: عرض و ارتفاع به پیکسل (اختیاری)</li>
+      </ul>
+
+      <div class="demo" data-title="امتحان کن: اولین عکس" data-height="220">
+<textarea>
+<img src="https://placehold.co/300x150/2f5bea/ffffff?text=Hello"
+     alt="مستطیل آبی با نوشته‌ی Hello"
+     width="300"
+     height="150">
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title">نیاز به اینترنت</p>
+        <p>عکس‌های نمونه‌ی این درس از سایت <code>placehold.co</code> می‌آیند که تصویرهای رنگی نمونه می‌سازد. پس برای دیدنشان باید اینترنت وصل باشد.</p>
+      </div>
+
+      <!-- ========== ۲ ========== -->
+      <h2 id="src-paths">نوشتن آدرس عکس در src</h2>
+      <p>
+        مهم‌ترین قسمت کار با عکس این است که آدرس را درست بنویسی. اگر اشتباه باشد مرورگر عکس را پیدا نمی‌کند و به‌جای آن فقط متن <code>alt</code> را نشان می‌دهد:
+      </p>
+
+      <div class="demo" data-title="امتحان کن: آدرس درست و اشتباه" data-height="320">
+<textarea>
+<p>آدرس درست:</p>
+<img src="https://placehold.co/200x100?text=OK" alt="عکس سالم">
+
+<p>آدرس اشتباه (فایلی با این اسم وجود ندارد):</p>
+<img src="images/not-exist.jpg" alt="این متن جای عکس نمایش داده می‌شود">
+</textarea>
+      </div>
+
+      <h3>۱. عکس از روی اینترنت</h3>
+      <p>آدرس کامل عکس را که با <code>https://</code> شروع می‌شود می‌نویسیم:</p>
+      <pre class="code"><code>&lt;img src="https://placehold.co/300x150" alt="نمونه"&gt;</code></pre>
+      <p>
+        برای پیدا کردن آدرس یک عکس در سایت‌ها، روی آن راست‌کلیک کن و <code>Copy image address</code> را بزن،
+        یا از Inspect استفاده کن. روش دوم را در درس Chrome DevTools دیدی.
+      </p>
+
+      <div class="callout warn">
+        <p class="callout-title">عکسی که از سایت دیگری می‌آید ممکن است عوض شود یا از بین برود</p>
+        <p>اگر صاحب سایت عکس را حذف کند، عکس تو هم می‌پرد. برای عکس‌های مهم سایتت، فایل را دانلود کن (اگر مجوز داشتی) و در پوشه‌ی خودت بگذار.</p>
+      </div>
+
+      <h3>۲. عکس از روی کامپیوتر خودمان</h3>
+      <p>وقتی عکس در پوشه‌ی پروژه‌ی خودت است، آدرس را «نسبت به فایل HTML» می‌نویسیم. فرض کن ساختار پروژه این باشد:</p>
+
+      <pre class="code"><code>my-site/
+├── index.html
+├── logo.png
+├── images/
+│   ├── photo.jpg
+│   └── icons/
+│       └── star.png
+└── pages/
+    └── contact.html</code></pre>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>صفحه‌ی HTML</th><th>عکس</th><th>آدرس در <code>src</code></th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>index.html</code></td><td><code>logo.png</code> (کنار صفحه)</td><td><code>logo.png</code></td></tr>
+            <tr><td><code>index.html</code></td><td><code>images/photo.jpg</code></td><td><code>images/photo.jpg</code></td></tr>
+            <tr><td><code>index.html</code></td><td><code>images/icons/star.png</code></td><td><code>images/icons/star.png</code></td></tr>
+            <tr><td><code>pages/contact.html</code></td><td><code>images/photo.jpg</code></td><td><code>../images/photo.jpg</code></td></tr>
+            <tr><td><code>pages/contact.html</code></td><td><code>logo.png</code></td><td><code>../logo.png</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>قاعده‌ی ساده‌ای دارد:</p>
+      <ol>
+        <li>از پوشه‌ای که <strong>خود فایل HTML</strong> در آن است شروع کن.</li>
+        <li>هر <code>../</code> یعنی «یک پوشه بیا بالا».</li>
+        <li>بعد اسم پوشه‌ها را با <code>/</code> بنویس تا به اسم فایل برسی.</li>
+      </ol>
+
+      <pre class="code"><code>&lt;!-- در index.html --&gt;
+&lt;img src="images/photo.jpg" alt="عکس من"&gt;
+
+&lt;!-- در pages/contact.html --&gt;
+&lt;img src="../images/photo.jpg" alt="عکس من"&gt;</code></pre>
+
+      <div class="callout tip">
+        <p class="callout-title">آدرس را خودت تایپ نکن</p>
+        <p>در VS Code روی فایل عکس (در فهرست فایل‌ها) راست‌کلیک کن و <code>Copy Relative Path</code> را بزن. آدرس نسبی آن را می‌دهد که می‌توانی در <code>src</code> بچسبانی. اگر در پوشه‌ی دیگری از پروژه هستی، ممکن است لازم شود فقط <code>../</code> اضافه کنی.</p>
+      </div>
+
+      <h3>اشتباه‌هایی که باعث می‌شوند عکس نیاید</h3>
+      <ul>
+        <li>
+          <strong>آدرس کامل کامپیوتر خودت.</strong> مثل <code>C:\Users\Ali\photo.jpg</code>. روی کامپیوتر تو کار می‌کند ولی روی GitHub Pages و کامپیوتر بقیه نه.
+        </li>
+        <li>
+          <strong>شروع آدرس با <code>/</code>.</strong> مثل <code>/images/photo.jpg</code>. این آدرس از ریشه‌ی کل دامنه شروع می‌شود و روی GitHub Pages (که سایتت زیر اسم ریپازیتوری است) درست جواب نمی‌دهد. از آدرس نسبی بدون <code>/</code> در ابتدا استفاده کن.
+        </li>
+        <li>
+          <strong>حروف بزرگ و کوچک.</strong> <code>Photo.JPG</code> با <code>photo.jpg</code> فرق دارد. اسم فایل‌ها را کوچک و بدون فاصله بنویس.
+        </li>
+        <li>
+          <strong>پسوند اشتباه.</strong> اگر فایل <code>photo.png</code> است، نباید <code>photo.jpg</code> بنویسی. پسوند فایل‌ها را در سیستم‌عاملت قابل مشاهده کن.
+        </li>
+        <li>
+          <strong>اسم فارسی یا فاصله در اسم فایل.</strong> کار می‌کند ولی دردسر می‌سازد. فایل‌ها را انگلیسی و با خط تیره نام‌گذاری کن، مثل <code>my-photo.jpg</code>.
+        </li>
+      </ul>
+
+      <div class="callout note">
+        <p class="callout-title">وقتی عکس نمی‌آید</p>
+        <p>صفحه را Inspect کن و به پنل <code>Network</code> برو. اگر کنار عکس خطای <code>404</code> بود یعنی مرورگر فایلی با آن آدرس پیدا نکرده و باید مسیر را بازبینی کنی.</p>
+      </div>
+
+      <!-- ========== ۳ ========== -->
+      <h2 id="image-size">اندازه‌ی عکس با CSS</h2>
+      <p>
+        اندازه‌ی عکس را هم می‌شود در HTML (<code>width</code> و <code>height</code>) و هم با CSS تنظیم کرد. CSS معمولاً بهتر است چون می‌شود همه‌ی عکس‌ها را با یک قانون کنترل کرد.
+      </p>
+
+      <div class="demo" data-title="امتحان کن: اندازه‌ی عکس" data-height="500">
+<textarea>
+<style>
+  img {
+    border: 2px solid #8a97a5;
+  }
+  .a {
+    width: 200px;
+  }
+  .b {
+    width: 200px;
+    height: 200px;
+  }
+  .c {
+    width: 100%;
+    max-width: 300px;
+  }
+</style>
+
+<p>فقط عرض: ارتفاع خودکار تنظیم می‌شود</p>
+<img class="a" src="https://placehold.co/600x300/2f5bea/ffffff?text=600x300" alt="نمونه">
+
+<p>هم عرض و هم ارتفاع: عکس کش می‌آید</p>
+<img class="b" src="https://placehold.co/600x300/2f5bea/ffffff?text=600x300" alt="نمونه">
+
+<p>عرض ۱۰۰٪ با حداکثر عرض</p>
+<img class="c" src="https://placehold.co/600x300/2f5bea/ffffff?text=600x300" alt="نمونه">
+</textarea>
+      </div>
+
+      <ul>
+        <li>اگر فقط <code>width</code> بدهی، ارتفاع خودکار و با نسبت درست محاسبه می‌شود.</li>
+        <li>اگر هر دو را بدهی و نسبتشان با نسبت عکس فرق داشته باشد، عکس کش می‌آید و خراب می‌شود (مثل مثال دوم).</li>
+        <li><code>max-width: 100%</code> کاری می‌کند که عکس هیچ‌وقت از عرض جایی که در آن است بزرگ‌تر نشود. برای صفحه‌هایی که روی موبایل هم باز می‌شوند خیلی مفید است.</li>
+      </ul>
+
+      <div class="callout tip">
+        <p class="callout-title">عکس‌هایت را سبک کن</p>
+        <p>عکس‌های موبایل و دوربین چند مگابایت‌اند و صفحه را کند می‌کنند. قبل از گذاشتن در سایت، اندازه‌شان را کوچک کن (عرض حدود ۱۲۰۰ پیکسل کافی است) و از فرمت‌های سبک مثل <code>.jpg</code> یا <code>.webp</code> استفاده کن.</p>
+      </div>
+
+      <!-- ========== ۴ ========== -->
+      <h2 id="object-fit">object-fit</h2>
+      <p>
+        اگر عکس را در یک قاب با اندازه‌ی ثابت بگذاری، باید مشخص کنی عکس چطور آن قاب را پر کند. این کار را <code>object-fit</code> انجام می‌دهد:
+      </p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>مقدار</th><th>نتیجه</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>fill</code></td><td>پیش‌فرض: عکس کش می‌آید تا قاب را پر کند (خراب می‌شود)</td></tr>
+            <tr><td><code>contain</code></td><td>کل عکس دیده می‌شود با همان نسبت، ولی ممکن است جای خالی بماند</td></tr>
+            <tr><td><code>cover</code></td><td>قاب کامل پر می‌شود با همان نسبت، ولی لبه‌های عکس بریده می‌شود</td></tr>
+            <tr><td><code>none</code></td><td>عکس با اندازه‌ی اصلی می‌ماند و فقط وسطش دیده می‌شود</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: object-fit" data-height="520">
+<textarea>
+<style>
+  img {
+    width: 150px;
+    height: 100px;
+    border: 2px solid #8a97a5;
+  }
+  .fill { object-fit: fill; }
+  .contain { object-fit: contain; }
+  .cover { object-fit: cover; }
+  .none { object-fit: none; }
+</style>
+
+<p><img class="fill" src="https://placehold.co/600x300/2f5bea/ffffff?text=600x300" alt=""> fill</p>
+<p><img class="contain" src="https://placehold.co/600x300/2f5bea/ffffff?text=600x300" alt=""> contain</p>
+<p><img class="cover" src="https://placehold.co/600x300/2f5bea/ffffff?text=600x300" alt=""> cover</p>
+<p><img class="none" src="https://placehold.co/600x300/2f5bea/ffffff?text=600x300" alt=""> none</p>
+</textarea>
+      </div>
+
+      <div class="callout tip">
+        <p class="callout-title">کدام را انتخاب کنم؟</p>
+        <p>برای عکس‌های پروفایل، کارت‌ها و گالری معمولاً <code>cover</code> بهترین انتخاب است. وقتی نباید هیچ بخشی از عکس (مثلاً یک لوگو) بریده شود، <code>contain</code> را بگذار.</p>
+      </div>
+
+      <h3>object-position: کدام قسمت عکس دیده شود؟</h3>
+      <p>
+        وقتی با <code>cover</code> یک قسمت از عکس بریده می‌شود، <code>object-position</code> مشخص می‌کند کدام قسمت بماند. مقدارش <code>left</code>، <code>center</code>، <code>right</code>، <code>top</code>، <code>bottom</code> یا ترکیب آن‌هاست.
+        عکس این کادر سه رنگ دارد (قرمز، طلایی و آبی) تا ببینی کدام قسمت برش می‌خورد.
+      </p>
+
+      <div class="demo" data-title="امتحان کن: object-position" data-height="420">
+<textarea>
+<style>
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #8a97a5;
+  }
+  .left { object-position: left; }
+  .center { object-position: center; }
+  .right { object-position: right; }
+</style>
+
+<p><img class="left" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='100'><rect width='100' height='100' fill='crimson'/><rect x='100' width='100' height='100' fill='gold'/><rect x='200' width='100' height='100' fill='royalblue'/></svg>" alt=""> left</p>
+<p><img class="center" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='100'><rect width='100' height='100' fill='crimson'/><rect x='100' width='100' height='100' fill='gold'/><rect x='200' width='100' height='100' fill='royalblue'/></svg>" alt=""> center</p>
+<p><img class="right" src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='100'><rect width='100' height='100' fill='crimson'/><rect x='100' width='100' height='100' fill='gold'/><rect x='200' width='100' height='100' fill='royalblue'/></svg>" alt=""> right</p>
+</textarea>
+      </div>
+      <p>آدرس طولانی داخل <code>src</code> در این کادر خود عکس را داخل کد دارد. فقط برای این‌که نمونه بدون اینترنت و فایل جدا کار کند از آن استفاده کرده‌ایم. تو در پروژه‌ات آدرس یک فایل را می‌نویسی.</p>
+
+      <!-- ========== ۵ ========== -->
+      <h2 id="play-with-images">بازی با عکس‌ها</h2>
+      <p>چند ویژگی دیگر که با آن‌ها ظاهر عکس را می‌توانی عوض کنی:</p>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>ویژگی</th><th>کاربرد</th><th>مثال</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>border-radius</code></td><td>گوشه‌ی گرد. مقدار <code>50%</code> روی عکس مربعی آن را دایره می‌کند</td><td><code>border-radius: 50%</code></td></tr>
+            <tr><td><code>box-shadow</code></td><td>سایه (درس قبل)</td><td><code>0 4px 12px rgba(0,0,0,0.25)</code></td></tr>
+            <tr><td><code>opacity</code></td><td>شفافیت از ۰ تا ۱</td><td><code>opacity: 0.6</code></td></tr>
+            <tr><td><code>filter</code></td><td>افکت‌هایی مثل سیاه‌وسفید یا محو</td><td><code>grayscale(100%)</code>، <code>blur(4px)</code>، <code>brightness(1.2)</code></td></tr>
+            <tr><td><code>transform</code></td><td>بزرگ و کوچک کردن یا جابه‌جایی</td><td><code>scale(1.05)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>حالا این‌ها را با <code>:hover</code> و <code>transition</code> از درس قبل ترکیب می‌کنیم: یک عکس پروفایل دایره‌ای و یک عکس که سیاه‌وسفید است و با رفتن موس روی آن رنگی و کمی بزرگ‌تر می‌شود:</p>
+
+      <div class="demo" data-title="امتحان کن: عکس پروفایل و عکس hover" data-height="480">
+<textarea>
+<style>
+  body {
+    background-color: #f2f5f7;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  .photo {
+    width: 240px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    filter: grayscale(100%);
+    transition: filter 0.4s, transform 0.4s;
+  }
+  .photo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+</style>
+
+<p><img class="avatar" src="https://placehold.co/400x200/0e8f6e/ffffff?text=Me" alt="عکس پروفایل"></p>
+<p><img class="photo" src="https://placehold.co/600x300/2f5bea/ffffff?text=Hover+me" alt="عکس نمونه"></p>
+</textarea>
+      </div>
+
+      <!-- ========== ۶ ========== -->
+      <h2 id="textboxes">کادر متن (input)</h2>
+      <p>
+        برای این‌که کاربر بتواند چیزی تایپ کند، از تگ <code>input</code> استفاده می‌کنیم. مثل <code>img</code> این تگ هم محتوا و تگ بسته ندارد.
+        نوع آن را ویژگی <code>type</code> مشخص می‌کند. برای متن چندخطی هم تگ <code>textarea</code> هست.
+      </p>
+
+      <div class="demo" data-title="امتحان کن: اولین کادرها" data-height="440">
+<textarea>
+<p>
+  <label for="name">نام</label><br>
+  <input type="text" id="name" placeholder="نام خود را بنویس">
+</p>
+<p>
+  <label for="email">ایمیل</label><br>
+  <input type="email" id="email" placeholder="you@example.com">
+</p>
+<p>
+  <label for="pass">رمز عبور</label><br>
+  <input type="password" id="pass">
+</p>
+<p>
+  <label for="msg">پیام</label><br>
+  <textarea id="msg" rows="3" cols="30">&lt;/textarea&gt;
+</p>
+</textarea>
+      </div>
+
+      <h3>نوع‌های رایج type</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>type</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>text</code></td><td>متن معمولی (پیش‌فرض)</td></tr>
+            <tr><td><code>password</code></td><td>حرف‌ها به‌صورت نقطه نمایش داده می‌شوند</td></tr>
+            <tr><td><code>email</code></td><td>مرورگر هنگام ارسال بررسی می‌کند شکل ایمیل درست باشد</td></tr>
+            <tr><td><code>number</code></td><td>فقط عدد، با دکمه‌های بالا و پایین</td></tr>
+            <tr><td><code>tel</code></td><td>شماره‌ی تلفن (در موبایل کیبورد عددی باز می‌شود)</td></tr>
+            <tr><td><code>search</code></td><td>کادر جستجو</td></tr>
+            <tr><td><code>date</code></td><td>انتخاب تاریخ از تقویم</td></tr>
+            <tr><td><code>color</code></td><td>انتخاب رنگ</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="demo" data-title="امتحان کن: نوع‌های مختلف" data-height="360">
+<textarea>
+<p><input type="number" min="1" max="10" value="5"> number</p>
+<p><input type="date"> date</p>
+<p><input type="color" value="#2f5bea"> color</p>
+<p><input type="search" placeholder="جستجو"> search</p>
+</textarea>
+      </div>
+
+      <h3>ویژگی‌های مفید</h3>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>ویژگی</th><th>کاربرد</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>placeholder</code></td><td>متن راهنمای کم‌رنگ داخل کادر که با تایپ کردن پاک می‌شود</td></tr>
+            <tr><td><code>value</code></td><td>مقدار اولیه‌ی کادر</td></tr>
+            <tr><td><code>required</code></td><td>پر کردن کادر اجباری است (هنگام ارسال فرم بررسی می‌شود)</td></tr>
+            <tr><td><code>maxlength</code></td><td>حداکثر تعداد حرف‌ها</td></tr>
+            <tr><td><code>min</code> و <code>max</code></td><td>کمترین و بیشترین مقدار برای عدد و تاریخ</td></tr>
+            <tr><td><code>disabled</code></td><td>کادر غیرفعال می‌شود</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout tip">
+        <p class="callout-title">همیشه برای کادر یک label بگذار</p>
+        <p>
+          تگ <code>label</code> با ویژگی <code>for</code> به <code>id</code> کادر وصل می‌شود. وقتی کاربر روی نوشته‌ی label کلیک کند، کادر انتخاب می‌شود.
+          نابینایان هم از آن می‌فهمند کادر برای چیست. <code>placeholder</code> جای label را نمی‌گیرد، چون با تایپ کردن ناپدید می‌شود.
+        </p>
+      </div>
+
+      <h3>استایل کادر متن</h3>
+      <p>کادرها را هم مثل بقیه‌ی المان‌ها با CSS استایل می‌دهیم و با <code>:focus</code> حالت انتخاب‌شده را مشخص می‌کنیم:</p>
+
+      <div class="demo" data-title="امتحان کن: کادر استایل‌داده" data-height="420">
+<textarea>
+<style>
+  input,
+  textarea {
+    width: 250px;
+    padding: 10px 12px;
+    border: 2px solid #d5dde4;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  input:focus,
+  textarea:focus {
+    border-color: #2f5bea;
+    box-shadow: 0 0 0 3px rgba(47, 91, 234, 0.2);
+    outline: none;
+  }
+</style>
+
+<p><input type="text" placeholder="نام"></p>
+<p><input type="email" placeholder="ایمیل"></p>
+<p><textarea rows="3" placeholder="پیام">&lt;/textarea&gt;</p>
+</textarea>
+      </div>
+
+      <div class="callout warn">
+        <p class="callout-title">فونت کادرها خودکار از صفحه نمی‌آید</p>
+        <p>مرورگر برای <code>input</code> و <code>textarea</code> فونت خودش را می‌گذارد. با <code>font-family: inherit</code> آن‌ها را مجبور می‌کنی فونت صفحه را بگیرند. اگر <code>outline: none</code> را می‌نویسی، حتماً یک نشانه‌ی دیگر برای حالت focus (مثل رنگ کادر یا سایه) بگذار تا کاربرانی که با کیبورد کار می‌کنند بفهمند کجا هستند.</p>
+      </div>
+
+      <!-- ========== ۷ ========== -->
+      <h2 id="other-fields">چند کادر دیگر</h2>
+      <p>برای انتخاب کردن به‌جای تایپ کردن:</p>
+      <ul>
+        <li><code>checkbox</code>: تیک‌زدنی، هر مورد مستقل</li>
+        <li><code>radio</code>: فقط یکی از چند گزینه. گزینه‌های هم‌گروه باید <code>name</code> یکسان داشته باشند.</li>
+        <li><code>select</code>: لیست کشویی که گزینه‌هایش با <code>option</code> ساخته می‌شوند</li>
+      </ul>
+
+      <div class="demo" data-title="امتحان کن: انتخاب گزینه" data-height="380">
+<textarea>
+<p>
+  <label><input type="checkbox" name="agree"> قوانین را می‌پذیرم</label>
+</p>
+
+<p>سطح تو:</p>
+<p>
+  <label><input type="radio" name="level" value="beginner" checked> مبتدی</label><br>
+  <label><input type="radio" name="level" value="mid"> متوسط</label><br>
+  <label><input type="radio" name="level" value="pro"> پیشرفته</label>
+</p>
+
+<p>
+  <label for="course">دوره</label><br>
+  <select id="course" name="course">
+    <option value="html">HTML</option>
+    <option value="css">CSS</option>
+    <option value="js">JavaScript</option>
+  </select>
+</p>
+</textarea>
+      </div>
+      <p>این‌جا <code>input</code> را داخل <code>label</code> گذاشتیم. این هم یک روش وصل کردن label به کادر است و دیگر به <code>for</code> و <code>id</code> نیازی ندارد.</p>
+
+      <!-- ========== ۸ ========== -->
+      <div class="callout note">
+        <p class="callout-title">بعدش چه؟</p>
+        <p>
+          کادرهایی که ساختیم فعلاً فقط روی صفحه هستند و اطلاعاتشان جایی نمی‌رود. برای ارسال اطلاعات باید آن‌ها را داخل یک «فرم» بگذاریم.
+          در درس بعد یاد می‌گیریم فرم چیست، برای چه کاری است و چطور ساخته می‌شود.
+        </p>
+      </div>
+
+      <!-- ========== ۹ ========== -->
+      <h2 id="mistakes">اشتباه‌های رایج</h2>
+      <ul>
+        <li><strong>آدرس اشتباه عکس.</strong> فاصله‌ی پوشه‌ها، پسوند، حروف بزرگ و کوچک و <code>../</code> را چک کن.</li>
+        <li><strong>نوشتن alt را فراموش کردن.</strong> هر عکس معنادار باید <code>alt</code> داشته باشد.</li>
+        <li><strong>دادن هم width هم height با نسبت اشتباه.</strong> عکس کش می‌آید. یا یکی را بده یا از <code>object-fit</code> استفاده کن.</li>
+        <li><strong>کادر بدون label.</strong> فقط <code>placeholder</code> کافی نیست.</li>
+        <li><strong>رادیوهای هم‌گروه با name متفاوت.</strong> کاربر می‌تواند چند تا را با هم انتخاب کند.</li>
+        <li><strong>یکی بودن id چند المان.</strong> هر <code>id</code> باید در صفحه یکتا باشد.</li>
+      </ul>
+
+      <!-- ========== ۱۰ ========== -->
+      <h2 id="summary">خلاصه</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>می‌خواهم...</th><th>چه بنویسم؟</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>عکس از اینترنت</td><td><code>&lt;img src="https://..." alt="..."&gt;</code></td></tr>
+            <tr><td>عکس در پوشه‌ی پروژه</td><td><code>src="images/photo.jpg"</code></td></tr>
+            <tr><td>عکس در پوشه‌ی بالاتر</td><td><code>src="../images/photo.jpg"</code></td></tr>
+            <tr><td>پر کردن قاب بدون خراب شدن عکس</td><td><code>object-fit: cover</code></td></tr>
+            <tr><td>انتخاب بخش دیده‌شده‌ی عکس</td><td><code>object-position</code></td></tr>
+            <tr><td>عکس دایره‌ای</td><td>عکس مربعی با <code>object-fit: cover</code> و <code>border-radius: 50%</code></td></tr>
+            <tr><td>کادر متن</td><td><code>&lt;input type="text" id="..." name="..."&gt;</code> همراه با <code>label</code></td></tr>
+            <tr><td>متن چندخطی</td><td><code>textarea</code></td></tr>
+            <tr><td>انتخاب گزینه</td><td><code>checkbox</code>، <code>radio</code> (با <code>name</code> یکسان) و <code>select</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>
