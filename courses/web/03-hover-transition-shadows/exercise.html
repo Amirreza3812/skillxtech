@@ -1,50 +1,61 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تمرین hover، transition و box-shadow | طراحی وب</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین hover، transition و box-shadow | طراحی وب</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../shared/css/lesson.css">
-</head>
-<body data-course="web" data-lesson="03-hover-transition" data-root="../../../">
-
-  <header class="masthead">
-    <div class="topbar">
-      <div class="wrap">
-        <a href="index.html">بازگشت به درس</a>
-        <a href="../../../index.html">داشبورد</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="03-hover-transition-shadows"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
       </div>
-    </div>
-    <div class="hero">
-      <div class="wrap">
-        <p class="hero-course" id="crumb-course">طراحی وب</p>
-        <h1>تمرین: hover، transition و box-shadow</h1>
-        <p class="lead">کد هر تمرین را ویرایش کن، موس را روی نتیجه ببر و اثر کدت را ببین.</p>
-      </div>
-    </div>
-  </header>
-
-  <div class="wrap page single">
-    <article class="lesson">
-
-      <ol class="tasks">
-
-        <li class="task">
-          <h3>hover روی دکمه</h3>
-          <p>
-            دکمه‌ی زیر ظاهر عادی دارد. یک قانون <code>button:hover</code> بنویس که وقتی موس روی دکمه است، رنگ پس‌زمینه‌اش تیره‌تر شود
-            و رنگ نوشته‌اش عوض شود.
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: hover، transition و box-shadow</h1>
+          <p class="lead">
+            کد هر تمرین را ویرایش کن، موس را روی نتیجه ببر و اثر کدت را ببین.
           </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>بین <code>button</code> و <code>:hover</code> فاصله نگذار. ویژگی‌های لازم: <code>background-color</code> و <code>color</code>.</p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="260">
-<textarea>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>hover روی دکمه</h3>
+            <p>
+              دکمه‌ی زیر ظاهر عادی دارد. یک قانون
+              <code>button:hover</code> بنویس که وقتی موس روی دکمه است، رنگ
+              پس‌زمینه‌اش تیره‌تر شود و رنگ نوشته‌اش عوض شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                بین <code>button</code> و <code>:hover</code> فاصله نگذار.
+                ویژگی‌های لازم: <code>background-color</code> و
+                <code>color</code>.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
 <style>
   button {
     background-color: #2f5bea;
@@ -60,21 +71,27 @@
 </style>
 
 <button>دکمه‌ی من</button>
-</textarea>
-          </div>
-        </li>
+</textarea
+              >
+            </div>
+          </li>
 
-        <li class="task">
-          <h3>لینک‌های منو</h3>
-          <p>
-            لینک‌های این منو در حالت عادی خط زیرشان را ندارند. کاری کن که با رفتن موس روی هر لینک، هم خط زیرش ظاهر شود و هم رنگش عوض شود.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>ویژگی <code>text-decoration</code> مقدار <code>underline</code> می‌گیرد. قانون جدید را برای <code>a:hover</code> بنویس.</p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="220">
-<textarea>
+          <li class="task">
+            <h3>لینک‌های منو</h3>
+            <p>
+              لینک‌های این منو در حالت عادی خط زیرشان را ندارند. کاری کن که با
+              رفتن موس روی هر لینک، هم خط زیرش ظاهر شود و هم رنگش عوض شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                ویژگی <code>text-decoration</code> مقدار
+                <code>underline</code> می‌گیرد. قانون جدید را برای
+                <code>a:hover</code> بنویس.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
 <style>
   a {
     color: #14263a;
@@ -91,22 +108,28 @@
   <a href="#">درباره من</a>
   <a href="#">تماس</a>
 </p>
-</textarea>
-          </div>
-        </li>
+</textarea
+              >
+            </div>
+          </li>
 
-        <li class="task">
-          <h3>نرم کردن تغییر</h3>
-          <p>
-            دکمه‌ی زیر با hover رنگش عوض می‌شود ولی ناگهانی. یک transition ۰.۴ ثانیه‌ای برای تغییر رنگ پس‌زمینه اضافه کن
-            طوری که هم رفتن موس روی دکمه و هم برگشتنش نرم باشد.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>transition را در کدام قانون باید نوشت: حالت عادی یا <code>:hover</code>؟ به بخش «transition را کجا بنویسیم؟» در درس نگاه کن.</p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="260">
-<textarea>
+          <li class="task">
+            <h3>نرم کردن تغییر</h3>
+            <p>
+              دکمه‌ی زیر با hover رنگش عوض می‌شود ولی ناگهانی. یک transition ۰.۴
+              ثانیه‌ای برای تغییر رنگ پس‌زمینه اضافه کن طوری که هم رفتن موس روی
+              دکمه و هم برگشتنش نرم باشد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                transition را در کدام قانون باید نوشت: حالت عادی یا
+                <code>:hover</code>؟ به بخش «transition را کجا بنویسیم؟» در درس
+                نگاه کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
 <style>
   button {
     background-color: #0e8f6e;
@@ -123,21 +146,28 @@
 </style>
 
 <button>تغییر ناگهانی</button>
-</textarea>
-          </div>
-        </li>
+</textarea
+              >
+            </div>
+          </li>
 
-        <li class="task">
-          <h3>کارت با سایه</h3>
-          <p>
-            به کارت یک سایه‌ی ملایم بده. بعد کاری کن که با رفتن موس روی کارت، سایه‌اش بزرگ‌تر و پررنگ‌تر شود و این تغییر نرم باشد.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>از <code>rgba</code> برای رنگ سایه استفاده کن و <code>transition: box-shadow 0.3s</code> را در قانون حالت عادی بنویس. شفافیت سایه را بین <code>0.1</code> و <code>0.25</code> نگه دار.</p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="300">
-<textarea>
+          <li class="task">
+            <h3>کارت با سایه</h3>
+            <p>
+              به کارت یک سایه‌ی ملایم بده. بعد کاری کن که با رفتن موس روی کارت،
+              سایه‌اش بزرگ‌تر و پررنگ‌تر شود و این تغییر نرم باشد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>rgba</code> برای رنگ سایه استفاده کن و
+                <code>transition: box-shadow 0.3s</code> را در قانون حالت عادی
+                بنویس. شفافیت سایه را بین <code>0.1</code> و
+                <code>0.25</code> نگه دار.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+              <textarea>
 <style>
   body {
     background-color: #f2f5f7;
@@ -157,29 +187,48 @@
   <h3>کارت من</h3>
   <p>موس را روی من ببر.</p>
 </div>
-</textarea>
-          </div>
-        </li>
+</textarea
+              >
+            </div>
+          </li>
 
-        <li class="task">
-          <h3>دکمه‌ی خودت را بساز</h3>
-          <p>
-            از دو دکمه‌ی ساده‌ی زیر شروع کن و یک دکمه‌ی زیبا بساز. دکمه باید این ویژگی‌ها را داشته باشد:
-          </p>
-          <ul>
-            <li>رنگ پس‌زمینه، <code>padding</code> مناسب، گوشه‌ی گرد و <code>cursor: pointer</code></li>
-            <li>یک سایه‌ی ملایم</li>
-            <li>در حالت hover: رنگ تیره‌تر، سایه‌ی بزرگ‌تر و کمی بالا آمدن با <code>transform</code></li>
-            <li>در حالت active: برگشتن به پایین</li>
-            <li>تغییرها نرم باشند</li>
-          </ul>
-          <p>رنگ‌ها و اندازه‌ها را هر طور دوست داری انتخاب کن. دکمه‌ی دوم را با یک کلاس دیگر به شکل متفاوتی طراحی کن.</p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>برای بالا آمدن از <code>transform: translateY(-3px)</code> استفاده کن و <code>transform</code> را در <code>transition</code> هم بنویس: <code>transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;</code></p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="340">
-<textarea>
+          <li class="task">
+            <h3>دکمه‌ی خودت را بساز</h3>
+            <p>
+              از دو دکمه‌ی ساده‌ی زیر شروع کن و یک دکمه‌ی زیبا بساز. دکمه باید
+              این ویژگی‌ها را داشته باشد:
+            </p>
+            <ul>
+              <li>
+                رنگ پس‌زمینه، <code>padding</code> مناسب، گوشه‌ی گرد و
+                <code>cursor: pointer</code>
+              </li>
+              <li>یک سایه‌ی ملایم</li>
+              <li>
+                در حالت hover: رنگ تیره‌تر، سایه‌ی بزرگ‌تر و کمی بالا آمدن با
+                <code>transform</code>
+              </li>
+              <li>در حالت active: برگشتن به پایین</li>
+              <li>تغییرها نرم باشند</li>
+            </ul>
+            <p>
+              رنگ‌ها و اندازه‌ها را هر طور دوست داری انتخاب کن. دکمه‌ی دوم را با
+              یک کلاس دیگر به شکل متفاوتی طراحی کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای بالا آمدن از
+                <code>transform: translateY(-3px)</code> استفاده کن و
+                <code>transform</code> را در <code>transition</code> هم بنویس:
+                <code
+                  >transition: background-color 0.3s, transform 0.3s, box-shadow
+                  0.3s;</code
+                >
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="340">
+              <textarea>
 <style>
   body {
     padding: 20px;
@@ -190,22 +239,28 @@
 
 <button class="btn">دکمه‌ی اول</button>
 <button class="btn btn-second">دکمه‌ی دوم</button>
-</textarea>
-          </div>
-        </li>
+</textarea
+              >
+            </div>
+          </li>
 
-        <li class="task">
-          <h3>پیدا کردن خطاها</h3>
-          <p>
-            این کد چهار اشتباه دارد. اشتباه‌ها را پیدا و درست کن تا دکمه با hover رنگش را نرم عوض کند (هم رفتن و هم برگشتن)
-            و کارت یک سایه‌ی ملایم داشته باشد.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>دنبال این‌ها بگرد: یک شبه‌کلاس که درست نوشته نشده، یک واحد جا افتاده در transition، یک واحد جا افتاده در سایه، و transition که در قانون اشتباه نوشته شده.</p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="380">
-<textarea>
+          <li class="task">
+            <h3>پیدا کردن خطاها</h3>
+            <p>
+              این کد چهار اشتباه دارد. اشتباه‌ها را پیدا و درست کن تا دکمه با
+              hover رنگش را نرم عوض کند (هم رفتن و هم برگشتن) و کارت یک سایه‌ی
+              ملایم داشته باشد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                دنبال این‌ها بگرد: یک شبه‌کلاس که درست نوشته نشده، یک واحد جا
+                افتاده در transition، یک واحد جا افتاده در سایه، و transition که
+                در قانون اشتباه نوشته شده.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="380">
+              <textarea>
 <style>
   .btn {
     background-color: #2f5bea;
@@ -232,16 +287,20 @@
 
 <button class="btn">دکمه</button>
 <div class="card">یک کارت با سایه</div>
-</textarea>
-          </div>
-        </li>
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
 
-      </ol>
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
 
-      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
-    </article>
-  </div>
-
-  <script src="../../../shared/js/lesson.js"></script>
-</body>
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
 </html>

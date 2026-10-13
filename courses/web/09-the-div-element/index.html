@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>المان div در HTML | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="09-the-div-element"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>المان div در HTML</h1>
+          <p class="lead">
+            یاد می‌گیری چطور با <code>div</code> چند المان را گروه‌بندی کنی و با
+            CSS روی یک بخش از صفحه اثر بگذاری.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="what-is-div">div چیست؟</h2>
+        <p>
+          <code>div</code> یک المان عمومی برای گروه‌بندی محتواست. خودش معنی
+          ویژه‌ای مثل «سربرگ» یا «منو» ندارد، اما می‌تواند چند المان را کنار هم
+          نگه دارد تا ساختار صفحه را مرتب کنیم یا با CSS به آن‌ها سبک بدهیم.
+        </p>
+        <p>
+          <code>div</code> به‌طور پیش‌فرض یک عنصر بلوکی است؛ یعنی معمولاً از خط
+          جدید شروع می‌شود و فضای ردیف را می‌گیرد.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">div به‌تنهایی ظاهر خاصی ندارد</p>
+          <p>
+            اگر <code>div</code> خالی باشد یا استایلی برایش ننوشته باشیم،
+            معمولاً چیزی برای دیدن در صفحه ندارد. کاربرد اصلی آن گروه‌بندی و
+            ساختن بخش‌های قابل هدف‌گیری با CSS است.
+          </p>
+        </div>
+
+        <h2 id="grouping">گروه‌بندی چند المان</h2>
+        <p>
+          فرض کن کارت معرفی یک دوره شامل عنوان، توضیح و لینک است. می‌توانی همه‌ی
+          آن‌ها را داخل یک
+          <code>div</code> بگذاری تا یک گروه واحد بسازند.
+        </p>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: گروه‌بندی محتوا"
+          data-height="240"
+        >
+          <textarea>
+<div>
+  <h2>دوره‌ی طراحی وب</h2>
+  <p>در این دوره ساخت صفحات وب را یاد می‌گیری.</p>
+  <a href="#">مشاهده‌ی دوره</a>
+</div>
+</textarea
+          >
+        </div>
+
+        <p>
+          در این مثال، <code>div</code> والدِ عنوان، پاراگراف و لینک است و آن سه
+          المان فرزند آن هستند. می‌توانی بخش‌های مختلف صفحه را با همین روش
+          گروه‌بندی کنی.
+        </p>
+
+        <h2 id="class-and-css">استفاده از class برای استایل‌دهی</h2>
+        <p>
+          برای انتخاب یک <code>div</code> مشخص در CSS، معمولاً به آن یک ویژگی
+          <code>class</code> می‌دهیم. نام کلاس باید توصیفی باشد و در CSS با نقطه
+          نوشته شود.
+        </p>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: استایل دادن به یک گروه"
+          data-height="280"
+        >
+          <textarea>
+<style>
+  .course-card {
+    background: #eff6ff;
+    border: 2px solid #60a5fa;
+    border-radius: 10px;
+    padding: 16px;
+    margin: 10px 0;
+  }
+
+  .course-card h2 {
+    margin-top: 0;
+  }
+</style>
+
+<div class="course-card">
+  <h2>HTML مقدماتی</h2>
+  <p>با ساختار صفحه‌های وب آشنا شو.</p>
+  <a href="#">شروع یادگیری</a>
+</div>
+
+<div class="course-card">
+  <h2>CSS مقدماتی</h2>
+  <p>ظاهر صفحه‌های وب را طراحی کن.</p>
+  <a href="#">شروع یادگیری</a>
+</div>
+</textarea
+          >
+        </div>
+
+        <div class="callout tip">
+          <p class="callout-title">نام کلاس را با توجه به نقش انتخاب کن</p>
+          <p>
+            نامی مثل <code>course-card</code> درباره‌ی کاربرد گروه توضیح می‌دهد.
+            بهتر است به‌جای نام‌هایی مثل <code>blue-box</code> که فقط رنگ فعلی
+            را بیان می‌کنند، نامی انتخاب کنی که معنی بخش را نشان بدهد.
+          </p>
+        </div>
+
+        <h2 id="nesting">قرار دادن div داخل div</h2>
+        <p>
+          می‌توانی یک گروه را داخل گروه دیگری قرار بدهی. به این کار تو‌در‌تو
+          کردن می‌گویند. برای خوانایی، هر سطح را کمی تورفته‌تر بنویس و تگ‌ها را
+          به‌ترتیب درست ببند.
+        </p>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: گروه‌های تو در تو"
+          data-height="280"
+        >
+          <textarea>
+<style>
+  .profile {
+    padding: 14px;
+    background: #f1f5f9;
+  }
+
+  .profile-info {
+    padding: 10px;
+    background: #e0e7ff;
+  }
+</style>
+
+<div class="profile">
+  <h2>پروفایل دانشجو</h2>
+
+  <div class="profile-info">
+    <p>نام: سارا</p>
+    <p>دوره: طراحی وب</p>
+  </div>
+</div>
+</textarea
+          >
+        </div>
+
+        <h2 id="div-or-semantic">چه زمانی از div استفاده کنیم؟</h2>
+        <p>
+          اگر برای محتوا المانی معنادار وجود دارد، معمولاً همان را انتخاب کن.
+          مثلاً برای سربرگ از <code>header</code>، برای منو از
+          <code>nav</code> و برای محتوای اصلی از <code>main</code> استفاده کن.
+          وقتی المان معناداری مناسب نیست و فقط به یک گروه عمومی نیاز داری،
+          <code>div</code> انتخاب خوبی است.
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>نیاز</th>
+                <th>المان پیشنهادی</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>گروه عمومی برای CSS</td>
+                <td><code>div</code></td>
+              </tr>
+              <tr>
+                <td>سربرگ صفحه یا بخش</td>
+                <td><code>header</code></td>
+              </tr>
+              <tr>
+                <td>مجموعه‌ای از لینک‌های ناوبری</td>
+                <td><code>nav</code></td>
+              </tr>
+              <tr>
+                <td>محتوای اصلی صفحه</td>
+                <td><code>main</code></td>
+              </tr>
+              <tr>
+                <td>یک بخش موضوعی</td>
+                <td><code>section</code></td>
+              </tr>
+              <tr>
+                <td>یک مطلب مستقل</td>
+                <td><code>article</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout warn">
+          <p class="callout-title">همه‌چیز را داخل div نگذار</p>
+          <p>
+            استفاده‌ی بیش‌ازحد از <code>div</code> می‌تواند ساختار صفحه را
+            نامشخص کند. وقتی یک المان HTML معنای دقیق‌تری دارد، از همان استفاده
+            کن؛ این کار فهم ساختار صفحه را برای ابزارهای کمکی و مرورگرها آسان‌تر
+            می‌کند.
+          </p>
+        </div>
+
+        <h2 id="div-and-span">تفاوت div و span</h2>
+        <p>
+          هر دو المان عمومی‌اند، اما رفتار پیش‌فرضشان فرق دارد:
+          <code>div</code> بلوکی است و معمولاً برای گروه‌بندی بخش‌های بزرگ‌تر به
+          کار می‌رود؛ <code>span</code> درون‌خطی است و معمولاً برای انتخاب یا
+          استایل دادن به بخشی از متن استفاده می‌شود.
+        </p>
+
+        <div class="demo" data-title="امتحان کن: div و span" data-height="240">
+          <textarea>
+<style>
+  .highlight {
+    color: #b91c1c;
+    font-weight: bold;
+  }
+</style>
+
+<div>
+  <p>این یک گروه جداگانه است.</p>
+  <p>این هم پاراگراف دیگری در همان گروه است.</p>
+</div>
+
+<p>این جمله یک <span class="highlight">بخش برجسته</span> دارد.</p>
+</textarea
+          >
+        </div>
+
+        <h2 id="summary">خلاصه</h2>
+        <ul>
+          <li>
+            <code>div</code> المانی عمومی برای گروه‌بندی محتواست و به‌تنهایی
+            معنی ویژه‌ای ندارد.
+          </li>
+          <li>
+            برای انتخاب یک گروه در CSS می‌توانی از ویژگی
+            <code>class</code> استفاده کنی.
+          </li>
+          <li>
+            یک <code>div</code> می‌تواند چند فرزند داشته باشد و خودش هم داخل
+            گروه دیگری قرار بگیرد.
+          </li>
+          <li>
+            اگر المان معناداری مثل <code>header</code> یا
+            <code>main</code> مناسب است، آن را به <code>div</code> ترجیح بده.
+          </li>
+          <li>
+            <code>span</code> برای گروه‌بندی درون‌خطی، به‌ویژه بخشی از متن،
+            کاربرد دارد.
+          </li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>
+              با چند تمرین کوتاه، گروه‌بندی محتوا و استایل‌دهی به div را تمرین
+              کن.
+            </p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

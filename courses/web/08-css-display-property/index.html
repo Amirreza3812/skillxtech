@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ویژگی display در CSS | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body data-course="web" data-lesson="08-css-display-property" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>ویژگی display در CSS</h1>
+          <p class="lead">
+            یاد می‌گیری عناصر HTML چطور در صفحه کنار هم قرار می‌گیرند و چطور
+            نمایش آن‌ها را با ویژگی <code>display</code> تغییر بدهی.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="what-is-display">ویژگی display چیست؟</h2>
+        <p>
+          ویژگی <code>display</code> یکی از ویژگی‌های CSS است که نوع نمایش یک
+          عنصر را مشخص می‌کند؛ مثلاً عنصر در خط خودش قرار بگیرد، کنار عناصر دیگر
+          بیاید یا اصلاً دیده نشود.
+        </p>
+        <p>در این درس با چهار مقدار پرکاربرد آشنا می‌شویم:</p>
+        <ul>
+          <li><code>block</code>: عنصر بلوکی</li>
+          <li><code>inline</code>: عنصر درون‌خطی</li>
+          <li><code>inline-block</code>: ترکیبی از درون‌خطی و بلوکی</li>
+          <li><code>none</code>: پنهان کردن عنصر</li>
+        </ul>
+
+        <div class="callout note">
+          <p class="callout-title">هر عنصر نمایش پیش‌فرض دارد</p>
+          <p>
+            مثلاً <code>div</code> به‌طور پیش‌فرض بلوکی است و
+            <code>span</code> به‌طور پیش‌فرض درون‌خطی. با CSS می‌توانیم نوع
+            نمایش آن‌ها را تغییر بدهیم.
+          </p>
+        </div>
+
+        <h2 id="block">عنصرهای بلوکی: block</h2>
+        <p>
+          عنصر بلوکی معمولاً از خط جدید شروع می‌شود و تا جایی که لازم باشد عرض
+          ردیف را می‌گیرد. به همین دلیل، عنصر بعدی معمولاً در خط بعد قرار
+          می‌گیرد.
+        </p>
+        <p>
+          عنصرهایی مثل <code>div</code>، <code>p</code> و تیترهایی مثل
+          <code>h1</code> به‌طور پیش‌فرض بلوکی‌اند.
+        </p>
+
+        <div class="demo" data-title="امتحان کن: عناصر بلوکی" data-height="220">
+          <textarea>
+<style>
+  .box {
+    display: block;
+    background: #dbeafe;
+    border: 2px solid #3b82f6;
+    margin: 8px 0;
+    padding: 8px;
+  }
+</style>
+
+<div class="box">جعبه‌ی اول</div>
+<div class="box">جعبه‌ی دوم</div>
+<div class="box">جعبه‌ی سوم</div>
+</textarea
+          >
+        </div>
+
+        <h2 id="inline">عنصرهای درون‌خطی: inline</h2>
+        <p>
+          عنصر درون‌خطی در همان خطِ متن قرار می‌گیرد و به‌اندازه‌ی محتوایش فضا
+          می‌گیرد. اگر جا باشد، عنصر بعدی هم کنار آن می‌آید.
+        </p>
+        <p>
+          <code>span</code>، <code>a</code>، <code>strong</code> و
+          <code>em</code> معمولاً درون‌خطی هستند. به‌طور معمول،
+          <code>width</code> و <code>height</code> روی عنصر درون‌خطی اثری
+          ندارند.
+        </p>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: عناصر درون‌خطی"
+          data-height="200"
+        >
+          <textarea>
+<style>
+  .tag {
+    display: inline;
+    background: #dcfce7;
+    border: 2px solid #22c55e;
+    padding: 6px;
+    margin: 6px;
+  }
+</style>
+
+<span class="tag">برچسب اول</span>
+<span class="tag">برچسب دوم</span>
+<span class="tag">برچسب سوم</span>
+</textarea
+          >
+        </div>
+
+        <div class="callout warn">
+          <p class="callout-title">چرا width و height اعمال نشد؟</p>
+          <p>
+            عنصرهای <code>inline</code> برای قرار گرفتن داخل جریان متن طراحی
+            شده‌اند؛ بنابراین معمولاً نمی‌توان با <code>width</code> و
+            <code>height</code> اندازه‌ی آن‌ها را مثل یک جعبه کنترل کرد. برای
+            این کار می‌توانی از <code>inline-block</code> استفاده کنی.
+          </p>
+        </div>
+
+        <h2 id="inline-block">ترکیب دو رفتار: inline-block</h2>
+        <p>
+          عنصر <code>inline-block</code> کنار عناصر دیگر در همان خط قرار
+          می‌گیرد، اما مثل یک جعبه می‌توانی برایش <code>width</code>،
+          <code>height</code>، فاصله‌ی داخلی و حاشیه تعیین کنی.
+        </p>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: inline-block"
+          data-height="220"
+        >
+          <textarea>
+<style>
+  .card {
+    display: inline-block;
+    width: 120px;
+    height: 80px;
+    box-sizing: border-box;
+    vertical-align: top;
+    background: #fef3c7;
+    border: 2px solid #f59e0b;
+    margin: 6px;
+    padding: 10px;
+  }
+</style>
+
+<div class="card">کارت اول</div>
+<div class="card">کارت دوم</div>
+<div class="card">کارت سوم</div>
+</textarea
+          >
+        </div>
+
+        <p>
+          اگر عرض صفحه برای همه‌ی جعبه‌ها کافی نباشد، بعضی از آن‌ها به خط بعد
+          می‌روند. به همین دلیل <code>inline-block</code> برای جعبه‌های کوچک و
+          ردیفی مفید است.
+        </p>
+
+        <h2 id="none">پنهان کردن عنصر با none</h2>
+        <p>
+          وقتی مقدار <code>display</code> را <code>none</code> قرار بدهی، عنصر
+          نمایش داده نمی‌شود و فضایی هم در چیدمان صفحه اشغال نمی‌کند.
+        </p>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: نمایش و پنهان کردن"
+          data-height="210"
+        >
+          <textarea>
+<style>
+  .message {
+    padding: 10px;
+    margin: 6px 0;
+    background: #e0e7ff;
+  }
+
+  .hidden {
+    display: none;
+  }
+</style>
+
+<p class="message">این پیام دیده می‌شود.</p>
+<p class="message hidden">این پیام پنهان است و فضایی هم نمی‌گیرد.</p>
+<p class="message">این پیام هم دیده می‌شود.</p>
+</textarea
+          >
+        </div>
+
+        <div class="callout note">
+          <p class="callout-title">تفاوت display: none با visibility: hidden</p>
+          <p>
+            <code>display: none</code> عنصر را از نمایش و چیدمان صفحه حذف
+            می‌کند. اما <code>visibility: hidden</code> عنصر را نامرئی می‌کند
+            ولی جای خالی آن را نگه می‌دارد.
+          </p>
+        </div>
+
+        <h2 id="compare">مقایسه‌ی مقدارها</h2>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مقدار</th>
+                <th>شروع از خط جدید</th>
+                <th>width و height</th>
+                <th>نمونه‌ی رایج</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>block</code></td>
+                <td>بله</td>
+                <td>قابل تنظیم</td>
+                <td><code>div</code> و <code>p</code></td>
+              </tr>
+              <tr>
+                <td><code>inline</code></td>
+                <td>خیر</td>
+                <td>معمولاً اثر ندارد</td>
+                <td><code>a</code> و <code>span</code></td>
+              </tr>
+              <tr>
+                <td><code>inline-block</code></td>
+                <td>خیر، تا وقتی جا باشد</td>
+                <td>قابل تنظیم</td>
+                <td>برچسب‌ها و جعبه‌های ردیفی</td>
+              </tr>
+              <tr>
+                <td><code>none</code></td>
+                <td>نمایش داده نمی‌شود</td>
+                <td>عنصر در چیدمان نیست</td>
+                <td>محتوای پنهان</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="flex-grid">نگاهی کوتاه به flex و grid</h2>
+        <p>
+          دو مقدار مهم دیگر، <code>flex</code> و <code>grid</code> هستند. آن‌ها
+          برای چیدمان چند عنصر داخل یک والد به کار می‌روند؛ مثلاً برای ساختن
+          ردیف‌هایی انعطاف‌پذیر یا چیدمان شبکه‌ای.
+        </p>
+        <p>
+          فعلاً کافی است بدانی با نوشتن <code>display: flex</code> یا
+          <code>display: grid</code>
+          روی یک عنصر والد، شیوه‌ی چیدمان فرزندانش را تغییر می‌دهی. در درس‌های
+          بعدی جداگانه با آن‌ها کار می‌کنیم.
+        </p>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: آشنایی با flex"
+          data-height="200"
+        >
+          <textarea>
+<style>
+  .row {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: #f1f5f9;
+  }
+
+  .item {
+    padding: 12px;
+    background: #ddd6fe;
+    border: 1px solid #8b5cf6;
+  }
+</style>
+
+<div class="row">
+  <div class="item">یک</div>
+  <div class="item">دو</div>
+  <div class="item">سه</div>
+</div>
+</textarea
+          >
+        </div>
+
+        <h2 id="summary">خلاصه</h2>
+        <ul>
+          <li>
+            <code>display: block</code> عنصر را بلوکی می‌کند؛ معمولاً از خط جدید
+            شروع می‌شود.
+          </li>
+          <li>
+            <code>display: inline</code> عنصر را در جریان متن نگه می‌دارد؛
+            معمولاً <code>width</code> و <code>height</code> روی آن اثر ندارند.
+          </li>
+          <li>
+            <code>display: inline-block</code> عنصر را کنار بقیه نگه می‌دارد و
+            امکان تنظیم اندازه‌ی جعبه را می‌دهد.
+          </li>
+          <li>
+            <code>display: none</code> عنصر را از نمایش و چیدمان صفحه حذف
+            می‌کند.
+          </li>
+          <li>
+            <code>display: flex</code> و <code>display: grid</code> ابزارهایی
+            برای چیدمان فرزندان یک عنصر والد هستند.
+          </li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>چند تمرین کوتاه درباره‌ی مقدارهای display منتظرت است.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

@@ -1,52 +1,63 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>hover، transition و box-shadow | طراحی وب</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>hover، transition و box-shadow | طراحی وب</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../shared/css/lesson.css">
-</head>
-<body data-course="web" data-lesson="03-hover-transition" data-root="../../../">
-
-  <header class="masthead">
-    <div class="topbar">
-      <div class="wrap">
-        <a href="../../../index.html">بازگشت به داشبورد</a>
-        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="03-hover-transition-shadows"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
       </div>
-    </div>
-    <div class="hero">
-      <div class="wrap">
-        <p class="hero-course" id="crumb-course">طراحی وب</p>
-        <h1>hover، transition و box-shadow</h1>
-        <p class="lead">صفحه را زنده کن: با رفتن موس روی یک المان، رنگ و سایه‌اش نرم تغییر کند و در پایان یک دکمه‌ی زیبا بسازی.</p>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>hover، transition و box-shadow</h1>
+          <p class="lead">
+            صفحه را زنده کن: با رفتن موس روی یک المان، رنگ و سایه‌اش نرم تغییر
+            کند و در پایان یک دکمه‌ی زیبا بسازی.
+          </p>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <div class="wrap page">
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
 
-    <aside class="toc" aria-label="فهرست درس">
-      <p class="toc-title">در این درس</p>
-      <ul id="toc"></ul>
-    </aside>
+      <article class="lesson">
+        <!-- ========== ۱ ========== -->
+        <h2 id="hover-intro">موس را روی دکمه ببر</h2>
+        <p>
+          تا حالا دیده‌ای در بعضی وب‌سایت‌ها وقتی نشانگر موس را روی یک چیز
+          می‌بری، اتفاقی می‌افتد؟ مثلاً رنگ یک دکمه کمی عوض می‌شود، یک کارت سایه
+          می‌گیرد یا زیر یک لینک خط می‌افتد. همین الان خودت امتحانش کن:
+        </p>
 
-    <article class="lesson">
-
-      <!-- ========== ۱ ========== -->
-      <h2 id="hover-intro">موس را روی دکمه ببر</h2>
-      <p>
-        تا حالا دیده‌ای در بعضی وب‌سایت‌ها وقتی نشانگر موس را روی یک چیز می‌بری، اتفاقی می‌افتد؟
-        مثلاً رنگ یک دکمه کمی عوض می‌شود، یک کارت سایه می‌گیرد یا زیر یک لینک خط می‌افتد.
-        همین الان خودت امتحانش کن:
-      </p>
-
-      <div class="demo" data-title="امتحان کن: موس را روی دکمه ببر" data-height="180">
-<textarea>
+        <div
+          class="demo"
+          data-title="امتحان کن: موس را روی دکمه ببر"
+          data-height="180"
+        >
+          <textarea>
 <style>
   button {
     background-color: #2f5bea;
@@ -63,59 +74,90 @@
 </style>
 
 <button>موس را روی من ببر</button>
-</textarea>
-      </div>
+</textarea
+          >
+        </div>
 
-      <p>
-        به این اتفاق می‌گوییم <strong>hover</strong>، یعنی «حالتی که موس روی المان است».
-        سؤال این است که در کد چطور به المان بگوییم «وقتی موس روی تو بود، این‌طور شو»؟
-        جوابش یک ابزار جدید در CSS است: <strong>شبه‌کلاس</strong>.
-      </p>
+        <p>
+          به این اتفاق می‌گوییم <strong>hover</strong>، یعنی «حالتی که موس روی
+          المان است». سؤال این است که در کد چطور به المان بگوییم «وقتی موس روی
+          تو بود، این‌طور شو»؟ جوابش یک ابزار جدید در CSS است:
+          <strong>شبه‌کلاس</strong>.
+        </p>
 
-      <p>در همین دکمه دو ویژگی جدید هم هست که قبلاً ندیده بودی:</p>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th>ویژگی</th><th>کاربرد</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>border-radius</code></td><td>گرد کردن گوشه‌ها. عدد بزرگ‌تر یعنی گوشه‌ی گردتر</td></tr>
-            <tr><td><code>cursor: pointer</code></td><td>تبدیل نشانگر موس به شکل دست، مثل لینک‌ها</td></tr>
-          </tbody>
-        </table>
-      </div>
+        <p>در همین دکمه دو ویژگی جدید هم هست که قبلاً ندیده بودی:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>ویژگی</th>
+                <th>کاربرد</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>border-radius</code></td>
+                <td>گرد کردن گوشه‌ها. عدد بزرگ‌تر یعنی گوشه‌ی گردتر</td>
+              </tr>
+              <tr>
+                <td><code>cursor: pointer</code></td>
+                <td>تبدیل نشانگر موس به شکل دست، مثل لینک‌ها</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <!-- ========== ۲ ========== -->
-      <h2 id="pseudo-classes">شبه‌کلاس‌ها</h2>
-      <p>
-        شبه‌کلاس یک «حالت خاص» از المان را انتخاب می‌کند. آن را بعد از انتخابگر و با یک دونقطه می‌نویسیم.
-        شبه‌کلاسی که برای رفتن موس روی المان استفاده می‌شود <code>:hover</code> است:
-      </p>
+        <!-- ========== ۲ ========== -->
+        <h2 id="pseudo-classes">شبه‌کلاس‌ها</h2>
+        <p>
+          شبه‌کلاس یک «حالت خاص» از المان را انتخاب می‌کند. آن را بعد از
+          انتخابگر و با یک دونقطه می‌نویسیم. شبه‌کلاسی که برای رفتن موس روی
+          المان استفاده می‌شود <code>:hover</code> است:
+        </p>
 
-      <div class="anatomy">
-        <p class="anatomy-line"><span class="t-tag">button</span><span class="t-attr">:hover</span> <span class="t-text">{</span><br>&nbsp;&nbsp;<span class="t-text">background-color:</span> <span class="t-value">#14263a</span><span class="t-text">;</span><br><span class="t-text">}</span></p>
-        <ul class="anatomy-legend">
-          <li class="l-tag">انتخابگر معمولی</li>
-          <li class="l-attr">شبه‌کلاس (حالت خاص)</li>
-          <li class="l-value">تغییر در آن حالت</li>
-        </ul>
-      </div>
+        <div class="anatomy">
+          <p class="anatomy-line">
+            <span class="t-tag">button</span><span class="t-attr">:hover</span>
+            <span class="t-text">{</span><br />&nbsp;&nbsp;<span class="t-text"
+              >background-color:</span
+            >
+            <span class="t-value">#14263a</span><span class="t-text">;</span
+            ><br /><span class="t-text">}</span>
+          </p>
+          <ul class="anatomy-legend">
+            <li class="l-tag">انتخابگر معمولی</li>
+            <li class="l-attr">شبه‌کلاس (حالت خاص)</li>
+            <li class="l-value">تغییر در آن حالت</li>
+          </ul>
+        </div>
 
-      <p>
-        یعنی: «دکمه‌ای که الان موس روی آن است، رنگ پس‌زمینه‌اش این باشد».
-        به‌محض این‌که موس از روی دکمه برود، این قانون خاموش می‌شود و دکمه به حالت عادی برمی‌گردد.
-      </p>
+        <p>
+          یعنی: «دکمه‌ای که الان موس روی آن است، رنگ پس‌زمینه‌اش این باشد».
+          به‌محض این‌که موس از روی دکمه برود، این قانون خاموش می‌شود و دکمه به
+          حالت عادی برمی‌گردد.
+        </p>
 
-      <div class="callout warn">
-        <p class="callout-title">بین انتخابگر و شبه‌کلاس فاصله نگذار</p>
-        <p><code>button:hover</code> درست است. <code>button :hover</code> (با فاصله) یا <code>button hover</code> (بدون دونقطه) معنی دیگری دارند و کار نمی‌کنند.</p>
-      </div>
+        <div class="callout warn">
+          <p class="callout-title">بین انتخابگر و شبه‌کلاس فاصله نگذار</p>
+          <p>
+            <code>button:hover</code> درست است. <code>button :hover</code> (با
+            فاصله) یا <code>button hover</code> (بدون دونقطه) معنی دیگری دارند و
+            کار نمی‌کنند.
+          </p>
+        </div>
 
-      <h3>hover روی هر المانی کار می‌کند</h3>
-      <p>فقط دکمه نیست. لینک، کارت، عکس و هر المان دیگری می‌تواند حالت hover داشته باشد:</p>
+        <h3>hover روی هر المانی کار می‌کند</h3>
+        <p>
+          فقط دکمه نیست. لینک، کارت، عکس و هر المان دیگری می‌تواند حالت hover
+          داشته باشد:
+        </p>
 
-      <div class="demo" data-title="امتحان کن: hover روی لینک و کارت" data-height="260">
-<textarea>
+        <div
+          class="demo"
+          data-title="امتحان کن: hover روی لینک و کارت"
+          data-height="260"
+        >
+          <textarea>
 <style>
   a {
     color: #2f5bea;
@@ -139,18 +181,29 @@
 
 <p><a href="#">لینکی که با hover خط‌دار می‌شود</a></p>
 <div class="card">موس را روی این کارت ببر</div>
-</textarea>
-      </div>
+</textarea
+          >
+        </div>
 
-      <h3>شبه‌کلاس‌های دیگر</h3>
-      <p>دو شبه‌کلاس پرکاربرد دیگر هم وجود دارد:</p>
-      <ul>
-        <li><code>:active</code>: حالتی که المان در لحظه‌ی کلیک (نگه داشتن دکمه‌ی موس) است</li>
-        <li><code>:focus</code>: حالتی که المان انتخاب شده است، مثلاً وقتی داخل یک کادر ورودی کلیک می‌کنی یا با کلید Tab به آن می‌رسی</li>
-      </ul>
+        <h3>شبه‌کلاس‌های دیگر</h3>
+        <p>دو شبه‌کلاس پرکاربرد دیگر هم وجود دارد:</p>
+        <ul>
+          <li>
+            <code>:active</code>: حالتی که المان در لحظه‌ی کلیک (نگه داشتن
+            دکمه‌ی موس) است
+          </li>
+          <li>
+            <code>:focus</code>: حالتی که المان انتخاب شده است، مثلاً وقتی داخل
+            یک کادر ورودی کلیک می‌کنی یا با کلید Tab به آن می‌رسی
+          </li>
+        </ul>
 
-      <div class="demo" data-title="امتحان کن: active و focus" data-height="260">
-<textarea>
+        <div
+          class="demo"
+          data-title="امتحان کن: active و focus"
+          data-height="260"
+        >
+          <textarea>
 <style>
   button {
     background-color: #2f5bea;
@@ -182,35 +235,44 @@
 
 <p><button>نگه دار و کلیک کن</button></p>
 <p><input type="text" placeholder="داخل من کلیک کن"></p>
-</textarea>
-      </div>
+</textarea
+          >
+        </div>
 
-      <div class="callout note">
-        <p class="callout-title">در موبایل hover وجود ندارد</p>
+        <div class="callout note">
+          <p class="callout-title">در موبایل hover وجود ندارد</p>
+          <p>
+            صفحه‌ی لمسی موس ندارد، پس hover یا اصلاً اتفاق نمی‌افتد یا بعد از
+            لمس گیر می‌کند. از hover فقط برای زیباتر شدن استفاده کن و اطلاعات
+            مهم را فقط پشت hover پنهان نکن.
+          </p>
+        </div>
+
+        <!-- ========== ۳ ========== -->
+        <h2 id="transition">transition: تغییر نرم</h2>
         <p>
-          صفحه‌ی لمسی موس ندارد، پس hover یا اصلاً اتفاق نمی‌افتد یا بعد از لمس گیر می‌کند.
-          از hover فقط برای زیباتر شدن استفاده کن و اطلاعات مهم را فقط پشت hover پنهان نکن.
+          دقت کردی؟ در دکمه‌های بالا رنگ ناگهانی عوض می‌شود. در سایت‌های حرفه‌ای
+          معمولاً تغییر نرم و تدریجی است. این کار را ویژگی
+          <code>transition</code> انجام می‌دهد: به مرورگر می‌گوید تغییر یک ویژگی
+          را به‌جای ناگهانی، در یک مدت مشخص انجام بده.
         </p>
-      </div>
 
-      <!-- ========== ۳ ========== -->
-      <h2 id="transition">transition: تغییر نرم</h2>
-      <p>
-        دقت کردی؟ در دکمه‌های بالا رنگ ناگهانی عوض می‌شود. در سایت‌های حرفه‌ای معمولاً تغییر نرم و تدریجی است.
-        این کار را ویژگی <code>transition</code> انجام می‌دهد: به مرورگر می‌گوید تغییر یک ویژگی را به‌جای ناگهانی، در یک مدت مشخص انجام بده.
-      </p>
+        <div class="anatomy">
+          <p class="anatomy-line">
+            <span class="t-text">transition:</span>
+            <span class="t-tag">background-color</span>
+            <span class="t-value">0.3s</span> <span class="t-attr">ease</span
+            ><span class="t-text">;</span>
+          </p>
+          <ul class="anatomy-legend">
+            <li class="l-tag">ویژگی‌ای که تغییرش نرم شود</li>
+            <li class="l-value">مدت زمان</li>
+            <li class="l-attr">شیوه‌ی حرکت (اختیاری)</li>
+          </ul>
+        </div>
 
-      <div class="anatomy">
-        <p class="anatomy-line"><span class="t-text">transition:</span> <span class="t-tag">background-color</span> <span class="t-value">0.3s</span> <span class="t-attr">ease</span><span class="t-text">;</span></p>
-        <ul class="anatomy-legend">
-          <li class="l-tag">ویژگی‌ای که تغییرش نرم شود</li>
-          <li class="l-value">مدت زمان</li>
-          <li class="l-attr">شیوه‌ی حرکت (اختیاری)</li>
-        </ul>
-      </div>
-
-      <div class="demo" data-title="امتحان کن: transition" data-height="180">
-<textarea>
+        <div class="demo" data-title="امتحان کن: transition" data-height="180">
+          <textarea>
 <style>
   button {
     background-color: #2f5bea;
@@ -228,17 +290,23 @@
 </style>
 
 <button>تغییر نرم</button>
-</textarea>
-      </div>
+</textarea
+          >
+        </div>
 
-      <h3>مدت زمان</h3>
-      <p>
-        مدت را با ثانیه (<code>s</code>) یا هزارم ثانیه (<code>ms</code>) می‌نویسیم، مثلاً <code>0.3s</code> یا <code>300ms</code>.
-        در کادر زیر سه دکمه با مدت‌های مختلف هست. موس را روی هر کدام ببر و مقایسه کن:
-      </p>
+        <h3>مدت زمان</h3>
+        <p>
+          مدت را با ثانیه (<code>s</code>) یا هزارم ثانیه (<code>ms</code>)
+          می‌نویسیم، مثلاً <code>0.3s</code> یا <code>300ms</code>. در کادر زیر
+          سه دکمه با مدت‌های مختلف هست. موس را روی هر کدام ببر و مقایسه کن:
+        </p>
 
-      <div class="demo" data-title="امتحان کن: مدت transition" data-height="260">
-<textarea>
+        <div
+          class="demo"
+          data-title="امتحان کن: مدت transition"
+          data-height="260"
+        >
+          <textarea>
 <style>
   button {
     background-color: #2f5bea;
@@ -260,43 +328,77 @@
 <p><button class="fast">۰.۱ ثانیه</button></p>
 <p><button class="normal">۰.۳ ثانیه</button></p>
 <p><button class="slow">۱ ثانیه</button></p>
-</textarea>
-      </div>
-      <p>برای رابط کاربری معمولاً مدت بین <code>0.2s</code> و <code>0.4s</code> مناسب است. کمتر از آن دیده نمی‌شود و بیشتر از آن کند به نظر می‌رسد.</p>
-
-      <h3>شیوه‌ی حرکت</h3>
-      <p>مقدار سوم (اختیاری) مشخص می‌کند سرعت تغییر در طول مدت چطور باشد:</p>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th>مقدار</th><th>معنی</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><code>ease</code></td><td>پیش‌فرض: آرام شروع، سریع‌تر در میانه، آرام پایان</td></tr>
-            <tr><td><code>linear</code></td><td>سرعت ثابت در تمام مدت</td></tr>
-            <tr><td><code>ease-in</code></td><td>آرام شروع می‌شود و سریع تمام می‌شود</td></tr>
-            <tr><td><code>ease-out</code></td><td>سریع شروع می‌شود و آرام تمام می‌شود</td></tr>
-            <tr><td><code>ease-in-out</code></td><td>هم شروع و هم پایان آرام است</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>چند ویژگی با هم</h3>
-      <p>برای نرم کردن چند ویژگی، آن‌ها را با کاما از هم جدا کن:</p>
-      <pre class="code"><code>transition: background-color 0.3s, color 0.3s;</code></pre>
-      <p>کلمه‌ی <code>all</code> هم هست که همه‌ی ویژگی‌های قابل تغییر را نرم می‌کند. راحت است، ولی گاهی چیزهایی را هم نرم می‌کند که نمی‌خواستی. بهتر است ویژگی‌ها را مشخص بنویسی.</p>
-
-      <div class="callout warn">
-        <p class="callout-title">transition را کجا بنویسیم؟</p>
+</textarea
+          >
+        </div>
         <p>
-          transition را داخل قانون <strong>حالت عادی</strong> بنویس، نه داخل <code>:hover</code>.
-          اگر فقط داخل <code>:hover</code> باشد، رفتن موس روی دکمه نرم است ولی برگشتن رنگ بعد از رفتن موس ناگهانی می‌شود.
-          این را با دو دکمه‌ی زیر امتحان کن (موس را روی هر دو ببر و بعد بردار).
+          برای رابط کاربری معمولاً مدت بین <code>0.2s</code> و
+          <code>0.4s</code> مناسب است. کمتر از آن دیده نمی‌شود و بیشتر از آن کند
+          به نظر می‌رسد.
         </p>
-      </div>
 
-      <div class="demo" data-title="امتحان کن: جای transition" data-height="260">
-<textarea>
+        <h3>شیوه‌ی حرکت</h3>
+        <p>مقدار سوم (اختیاری) مشخص می‌کند سرعت تغییر در طول مدت چطور باشد:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مقدار</th>
+                <th>معنی</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>ease</code></td>
+                <td>پیش‌فرض: آرام شروع، سریع‌تر در میانه، آرام پایان</td>
+              </tr>
+              <tr>
+                <td><code>linear</code></td>
+                <td>سرعت ثابت در تمام مدت</td>
+              </tr>
+              <tr>
+                <td><code>ease-in</code></td>
+                <td>آرام شروع می‌شود و سریع تمام می‌شود</td>
+              </tr>
+              <tr>
+                <td><code>ease-out</code></td>
+                <td>سریع شروع می‌شود و آرام تمام می‌شود</td>
+              </tr>
+              <tr>
+                <td><code>ease-in-out</code></td>
+                <td>هم شروع و هم پایان آرام است</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>چند ویژگی با هم</h3>
+        <p>برای نرم کردن چند ویژگی، آن‌ها را با کاما از هم جدا کن:</p>
+        <pre
+          class="code"
+        ><code>transition: background-color 0.3s, color 0.3s;</code></pre>
+        <p>
+          کلمه‌ی <code>all</code> هم هست که همه‌ی ویژگی‌های قابل تغییر را نرم
+          می‌کند. راحت است، ولی گاهی چیزهایی را هم نرم می‌کند که نمی‌خواستی.
+          بهتر است ویژگی‌ها را مشخص بنویسی.
+        </p>
+
+        <div class="callout warn">
+          <p class="callout-title">transition را کجا بنویسیم؟</p>
+          <p>
+            transition را داخل قانون <strong>حالت عادی</strong> بنویس، نه داخل
+            <code>:hover</code>. اگر فقط داخل <code>:hover</code> باشد، رفتن موس
+            روی دکمه نرم است ولی برگشتن رنگ بعد از رفتن موس ناگهانی می‌شود. این
+            را با دو دکمه‌ی زیر امتحان کن (موس را روی هر دو ببر و بعد بردار).
+          </p>
+        </div>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: جای transition"
+          data-height="260"
+        >
+          <textarea>
 <style>
   button {
     background-color: #2f5bea;
@@ -325,42 +427,59 @@
 
 <p><button class="wrong">اشتباه: فقط رفتن نرم است</button></p>
 <p><button class="right">درست: رفتن و برگشتن نرم است</button></p>
-</textarea>
-      </div>
+</textarea
+          >
+        </div>
 
-      <!-- ========== ۴ ========== -->
-      <h2 id="box-shadow">box-shadow: سایه</h2>
-      <p>
-        سایه به المان‌ها عمق می‌دهد و آن‌ها را از پس‌زمینه جدا می‌کند. سایه‌ی دور جعبه‌ی یک المان را با <code>box-shadow</code> می‌سازیم:
-      </p>
-
-      <div class="anatomy">
-        <p class="anatomy-line"><span class="t-text">box-shadow:</span> <span class="t-tag">0</span> <span class="t-attr">4px</span> <span class="t-value">12px</span> <span class="t-text">rgba(0, 0, 0, 0.2)</span><span class="t-text">;</span></p>
-        <ul class="anatomy-legend">
-          <li class="l-tag">جابه‌جایی افقی</li>
-          <li class="l-attr">جابه‌جایی عمودی</li>
-          <li class="l-value">میزان محو بودن (blur)</li>
-          <li class="l-text">رنگ سایه</li>
-        </ul>
-      </div>
-
-      <ul>
-        <li>عدد اول سایه را به راست (مثبت) یا چپ (منفی) می‌برد.</li>
-        <li>عدد دوم سایه را به پایین (مثبت) یا بالا (منفی) می‌برد.</li>
-        <li>عدد سوم هر چه بزرگ‌تر باشد سایه محو‌تر و پخش‌تر می‌شود. صفر یعنی سایه‌ی تیز.</li>
-        <li>رنگ آخر رنگ سایه است.</li>
-      </ul>
-
-      <div class="callout note">
-        <p class="callout-title">رنگ شفاف با rgba</p>
+        <!-- ========== ۴ ========== -->
+        <h2 id="box-shadow">box-shadow: سایه</h2>
         <p>
-          <code>rgba(0, 0, 0, 0.2)</code> مثل <code>rgb</code> است ولی یک عدد چهارم هم دارد که شفافیت را از ۰ (کاملاً شفاف) تا ۱ (کاملاً پررنگ) مشخص می‌کند.
-          یعنی سیاه با ۲۰ درصد غلظت. سایه‌ی واقعی معمولاً شفاف است، به همین دلیل از rgba برای سایه زیاد استفاده می‌کنیم.
+          سایه به المان‌ها عمق می‌دهد و آن‌ها را از پس‌زمینه جدا می‌کند. سایه‌ی
+          دور جعبه‌ی یک المان را با <code>box-shadow</code> می‌سازیم:
         </p>
-      </div>
 
-      <div class="demo" data-title="امتحان کن: سایه‌های مختلف" data-height="260">
-<textarea>
+        <div class="anatomy">
+          <p class="anatomy-line">
+            <span class="t-text">box-shadow:</span>
+            <span class="t-tag">0</span> <span class="t-attr">4px</span>
+            <span class="t-value">12px</span>
+            <span class="t-text">rgba(0, 0, 0, 0.2)</span
+            ><span class="t-text">;</span>
+          </p>
+          <ul class="anatomy-legend">
+            <li class="l-tag">جابه‌جایی افقی</li>
+            <li class="l-attr">جابه‌جایی عمودی</li>
+            <li class="l-value">میزان محو بودن (blur)</li>
+            <li class="l-text">رنگ سایه</li>
+          </ul>
+        </div>
+
+        <ul>
+          <li>عدد اول سایه را به راست (مثبت) یا چپ (منفی) می‌برد.</li>
+          <li>عدد دوم سایه را به پایین (مثبت) یا بالا (منفی) می‌برد.</li>
+          <li>
+            عدد سوم هر چه بزرگ‌تر باشد سایه محو‌تر و پخش‌تر می‌شود. صفر یعنی
+            سایه‌ی تیز.
+          </li>
+          <li>رنگ آخر رنگ سایه است.</li>
+        </ul>
+
+        <div class="callout note">
+          <p class="callout-title">رنگ شفاف با rgba</p>
+          <p>
+            <code>rgba(0, 0, 0, 0.2)</code> مثل <code>rgb</code> است ولی یک عدد
+            چهارم هم دارد که شفافیت را از ۰ (کاملاً شفاف) تا ۱ (کاملاً پررنگ)
+            مشخص می‌کند. یعنی سیاه با ۲۰ درصد غلظت. سایه‌ی واقعی معمولاً شفاف
+            است، به همین دلیل از rgba برای سایه زیاد استفاده می‌کنیم.
+          </p>
+        </div>
+
+        <div
+          class="demo"
+          data-title="امتحان کن: سایه‌های مختلف"
+          data-height="260"
+        >
+          <textarea>
 <style>
   body {
     background-color: #f2f5f7;
@@ -380,19 +499,31 @@
 <div class="card s1">سایه‌ی کم</div>
 <div class="card s2">سایه‌ی نرم و بزرگ</div>
 <div class="card s3">سایه‌ی تیز</div>
-</textarea>
-      </div>
+</textarea
+          >
+        </div>
 
-      <div class="callout tip">
-        <p class="callout-title">سایه‌ی خوب ملایم است</p>
-        <p>سایه‌ی سیاه و پررنگ سنگین و قدیمی به نظر می‌رسد. معمولاً شفافیت بین <code>0.1</code> و <code>0.25</code> با blur بزرگ‌تر نتیجه‌ی بهتری می‌دهد.</p>
-      </div>
+        <div class="callout tip">
+          <p class="callout-title">سایه‌ی خوب ملایم است</p>
+          <p>
+            سایه‌ی سیاه و پررنگ سنگین و قدیمی به نظر می‌رسد. معمولاً شفافیت بین
+            <code>0.1</code> و <code>0.25</code> با blur بزرگ‌تر نتیجه‌ی بهتری
+            می‌دهد.
+          </p>
+        </div>
 
-      <h3>سایه + hover + transition</h3>
-      <p>حالا هر سه با هم: کارتی که با رفتن موس، سایه‌اش بزرگ‌تر می‌شود و این تغییر نرم انجام می‌شود.</p>
+        <h3>سایه + hover + transition</h3>
+        <p>
+          حالا هر سه با هم: کارتی که با رفتن موس، سایه‌اش بزرگ‌تر می‌شود و این
+          تغییر نرم انجام می‌شود.
+        </p>
 
-      <div class="demo" data-title="امتحان کن: کارت با سایه‌ی hover" data-height="240">
-<textarea>
+        <div
+          class="demo"
+          data-title="امتحان کن: کارت با سایه‌ی hover"
+          data-height="240"
+        >
+          <textarea>
 <style>
   body {
     background-color: #f2f5f7;
@@ -412,31 +543,48 @@
 </style>
 
 <div class="card">موس را روی این کارت ببر</div>
-</textarea>
-      </div>
+</textarea
+          >
+        </div>
 
-      <!-- ========== ۵ ========== -->
-      <h2 id="nice-button">ساختن یک دکمه‌ی زیبا</h2>
-      <p>همه‌ی چیزهایی که یاد گرفتی را کنار هم می‌گذاریم. دکمه را مرحله‌به‌مرحله می‌سازیم:</p>
-      <ol>
-        <li>ظاهر اصلی: رنگ، گوشه‌ی گرد، اندازه‌ی نوشته و <code>padding</code></li>
-        <li>یک سایه‌ی ملایم هم‌رنگ دکمه</li>
-        <li>در حالت <code>:hover</code>: رنگ تیره‌تر، سایه‌ی بزرگ‌تر و کمی بالا آمدن دکمه</li>
-        <li>در حالت <code>:active</code>: دکمه برمی‌گردد پایین، مثل این‌که فشرده شده</li>
-        <li>یک <code>transition</code> در حالت عادی که همه‌ی این تغییرها را نرم کند</li>
-      </ol>
-
-      <div class="callout note">
-        <p class="callout-title">یک ویژگی جدید: transform</p>
+        <!-- ========== ۵ ========== -->
+        <h2 id="nice-button">ساختن یک دکمه‌ی زیبا</h2>
         <p>
-          <code>transform: translateY(-3px)</code> المان را ۳ پیکسل به بالا می‌برد (عدد منفی یعنی بالا و مثبت یعنی پایین)
-          بدون این‌که جای بقیه‌ی المان‌های صفحه تغییر کند. برای حالت «بالا آمدن» دکمه از آن استفاده می‌کنیم.
-          برای نرم شدنش باید <code>transform</code> هم در <code>transition</code> نوشته شود.
+          همه‌ی چیزهایی که یاد گرفتی را کنار هم می‌گذاریم. دکمه را
+          مرحله‌به‌مرحله می‌سازیم:
         </p>
-      </div>
+        <ol>
+          <li>
+            ظاهر اصلی: رنگ، گوشه‌ی گرد، اندازه‌ی نوشته و <code>padding</code>
+          </li>
+          <li>یک سایه‌ی ملایم هم‌رنگ دکمه</li>
+          <li>
+            در حالت <code>:hover</code>: رنگ تیره‌تر، سایه‌ی بزرگ‌تر و کمی بالا
+            آمدن دکمه
+          </li>
+          <li>
+            در حالت <code>:active</code>: دکمه برمی‌گردد پایین، مثل این‌که فشرده
+            شده
+          </li>
+          <li>
+            یک <code>transition</code> در حالت عادی که همه‌ی این تغییرها را نرم
+            کند
+          </li>
+        </ol>
 
-      <div class="demo" data-title="امتحان کن: دکمه‌ی کامل" data-height="400">
-<textarea>
+        <div class="callout note">
+          <p class="callout-title">یک ویژگی جدید: transform</p>
+          <p>
+            <code>transform: translateY(-3px)</code> المان را ۳ پیکسل به بالا
+            می‌برد (عدد منفی یعنی بالا و مثبت یعنی پایین) بدون این‌که جای بقیه‌ی
+            المان‌های صفحه تغییر کند. برای حالت «بالا آمدن» دکمه از آن استفاده
+            می‌کنیم. برای نرم شدنش باید <code>transform</code> هم در
+            <code>transition</code> نوشته شود.
+          </p>
+        </div>
+
+        <div class="demo" data-title="امتحان کن: دکمه‌ی کامل" data-height="400">
+          <textarea>
 <style>
   body {
     padding: 20px;
@@ -479,62 +627,122 @@
 
 <button class="btn">دکمه‌ی اصلی</button>
 <button class="btn btn-outline">دکمه‌ی دوم</button>
-</textarea>
-      </div>
-
-      <p>
-        دکمه‌ی دوم از همان کلاس <code>btn</code> استفاده می‌کند و فقط چند ویژگی‌اش را با کلاس <code>btn-outline</code> عوض کرده‌ایم.
-        به این ترتیب بدون تکرار کد، چند نوع دکمه داریم.
-      </p>
-
-      <div class="callout tip">
-        <p class="callout-title">خودت امتحان کن</p>
-        <p>رنگ‌ها را عوض کن، عدد <code>border-radius</code> را بزرگ کن تا دکمه کپسولی شود، یا مدت transition را تغییر بده و ببین دکمه چه حسی پیدا می‌کند.</p>
-      </div>
-
-      <!-- ========== ۶ ========== -->
-      <h2 id="mistakes">اشتباه‌های رایج</h2>
-      <ul>
-        <li><strong>اشتباه در نوشتن شبه‌کلاس.</strong> <code>button:hover</code> درست است، ولی <code>button hover</code> یا <code>button :hover</code> کار نمی‌کند.</li>
-        <li><strong>گذاشتن transition فقط داخل :hover.</strong> برگشتن به حالت عادی ناگهانی می‌شود. transition را در قانون حالت عادی بنویس.</li>
-        <li><strong>یادت رفته واحد را بنویسی.</strong> <code>0.3</code> بدون <code>s</code> و <code>12</code> بدون <code>px</code> (در سایه) نامعتبرند و مرورگر کل آن خط را نادیده می‌گیرد.</li>
-        <li><strong>تغییر می‌کند ولی نرم نیست.</strong> ممکن است در transition اسم ویژگی دیگری نوشته باشی. مثلاً <code>transition: color 0.3s</code> برای تغییر <code>background-color</code> اثری ندارد.</li>
-        <li><strong>سایه‌ی خیلی پررنگ یا تیز.</strong> شفافیت را کم و blur را بیشتر کن.</li>
-        <li><strong>تکیه‌ی کامل بر hover.</strong> در گوشی hover وجود ندارد، پس اطلاعات یا دکمه‌ی ضروری را فقط با hover نشان نده.</li>
-      </ul>
-
-      <!-- ========== ۷ ========== -->
-      <h2 id="summary">خلاصه</h2>
-      <div class="table-scroll">
-        <table>
-          <thead>
-            <tr><th>مفهوم</th><th>یادآوری</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>شبه‌کلاس</td><td><code>selector:hover</code>، <code>:active</code> و <code>:focus</code></td></tr>
-            <tr><td>تغییر نرم</td><td><code>transition: property 0.3s</code> در قانون حالت عادی</td></tr>
-            <tr><td>سایه</td><td><code>box-shadow: x y blur color</code></td></tr>
-            <tr><td>رنگ شفاف</td><td><code>rgba(r, g, b, alpha)</code></td></tr>
-            <tr><td>گوشه‌ی گرد</td><td><code>border-radius</code></td></tr>
-            <tr><td>جابه‌جایی</td><td><code>transform: translateY(-3px)</code></td></tr>
-            <tr><td>نشانگر دست</td><td><code>cursor: pointer</code></td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <section class="next-step">
-        <div>
-          <h2>آماده‌ای؟</h2>
-          <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+</textarea
+          >
         </div>
-        <a class="btn" href="exercise.html">برو به تمرین</a>
-      </section>
 
-      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+        <p>
+          دکمه‌ی دوم از همان کلاس <code>btn</code> استفاده می‌کند و فقط چند
+          ویژگی‌اش را با کلاس <code>btn-outline</code> عوض کرده‌ایم. به این
+          ترتیب بدون تکرار کد، چند نوع دکمه داریم.
+        </p>
 
-    </article>
-  </div>
+        <div class="callout tip">
+          <p class="callout-title">خودت امتحان کن</p>
+          <p>
+            رنگ‌ها را عوض کن، عدد <code>border-radius</code> را بزرگ کن تا دکمه
+            کپسولی شود، یا مدت transition را تغییر بده و ببین دکمه چه حسی پیدا
+            می‌کند.
+          </p>
+        </div>
 
-  <script src="../../../shared/js/lesson.js"></script>
-</body>
+        <!-- ========== ۶ ========== -->
+        <h2 id="mistakes">اشتباه‌های رایج</h2>
+        <ul>
+          <li>
+            <strong>اشتباه در نوشتن شبه‌کلاس.</strong>
+            <code>button:hover</code> درست است، ولی <code>button hover</code> یا
+            <code>button :hover</code> کار نمی‌کند.
+          </li>
+          <li>
+            <strong>گذاشتن transition فقط داخل :hover.</strong> برگشتن به حالت
+            عادی ناگهانی می‌شود. transition را در قانون حالت عادی بنویس.
+          </li>
+          <li>
+            <strong>یادت رفته واحد را بنویسی.</strong> <code>0.3</code> بدون
+            <code>s</code> و <code>12</code> بدون <code>px</code> (در سایه)
+            نامعتبرند و مرورگر کل آن خط را نادیده می‌گیرد.
+          </li>
+          <li>
+            <strong>تغییر می‌کند ولی نرم نیست.</strong> ممکن است در transition
+            اسم ویژگی دیگری نوشته باشی. مثلاً
+            <code>transition: color 0.3s</code> برای تغییر
+            <code>background-color</code> اثری ندارد.
+          </li>
+          <li>
+            <strong>سایه‌ی خیلی پررنگ یا تیز.</strong> شفافیت را کم و blur را
+            بیشتر کن.
+          </li>
+          <li>
+            <strong>تکیه‌ی کامل بر hover.</strong> در گوشی hover وجود ندارد، پس
+            اطلاعات یا دکمه‌ی ضروری را فقط با hover نشان نده.
+          </li>
+        </ul>
+
+        <!-- ========== ۷ ========== -->
+        <h2 id="summary">خلاصه</h2>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مفهوم</th>
+                <th>یادآوری</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>شبه‌کلاس</td>
+                <td>
+                  <code>selector:hover</code>، <code>:active</code> و
+                  <code>:focus</code>
+                </td>
+              </tr>
+              <tr>
+                <td>تغییر نرم</td>
+                <td>
+                  <code>transition: property 0.3s</code> در قانون حالت عادی
+                </td>
+              </tr>
+              <tr>
+                <td>سایه</td>
+                <td><code>box-shadow: x y blur color</code></td>
+              </tr>
+              <tr>
+                <td>رنگ شفاف</td>
+                <td><code>rgba(r, g, b, alpha)</code></td>
+              </tr>
+              <tr>
+                <td>گوشه‌ی گرد</td>
+                <td><code>border-radius</code></td>
+              </tr>
+              <tr>
+                <td>جابه‌جایی</td>
+                <td><code>transform: translateY(-3px)</code></td>
+              </tr>
+              <tr>
+                <td>نشانگر دست</td>
+                <td><code>cursor: pointer</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>چند تمرین کوتاه درباره‌ی همین درس منتظرت است.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
 </html>

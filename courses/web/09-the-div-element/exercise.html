@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین المان div | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="09-the-div-element"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: المان div</h1>
+          <p class="lead">
+            در هر تمرین، گروه‌بندی محتوا با div و استایل‌دهی به آن را تمرین کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>گروه‌بندی یک کارت</h3>
+            <p>
+              عنوان، توضیح و لینک زیر را داخل یک <code>div</code> قرار بده تا
+              همگی اعضای یک گروه باشند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                یک تگ <code>div</code> باز پیش از عنوان و یک تگ بسته بعد از لینک
+                بنویس.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<h2>دوره‌ی HTML</h2>
+<p>ساختار صفحه‌های وب را یاد بگیر.</p>
+<a href="#">مشاهده‌ی دوره</a>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت دو کارت با class</h3>
+            <p>
+              به هر دو گروه کلاس <code>course-card</code> بده. سپس در CSS برای
+              این کلاس رنگ پس‌زمینه، فاصله‌ی داخلی و حاشیه تعیین کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                کلاس را داخل تگ باز به شکل
+                <code>class="course-card"</code> بنویس و در CSS با
+                <code>.course-card</code> انتخابش کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+              <textarea>
+<style>
+  /* استایل .course-card را اینجا بنویس */
+</style>
+
+<div>
+  <h2>HTML</h2>
+  <p>یادگیری ساختار صفحه</p>
+</div>
+
+<div>
+  <h2>CSS</h2>
+  <p>یادگیری ظاهر صفحه</p>
+</div>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>گروه تو در تو</h3>
+            <p>
+              اطلاعات دانشجو را داخل <code>div</code>ای با کلاس
+              <code>profile-info</code> بگذار. خود این گروه را داخل
+              <code>div</code> دیگری با کلاس <code>profile</code> قرار بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                گروه <code>profile-info</code> باید فرزند گروه
+                <code>profile</code> باشد؛ تگ‌ها را با ترتیب درست ببند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+<div class="profile">
+  <h2>پروفایل</h2>
+
+  <p>نام: نازنین</p>
+  <p>دوره: طراحی وب</p>
+
+</div>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>انتخاب المان مناسب</h3>
+            <p>
+              در کد زیر بخش ناوبری با <code>div</code> مشخص شده است. آن را با
+              المان معنادار مناسب جایگزین کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای گروهی از لینک‌های ناوبری از <code>nav</code> استفاده
+                می‌کنیم.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<header>
+  <h1>وب‌سایت من</h1>
+
+  <div class="menu">
+    <a href="#">خانه</a>
+    <a href="#">درباره</a>
+    <a href="#">تماس</a>
+  </div>
+</header>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>برجسته کردن بخشی از متن</h3>
+            <p>
+              به عبارت «یادگیری وب» یک <code>span</code> با کلاس
+              <code>highlight</code> اضافه کن. سپس در CSS رنگ متن آن را تغییر
+              بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                <code>span</code> را دور همان عبارت قرار بده تا فقط همان بخش از
+                جمله انتخاب شود.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<style>
+  .highlight {
+    color: #b91c1c;
+    font-weight: bold;
+  }
+</style>
+
+<p>من از یادگیری وب لذت می‌برم.</p>
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

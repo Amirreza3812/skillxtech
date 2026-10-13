@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین CSS Display | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="08-css-display-property"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: CSS Display</h1>
+          <p class="lead">
+            کد هر تمرین را تغییر بده و تفاوت شیوه‌های نمایش را در خروجی ببین.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>جعبه‌های بلوکی</h3>
+            <p>
+              مقدار <code>display</code> کلاس <code>.box</code> را طوری تنظیم کن
+              که هر جعبه در یک خط جدا قرار بگیرد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>مقداری را انتخاب کن که عنصر را بلوکی می‌کند.</p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<style>
+  .box {
+    display: inline;
+    background: #dbeafe;
+    border: 2px solid #3b82f6;
+    margin: 8px;
+    padding: 8px;
+  }
+</style>
+
+<div class="box">جعبه‌ی اول</div>
+<div class="box">جعبه‌ی دوم</div>
+<div class="box">جعبه‌ی سوم</div>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>برچسب‌های کنار هم</h3>
+            <p>
+              کد را طوری تغییر بده که برچسب‌ها کنار هم قرار بگیرند. آن‌ها را به
+              <code>inline-block</code> تبدیل کن و برای هر برچسب عرض ۱۲۰ پیکسل
+              بگذار.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                مقدار <code>display</code> را تغییر بده و ویژگی
+                <code>width</code> را به کلاس <code>.tag</code> اضافه کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<style>
+  .tag {
+    display: inline;
+    background: #dcfce7;
+    border: 2px solid #22c55e;
+    padding: 8px;
+    margin: 6px;
+  }
+</style>
+
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>پنهان کردن یک پیام</h3>
+            <p>
+              کاری کن پیام دوم نمایش داده نشود و جای خالی هم در صفحه باقی نماند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                کلاس <code>.secret</code> را پیدا کن و مقدار مناسب
+                <code>display</code> را برایش بنویس.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<style>
+  .message {
+    padding: 10px;
+    margin: 6px 0;
+    background: #e0e7ff;
+  }
+
+  .secret {
+    /* مقدار display را اینجا بنویس */
+  }
+</style>
+
+<p class="message">پیام اول</p>
+<p class="message secret">این پیام باید پنهان شود.</p>
+<p class="message">پیام سوم</p>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تغییر رفتار لینک</h3>
+            <p>
+              لینک‌ها به‌طور پیش‌فرض درون‌خطی هستند. کلاس
+              <code>.link-box</code> را طوری تغییر بده که هر لینک در خط جدا قرار
+              بگیرد و عرض ۲۰۰ پیکسل داشته باشد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای جدا کردن هر لینک در خط خودش از <code>block</code> استفاده
+                کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="230">
+              <textarea>
+<style>
+  .link-box {
+    display: inline;
+    width: 200px;
+    background: #fef3c7;
+    margin: 6px;
+    padding: 8px;
+  }
+</style>
+
+<a class="link-box" href="#">صفحه‌ی خانه</a>
+<a class="link-box" href="#">درباره‌ی ما</a>
+<a class="link-box" href="#">تماس با ما</a>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>کارت‌های ردیفی با flex</h3>
+            <p>
+              مقدار <code>display</code> کلاس <code>.cards</code> را به
+              <code>flex</code> تغییر بده تا کارت‌ها کنار هم قرار بگیرند. سپس با
+              <code>gap</code> بین کارت‌ها ۱۰ پیکسل فاصله بساز.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                <code>display: flex;</code> را روی والد کارت‌ها بنویس و مقدار
+                <code>gap</code> را تنظیم کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<style>
+  .cards {
+    display: block;
+    gap: 0;
+    padding: 8px;
+    background: #f1f5f9;
+  }
+
+  .card {
+    padding: 12px;
+    background: #ddd6fe;
+    border: 1px solid #8b5cf6;
+  }
+</style>
+
+<div class="cards">
+  <div class="card">کارت اول</div>
+  <div class="card">کارت دوم</div>
+  <div class="card">کارت سوم</div>
+</div>
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

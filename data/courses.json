@@ -53,7 +53,7 @@
           "status": "ready"
         },
         {
-          "id": "04-devtools",
+          "id": "04-chrome-devtools",
           "title": "Chrome Devtools",
           "summary": "آموزش  استفاده ابزار کروم",
           "status": "ready"
@@ -70,10 +70,22 @@
           "summary": "آدرس عکس، object-fit، کادرها و فرم",
           "status": "ready"
         },
-         {
+        {
           "id": "07-forms",
           "title": "فرم ها",
           "summary": "استفاده حرفه ای تر از فرم ها",
+          "status": "ready"
+        },
+        {
+          "id": "08-css-display-property",
+          "title": "پراپرتی دیسپلی",
+          "summary": "المنت های ما در صفحه چه گونه نمایش داده میشوند؟",
+          "status": "ready"
+        },
+         {
+          "id": "09-the-div-element",
+          "title": "المنت div",
+          "summary": "برای تقسیم بندی محتوای صفحه از چه المنتی استفاده کنیم؟",
           "status": "ready"
         },
         {
