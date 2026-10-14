@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین چینش‌های تو در تو با display | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="10-nested-layouts-technique"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: چینش‌های تو در تو با display</h1>
+          <p class="lead">
+            صفحه را به بخش‌های کوچک تقسیم کن و با چینش عمودی و افقی، ساختار آن
+            را بساز.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساختن یک چینش عمودی</h3>
+            <p>
+              کد شروع را کامل کن تا سربرگ، محتوای اصلی و پاورقی به شکل بلوکی و
+              زیر هم نمایش داده شوند. برای هر بخش یک رنگ پس‌زمینه و فاصلهٔ داخلی
+              در نظر بگیر.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                عنصرهای <code>div</code> به‌طور معمول بلوکی هستند و زیر هم قرار
+                می‌گیرند. برای خواناتر شدن صفحه می‌توانی به آن‌ها
+                <code>padding</code> و <code>margin-bottom</code> بدهی.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+<textarea>
+<style>
+  .page {
+    padding: 12px;
+    background: #f1f5f9;
+  }
+
+  /* برای هر بخش فاصله و رنگ پس‌زمینه بگذار */
+</style>
+
+<div class="page">
+  <div>سربرگ</div>
+  <div>محتوای اصلی</div>
+  <div>پاورقی</div>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساختن دو ستون کنار هم</h3>
+            <p>
+              نوار کناری و محتوای اصلی را کنار هم قرار بده. از
+              <code>display: inline-block</code> استفاده کن و به هر بخش عرضی
+              بده که هر دو در یک ردیف جا شوند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                به هر دو کلاس <code>sidebar</code> و <code>content</code> مقدار
+                <code>display: inline-block</code> بده و
+                <code>vertical-align: top</code> را هم امتحان کن. مجموع عرض آن‌ها
+                باید در فضای والد جا شود.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="320">
+<textarea>
+<style>
+  .sidebar,
+  .content {
+    /* این دو بخش را کنار هم قرار بده */
+  }
+
+  .sidebar {
+    /* عرض و رنگ پس‌زمینه */
+  }
+
+  .content {
+    /* عرض و رنگ پس‌زمینه */
+  }
+</style>
+
+<div class="sidebar">منوی کناری</div>
+<div class="content">محتوای اصلی صفحه</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بازسازی چیدمان از روی تصویر</h3>
+            <p>
+              از بخشی از یک وب‌سایت اسکرین‌شات بگیر. با
+              <code>Windows + Shift + S</code> می‌توانی ناحیهٔ دلخواه را انتخاب
+              کنی. تصویر را در Paint بچسبان و روی آن مشخص کن کدام بخش‌ها زیر هم
+              و کدام بخش‌ها کنار هم هستند.
+            </p>
+            <p>
+              سپس یک ساختار ساده بساز: سربرگ، نوار کناری و محتوای اصلی. داخل
+              محتوای اصلی، سه کارت قرار بده. برای چینش عمودی از رفتار بلوکی و
+              برای بخش‌های کنار هم از <code>inline-block</code> استفاده کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                ابتدا فقط HTML را بنویس و هر قسمت را با یک رنگ جدا مشخص کن.
+                بعد نوار کناری و محتوای اصلی را کنار هم بگذار و در پایان کارت‌ها
+                را مرتب کن. اگر عنصری به خط بعد رفت، عرض بخش‌ها و فاصله‌هایشان
+                را بررسی کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="450">
+<textarea>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .header {
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #dbeafe;
+  }
+
+  .sidebar,
+  .content {
+    display: inline-block;
+    vertical-align: top;
+    padding: 12px;
+  }
+
+  .sidebar {
+    width: 25%;
+    background: #e2e8f0;
+  }
+
+  .content {
+    width: 73%;
+    background: #f8fafc;
+  }
+
+  .card {
+    /* کارت‌ها را کنار هم قرار بده */
+  }
+</style>
+
+<header class="header">سربرگ سایت</header>
+
+<aside class="sidebar">
+  <div>منوی کناری</div>
+</aside>
+
+<main class="content">
+  <div>محتوای اصلی</div>
+
+  <section>
+    <article class="card">کارت اول</article>
+    <article class="card">کارت دوم</article>
+    <article class="card">کارت سوم</article>
+  </section>
+</main>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

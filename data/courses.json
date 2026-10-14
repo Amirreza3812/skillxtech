@@ -82,10 +82,46 @@
           "summary": "المنت های ما در صفحه چه گونه نمایش داده میشوند؟",
           "status": "ready"
         },
-         {
+        {
           "id": "09-the-div-element",
           "title": "المنت div",
           "summary": "برای تقسیم بندی محتوای صفحه از چه المنتی استفاده کنیم؟",
+          "status": "ready"
+        },
+        {
+          "id": "10-nested-layouts-technique",
+          "title": "تکنیک استفاده از چینش های تو در تو",
+          "summary": "مهم ترین درس برای یک طراح رابط گرافیکی و بسری شدن",
+          "status": "ready"
+        },
+        {
+          "id": "11-css-grid",
+          "title": "استفاده از display:grid;",
+          "summary": "چه جوری display المنت هارو بهتر مدیریت کنیم؟",
+          "status": "ready"
+        },
+        {
+          "id": "12-flex-box",
+          "title": "استفاده از flexbox",
+          "summary": "چه جوری display المنت هارو بهتر مدیریت کنیم؟",
+          "status": "ready"
+        },
+        {
+          "id": "13-nested-flex-box",
+          "title": "flexbox تو در تو",
+          "summary": "با flexbox تو در تو یه قدم طراحیمون رو ببریم جلو",
+          "status": "ready"
+        },
+        {
+          "id": "14-css-position",
+          "title": "position یک المنت در صفحه",
+          "summary": "چه جوری یک المنت رو با استفاده از position مدیریت کنیم؟",
+          "status": "ready"
+        },
+        {
+          "id": "14-css-position",
+          "title": "position یک المنت در صفحه",
+          "summary": "چه جوری یک المنت رو با استفاده از position مدیریت کنیم؟",
           "status": "ready"
         },
         {

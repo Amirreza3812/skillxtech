@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین CSS Grid | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="11-css-grid"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: CSS Grid</h1>
+          <p class="lead">
+            با تعریف ستون‌ها و فاصله‌ها، چند شبکهٔ ساده بساز و تغییرشان بده.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت شبکهٔ دو ستونه</h3>
+            <p>
+              کد را کامل کن تا آیتم‌ها داخل دو ستون قرار بگیرند. برای ستون‌ها
+              عرض ثابت انتخاب کن و بین خانه‌ها فاصله بگذار.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                به والد <code>display: grid</code> بده و برایش
+                <code>grid-template-columns</code> تعریف کن. ویژگی
+                <code>gap</code> فاصلهٔ بین خانه‌ها را تنظیم می‌کند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="360">
+<textarea>
+<style>
+  .grid {
+    /* شبکه را فعال کن */
+    /* دو ستون تعریف کن */
+    /* برای خانه‌ها فاصله بگذار */
+  }
+
+  .grid div {
+    padding: 18px;
+    background: #dbeafe;
+  }
+</style>
+
+<div class="grid">
+  <div>خانهٔ ۱</div>
+  <div>خانهٔ ۲</div>
+  <div>خانهٔ ۳</div>
+  <div>خانهٔ ۴</div>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>سه ستون هم‌اندازه با repeat و fr</h3>
+            <p>
+              شبکه‌ای سه‌ستونه بساز که ستون‌ها فضای موجود را به شکل مساوی تقسیم
+              کنند. شش کارت در HTML قرار دارد؛ CSS را طوری بنویس که در دو ردیف
+              دیده شوند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>repeat(3, 1fr)</code> برای تعریف سه ستون هم‌اندازه
+                استفاده کن. آیتم‌های اضافه به ردیف بعدی می‌روند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="400">
+<textarea>
+<style>
+  .cards {
+    /* شبکه و سه ستون هم‌اندازه تعریف کن */
+    gap: 12px;
+  }
+
+  .cards article {
+    padding: 20px;
+    background: #dcfce7;
+    border: 1px solid #86efac;
+  }
+</style>
+
+<section class="cards">
+  <article>کارت اول</article>
+  <article>کارت دوم</article>
+  <article>کارت سوم</article>
+  <article>کارت چهارم</article>
+  <article>کارت پنجم</article>
+  <article>کارت ششم</article>
+</section>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت شبکهٔ کارت‌ها با فاصله‌های متفاوت</h3>
+            <p>
+              شبکه‌ای سه‌ستونه بساز و برای فاصلهٔ ردیف‌ها و ستون‌ها دو مقدار
+              متفاوت تعیین کن. بعد مقدارها را تغییر بده و تفاوت فاصله‌ها را
+              مشاهده کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                در <code>gap</code>، مقدار اول فاصلهٔ ردیف‌ها و مقدار دوم
+                فاصلهٔ ستون‌هاست؛ مثلاً
+                <code>gap: 8px 20px;</code>.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="420">
+<textarea>
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    /* فاصلهٔ ردیف‌ها و ستون‌ها را جداگانه تعیین کن */
+  }
+
+  .gallery div {
+    min-height: 70px;
+    padding: 14px;
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+  }
+</style>
+
+<div class="gallery">
+  <div>تصویر ۱</div>
+  <div>تصویر ۲</div>
+  <div>تصویر ۳</div>
+  <div>تصویر ۴</div>
+  <div>تصویر ۵</div>
+  <div>تصویر ۶</div>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ترکیب دو شبکهٔ تو در تو</h3>
+            <p>
+              سربرگ را در بالای یک والد قرار بده و زیر آن بخشی بساز که سه کارت
+              را در یک شبکهٔ سه‌ستونه نمایش دهد. برای والد اصلی و بخش کارت‌ها
+              می‌توانی Gridهای جداگانه تعریف کنی.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای والد اصلی از <code>display: grid</code> استفاده کن. سپس
+                به والد کارت‌ها هم <code>display: grid</code> و
+                <code>grid-template-columns: repeat(3, 1fr)</code> بده.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="430">
+<textarea>
+<style>
+  .page {
+    /* Grid والد و فاصلهٔ بخش‌ها */
+    padding: 12px;
+    background: #f1f5f9;
+  }
+
+  .header {
+    padding: 16px;
+    background: #dbeafe;
+  }
+
+  .cards {
+    /* Grid داخلی با سه ستون */
+  }
+
+  .cards article {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #cbd5e1;
+  }
+</style>
+
+<div class="page">
+  <header class="header">سربرگ سایت</header>
+
+  <main class="cards">
+    <article>کارت اول</article>
+    <article>کارت دوم</article>
+    <article>کارت سوم</article>
+  </main>
+</div>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

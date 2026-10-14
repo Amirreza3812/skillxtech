@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>آشنایی با Flexbox | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="12-flex-box"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>آشنایی با Flexbox</h1>
+          <p class="lead">
+            یاد می‌گیریم چطور با Flexbox فرزندان یک عنصر را در یک ردیف یا ستون
+            بچینیم و فاصله و تراز آن‌ها را کنترل کنیم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="what-is-flexbox">۱. Flexbox چیست؟</h2>
+        <p>
+          Flexbox روشی برای چیدن و مرتب کردن فرزندان یک عنصر است. برای فعال
+          کردن آن، به عنصر والد مقدار <code>display: flex</code> می‌دهیم.
+          فرزندان مستقیم آن والد، آیتم‌های Flexbox می‌شوند.
+        </p>
+        <p>
+          خود والد را «ظرف» یا <code>flex container</code> می‌نامیم و فرزندان
+          مستقیمش را «آیتم» یا <code>flex items</code>. ویژگی‌های اصلی Flexbox
+          معمولاً روی ظرف نوشته می‌شوند.
+        </p>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            اگر فرزند یک آیتم خودش فرزند دیگری داشته باشد، آن فرزندِ داخلی به
+            صورت خودکار آیتم Flexbox والدِ بزرگ‌تر نمی‌شود. فقط فرزندان مستقیم
+            ظرف Flexbox، آیتم‌های آن هستند.
+          </p>
+        </div>
+
+        <h2 id="display-flex">۲. فعال کردن Flexbox</h2>
+        <p>
+          در حالت عادی، چند بخش بلوکی معمولاً زیر هم قرار می‌گیرند. با
+          <code>display: flex</code> روی والد، فرزندانش در یک ردیف قرار
+          می‌گیرند. مقدار پیش‌فرض جهت در Flexbox برابر <code>row</code> است.
+        </p>
+
+        <pre class="code"><code>.items {
+  display: flex;
+}</code></pre>
+
+        <div class="demo" data-title="امتحان کن: فعال کردن Flexbox" data-height="300">
+          <textarea>
+<style>
+  .items {
+    display: flex;
+    gap: 8px;
+    padding: 10px;
+    background: #f1f5f9;
+  }
+
+  .items div {
+    padding: 20px;
+    background: #dbeafe;
+  }
+</style>
+
+<div class="items">
+  <div>آیتم اول</div>
+  <div>آیتم دوم</div>
+  <div>آیتم سوم</div>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="flex-direction">۳. انتخاب جهت با flex-direction</h2>
+        <p>
+          ویژگی <code>flex-direction</code> جهت قرار گرفتن آیتم‌ها را مشخص
+          می‌کند. مقدار <code>row</code> آیتم‌ها را در راستای ردیف می‌چیند و
+          مقدار <code>column</code> آن‌ها را در راستای ستون قرار می‌دهد.
+        </p>
+        <p>
+          چون صفحهٔ این درس راست‌به‌چپ است، جهت دیداری ردیف با جهت نوشتار فارسی
+          هماهنگ است. مقدارهای <code>row-reverse</code> و
+          <code>column-reverse</code> ترتیب دیداری را برعکس می‌کنند.
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مقدار</th>
+                <th>نتیجه</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>row</code></td>
+                <td>آیتم‌ها در یک ردیف قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>column</code></td>
+                <td>آیتم‌ها در یک ستون قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>row-reverse</code></td>
+                <td>آیتم‌ها در ردیف، با ترتیب دیداری برعکس قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>column-reverse</code></td>
+                <td>آیتم‌ها در ستون، با ترتیب دیداری برعکس قرار می‌گیرند.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <pre class="code"><code>.items {
+  display: flex;
+  flex-direction: column;
+}</code></pre>
+
+        <div class="demo" data-title="امتحان کن: تغییر جهت" data-height="370">
+          <textarea>
+<style>
+  .items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px;
+    background: #f1f5f9;
+  }
+
+  .items div {
+    padding: 12px;
+    background: #dcfce7;
+  }
+</style>
+
+<div class="items">
+  <div>آیتم اول</div>
+  <div>آیتم دوم</div>
+  <div>آیتم سوم</div>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="gap">۴. فاصله‌گذاری با gap</h2>
+        <p>
+          ویژگی <code>gap</code> فاصلهٔ بین آیتم‌ها را مشخص می‌کند. این ویژگی
+          روی ظرف Flexbox قرار می‌گیرد و لازم نیست برای هر آیتم جداگانه
+          <code>margin</code> تعیین کنیم.
+        </p>
+
+        <pre class="code"><code>.items {
+  display: flex;
+  gap: 16px;
+}</code></pre>
+
+        <p>
+          اگر جهت آیتم‌ها <code>column</code> باشد، فاصلهٔ آیتم‌ها در امتداد
+          ستون دیده می‌شود. اگر جهت <code>row</code> باشد، فاصله میان آیتم‌های
+          ردیف قرار می‌گیرد.
+        </p>
+
+        <h2 id="justify-content">۵. مرتب کردن آیتم‌ها با justify-content</h2>
+        <p>
+          ویژگی <code>justify-content</code> آیتم‌ها را در امتداد محور اصلی
+          مرتب می‌کند؛ محور اصلی همان جهتی است که با
+          <code>flex-direction</code> تعیین کرده‌ایم.
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مقدار</th>
+                <th>رفتار کلی</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>flex-start</code></td>
+                <td>آیتم‌ها در ابتدای محور اصلی قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>center</code></td>
+                <td>آیتم‌ها در مرکز محور اصلی قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>flex-end</code></td>
+                <td>آیتم‌ها در انتهای محور اصلی قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>space-between</code></td>
+                <td>فاصلهٔ خالی میان آیتم‌ها تقسیم می‌شود.</td>
+              </tr>
+              <tr>
+                <td><code>space-around</code></td>
+                <td>فضایی پیرامون آیتم‌ها قرار می‌گیرد.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <pre class="code"><code>.items {
+  display: flex;
+  justify-content: center;
+}</code></pre>
+
+        <div class="demo" data-title="امتحان کن: مرتب کردن آیتم‌ها" data-height="290">
+          <textarea>
+<style>
+  .items {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px;
+    background: #f1f5f9;
+  }
+
+  .items div {
+    padding: 16px;
+    background: #fef3c7;
+  }
+</style>
+
+<div class="items">
+  <div>یک</div>
+  <div>دو</div>
+  <div>سه</div>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="align-items">۶. تراز کردن آیتم‌ها با align-items</h2>
+        <p>
+          ویژگی <code>align-items</code> آیتم‌ها را در امتداد محور متقاطع
+          تراز می‌کند؛ یعنی محوری که بر محور اصلی عمود است. برای دیدن نتیجه،
+          معمولاً به ظرف ارتفاع یا اندازهٔ مشخصی می‌دهیم.
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مقدار</th>
+                <th>رفتار کلی</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>stretch</code></td>
+                <td>آیتم‌ها در محور متقاطع کشیده می‌شوند.</td>
+              </tr>
+              <tr>
+                <td><code>flex-start</code></td>
+                <td>آیتم‌ها در ابتدای محور متقاطع قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>center</code></td>
+                <td>آیتم‌ها در مرکز محور متقاطع قرار می‌گیرند.</td>
+              </tr>
+              <tr>
+                <td><code>flex-end</code></td>
+                <td>آیتم‌ها در انتهای محور متقاطع قرار می‌گیرند.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <pre class="code"><code>.items {
+  display: flex;
+  align-items: center;
+  height: 180px;
+}</code></pre>
+
+        <div class="demo" data-title="امتحان کن: تراز عمودی آیتم‌ها" data-height="320">
+          <textarea>
+<style>
+  .items {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 180px;
+    padding: 10px;
+    background: #f1f5f9;
+  }
+
+  .items div {
+    padding: 16px;
+    background: #e9d5ff;
+  }
+
+  .items div:nth-child(2) {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+</style>
+
+<div class="items">
+  <div>یک</div>
+  <div>دو</div>
+  <div>سه</div>
+</div>
+</textarea>
+        </div>
+
+        <div class="callout note">
+          <p class="callout-title">دو محور را به خاطر بسپار</p>
+          <p>
+            <code>justify-content</code> در امتداد محور اصلی عمل می‌کند و
+            <code>align-items</code> در امتداد محور متقاطع. با تغییر
+            <code>flex-direction</code>، جهت این دو محور هم عوض می‌شود.
+          </p>
+        </div>
+
+        <h2 id="wrap">۷. رفتن آیتم‌ها به ردیف بعد با flex-wrap</h2>
+        <p>
+          به‌طور پیش‌فرض، آیتم‌ها تلاش می‌کنند در یک خط جا بگیرند. با
+          <code>flex-wrap: wrap</code> اجازه می‌دهیم اگر فضای کافی نبود، آیتم‌ها
+          به خط بعدی بروند.
+        </p>
+
+        <pre class="code"><code>.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}</code></pre>
+
+        <div class="demo" data-title="امتحان کن: شکستن آیتم‌ها به خط بعد" data-height="330">
+          <textarea>
+<style>
+  .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 320px;
+    padding: 10px;
+    background: #f1f5f9;
+  }
+
+  .items div {
+    width: 90px;
+    padding: 16px;
+    background: #fee2e2;
+  }
+</style>
+
+<div class="items">
+  <div>یک</div>
+  <div>دو</div>
+  <div>سه</div>
+  <div>چهار</div>
+  <div>پنج</div>
+  <div>شش</div>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="nested-flex">۸. ساخت چینش‌های تو در تو</h2>
+        <p>
+          همان‌طور که در درس قبل دیدیم، صفحه را می‌توان به بخش‌های بزرگ و کوچک
+          تقسیم کرد. حالا هر والد می‌تواند Flexbox جداگانهٔ خودش را داشته باشد.
+          در مثال زیر، بخش اصلی صفحه آیتم‌ها را در یک ردیف قرار می‌دهد و منوی
+          کناری لینک‌ها را در یک ستون مرتب می‌کند.
+        </p>
+
+        <pre class="code"><code>&lt;div class="page"&gt;
+  &lt;header&gt;سربرگ&lt;/header&gt;
+
+  &lt;div class="page-bodyادامهٔ `index.html` از همان‌جایی که کد قبلی قطع شد:
+
+```html
+&lt;div class="page-body"&gt;
+  &lt;aside class="sidebar"&gt;
+    &lt;nav class="menu"&gt;
+      &lt;a href="#"&gt;خانه&lt;/a&gt;
+      &lt;a href="#"&gt;دوره‌ها&lt;/a&gt;
+      &lt;a href="#"&gt;دربارهٔ ما&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+
+  &lt;main class="content"&gt;
+    &lt;article&gt;محتوای اصلی&lt;/article&gt;
+  &lt;/main&gt;
+&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <pre class="code"><code>.page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.page-body {
+  display: flex;
+  gap: 12px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}</code></pre>
+
+        <div class="demo" data-title="امتحان کن: Flexbox تو در تو" data-height="420">
+          <textarea>
+<style>
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: #f1f5f9;
+  }
+
+  .header {
+    padding: 16px;
+    background: #dbeafe;
+  }
+
+  .page-body {
+    display: flex;
+    gap: 10px;
+  }
+
+  .sidebar {
+    width: 140px;
+    padding: 10px;
+    background: #e2e8f0;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .menu a {
+    padding: 8px;
+    background: #fff;
+  }
+
+  .content {
+    flex: 1;
+    padding: 16px;
+    background: #dcfce7;
+  }
+</style>
+
+<div class="page">
+  <header class="header">سربرگ سایت</header>
+
+  <div class="page-body">
+    <aside class="sidebar">
+      <nav class="menu">
+        <a href="#">خانه</a>
+        <a href="#">دوره‌ها</a>
+        <a href="#">دربارهٔ ما</a>
+      </nav>
+    </aside>
+
+    <main class="content">محتوای اصلی</main>
+  </div>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="summary">جمع‌بندی</h2>
+        <p>
+          برای فعال کردن Flexbox به والد <code>display: flex</code> می‌دهیم.
+          جهت چیدمان را <code>flex-direction</code>، فاصلهٔ بین آیتم‌ها را
+          <code>gap</code>، مرتب‌سازی روی محور اصلی را
+          <code>justify-content</code> و تراز روی محور متقاطع را
+          <code>align-items</code> کنترل می‌کند. با
+          <code>flex-wrap: wrap</code> هم اجازه می‌دهیم آیتم‌ها در صورت کمبود
+          فضا به خط بعد بروند. می‌توانیم این تنظیم‌ها را در والدهای مختلف
+          ترکیب کنیم و چینش‌های تو در تو بسازیم.
+        </p>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>حالا با جهت، فاصله و تراز آیتم‌ها تمرین کن.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

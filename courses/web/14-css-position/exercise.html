@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین position در CSS | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="14-css-position" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: position در CSS</h1>
+          <p class="lead">
+            کدهای شروع را ویرایش کن و ببین مقدارهای مختلف
+            <code>position</code> چه تغییری در چیدمان ایجاد می‌کنند.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>جابه‌جایی نسبی</h3>
+            <p>
+              به کادر نارنجی <code>position: relative</code> بده و آن را
+              ۱۲ پیکسل از بالا و ۱۸ پیکسل از سمت چپ جابه‌جا کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>top: 12px</code> و <code>left: 18px</code> استفاده
+                کن. جای اولیه‌ی کادر در صفحه همچنان رزرو می‌ماند.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="320">
+              <textarea>
+<style>
+  .stage {
+    padding: 16px;
+    border: 1px dashed #888;
+  }
+
+  .box {
+    width: 120px;
+    height: 70px;
+    padding: 10px;
+    background: #f6ad55;
+
+    /* position و جابه‌جایی را اضافه کن */
+  }
+</style>
+
+<div class="stage">
+  <div class="box">کادر</div>
+  <p>این متن کمک می‌کند فضای اولیه‌ی کادر را ببینی.</p>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>نشان روی گوشه‌ی کارت</h3>
+            <p>
+              نشان «ویژه» را در گوشه‌ی بالای سمت راست کارت قرار بده. خود کارت
+              را مرجع موقعیت‌گیری نشان قرار بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                به کارت <code>position: relative</code> و به نشان
+                <code>position: absolute</code> بده. سپس با
+                <code>top</code> و <code>right</code> محل نشان را تنظیم کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="340">
+              <textarea>
+<style>
+  .card {
+    min-height: 150px;
+    padding: 24px;
+    border: 1px solid #ccd2dd;
+    border-radius: 12px;
+    background: #f7f8fb;
+
+    /* کارت را مرجع نشان کن */
+  }
+
+  .badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: white;
+    background: #6750a4;
+
+    /* نشان را در گوشه‌ی کارت قرار بده */
+  }
+</style>
+
+<article class="card">
+  <span class="badge">ویژه</span>
+  <h3>دوره‌ی طراحی وب</h3>
+  <p>کارت را والدِ موقعیت‌دار قرار بده.</p>
+</article>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت دکمه‌ی ثابت</h3>
+            <p>
+              دکمه را با <code>position: fixed</code> در گوشه‌ی پایین سمت راست
+              پنجره‌ی پیش‌نمایش قرار بده. برای دیدن رفتار آن، متن صفحه را هم
+              بلندتر کن و در پیش‌نمایش اسکرول کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای تعیین جای دکمه از <code>right</code> و
+                <code>bottom</code> استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="380">
+              <textarea>
+<style>
+  .long-page {
+    min-height: 550px;
+    padding: 16px;
+    font-family: sans-serif;
+  }
+
+  .fixed-button {
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    background: #6750a4;
+    cursor: pointer;
+
+    /* دکمه را به پنجره‌ی پیش‌نمایش ثابت کن */
+  }
+</style>
+
+<div class="long-page">
+  <h3>صفحه‌ی بلند</h3>
+  <p>در پیش‌نمایش اسکرول کن تا رفتار دکمه را بررسی کنی.</p>
+  <p>این یک خط آزمایشی است.</p>
+  <p>این هم یک خط آزمایشی دیگر.</p>
+
+  <button class="fixed-button">بازگشت به بالا</button>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>چسباندن عنوان هنگام اسکرول</h3>
+            <p>
+              عنوان بخش را با <code>position: sticky</code> به بالای ناحیه‌ی
+              پیمایش بچسبان. برایش پس‌زمینه تعیین کن تا هنگام عبور متن، خوانا
+              باقی بماند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                مقدار <code>top</code> را تعیین کن و مطمئن شو بخش محتوای
+                کافی برای اسکرول دارد.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="400">
+              <textarea>
+<style>
+  .scroll-area {
+    height: 230px;
+    overflow: auto;
+    border: 1px solid #ccd2dd;
+    font-family: sans-serif;
+  }
+
+  .sticky-title {
+    margin: 0;
+    padding: 12px;
+    background: #eee9f7;
+
+    /* عنوان را هنگام اسکرول بچسبان */
+  }
+
+  .content {
+    padding: 12px;
+    line-height: 2;
+  }
+</style>
+
+<div class="scroll-area">
+  <h3 class="sticky-title">عنوان چسبان</h3>
+  <div class="content">
+    <p>داخل این بخش اسکرول کن تا نتیجه را ببینی.</p>
+    <p>متن نمونه برای ایجاد فضای پیمایش.</p>
+    <p>متن نمونه برای ایجاد فضای پیمایش.</p>
+    <p>متن نمونه برای ایجاد فضای پیمایش.</p>
+    <p>متن نمونه برای ایجاد فضای پیمایش.</p>
+    <p>متن نمونه برای ایجاد فضای پیمایش.</p>
+  </div>
+</div>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flexbox تو‌در‌تو | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="13-nested-flex-box"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>فلکس‌باکس تو‌در‌تو</h1>
+          <p class="lead">
+            با قرار دادن کانتینرهای Flexbox داخل هم، می‌توانی بخش‌های مختلف
+            صفحه را با چیدمان‌های مستقل و ترکیبی بسازی.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="nested-flex">۱. فلکس‌باکس تو‌در‌تو چیست؟</h2>
+        <p>
+          هر عنصری که <code>display: flex</code> داشته باشد، فرزندان مستقیمش را
+          با Flexbox مرتب می‌کند. اگر یکی از این فرزندان هم کانتینر فلکس باشد،
+          می‌تواند فرزندان خودش را با تنظیمات جداگانه مرتب کند. به این ساختار،
+          فلکس‌باکس تو‌در‌تو می‌گوییم.
+        </p>
+        <p>
+          برای مثال، یک کارت می‌تواند محتوایش را عمودی بچیند، در حالی که بخش
+          بالایی همان کارت، تصویر و عنوان را کنار هم نمایش می‌دهد.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">نکته</p>
+          <p>
+            هر کانتینر فلکس فقط چیدمان فرزندان مستقیم خودش را کنترل می‌کند.
+            کانتینرهای تو‌در‌تو تنظیمات مستقل دارند.
+          </p>
+        </div>
+
+        <h2 id="html-structure">۲. ساختار HTML را بساز</h2>
+        <p>
+          در این نمونه، عنصر <code>.card</code> کانتینر بیرونی است و
+          <code>.card-header</code> یک کانتینر فلکس داخلی. بخش پایینی کارت هم
+          با یک کانتینر داخلی دیگر، دکمه‌ها را کنار هم می‌چیند.
+        </p>
+
+        <pre class="code"><code>&lt;article class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;div class="avatar"&gt;ن&lt;/div&gt;
+    &lt;div class="user-info"&gt;
+      &lt;h3&gt;نگار احمدی&lt;/h3&gt;
+      &lt;p&gt;طراح رابط کاربری&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;p class="card-description"&gt;
+    یادگیری طراحی وب را از اینجا شروع کن.
+  &lt;/p&gt;
+
+  &lt;div class="card-actions"&gt;
+    &lt;button&gt;مشاهده دوره&lt;/button&gt;
+    &lt;button&gt;ذخیره&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+
+        <h2 id="outer-container">۳. چیدمان کانتینر بیرونی</h2>
+        <p>
+          به کارت <code>display: flex</code> و
+          <code>flex-direction: column</code> می‌دهیم تا فرزندان مستقیم آن
+          زیر هم قرار بگیرند. ویژگی <code>gap</code> فاصله‌ی یکنواختی میان آن‌ها
+          ایجاد می‌کند.
+        </p>
+
+        <pre class="code"><code>.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #d8dee9;
+  border-radius: 12px;
+}</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">چرا از gap استفاده کنیم؟</p>
+          <p>
+            <code>gap</code> فاصله‌ی بین فرزندان مستقیم همان کانتینر را تنظیم
+            می‌کند. در ساختار تو‌در‌تو، هر سطح می‌تواند مقدار
+            <code>gap</code> مخصوص خودش را داشته باشد.
+          </p>
+        </div>
+
+        <h2 id="inner-containers">۴. چیدمان کانتینرهای داخلی</h2>
+        <p>
+          حالا برای سرآیند کارت، جهت چیدمان را افقی می‌کنیم. کانتینر
+          <code>.user-info</code> خودش فلکس‌باکس ستونی است تا نام و توضیح را
+          زیر هم قرار دهد. همین‌طور دکمه‌های کارت داخل
+          <code>.card-actions</code> کنار هم می‌آیند.
+        </p>
+
+        <pre class="code"><code>.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}</code></pre>
+
+        <h2 id="try-it">۵. نمونه را امتحان کن</h2>
+        <p>
+          مقدارهای <code>flex-direction</code> و <code>gap</code> را تغییر بده
+          و نتیجه‌ی هر کانتینر را جداگانه ببین.
+        </p>
+
+        <div class="demo" data-title="کارت با فلکس‌باکس تو‌در‌تو" data-height="440">
+          <textarea>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .profile-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 420px;
+    padding: 20px;
+    border: 1px solid #d8dee9;
+    border-radius: 14px;
+    font-family: sans-serif;
+    color: #172033;
+    background: #ffffff;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: white;
+    background: #6750a4;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .profile-info h3,
+  .profile-info p,
+  .profile-description {
+    margin: 0;
+  }
+
+  .profile-info p {
+    color: #5e6675;
+    font-size: 14px;
+  }
+
+  .profile-description {
+    line-height: 1.7;
+  }
+
+  .profile-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .profile-actions button {
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .primary-button {
+    color: white;
+    background: #6750a4;
+  }
+
+  .secondary-button {
+    color: #302653;
+    background: #eee9f7;
+  }
+</style>
+
+<article class="profile-card">
+  <div class="profile-header">
+    <div class="avatar">ن</div>
+    <div class="profile-info">
+      <h3>نگار احمدی</h3>
+      <p>طراح رابط کاربری</p>
+    </div>
+  </div>
+
+  <p class="profile-description">
+    با تمرین‌های کوتاه، قدم‌به‌قدم طراحی وب را یاد بگیر.
+  </p>
+
+  <div class="profile-actions">
+    <button class="primary-button">مشاهده دوره</button>
+    <button class="secondary-button">ذخیره</button>
+  </div>
+</article>
+</textarea>
+        </div>
+
+        <h2 id="common-mistakes">۶. اشتباه‌های رایج</h2>
+        <ul>
+          <li>
+            تصور نکن تنظیم <code>flex-direction</code> روی والد، جهت چیدمان
+            داخل همه‌ی فرزندان را هم تغییر می‌دهد.
+          </li>
+          <li>
+            <code>align-items</code> و <code>justify-content</code> را روی
+            کانتینری تنظیم کن که قرار است فرزندان مستقیمش را مرتب کند.
+          </li>
+          <li>
+            اگر فرزندان از کانتینر بیرون می‌زنند، بررسی کن آیا به
+            <code>flex-wrap: wrap</code> نیاز داری یا نه.
+          </li>
+        </ul>
+
+        <div class="callout warn">
+          <p class="callout-title">یادت باشد</p>
+          <p>
+            هر بار مشخص کن کدام عنصر والد است و کدام فرزندان مستقیم آن هستند.
+            سپس تنظیمات Flexbox را روی همان والد قرار بده.
+          </p>
+        </div>
+
+        <h2 id="summary">خلاصه‌ی درس</h2>
+        <ul>
+          <li>هر کانتینر فلکس، فرزندان مستقیم خودش را مرتب می‌کند.</li>
+          <li>کانتینر فلکس می‌تواند داخل کانتینر فلکس دیگری قرار بگیرد.</li>
+          <li>برای هر سطح می‌توانی جهت، فاصله و تراز مستقل تعیین کنی.</li>
+          <li>
+            ترکیب چیدمان‌های افقی و عمودی، ساخت رابط‌های پیچیده را ساده‌تر
+            می‌کند.
+          </li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>با تمرین‌های این درس، چیدمان‌های تو‌در‌تو بساز.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین فلکس‌باکس تو‌در‌تو | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="13-nested-flex-box"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: فلکس‌باکس تو‌در‌تو</h1>
+          <p class="lead">
+            تمرین‌ها را با تغییر HTML و CSS در کادرهای کدنویسی انجام بده و
+            نتیجه را همان‌جا ببین.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>کارت عمودی با سرآیند افقی</h3>
+            <p>
+              کلاس <code>.card</code> را طوری تنظیم کن که محتوای کارت عمودی
+              چیده شود و بین بخش‌ها ۱۲ پیکسل فاصله باشد. سپس
+              <code>.card-header</code> را به کانتینر فلکس افقی تبدیل کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای کارت از <code>flex-direction: column</code> استفاده کن.
+                سرآیند به جهت پیش‌فرض فلکس نیاز دارد.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="360">
+              <textarea>
+<style>
+  .card {
+    /* استایل کارت را کامل کن */
+    display: flex;
+  }
+
+  .card-header {
+    /* تصویر و متن را کنار هم قرار بده */
+    display: flex;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #6750a4;
+  }
+
+  .info h3,
+  .info p {
+    margin: 0;
+  }
+</style>
+
+<article class="card">
+  <div class="card-header">
+    <div class="avatar"></div>
+    <div class="info">
+      <h3>آرمان رضایی</h3>
+      <p>دانشجوی طراحی وب</p>
+    </div>
+  </div>
+  <p>در حال یادگیری ساخت صفحه‌های وب هستم.</p>
+</article>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>دکمه‌های کنار هم</h3>
+            <p>
+              به <code>.actions</code> چیدمان فلکس بده تا دو دکمه کنار هم
+              قرار بگیرند. بین دکمه‌ها ۱۰ پیکسل فاصله بگذار و اجازه بده در
+              فضای کم به خط بعد بروند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>display: flex</code>، ویژگی <code>gap</code> و
+                <code>flex-wrap: wrap</code> استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+              <textarea>
+<style>
+  .actions {
+    /* چیدمان و فاصله‌ی دکمه‌ها را تنظیم کن */
+  }
+
+  button {
+    padding: 10px 14px;
+    border: 0;
+    border-radius: 8px;
+  }
+</style>
+
+<div class="actions">
+  <button>شروع یادگیری</button>
+  <button>افزودن به علاقه‌مندی‌ها</button>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت کارت پروفایل تو‌در‌تو</h3>
+            <p>
+              کارت بیرونی را به کانتینر فلکس عمودی تبدیل کن. سرآیند کارت باید
+              عناصرش را افقی بچیند و بخش اطلاعات نام و توضیح را عمودی مرتب کند.
+              برای هر کانتینر فاصله‌ی مناسبی بگذار.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                سه کانتینر متفاوت داری: <code>.profile-card</code>،
+                <code>.profile-header</code> و <code>.profile-info</code>.
+                هرکدام را جداگانه تنظیم کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="420">
+              <textarea>
+<style>
+  .profile-card {
+    /* چیدمان عمودی کارت، فاصله، حاشیه و padding */
+    display: flex;
+  }
+
+  .profile-header {
+    /* آواتار و اطلاعات را کنار هم قرار بده */
+    display: flex;
+  }
+
+  .profile-info {
+    /* نام و توضیح را زیر هم قرار بده */
+    display: flex;
+  }
+
+  .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    border-radius: 50%;
+    color: white;
+    background: #6750a4;
+    font-family: sans-serif;
+  }
+
+  .profile-card,
+  .profile-info {
+    font-family: sans-serif;
+  }
+
+  .profile-info h3,
+  .profile-info p,
+  .profile-card > p {
+    margin: 0;
+  }
+</style>
+
+<article class="profile-card">
+  <div class="profile-header">
+    <div class="avatar">س</div>
+    <div class="profile-info">
+      <h3>سارا محمدی</h3>
+      <p>علاقه‌مند به طراحی وب</p>
+    </div>
+  </div>
+
+  <p>تمرین امروز: ساخت یک کارت با Flexbox تو‌در‌تو.</p>
+</article>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

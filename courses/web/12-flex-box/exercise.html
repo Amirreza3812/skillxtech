@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین Flexbox | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="12-flex-box"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: Flexbox</h1>
+          <p class="lead">
+            با تغییر جهت، فاصله و تراز، چینش آیتم‌های صفحه را کنترل کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>قرار دادن آیتم‌ها در یک ردیف</h3>
+            <p>
+              کد را کامل کن تا سه آیتم با Flexbox کنار هم قرار بگیرند. بین
+              آیتم‌ها فاصله بگذار.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                روی والد کلاس <code>items</code> مقدار
+                <code>display: flex</code> قرار بده. برای فاصله از
+                <code>gap</code> استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+<textarea>
+<style>
+  .items {
+    /* Flexbox را فعال کن */
+    /* بین آیتم‌ها فاصله بگذار */
+  }
+
+  .items div {
+    padding: 20px;
+    background: #dbeafe;
+  }
+</style>
+
+<div class="items">
+  <div>یک</div>
+  <div>دو</div>
+  <div>سه</div>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تغییر جهت چیدمان</h3>
+            <p>
+              آیتم‌ها را به‌جای ردیف، در یک ستون بچین. سپس مقدار را به
+              <code>row</code> تغییر بده و نتیجه را مقایسه کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                ویژگی <code>flex-direction</code> را روی والد بنویس و مقدار
+                <code>column</code> را امتحان کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="310">
+<textarea>
+<style>
+  .items {
+    display: flex;
+    /* جهت را به ستون تغییر بده */
+    gap: 8px;
+  }
+
+  .items div {
+    padding: 12px;
+    background: #dcfce7;
+  }
+</style>
+
+<div class="items">
+  <div>منو</div>
+  <div>محتوا</div>
+  <div>پاورقی</div>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>مرتب کردن و تراز کردن آیتم‌ها</h3>
+            <p>
+              به ظرف ارتفاع بده، آیتم‌ها را در مرکز محور اصلی قرار بده و آن‌ها
+              را در محور متقاطع هم تراز کن. بعد مقدارهای
+              <code>justify-content</code> و <code>align-items</code> را
+              تغییر بده و نتیجه را ببین.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>justify-content: center</code> و
+                <code>align-items: center</code> شروع کن. برای دیدن اثر
+                <code>align-items</code>، ظرف باید ارتفاع داشته باشد.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="340">
+<textarea>
+<style>
+  .items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 180px;
+    background: #f1f5f9;
+  }
+
+  .items div {
+    padding: 16px;
+    background: #fef3c7;
+  }
+</style>
+
+<div class="items">
+  <div>یک</div>
+  <div>دو</div>
+  <div>سه</div>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>اجازه دادن به آیتم‌ها برای رفتن به خط بعد</h3>
+            <p>
+              عرض ظرف را محدود کن و به آیتم‌ها اجازه بده در صورت کمبود فضا به
+              خط بعد بروند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                روی ظرف <code>flex-wrap: wrap</code> قرار بده و برای آیتم‌ها
+                عرض تعیین کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="350">
+<textarea>
+<style>
+  .items {
+    display: flex;
+    /* اجازه بده آیتم‌ها به خط بعد بروند */
+    gap: 8px;
+    width: 300px;
+    padding: 10px;
+    background: #f1f5f9;
+  }
+
+  .items div {
+    width: 85px;
+    padding: 14px;
+    background: #fee2e2;
+  }
+</style>
+
+<div class="items">
+  <div>یک</div>
+  <div>دو</div>
+  <div>سه</div>
+  <div>چهار</div>
+  <div>پنج</div>
+  <div>شش</div>
+</div>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

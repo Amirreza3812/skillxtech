@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ویژگی position در CSS | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="14-css-position" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>ویژگی position در CSS</h1>
+          <p class="lead">
+            یاد می‌گیری عناصر را با <code>position</code> در جای معمولی خود،
+            نسبت به والد یا نسبت به پنجره‌ی مرورگر قرار بدهی.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="position-basics">۱. position چه کاری انجام می‌دهد؟</h2>
+        <p>
+          ویژگی <code>position</code> روش قرارگیری عنصر در صفحه را تعیین
+          می‌کند. مقدار آن مشخص می‌کند عنصر در جریان عادی صفحه باقی بماند،
+          نسبت به جای اصلی‌اش جابه‌جا شود، یا در موقعیتی ویژه قرار بگیرد.
+        </p>
+        <p>
+          برای جابه‌جایی عنصر معمولاً از ویژگی‌های
+          <code>top</code>، <code>right</code>، <code>bottom</code> و
+          <code>left</code> استفاده می‌کنیم. این ویژگی‌ها در حالت
+          <code>position: static</code> اثری ندارند.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">نکته</p>
+          <p>
+            در صفحه‌های راست‌به‌چپ هم <code>left</code> و <code>right</code>
+            همچنان به سمت فیزیکی چپ و راست اشاره می‌کنند؛ جهت متن، معنای این
+            ویژگی‌ها را عوض نمی‌کند.
+          </p>
+        </div>
+
+        <h2 id="static">۲. مقدار static</h2>
+        <p>
+          مقدار پیش‌فرض همه‌ی عناصر <code>static</code> است. عنصر در جریان
+          عادی سند قرار می‌گیرد و ویژگی‌های <code>top</code>، <code>right</code>،
+          <code>bottom</code> و <code>left</code> آن را جابه‌جا نمی‌کنند.
+        </p>
+
+        <pre class="code"><code>.box {
+  position: static;
+}</code></pre>
+
+        <h2 id="relative">۳. مقدار relative</h2>
+        <p>
+          با <code>position: relative</code> عنصر ابتدا جای معمولی خودش را حفظ
+          می‌کند. سپس می‌توان آن را با ویژگی‌هایی مثل <code>top</code> و
+          <code>left</code> نسبت به همان جای اولیه جابه‌جا کرد.
+        </p>
+        <p>
+          فضای اولیه‌ی عنصر در صفحه همچنان رزرو می‌شود؛ بنابراین جابه‌جایی
+          آن معمولاً باعث نمی‌شود عناصر اطراف جای آن را بگیرند.
+        </p>
+
+        <pre class="code"><code>.box {
+  position: relative;
+  top: 10px;
+  left: 12px;
+}</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">کاربرد رایج</p>
+          <p>
+            یک والد را اغلب <code>position: relative</code> می‌کنیم تا
+            فرزندِ <code>position: absolute</code> بتواند نسبت به همان والد
+            جای‌گذاری شود.
+          </p>
+        </div>
+
+        <h2 id="absolute">۴. مقدار absolute</h2>
+        <p>
+          عنصرِ <code>position: absolute</code> از جریان عادی صفحه خارج می‌شود؛
+          بنابراین فضای قبلی‌اش دیگر برای آن رزرو نمی‌ماند. موقعیتش نسبت به
+          نزدیک‌ترین والدِ دارای <code>position</code> غیر از
+          <code>static</code> محاسبه می‌شود.
+        </p>
+        <p>
+          اگر چنین والدی وجود نداشته باشد، عنصر نسبت به بلوک اولیه‌ی صفحه
+          موقعیت‌گیری می‌شود.
+        </p>
+
+        <pre class="code"><code>.card {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}</code></pre>
+
+        <div class="callout warn">
+          <p class="callout-title">والدِ مرجع را مشخص کن</p>
+          <p>
+            اگر عنصر مطلق در جای غیرمنتظره‌ای قرار گرفت، والدهایش را بررسی کن.
+            معمولاً باید به والد موردنظر <code>position: relative</code> بدهی.
+          </p>
+        </div>
+
+        <h2 id="fixed">۵. مقدار fixed</h2>
+        <p>
+          عنصرِ <code>position: fixed</code> معمولاً نسبت به پنجره‌ی مرورگر
+          موقعیت‌گیری می‌شود. با اسکرول صفحه، در همان موقعیتِ صفحه‌نمایش
+          می‌ماند؛ مثلاً برای دکمه‌ی بازگشت به بالای صفحه یا نوار ثابت.
+        </p>
+
+        <pre class="code"><code>.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}</code></pre>
+
+        <h2 id="sticky">۶. مقدار sticky</h2>
+        <p>
+          عنصرِ <code>position: sticky</code> ابتدا در جریان عادی صفحه قرار
+          می‌گیرد. هنگام اسکرول، پس از رسیدن به حدی که با
+          <code>top</code> یا یکی از ویژگی‌های مشابه تعیین شده، در محدوده‌ی
+          والدش می‌چسبد.
+        </p>
+        <p>
+          برای چسبیدن به بالای ناحیه‌ی پیمایش، معمولاً باید
+          <code>top</code> هم تعیین شود.
+        </p>
+
+        <pre class="code"><code>.section-title {
+  position: sticky;
+  top: 0;
+}</code></pre>
+
+        <h2 id="z-index">۷. ترتیب لایه‌ها با z-index</h2>
+        <p>
+          وقتی عناصر روی هم قرار می‌گیرند، ویژگی <code>z-index</code> می‌تواند
+          ترتیب نمایش آن‌ها را کنترل کند. عدد بزرگ‌تر معمولاً عنصر را روی
+          عنصرهای با عدد کوچک‌تر نشان می‌دهد.
+        </p>
+
+        <pre class="code"><code>.modal {
+  position: fixed;
+  z-index: 10;
+}
+
+.tooltip {
+  position: absolute;
+  z-index: 20;
+}</code></pre>
+
+        <div class="callout note">
+          <p class="callout-title">درباره‌ی z-index</p>
+          <p>
+            <code>z-index</code> به‌تنهایی جای عنصر را تعیین نمی‌کند و ممکن
+            است تحت تأثیر زمینه‌های لایه‌ای والدها قرار بگیرد. اگر نتیجه
+            مطابق انتظار نبود، موقعیت و ساختار والدها را هم بررسی کن.
+          </p>
+        </div>
+
+        <h2 id="try-it">۸. نمونه را امتحان کن</h2>
+        <p>
+          مقدار <code>position</code> نشان را عوض کن. با تغییر
+          <code>top</code> و <code>right</code> هم جابه‌جایی آن را بررسی کن.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="360">
+          <textarea>
+<style>
+  .stage {
+    position: relative;
+    min-height: 220px;
+    padding: 20px;
+    border: 2px dashed #8b93a3;
+    border-radius: 12px;
+    background: #f4f5f8;
+    font-family: sans-serif;
+  }
+
+  .example-card {
+    min-height: 150px;
+    padding: 20px;
+    border: 1px solid #d4d8e0;
+    border-radius: 10px;
+    background: white;
+  }
+
+  .example-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: white;
+    background: #6750a4;
+    font-size: 14px;
+  }
+</style>
+
+<div class="stage">
+  <article class="example-card">
+    <span class="example-badge">جدید</span>
+    <h3>کارت نمونه</h3>
+    <p>نشان با position: absolute نسبت به والدِ position: relative قرار گرفته است.</p>
+  </article>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="comparison">۹. مقایسه‌ی مقدارها</h2>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مقدار</th>
+                <th>رفتار کلی</th>
+                <th>مبنای موقعیت‌گیری</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>static</code></td>
+                <td>در جریان عادی صفحه می‌ماند</td>
+                <td>موقعیت عادی سند</td>
+              </tr>
+              <tr>
+                <td><code>relative</code></td>
+                <td>جای اولیه‌اش را حفظ می‌کند و از آن جابه‌جا می‌شود</td>
+                <td>جای اولیه‌ی خودش</td>
+              </tr>
+              <tr>
+                <td><code>absolute</code></td>
+                <td>از جریان عادی خارج می‌شود</td>
+                <td>نزدیک‌ترین والدِ موقعیت‌دار</td>
+              </tr>
+              <tr>
+                <td><code>fixed</code></td>
+                <td>معمولاً هنگام اسکرول در جای صفحه‌نمایش می‌ماند</td>
+                <td>پنجره‌ی مرورگر</td>
+              </tr>
+              <tr>
+                <td><code>sticky</code></td>
+                <td>در محدوده‌ی والد به لبه می‌چسبد</td>
+                <td>جای عادی و محدوده‌ی پیمایش</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="summary">خلاصه‌ی درس</h2>
+        <ul>
+          <li><code>static</code> حالت پیش‌فرض است و با ویژگی‌های جهت‌دار جابه‌جا نمی‌شود.</li>
+          <li><code>relative</code> عنصر را نسبت به جای اولیه‌اش جابه‌جا می‌کند.</li>
+          <li><code>absolute</code> عنصر را از جریان عادی خارج می‌کند.</li>
+          <li><code>fixed</code> برای قرارگیری ثابت نسبت به پنجره‌ی مرورگر کاربرد دارد.</li>
+          <li><code>sticky</code> پس از رسیدن به حد تعیین‌شده، در محدوده‌ی والد می‌چسبد.</li>
+          <li><code>z-index</code> به کنترل ترتیب لایه‌ها کمک می‌کند.</li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>در تمرین‌ها از position برای جای‌گذاری عناصر استفاده کن.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

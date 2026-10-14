@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>چینش‌های تو در تو با display | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body
+    data-course="web"
+    data-lesson="10-nested-layouts-technique"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>چینش‌های تو در تو با display</h1>
+          <p class="lead">
+            یاد می‌گیریم صفحه را به بخش‌های کوچک‌تر تقسیم کنیم و با ترکیب
+            چینش‌های عمودی و افقی، ساختار صفحه‌های وب را بسازیم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="think-in-boxes">۱. صفحه را به جعبه‌ها تقسیم کن</h2>
+        <p>
+          قبل از نوشتن کد، به صفحه‌ای که می‌خواهی بسازی نگاه کن و آن را به
+          بخش‌های ساده تقسیم کن: سربرگ، منو، محتوای اصلی، کارت‌ها و بخش‌های
+          دیگر. به جای فکر کردن به کل صفحه به‌صورت یک‌جا، از خودت بپرس هر بخش
+          کنار کدام بخش است و کدام بخش زیر آن قرار می‌گیرد.
+        </p>
+        <p>
+          وقتی یک بخش شامل چند بخش دیگر باشد، آن‌ها را داخل عنصر والد قرار
+          می‌دهیم. این کار را <code>تودرتو</code> کردن می‌گوییم. هر عنصر می‌تواند
+          بخش کوچک‌تری از صفحه را در خودش نگه دارد.
+        </p>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            اول ساختار صفحه را با جعبه‌های ساده بساز. بعداً می‌توانی سراغ رنگ،
+            اندازهٔ نوشته‌ها و جزئیات ظاهری بروی.
+          </p>
+        </div>
+
+        <h2 id="vertical-layout">۲. چینش عمودی با block</h2>
+        <p>
+          عنصرهای بلوکی مثل <code>div</code> به‌طور معمول هرکدام در یک خط جدا
+          قرار می‌گیرند. به همین دلیل می‌توانیم با قرار دادن چند بخش بلوکی زیر
+          هم، یک چینش عمودی بسازیم.
+        </p>
+        <p>
+          اگر یک عنصر والد داشته باشیم و چند بخش بلوکی را داخل آن قرار دهیم،
+          بخش‌های داخلی به‌صورت عمودی زیر هم ظاهر می‌شوند. خود والد هم می‌تواند
+          بخشی از یک چینش بزرگ‌تر باشد.
+        </p>
+
+        <pre class="code"><code>&lt;div class="page"&gt;
+  &lt;header&gt;سربرگ سایت&lt;/header&gt;
+  &lt;main&gt;محتوای اصلی&lt;/main&gt;
+  &lt;footer&gt;پاورقی&lt;/footer&gt;
+&lt;/div&gt;</code></pre>
+
+        <div class="demo" data-title="امتحان کن: بخش‌های زیر هم" data-height="250">
+          <textarea>
+<style>
+  .page {
+    padding: 12px;
+    background: #f1f5f9;
+  }
+
+  .page div {
+    padding: 16px;
+    margin-bottom: 8px;
+    background: #dbeafe;
+  }
+</style>
+
+<div class="page">
+  <div>سربرگ</div>
+  <div>محتوای اصلی</div>
+  <div>پاورقی</div>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="horizontal-layout">۳. چینش افقی با inline-block</h2>
+        <p>
+          گاهی لازم است چند بخش، مثل ستون کناری و محتوای اصلی، کنار هم قرار
+          بگیرند. برای این تمرین از <code>display: inline-block</code> استفاده
+          می‌کنیم. این مقدار باعث می‌شود عنصر در جریان متن قرار بگیرد، اما بتوانیم
+          برایش اندازه‌هایی مثل <code>width</code> و <code>height</code> تعیین
+          کنیم.
+        </p>
+        <p>
+          اگر چند عنصر <code>inline-block</code> کنار هم باشند و عرض مجموعشان
+          در فضای موجود جا شود، در یک ردیف قرار می‌گیرند. اگر جا نشوند، ممکن است
+          یکی از آن‌ها به خط بعد برود.
+        </p>
+
+        <pre class="code"><code>&lt;style&gt;
+  .sidebar,
+  .content {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .sidebar {
+    width: 25%;
+  }
+
+  .content {
+    width: 70%;
+  }
+&lt;/style&gt;
+
+&lt;aside class="sidebar"&gt;منو&lt;/aside&gt;
+&lt;main class="content"&gt;محتوای صفحه&lt;/main&gt;</code></pre>
+
+        <div class="callout warn">
+          <p class="callout-title">حواست باشد</p>
+          <p>
+            عرض بخش‌های کنار هم به‌علاوهٔ فاصله‌هایشان باید در فضای والد جا شود.
+            اگر مجموع عرض‌ها زیاد باشد، یکی از بخش‌ها به خط بعد می‌رود.
+          </p>
+        </div>
+
+        <h2 id="nested-combination">۴. ترکیب چینش‌ها به‌صورت تو در تو</h2>
+        <p>
+          حالا می‌توانیم چینش عمودی و افقی را با هم ترکیب کنیم. در نمونهٔ زیر،
+          سربرگ بالای صفحه قرار می‌گیرد. زیر آن، نوار کناری و محتوای اصلی کنار
+          هم هستند. داخل نوار کناری، پروفایل و لینک‌های منو زیر هم قرار می‌گیرند؛
+          داخل محتوای اصلی هم کارت‌ها کنار هم آمده‌اند.
+        </p>
+        <p>
+          هر بخش چینش خودش را دارد: والد اصلی بخش‌های صفحه را زیر هم می‌چیند،
+          بخش بدنه دو ستون کنار هم دارد، و بخش کارت‌ها چند کارت افقی دارد.
+        </p>
+
+        <pre class="code"><code>&lt;div class="page"&gt;
+  &lt;header class="header"&gt;سربرگ سایت&lt;/header&gt;
+
+  &lt;div class="page-body"&gt;
+    &lt;aside class="sidebar"&gt;
+      &lt;div class="profile"&gt;پروفایل&lt;/div&gt;
+      &lt;nav class="menu"&gt;
+        &lt;a href="#"&gt;صفحهٔ اصلی&lt;/a&gt;
+        &lt;a href="#"&gt;دوره‌ها&lt;/a&gt;
+        &lt;a href="#"&gt;دربارهٔ ما&lt;/a&gt;
+      &lt;/nav&gt;
+    &lt;/aside&gt;
+
+    &lt;main class="content"&gt;
+      &lt;section class="welcome"&gt;به سایت ما خوش آمدید&lt;/section&gt;
+      &lt;section class="cards"&gt;
+        &lt;article class="card"&gt;کارت اول&lt;/article&gt;
+        &lt;article class="card"&gt;کارت دوم&lt;/article&gt;
+        &lt;article class="card"&gt;کارت سوم&lt;/article&gt;
+      &lt;/section&gt;
+    &lt;/main&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+        <div class="demo" data-title="امتحان کن: چینش‌های تو در تو" data-height="520">
+          <textarea>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .page {
+    padding: 12px;
+    background: #f8fafc;
+  }
+
+  .header {
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #dbeafe;
+  }
+
+  .sidebar,
+  .content {
+    display: inline-block;
+    vertical-align: top;
+    padding: 12px;
+  }
+
+  .sidebar {
+    width: 25%;
+    background: #e2e8f0;
+  }
+
+  .content {
+    width: 73%;
+    background: #fff;
+  }
+
+  .profile,
+  .welcome {
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #dcfce7;
+  }
+
+  .menu a {
+    display: block;
+    padding: 8px;
+    margin-bottom: 6px;
+    background: #fff;
+  }
+
+  .card {
+    display: inline-block;
+    vertical-align: top;
+    width: 31%;
+    min-height: 70px;
+    padding: 10px;
+    margin-left: 1%;
+    background: #f1f5f9;
+  }
+</style>
+
+<div class="page">
+  <header class="header">سربرگ سایت</header>
+
+  <aside class="sidebar">
+    <div class="profile">پروفایل</div>
+    <nav class="menu">
+      <a href="#">صفحهٔ اصلی</a>
+      <a href="#">دوره‌ها</a>
+      <a href="#">دربارهٔ ما</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <section class="welcome">به سایت ما خوش آمدید</section>
+    <section class="cards">
+      <article class="card">کارت اول</article>
+      <article class="card">کارت دوم</article>
+      <article class="card">کارت سوم</article>
+    </section>
+  </main>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="inspect-layout">۵. صفحه را بررسی و بازسازی کن</h2>
+        <p>
+          برای بازسازی یک صفحه، اول بخش‌های بزرگ را پیدا کن و بعد هرکدام را به
+          بخش‌های کوچک‌تر بشکن. از خودت بپرس کدام قسمت‌ها بلوکی و زیر هم هستند و
+          کدام قسمت‌ها با <code>inline-block</code> کنار هم قرار می‌گیرند. سپس
+          ساختار HTML را بساز و برای دیدن محدودهٔ هر بخش، موقتاً به آن رنگ پس‌زمینه
+          بده.
+        </p>
+        <p>
+          در ویندوز برای گرفتن اسکرین‌شات از یک قسمت دلخواه، کلیدهای
+          <code>Windows + Shift + S</code> را بزن و ناحیهٔ موردنظر را انتخاب کن.
+          تصویر در کلیپ‌بورد قرار می‌گیرد و می‌توانی آن را با
+          <code>Ctrl + V</code> در برنامه‌ای مثل Paint بچسبانی.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">یادآوری</p>
+          <p>
+            هدف تمرین، کپی دقیق رنگ و ظاهر سایت نیست. تمرکزت را روی این بگذار که
+            ساختار صفحه را به بخش‌ها تقسیم کنی و رابطهٔ عمودی یا افقی آن‌ها را
+            تشخیص بدهی.
+          </p>
+        </div>
+
+        <h2 id="summary">جمع‌بندی</h2>
+        <p>
+          با قرار دادن بخش‌های بلوکی زیر هم می‌توانیم چینش عمودی بسازیم. برای
+          قرار دادن چند بخش کنار هم، در این درس از
+          <code>display: inline-block</code> استفاده کردیم. با قرار دادن این
+          بخش‌ها داخل والدهای دیگر، چینش‌های تو در تو می‌سازیم و صفحه را قدم‌به‌قدم
+          از جعبه‌های کوچک‌تر شکل می‌دهیم.
+        </p>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>حالا نوبت بازسازی یک چیدمان و تمرین با display است.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>
