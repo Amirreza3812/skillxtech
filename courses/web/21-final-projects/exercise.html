@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین پروژه‌ی صفحه‌ی ریسپانسیو | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="21-responsive-page-project" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>پروژه‌ی پایانی: صفحه‌ی ریسپانسیو</h1>
+          <p class="lead">
+            یک صفحه‌ی معرفی طراحی کن که در اندازه‌های مختلف نمایشگر مرتب و
+            قابل استفاده باشد.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>انتخاب موضوع و نمونه‌ی الهام‌بخش</h3>
+            <p>
+              موضوع صفحه‌ات را انتخاب کن؛ مثلاً کافه، فروشگاه، محصول، دوره‌ی
+              آموزشی یا صفحه‌ی شخصی. سپس از یکی از گالری‌های درس یک نمونه‌ی مرتبط
+              پیدا کن و بنویس چه دو ویژگی‌ای از آن برایت جالب بوده است.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                ویژگی‌ها می‌توانند چیدمان، رنگ، تصویر، اندازه‌ی عنوان یا شکل
+                کارت‌ها باشند. قرار نیست نمونه را عیناً کپی کنی.
+              </p>
+            </details>
+            <div class="demo" data-title="یادداشت پروژه" data-height="180">
+              <textarea>
+موضوع پروژه:
+مخاطب صفحه:
+لینک نمونه‌ی الهام‌بخش:
+دو ویژگی‌ای که از نمونه دوست دارم:
+۱.
+۲.
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>طرح‌ریزی بخش‌های صفحه</h3>
+            <p>
+              دست‌کم چهار بخش برای صفحه‌ات مشخص کن؛ مثلاً سربرگ، معرفی اصلی،
+              کارت‌های ویژگی و پاورقی. برای هرکدام بنویس چه محتوایی در آن قرار
+              می‌دهی.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای ساختار صفحه می‌توانی از تگ‌هایی مثل
+                <code>header</code>، <code>main</code>، <code>section</code> و
+                <code>footer</code> استفاده کنی.
+              </p>
+            </details>
+            <div class="demo" data-title="طرح اولیه‌ی محتوا" data-height="200">
+              <textarea>
+۱. سربرگ:
+۲. بخش معرفی:
+۳. بخش محتوا یا ویژگی‌ها:
+۴. پاورقی:
+
+چه چیزی باید زودتر از همه توجه کاربر را جلب کند؟
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت پوشه‌ها و فایل‌های پروژه</h3>
+            <p>
+              یک پوشه‌ی اصلی به نام <code>responsive-project</code> بساز و
+              فایل‌ها را با این ساختار در آن قرار بده:
+            </p>
+            <pre class="code"><code>responsive-project/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── images/</code></pre>
+            <p>
+              برای این تمرین، فایل اصلی را <code>index.html</code> نام‌گذاری کن.
+              اگر در صفحه‌ات از JavaScript یا تصویر استفاده نمی‌کنی، باز هم
+              پوشه‌ی مربوط به آن‌ها را می‌توانی خالی نگه داری.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                مسیر CSS از فایل HTML برابر
+                <code>css/style.css</code> است. برای تصویر داخل پوشه‌ی
+                <code>images</code>، مسیر را به شکل
+                <code>images/image-name.jpg</code> بنویس.
+              </p>
+            </details>
+          </li>
+
+          <li class="task">
+            <h3>پیاده‌سازی ساختار HTML</h3>
+            <p>
+              فایل <code>index.html</code> را با ساختار پایه‌ی HTML بساز. بخش‌های
+              پروژه را با تگ‌های مناسب جدا کن و برای تصویرهای محتوایی، متن
+              جایگزین مناسب بنویس.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                معمولاً عنوان اصلی صفحه یک <code>h1</code> دارد. برای بخش‌های
+                اصلی از عنوان‌های مرتبه‌ی بعدی استفاده کن و نام کلاس‌ها را بر
+                اساس کاربردشان انتخاب کن.
+              </p>
+            </details>
+            <div class="demo" data-title="پیش‌نویس HTML" data-height="260">
+              <textarea>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>عنوان پروژه</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <!-- سربرگ و منو -->
+  </header>
+
+  <main>
+    <!-- محتوای اصلی و بخش‌های صفحه -->
+  </main>
+
+  <footer>
+    <!-- اطلاعات پایانی -->
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>استایل‌دهی و واکنش‌گرا کردن صفحه</h3>
+            <p>
+              در <code>css/style.css</code> رنگ‌ها، فونت، فاصله‌ها و چیدمان صفحه
+              را تنظیم کن. از Flexbox یا Grid برای چیدمان مناسب استفاده کن و با
+              Media Query صفحه را برای نمایشگرهای کوچک‌تر اصلاح کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                می‌توانی ابتدا استایل صفحه‌ی کوچک را بنویسی و در Media Query
+                چیدمان مناسب صفحه‌ی بزرگ‌تر را اضافه کنی. برای رنگ و فاصله‌های
+                پرتکرار هم از متغیرهای CSS استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="ایده‌ی شروع CSS" data-height="240">
+              <textarea>
+:root {
+  --color-primary: #2563eb;
+  --color-text: #1f2937;
+  --space-medium: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 700px) {
+  /* چیدمان صفحه‌ی بزرگ‌تر را اینجا تنظیم کن */
+}
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بررسی نهایی و آماده‌سازی برای نمایش</h3>
+            <p>
+              پروژه را در مرورگر باز کن و در عرض‌های کوچک و بزرگ بررسی کن. مسیر
+              CSS، تصویرها و فایل‌های دیگر را هم بررسی کن. اگر خواستی تصویر
+              صفحه‌ات را برای ارائه آماده کنی، در ویندوز می‌توانی از
+              <code>Windows + Shift + S</code> برای گرفتن اسکرین‌شات استفاده کنی.
+            </p>
+            <details>
+              <summary>چک‌لیست تحویل</summary>
+              <ul>
+                <li>فایل اصلی <code>index.html</code> است.</li>
+                <li>فایل CSS در پوشه‌ی <code>css</code> قرار دارد.</li>
+                <li>مسیر فایل‌ها درست است و تصویرها بارگذاری می‌شوند.</li>
+                <li>عنوان‌ها و متن‌ها در اندازه‌ی کوچک خوانا هستند.</li>
+                <li>صفحه در موبایل اسکرول افقی ناخواسته ندارد.</li>
+                <li>از دست‌کم یک مفهوم چیدمان مثل Flexbox یا Grid استفاده شده است.</li>
+                <li>از Media Query برای تنظیم چیدمان استفاده شده است.</li>
+              </ul>
+            </details>
+            <div class="demo" data-title="یادداشت بررسی نهایی" data-height="180">
+              <textarea>
+مشکلی که در اندازه‌ی موبایل پیدا کردم:
+چطور آن را اصلاح کردم:
+مفهوم‌هایی از دوره که در پروژه استفاده کردم:
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout note">
+          <p class="callout-title">انتشار کارها</p>
+          <p>
+            اگر قرار است پروژه‌ات در گالری نمونه‌کارهای دوره نمایش داده شود،
+            پیش از انتشار، رضایتت گرفته می‌شود. می‌توانی نام نمایشی دلخواهت را
+            انتخاب کنی.
+          </p>
+        </div>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

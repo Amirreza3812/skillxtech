@@ -1,5 +1,14 @@
 :root {
-  --paper: #f2f5f7;
+  /* حال اولیه */
+  /* --paper: #f2f5f7;
+  --surface: #ffffff;
+  --ink: #14263a;
+  --muted: #5b6b7b;
+  --line: #d5dde4;
+  --accent: #2f5bea;
+  --chalk: #f5d04c;
+  --radius: 10px; */
+  --paper: #f1f2f3;
   --surface: #ffffff;
   --ink: #14263a;
   --muted: #5b6b7b;
@@ -8,6 +17,16 @@
   --chalk: #f5d04c;
   --radius: 10px;
 }
+
+/* :root {
+  --paper: #111820;   /* پس‌زمینه اصلی 
+  --surface: #1b2632; /* کارت‌ها و بخش‌های برجسته 
+  --ink: #e2e8ee;     /* متن اصلی
+  --muted: #a0adba;   /* متن کم‌اهمیت 
+  --line: #344352;    /* حاشیه‌ها 
+  --accent: #8aa7ff;  /* لینک‌ها و دکمه‌های اصلی 
+  --chalk: #e8c75a;   /* تأکید زرد 
+} */
 
 *,
 *::before,

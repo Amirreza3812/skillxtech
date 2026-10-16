@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>پروژه‌ی صفحه‌ی ریسپانسیو | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+
+    <style>
+      .inspiration-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin: 20px 0;
+      }
+
+      .inspiration-card {
+        display: block;
+        overflow: hidden;
+        color: inherit;
+        text-decoration: none;
+        border: 1px solid #d1d5db;
+        border-radius: 14px;
+        background: #fff;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .inspiration-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgb(15 23 42 / 12%);
+      }
+
+      .inspiration-art {
+        min-height: 145px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: linear-gradient(135deg, #dbeafe, #f5d0fe);
+      }
+
+      .inspiration-art.cafe {
+        background: linear-gradient(135deg, #fef3c7, #fed7aa);
+      }
+
+      .inspiration-art.portfolio {
+        background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+      }
+
+      .inspiration-art.store {
+        background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+      }
+
+      .mock-nav,
+      .mock-button,
+      .mock-line,
+      .mock-card {
+        display: block;
+        border-radius: 999px;
+        background: rgb(255 255 255 / 75%);
+      }
+
+      .mock-nav {
+        width: 100%;
+        height: 14px;
+      }
+
+      .mock-line {
+        width: 72%;
+        height: 11px;
+        margin-top: 8px;
+      }
+
+      .mock-line.short {
+        width: 42%;
+      }
+
+      .mock-button {
+        width: 92px;
+        height: 25px;
+        background: #2563eb;
+      }
+
+      .mock-cards {
+        display: flex;
+        gap: 8px;
+      }
+
+      .mock-card {
+        width: 33%;
+        height: 42px;
+      }
+
+      .inspiration-copy {
+        padding: 14px;
+      }
+
+      .inspiration-copy h3 {
+        margin: 0 0 6px;
+        font-size: 1rem;
+      }
+
+      .inspiration-copy p {
+        margin: 0;
+        color: #4b5563;
+        font-size: 0.9rem;
+      }
+
+      .folder-tree {
+        direction: ltr;
+        overflow-x: auto;
+        padding: 16px;
+        border-radius: 10px;
+        background: #111827;
+        color: #f9fafb;
+        font-family: monospace;
+        line-height: 1.8;
+        white-space: pre;
+      }
+
+      @media (max-width: 520px) {
+        .inspiration-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body data-course="web" data-lesson="21-responsive-page-project" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>پروژه‌ی ساخت یک صفحه‌ی ریسپانسیو</h1>
+          <p class="lead">
+            در این پروژه یک طرح مناسب پیدا می‌کنی، آن را تحلیل می‌کنی و با
+            مفاهیم HTML و CSS دوره به صفحه‌ای واکنش‌گرا تبدیلش می‌کنی.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="goal">هدف پروژه</h2>
+        <p>
+          تا اینجا با HTML و CSS، چیدمان صفحه، Flexbox، Grid، موقعیت‌دهی،
+          متغیرهای CSS و طراحی واکنش‌گرا آشنا شده‌ای. حالا وقت آن است که این
+          مهارت‌ها را در یک پروژه‌ی کوچک کنار هم به کار ببری.
+        </p>
+        <p>
+          پروژه، ساخت یک صفحه‌ی معرفی برای یک موضوع دلخواه است؛ مثلاً یک کافه،
+          فروشگاه کوچک، دوره‌ی آموزشی، محصول خیالی یا صفحه‌ی معرفی خودت.
+        </p>
+
+        <div class="callout tip">
+          <p class="callout-title">هدف، کپی‌کردن طرح نیست</p>
+          <p>
+            از نمونه‌ها برای گرفتن ایده استفاده کن؛ اما محتوا، رنگ‌ها، تصویرها
+            و جزئیات طراحی نهایی را خودت انتخاب کن.
+          </p>
+        </div>
+
+        <h2 id="ui-ux">UI و UX یعنی چه؟</h2>
+        <p>
+          <code>UI</code> یا رابط کاربری، بخش‌هایی است که کاربر می‌بیند و با آن‌ها
+          تعامل می‌کند؛ مثل دکمه‌ها، منو، کارت‌ها، عنوان‌ها و تصویرها.
+          <code>UX</code> یا تجربه‌ی کاربری، تجربه‌ی کلی فرد هنگام استفاده از
+          محصول است: آیا می‌تواند به‌راحتی اطلاعات موردنیازش را پیدا کند؟ آیا
+          مسیر رسیدن به هدف برایش روشن است؟
+        </p>
+        <p>
+          بنابراین یک صفحه ممکن است ظاهر زیبایی داشته باشد، اما اگر پیدا کردن
+          اطلاعات یا استفاده از دکمه‌ها دشوار باشد، تجربه‌ی خوبی ایجاد نمی‌کند.
+          طراحی مناسب هم به ظاهر توجه دارد و هم به نیاز و هدف کاربر.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">مثال</p>
+          <p>
+            در صفحه‌ی یک کافه، UI شامل منو، عکس غذاها و دکمه‌ی تماس است. از
+            جنبه‌ی UX می‌پرسیم: آیا کاربر می‌تواند سریع آدرس، ساعت کاری یا منو را
+            پیدا کند؟
+          </p>
+        </div>
+
+        <h2 id="inspiration">از کجا نمونه‌ی طراحی پیدا کنیم؟</h2>
+        <p>
+          برای شروع، موضوع صفحه‌ات را مشخص کن و بعد نمونه‌های نزدیک به همان موضوع
+          را ببین. این گالری‌ها برای جست‌وجوی ایده و مشاهده‌ی نمونه‌های طراحی وب
+          مناسب‌اند:
+        </p>
+
+        <div class="inspiration-grid">
+          <a
+            class="inspiration-card"
+            href="https://www.awwwards.com/websites/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="inspiration-art">
+              <span class="mock-nav"></span>
+              <div>
+                <span class="mock-line"></span>
+                <span class="mock-line short"></span>
+              </div>
+              <span class="mock-button"></span>
+            </div>
+            <div class="inspiration-copy">
+              <h3>Awwwards</h3>
+              <p>گالری وب‌سایت‌ها و مجموعه‌های الهام‌بخش.</p>
+            </div>
+          </a>
+
+          <a
+            class="inspiration-card"
+            href="https://dribbble.com/search/website"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="inspiration-art cafe">
+              <span class="mock-nav"></span>
+              <div>
+                <span class="mock-line"></span>
+                <span class="mock-line short"></span>
+              </div>
+              <span class="mock-cards">
+                <span class="mock-card"></span>
+                <span class="mock-card"></span>
+                <span class="mock-card"></span>
+              </span>
+            </div>
+            <div class="inspiration-copy">
+              <h3>Dribbble</h3>
+              <p>طرح‌ها و نمونه‌کارهای تصویری طراحان.</p>
+            </div>
+          </a>
+
+          <a
+            class="inspiration-card"
+            href="https://www.behance.net/search/projects?search=web%20design"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="inspiration-art portfolio">
+              <span class="mock-nav"></span>
+              <div>
+                <span class="mock-line"></span>
+                <span class="mock-line short"></span>
+              </div>
+              <span class="mock-cards">
+                <span class="mock-card"></span>
+                <span class="mock-card"></span>
+                <span class="mock-card"></span>
+              </span>
+            </div>
+            <div class="inspiration-copy">
+              <h3>Behance</h3>
+              <p>پروژه‌های طراحی که گاهی روند و بخش‌های مختلفشان را هم نشان می‌دهند.</p>
+            </div>
+          </a>
+
+          <a
+            class="inspiration-card"
+            href="https://www.awwwards.com/websites/clean/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="inspiration-art store">
+              <span class="mock-nav"></span>
+              <div>
+                <span class="mock-line"></span>
+                <span class="mock-line short"></span>
+              </div>
+              <span class="mock-button"></span>
+            </div>
+            <div class="inspiration-copy">
+              <h3>نمونه‌های ساده و خلوت</h3>
+              <p>برای دیدن نمونه‌هایی با چیدمان مرتب و تمرکز بر محتوای مهم.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="callout warn">
+          <p class="callout-title">طرح‌های الهام‌بخش همیشه ساده نیستند</p>
+          <p>
+            بعضی وب‌سایت‌های نمایشی از انیمیشن‌ها و جلوه‌های پیچیده استفاده
+            می‌کنند. برای پروژه‌ی این دوره، نمونه‌ای انتخاب کن که بتوانی بخش‌های
+            اصلی آن را با HTML و CSSهایی که یاد گرفته‌ای بسازی.
+          </p>
+        </div>
+
+        <h2 id="choose">چطور نمونه‌ی مناسب انتخاب کنیم؟</h2>
+        <p>هنگام انتخاب نمونه، این موارد را بررسی کن:</p>
+        <ul>
+          <li>آیا موضوع نمونه با موضوع پروژه‌ات ارتباط دارد؟</li>
+          <li>آیا می‌توانی بخش‌های اصلی صفحه را به‌وضوح تشخیص بدهی؟</li>
+          <li>آیا چیدمانش را می‌توان با Flexbox یا Grid پیاده‌سازی کرد؟</li>
+          <li>آیا می‌توانی حدس بزنی صفحه در اندازه‌ی موبایل چه تغییری می‌کند؟</li>
+          <li>آیا می‌توانی یک نسخه‌ی ساده‌تر از آن را با مهارت‌های دوره بسازی؟</li>
+        </ul>
+
+        <h2 id="analyze">قبل از کدنویسی، طرح را تحلیل کن</h2>
+        <p>
+          بعد از انتخاب نمونه، فوراً سراغ کد نرو. اول بخش‌های صفحه و هدف هرکدام
+          را یادداشت کن. برای نمونه، یک صفحه‌ی معرفی ممکن است این بخش‌ها را داشته
+          باشد:
+        </p>
+        <ol>
+          <li>سربرگ و منو</li>
+          <li>بخش معرفی اصلی شامل عنوان، توضیح و دکمه</li>
+          <li>بخش ویژگی‌ها یا کارت‌های محتوا</li>
+          <li>بخش تصویر یا توضیح تکمیلی</li>
+          <li>پاورقی شامل اطلاعات یا لینک‌ها</li>
+        </ol>
+        <p>
+          سپس برای هر بخش تصمیم بگیر چه تگ HTMLای مناسب است و چیدمان آن را با
+          کدام ابزار می‌سازی. مثلاً <code>header</code> برای سربرگ،
+          <code>main</code> برای محتوای اصلی، <code>section</code> برای بخش‌های
+          موضوعی و <code>footer</code> برای پاورقی.
+        </p>
+
+        <h2 id="connect">مفاهیم دوره را وارد پروژه کن</h2>
+        <p>
+          قرار نیست همه‌ی ویژگی‌های CSS را به زور وارد صفحه کنی. از هر مفهوم
+          جایی استفاده کن که برای چیدمان و ظاهر پروژه مناسب باشد:
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>مفهوم</th>
+                <th>نمونه‌ی کاربرد در پروژه</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ساختار معنایی HTML</td>
+                <td>تقسیم صفحه به سربرگ، محتوای اصلی، بخش‌ها و پاورقی</td>
+              </tr>
+              <tr>
+                <td>کلاس‌ها و انتخابگرها</td>
+                <td>استایل دادن به کارت‌ها، دکمه‌ها و بخش‌های تکرارشونده</td>
+              </tr>
+              <tr>
+                <td>Box Model و <code>box-sizing</code></td>
+                <td>کنترل اندازه، فاصله‌ی داخلی و حاشیه‌ی اجزا</td>
+              </tr>
+              <tr>
+                <td>Flexbox یا Grid</td>
+                <td>چیدمان منو، کارت‌ها یا بخش معرفی</td>
+              </tr>
+              <tr>
+                <td>واحدها و Media Query</td>
+                <td>تنظیم اندازه‌ها و تغییر چیدمان در صفحه‌های کوچک</td>
+              </tr>
+              <tr>
+                <td>متغیرهای CSS</td>
+                <td>تعریف رنگ‌ها و فاصله‌های پرتکرار در <code>:root</code></td>
+              </tr>
+              <tr>
+                <td>تصویر و <code>object-fit</code></td>
+                <td>نمایش تصویرها با اندازه و برش مناسب</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          فرم فقط وقتی لازم است که با موضوع و هدف صفحه تناسب داشته باشد. اگر
+          صفحه‌ات نیازی به فرم ندارد، لازم نیست فرمی را فقط برای استفاده از درس
+          فرم‌ها اضافه کنی.
+        </p>
+
+        <h2 id="folders">پوشه‌بندی پروژه</h2>
+        <p>
+          برای اینکه فایل‌ها مرتب باشند و مسیرهایشان را راحت‌تر پیدا کنی، پروژه
+          را در یک پوشه‌ی اصلی نگه دار. در این تمرین از ساختار زیر استفاده می‌کنیم:
+        </p>
+
+        <div class="folder-tree">responsive-project/
+├── index.html
+├── css/
+│   └── style.css
+├── js/
+│   └── main.js
+└── images/
+    └── your-image.jpg</div>
+
+        <p>
+          نام <code>index.html</code> را برای صفحه‌ی اصلی پروژه نگه دار. فایل‌های
+          استایل، اسکریپت و تصویرها را هم در پوشه‌های مربوط به خودشان قرار بده.
+          این یک ساختار تمرینی برای پروژه‌ی این دوره است؛ مهم این است که فایل‌ها
+          را مرتب نگه داری و مسیرهایشان را درست بنویسی.
+        </p>
+
+        <pre class="code"><code>&lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;img src="images/your-image.jpg" alt="توضیح مناسب برای تصویر"&gt;</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">مسیرها را با اسلش رو به جلو بنویس</p>
+          <p>
+            در HTML مسیرهایی مانند <code>images/photo.jpg</code> بنویس؛ حتی اگر
+            در ویندوز هستی، از <code>\</code> استفاده نکن.
+          </p>
+        </div>
+
+        <h2 id="workflow">مراحل انجام پروژه</h2>
+        <ol>
+          <li>موضوع صفحه و مخاطب احتمالی آن را مشخص کن.</li>
+          <li>یک یا دو نمونه‌ی مرتبط پیدا کن و نکات موردعلاقه‌ات را یادداشت کن.</li>
+          <li>بخش‌های اصلی صفحه را روی کاغذ یا در یک فهرست ساده طراحی کن.</li>
+          <li>پوشه‌ها و فایل‌های پروژه را طبق ساختار تمرین بساز.</li>
+          <li>ساختار HTML را آماده کن و بخش‌های صفحه را با تگ‌های مناسب جدا کن.</li>
+          <li>استایل پایه، رنگ‌ها، فاصله‌ها و چیدمان را در CSS پیاده‌سازی کن.</li>
+          <li>با Media Query چیدمان را برای اندازه‌های مختلف تنظیم کن.</li>
+          <li>صفحه را در مرورگر بررسی کن و اشکال‌های ظاهری و مسیر فایل‌ها را اصلاح کن.</li>
+        </ol>
+
+        <h2 id="responsive-check">چک‌لیست ریسپانسیو بودن</h2>
+        <ul>
+          <li>در عرض موبایل، محتوای صفحه بیرون از viewport نمی‌زند.</li>
+          <li>متن‌ها و دکمه‌ها خوانا و قابل استفاده‌اند.</li>
+          <li>کارت‌ها و ستون‌ها در صفحه‌ی کوچک چیدمان مناسبی دارند.</li>
+          <li>تصاویر بیش از اندازه‌ی ظرف خود بزرگ نمی‌شوند.</li>
+          <li>منو و فاصله‌های صفحه در اندازه‌های مختلف قابل استفاده‌اند.</li>
+          <li>صفحه را دست‌کم در اندازه‌ی کوچک و بزرگ مرورگر بررسی کرده‌ای.</li>
+        </ul>
+
+        <h2 id="summary">خلاصه</h2>
+        <ul>
+          <li>UI بخش دیداری و تعاملی صفحه است؛ UX تجربه‌ی کلی استفاده از آن.</li>
+          <li>نمونه‌ها را برای یادگیری و ایده گرفتن بررسی کن، نه برای کپی مستقیم.</li>
+          <li>پیش از کدنویسی، بخش‌ها و هدف هرکدام را مشخص کن.</li>
+          <li>از مفاهیم دوره در جای مناسب استفاده کن؛ لازم نیست همه‌چیز را به زور وارد کنی.</li>
+          <li>پوشه‌ها و مسیر فایل‌ها را مرتب و دقیق نگه دار.</li>
+          <li>صفحه را در اندازه‌های گوناگون بررسی و اصلاح کن.</li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>حالا نوبت پروژه‌ی توست</h2>
+            <p>موضوعت را انتخاب کن، نمونه را تحلیل کن و صفحه‌ات را بساز.</p>
+          </div>
+          <a class="btn" href="exercise.html">مشاهده‌ی صورت پروژه</a>
+        </section>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>
