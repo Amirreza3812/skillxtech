@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تمرین Media Query در CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body data-course="web" data-lesson="17-media-queries" data-root="../../../">
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: Media Query در CSS</h1>
+        <p class="lead">
+          کدها را کامل کن و اندازه‌ی کادر پیش‌نمایش را برای دیدن تغییرات عوض کن.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+      <ol class="tasks">
+        <li class="task">
+          <h3>تغییر رنگ در صفحه‌ی بزرگ‌تر</h3>
+          <p>
+            با یک Media Query کاری کن که پس‌زمینه‌ی جعبه در عرض‌های ۶۰۰ پیکسل
+            یا بیشتر سبز شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>از شرط <code>min-width: 600px</code> استفاده کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+            <textarea>
+<style>
+  .box {
+    padding: 24px;
+    background: lightblue;
+    text-align: center;
+  }
+
+  @media (min-width: 600px) {
+    .box {
+      background: lightgreen;
+    }
+  }
+</style>
+
+<div class="box">عرض کادر پیش‌نمایش را تغییر بده</div>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>کارت‌ها در موبایل و دسکتاپ</h3>
+          <p>
+            کارت‌ها را در حالت پایه زیر هم نمایش بده. از عرض ۷۰۰ پیکسل به بالا،
+            آن‌ها را در دو ستون قرار بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              برای حالت پایه از یک ستون و داخل
+              <code>@media (min-width: 700px)</code> از دو ستون استفاده کن.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="240">
+            <textarea>
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card {
+    padding: 20px;
+    background: #e6ddff;
+    text-align: center;
+  }
+
+  @media (min-width: 700px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<div class="cards">
+  <div class="card">کارت اول</div>
+  <div class="card">کارت دوم</div>
+  <div class="card">کارت سوم</div>
+  <div class="card">کارت چهارم</div>
+</div>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر اندازه‌ی عنوان</h3>
+          <p>
+            اندازه‌ی عنوان را در حالت پایه ۲۴ پیکسل بگذار. از عرض ۸۰۰ پیکسل
+            به بالا، اندازه‌اش را به ۳۶ پیکسل تغییر بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              قانون پایه را بیرون از Media Query بنویس و مقدار بزرگ‌تر را در
+              شرط <code>min-width</code> قرار بده.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+            <textarea>
+<style>
+  h2 {
+    font-size: 24px;
+    color: #31572c;
+  }
+
+  @media (min-width: 800px) {
+    h2 {
+      font-size: 36px;
+    }
+  }
+</style>
+
+<h2>عنوان واکنش‌گرا</h2>
+<p>برای دیدن تغییر، عرض پیش‌نمایش را کم و زیاد کن.</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>شرط عرض و جهت نمایشگر</h3>
+          <p>
+            پس‌زمینه‌ی بنر را فقط زمانی نارنجی کن که عرض صفحه حداقل ۷۰۰ پیکسل
+            و جهت نمایشگر افقی باشد.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              شرط‌ها را در یک Media Query با <code>and</code> ترکیب کن و از
+              <code>orientation: landscape</code> استفاده کن.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+            <textarea>
+<style>
+  .banner {
+    padding: 30px;
+    background: lightgray;
+    text-align: center;
+  }
+
+  @media (min-width: 700px) and (orientation: landscape) {
+    .banner {
+      background: orange;
+    }
+  }
+</style>
+
+<div class="banner">بنر را در عرض‌ها و جهت‌های مختلف بررسی کن</div>
+</textarea>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

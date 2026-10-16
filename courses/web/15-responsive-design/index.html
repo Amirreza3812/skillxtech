@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>طراحی ریسپانسیو | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="15-responsive-design" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>طراحی ریسپانسیو</h1>
+          <p class="lead">
+            یاد می‌گیری چرا یک صفحه باید در اندازه‌های مختلف صفحه‌نمایش خوانا و
+            قابل‌استفاده بماند و با چه روش‌هایی می‌توان چیدمان آن را سازگار کرد.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="what-is-responsive">۱. طراحی ریسپانسیو چیست؟</h2>
+        <p>
+          طراحی ریسپانسیو یعنی طراحی صفحه به شکلی که در اندازه‌ها و شرایط
+          نمایش مختلف، محتوا همچنان قابل‌خواندن و استفاده باشد؛ از صفحه‌ی
+          باریک موبایل تا نمایشگر بزرگ‌تر لپ‌تاپ.
+        </p>
+        <p>
+          ریسپانسیو بودن فقط کوچک کردن همه‌چیز نیست. ممکن است در موبایل ستون‌ها
+          زیر هم قرار بگیرند، فاصله‌ها تغییر کنند یا بعضی بخش‌ها شکل دیگری از
+          چیدمان بگیرند تا استفاده از صفحه راحت‌تر شود.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">هدف اصلی</p>
+          <p>
+            محتوا باید در اندازه‌های مختلف بدون اسکرول افقی ناخواسته، متن
+            ناخوانا یا کنترل‌های سخت‌دسترس نمایش داده شود.
+          </p>
+        </div>
+
+        <h2 id="viewport">۲. تنظیم viewport</h2>
+        <p>
+          برای نمایش درست صفحه در مرورگر موبایل، این متا تگ را داخل
+          <code>&lt;head&gt;</code> می‌گذاریم:
+        </p>
+
+        <pre class="code"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+
+        <p>
+          عبارت <code>width=device-width</code> به مرورگر می‌گوید عرض صفحه را
+          با عرض دستگاه هماهنگ کند. <code>initial-scale=1</code> هم بزرگ‌نمایی
+          اولیه را روی اندازه‌ی معمول قرار می‌دهد.
+        </p>
+
+        <div class="callout warn">
+          <p class="callout-title">این خط را فراموش نکن</p>
+          <p>
+            اگر viewport به‌درستی تنظیم نشده باشد، مرورگر موبایل ممکن است صفحه
+            را شبیه یک صفحه‌ی دسکتاپ کوچک‌شده نمایش دهد؛ در این حالت قواعد
+            ریسپانسیو نتیجه‌ی مورد انتظار را ندارند.
+          </p>
+        </div>
+
+        <h2 id="responsive-layout">۳. چیدمان را با صفحه سازگار کن</h2>
+        <p>
+          یک چیدمان مناسب برای نمایشگر بزرگ ممکن است روی موبایل جا نشود. برای
+          نمونه، سه کارت کنار هم در عرض کم به کارت‌های فشرده و ناخوانا تبدیل
+          می‌شوند. می‌توان آن‌ها را در موبایل زیر هم قرار داد و در نمایشگر
+          بزرگ‌تر دوباره کنار هم چید.
+        </p>
+        <p>
+          برای ساخت چنین رفتاری معمولاً از ترکیب CSS انعطاف‌پذیر و
+          <code>media query</code> استفاده می‌کنیم. در درس‌های بعدی واحدهای
+          منعطف و Media Query را جداگانه و با جزئیات تمرین می‌کنی.
+        </p>
+
+        <h2 id="mobile-first">۴. رویکرد mobile-first</h2>
+        <p>
+          در رویکرد <em>mobile-first</em>، ابتدا چیدمان ساده و مناسب صفحه‌ی
+          باریک را می‌سازیم. سپس برای صفحه‌های بزرگ‌تر، با افزودن قواعد CSS
+          چیدمان را گسترش می‌دهیم.
+        </p>
+
+        <pre class="code"><code>/* چیدمان پایه: صفحه‌ی باریک */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+/* چیدمان صفحه‌ی عریض‌تر */
+@media (min-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">چرا از موبایل شروع کنیم؟</p>
+          <p>
+            این رویکرد کمک می‌کند ابتدا محتوای ضروری و چیدمان پایه را مشخص
+            کنی؛ بعد برای فضای بیشتر، ستون‌ها و امکانات لازم را اضافه کنی.
+          </p>
+        </div>
+
+        <h2 id="responsive-checklist">۵. هنگام ریسپانسیو کردن چه چیزهایی را بررسی کنیم؟</h2>
+        <ul>
+          <li>آیا متن بدون بزرگ‌نمایی اجباری خواناست؟</li>
+          <li>آیا کاربر مجبور است برای دیدن محتوا به چپ و راست اسکرول کند؟</li>
+          <li>آیا کارت‌ها و ستون‌ها در عرض کم به شکل مناسب چیده می‌شوند؟</li>
+          <li>آیا دکمه‌ها و لینک‌ها به‌اندازه‌ی کافی راحت قابل لمس‌اند؟</li>
+          <li>آیا تصویرها از محدوده‌ی صفحه بیرون می‌زنند؟</li>
+          <li>آیا فاصله‌ها و اندازه‌ی محتوا در صفحه‌های مختلف مناسب‌اند؟</li>
+        </ul>
+
+        <h2 id="try-it">۶. نمونه را امتحان کن</h2>
+        <p>
+          اندازه‌ی پنجره‌ی پیش‌نمایش را تغییر بده. در صفحه‌ی باریک، کارت‌ها
+          زیر هم قرار می‌گیرند و از عرض صفحه بیرون نمی‌زنند.
+        </p>
+
+        <div class="demo" data-title="صفحه‌ی واکنش‌گرا" data-height="520">
+          <textarea>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 20px;
+    color: #182033;
+    background: #f3f5f9;
+    font-family: sans-serif;
+  }
+
+  .page {
+    width: 100%;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .page-header {
+    margin-bottom: 20px;
+  }
+
+  .page-header h1 {
+    margin: 0 0 8px;
+    font-size: 1.7rem;
+  }
+
+  .page-header p {
+    margin: 0;
+    line-height: 1.7;
+    color: #515c70;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 18px;
+    border: 1px solid #dce1e9;
+    border-radius: 12px;
+    background: white;
+  }
+
+  .card h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  @media (min-width: 650px) {
+    .cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<main class="page">
+  <header class="page-header">
+    <h1>یادگیری طراحی وب</h1>
+    <p>چیدمان این کارت‌ها با توجه به عرض صفحه تغییر می‌کند.</p>
+  </header>
+
+  <section class="cards">
+    <article class="card">
+      <h2>HTML</h2>
+      <p>ساختار و محتوای صفحه‌های وب را تعریف می‌کند.</p>
+    </article>
+
+    <article class="card">
+      <h2>CSS</h2>
+      <p>ظاهر و چیدمان عناصر صفحه را کنترل می‌کند.</p>
+    </article>
+
+    <article class="card">
+      <h2>JavaScript</h2>
+      <p>به صفحه رفتار و تعامل اضافه می‌کند.</p>
+    </article>
+  </section>
+</main>
+</textarea>
+        </div>
+
+        <h2 id="summary">خلاصه‌ی درس</h2>
+        <ul>
+          <li>طراحی ریسپانسیو، صفحه را برای اندازه‌های مختلف نمایش سازگار می‌کند.</li>
+          <li>متا تگ viewport نمایش مناسب صفحه در مرورگر موبایل را فراهم می‌کند.</li>
+          <li>چیدمان ریسپانسیو ممکن است در صفحه‌ی باریک و عریض شکل متفاوتی داشته باشد.</li>
+          <li>در رویکرد mobile-first، ابتدا صفحه‌ی باریک را می‌سازیم و بعد گسترش می‌دهیم.</li>
+          <li>برای بررسی صفحه، اندازه‌های گوناگون را امتحان و خوانایی و اسکرول افقی را کنترل کن.</li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>با تمرین‌ها، چیدمان‌های مناسب صفحه‌های مختلف را بررسی کن.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>
+ 

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>واحدهای اندازه‌گیری در CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body
+  data-course="web"
+  data-lesson="16-digital-units"
+  data-root="../../../"
+>
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>واحدهای اندازه‌گیری در CSS</h1>
+        <p class="lead">
+          در این درس با واحدهای نسبی CSS مثل درصد، em، rem، vw و vh آشنا می‌شوی
+          و یاد می‌گیری هرکدام را در چه موقعیتی به کار ببری.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+      <h2 id="why-units">چرا واحدهای CSS مهم‌اند؟</h2>
+      <p>
+        در CSS برای تعیین اندازه‌ی متن، فاصله‌ها و ابعاد عناصر از واحد استفاده
+        می‌کنیم. بعضی واحدها اندازه‌ای ثابت دارند؛ اما واحدهای نسبی با توجه به
+        اندازه‌ی عنصر والد، فونت یا صفحه تغییر می‌کنند. واحدهای نسبی کمک می‌کنند
+        چیدمان در اندازه‌های مختلف صفحه انعطاف‌پذیرتر باشد.
+      </p>
+
+      <div class="callout note">
+        <p class="callout-title">نکته</p>
+        <p>
+          این درس روی واحدهای نسبی پرکاربرد تمرکز دارد. واحدهایی مثل
+          <code>px</code> نیز در CSS استفاده می‌شوند، اما اندازه‌ی ثابتی دارند.
+        </p>
+      </div>
+
+      <h2 id="percent">درصد: <code>%</code></h2>
+      <p>
+        درصد معمولاً نسبت به اندازه‌ی عنصر والد محاسبه می‌شود. برای مثال اگر
+        عرض والد ۶۰۰ پیکسل باشد، عنصری با <code>width: 50%</code> حدود ۳۰۰
+        پیکسل عرض می‌گیرد.
+      </p>
+
+      <pre class="code"><code>.card {
+  width: 80%;
+}</code></pre>
+
+      <p>
+        در این مثال، عرض کارت ۸۰ درصد از عرض والدش است. اگر عرض والد تغییر کند،
+        عرض کارت هم تغییر می‌کند.
+      </p>
+
+      <h2 id="em-rem"><code>em</code> و <code>rem</code></h2>
+      <p>
+        واحد <code>em</code> برای اندازه‌ی فونت معمولاً نسبت به اندازه‌ی فونت
+        عنصر والد محاسبه می‌شود. اگر اندازه‌ی فونت والد ۲۰ پیکسل باشد،
+        <code>1.5em</code> برابر با ۳۰ پیکسل خواهد بود.
+      </p>
+      <p>
+        واحد <code>rem</code> نسبت به اندازه‌ی فونت عنصر ریشه‌ی صفحه
+        (<code>html</code>) محاسبه می‌شود. چون به والدهای تو‌در‌تو وابسته نیست،
+        برای تعیین اندازه‌ی متن و فاصله‌ها انتخاب قابل پیش‌بینی‌تری است.
+      </p>
+
+      <pre class="code"><code>html {
+  font-size: 16px;
+}
+
+.parent {
+  font-size: 20px;
+}
+
+.child-em {
+  font-size: 1.5em;  /* نسبت به والد */
+}
+
+.title {
+  font-size: 2rem;   /* نسبت به html */
+}</code></pre>
+
+      <div class="callout tip">
+        <p class="callout-title">روش ساده برای به‌خاطر سپردن</p>
+        <p>
+          <code>em</code> را به اندازه‌ی فونت والد و <code>rem</code> را به
+          اندازه‌ی فونت ریشه‌ی صفحه ربط بده.
+        </p>
+      </div>
+
+      <h2 id="viewport-units"><code>vw</code> و <code>vh</code></h2>
+      <p>
+        واحد <code>vw</code> بر اساس عرض صفحه و واحد <code>vh</code> بر اساس
+        ارتفاع صفحه محاسبه می‌شود. هر واحد برابر با یک‌صدم اندازه‌ی مربوط است؛
+        بنابراین <code>50vw</code> نصف عرض صفحه است.
+      </p>
+
+      <pre class="code"><code>.banner {
+  width: 80vw;
+  min-height: 40vh;
+}</code></pre>
+
+      <p>
+        این روش برای ساخت بخش‌هایی که با اندازه‌ی صفحه تغییر می‌کنند مفید است.
+        برای متن‌های بزرگ، مقدارهای بسیار وابسته به صفحه ممکن است متن را در
+        نمایشگرهای کوچک یا بزرگ ناخوانا کنند.
+      </p>
+
+      <h2 id="comparison">مقایسه‌ی واحدها</h2>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>واحد</th>
+              <th>نسبت به</th>
+              <th>کاربرد رایج</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>%</code></td>
+              <td>عنصر والد</td>
+              <td>عرض‌های انعطاف‌پذیر</td>
+            </tr>
+            <tr>
+              <td><code>em</code></td>
+              <td>اندازه‌ی فونت والد</td>
+              <td>اندازه‌هایی که همراه متن والد تغییر می‌کنند</td>
+            </tr>
+            <tr>
+              <td><code>rem</code></td>
+              <td>اندازه‌ی فونت عنصر <code>html</code></td>
+              <td>فونت و فاصله‌های قابل پیش‌بینی</td>
+            </tr>
+            <tr>
+              <td><code>vw</code></td>
+              <td>عرض صفحه</td>
+              <td>ابعاد وابسته به عرض صفحه</td>
+            </tr>
+            <tr>
+              <td><code>vh</code></td>
+              <td>ارتفاع صفحه</td>
+              <td>ارتفاع بخش‌های صفحه</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="practice-demo">امتحان کن</h2>
+      <p>
+        مقدار واحدها را تغییر بده و نتیجه را ببین. می‌توانی عرض صفحه را هم با
+        تغییر اندازه‌ی پنجره‌ی پیش‌نمایش عوض کنی.
+      </p>
+
+      <div class="demo" data-title="تغییر واحدها" data-height="330">
+        <textarea>
+<style>
+  .unit-demo {
+    width: 80%;
+    padding: 1rem;
+    margin: 1rem auto;
+    background: #e5f3ff;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .unit-demo strong {
+    font-size: 1.5em;
+  }
+
+  .unit-demo span {
+    display: block;
+    margin-top: 0.5rem;
+    color: #245b87;
+  }
+</style>
+
+<div class="unit-demo">
+  <strong>یک جعبه‌ی انعطاف‌پذیر</strong>
+  <span>مقدارهای width، padding و font-size را تغییر بده.</span>
+</div>
+</textarea>
+      </div>
+
+      <h2 id="summary">خلاصه‌ی درس</h2>
+      <ul>
+        <li><code>%</code> معمولاً اندازه را نسبت به والد تعیین می‌کند.</li>
+        <li><code>em</code> به اندازه‌ی فونت والد وابسته است.</li>
+        <li><code>rem</code> به اندازه‌ی فونت عنصر ریشه‌ی صفحه وابسته است.</li>
+        <li><code>vw</code> و <code>vh</code> به‌ترتیب نسبت به عرض و ارتفاع صفحه‌اند.</li>
+        <li>واحد مناسب را با توجه به چیزی انتخاب کن که می‌خواهی اندازه‌اش مبنا باشد.</li>
+      </ul>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>با چند تمرین، کاربرد واحدهای نسبی را مرور کن.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav
+        class="lesson-nav"
+        id="lesson-nav"
+        aria-label="درس قبل و بعد"
+      ></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

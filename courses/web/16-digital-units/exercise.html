@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین واحدهای اندازه‌گیری در CSS | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body data-course="web" data-lesson="16-digital-units" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: واحدهای اندازه‌گیری در CSS</h1>
+          <p class="lead">
+            کدهای CSS را در کادرها کامل یا ویرایش کن و نتیجه را در پیش‌نمایش
+            ببین.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>عرض بر اساس والد</h3>
+            <p>
+              عرض جعبه را طوری تنظیم کن که ۶۰ درصد از عرض عنصر والدش را بگیرد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>مقدار عرض را با واحد <code>%</code> بنویس.</p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+<style>
+  .parent {
+    width: 100%;
+    padding: 1rem;
+    background: #eee;
+  }
+
+  .child {
+    width: 60%;
+    padding: 1rem;
+    background: #bde0fe;
+  }
+</style>
+
+<div class="parent">
+  <div class="child">جعبه‌ی فرزند</div>
+</div>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>اندازه‌ی متن با rem</h3>
+            <p>
+              اندازه‌ی متن عنوان را برابر با دو برابر اندازه‌ی فونت ریشه‌ی صفحه
+              تنظیم کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>از <code>2rem</code> برای اندازه‌ی فونت استفاده کن.</p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+<style>
+  html {
+    font-size: 16px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    color: #274c77;
+  }
+</style>
+
+<h2>عنوان نمونه</h2>
+<p>اندازه‌ی این متن را با عنوان مقایسه کن.</p>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>اندازه‌ی وابسته به صفحه</h3>
+            <p>
+              عرض بنر را برابر با ۷۰ درصد عرض صفحه و حداقل ارتفاعش را برابر با
+              ۲۰ درصد ارتفاع صفحه قرار بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای عرض از <code>vw</code> و برای ارتفاع از
+                <code>vh</code> استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="200">
+              <textarea>
+<style>
+  .banner {
+    width: 70vw;
+    min-height: 20vh;
+    margin: 1rem auto;
+    padding: 1rem;
+    background: #d8f3dc;
+    text-align: center;
+  }
+</style>
+
+<div class="banner">بنر وابسته به اندازه‌ی صفحه</div>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تفاوت em و rem</h3>
+            <p>
+              اندازه‌ی فونت والد را ۲۰ پیکسل قرار بده. سپس اندازه‌ی متن فرزند را
+              با <code>1.5em</code> تنظیم کن و برای فاصله‌ی داخلی آن
+              <code>1rem</code> به کار ببر.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                اندازه‌ی <code>em</code> از فونت والد تأثیر می‌گیرد؛
+                <code>rem</code> به اندازه‌ی فونت عنصر ریشه وابسته است.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="190">
+              <textarea>
+<style>
+  .parent {
+    font-size: 20px;
+  }
+
+  .child {
+    font-size: 1.5em;
+    padding: 1rem;
+    background: #fff1c1;
+  }
+</style>
+
+<div class="parent">
+  متن والد
+  <div class="child">متن فرزند</div>
+</div>
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

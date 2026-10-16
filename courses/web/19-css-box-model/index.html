@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مدل جعبه‌ای در CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body data-course="web" data-lesson="19-css-box-model" data-root="../../../">
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>مدل جعبه‌ای در CSS</h1>
+        <p class="lead">
+          یاد می‌گیری هر عنصر HTML چگونه از محتوا، فاصله‌ی داخلی، کادر و فاصله‌ی
+          بیرونی تشکیل می‌شود و چطور اندازه‌ی نهایی آن را کنترل کنی.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+      <h2 id="box-model">مدل جعبه‌ای چیست؟</h2>
+      <p>
+        مرورگر هر عنصر را مانند یک جعبه در نظر می‌گیرد. این جعبه از چهار بخش
+        تشکیل شده است: محتوای عنصر، فاصله‌ی داخلی، کادر و فاصله‌ی بیرونی.
+        تنظیم این بخش‌ها روی اندازه و جای عنصر در صفحه اثر می‌گذارد.
+      </p>
+
+      <div class="callout note">
+        <p class="callout-title">ترتیب بخش‌ها</p>
+        <p>
+          از داخل به بیرون: <code>content</code>، سپس <code>padding</code>،
+          بعد <code>border</code> و در آخر <code>margin</code>.
+        </p>
+      </div>
+
+      <h2 id="content-padding">محتوا و فاصله‌ی داخلی</h2>
+      <p>
+        <code>content</code> همان محتوای عنصر است؛ مثل متن یا تصویر. ویژگی
+        <code>padding</code> فاصله‌ی بین محتوا و کادر را تنظیم می‌کند. پس‌زمینه‌ی
+        عنصر معمولاً محتوای داخلی و padding را می‌پوشاند.
+      </p>
+
+      <pre class="code"><code>.card {
+  width: 240px;
+  padding: 20px;
+  background: #e7f2ff;
+}</code></pre>
+
+      <p>
+        در این مثال، عرض محتوا ۲۴۰ پیکسل است. با مقدار پیش‌فرض
+        <code>box-sizing: content-box</code>، padding به عرض بیرونی اضافه
+        می‌شود.
+      </p>
+
+      <h2 id="border-margin">کادر و فاصله‌ی بیرونی</h2>
+      <p>
+        ویژگی <code>border</code> خط دور عنصر را تعیین می‌کند. ویژگی
+        <code>margin</code> فاصله‌ی بیرونی عنصر را تنظیم می‌کند؛ یعنی فضای
+        اطرافش تا عنصرهای دیگر.
+      </p>
+
+      <pre class="code"><code>.card {
+  border: 2px solid #4677a8;
+  margin: 16px;
+}</code></pre>
+
+      <div class="callout tip">
+        <p class="callout-title">تفاوت padding و margin</p>
+        <p>
+          اگر می‌خواهی فضای داخلی عنصر، بین محتوا و کادر، را زیاد کنی از
+          <code>padding</code> استفاده کن. برای فاصله‌ی عنصر از عنصرهای اطرافش
+          از <code>margin</code> استفاده کن.
+        </p>
+      </div>
+
+      <h2 id="total-size">محاسبه‌ی اندازه‌ی عنصر</h2>
+      <p>
+        با مقدار پیش‌فرض <code>content-box</code>، عرض نهایی عنصر برابر است با
+        عرض محتوا به‌علاوه‌ی padding چپ و راست و border چپ و راست. به همین دلیل
+        ممکن است عنصری که عرضش را ۳۰۰ پیکسل تعیین کرده‌ای، در صفحه از ۳۰۰ پیکسل
+        عریض‌تر شود.
+      </p>
+
+      <pre class="code"><code>.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #333;
+}
+
+/* عرض نهایی:
+   300 + 20 + 20 + 5 + 5 = 350px
+*/</code></pre>
+
+      <h2 id="box-sizing">استفاده از box-sizing</h2>
+      <p>
+        وقتی <code>box-sizing: border-box</code> را تنظیم می‌کنی، مقدار
+        <code>width</code> شامل محتوای عنصر، padding و border می‌شود. این روش
+        محاسبه‌ی ابعاد را ساده‌تر و قابل پیش‌بینی‌تر می‌کند.
+      </p>
+
+      <pre class="code"><code>* {
+  box-sizing: border-box;
+}
+
+.box {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #333;
+}
+
+/* عرض بیرونی عنصر 300px می‌ماند */</code></pre>
+
+      <div class="callout note">
+        <p class="callout-title">الگوی رایج</p>
+        <p>
+          بسیاری از طراحان این قانون را ابتدای CSS می‌گذارند تا محاسبه‌ی عرض
+          عنصرها ساده‌تر شود:
+        </p>
+        <pre class="code"><code>*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}</code></pre>
+      </div>
+
+      <h2 id="shorthand">تعیین فاصله‌ها با یک مقدار یا چند مقدار</h2>
+      <p>
+        برای <code>padding</code> و <code>margin</code> می‌توانی به‌جای نوشتن
+        چهار ویژگی جدا، از شکل کوتاه استفاده کنی:
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>نمونه</th>
+              <th>نتیجه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>margin: 10px;</code></td>
+              <td>هر چهار طرف ۱۰ پیکسل</td>
+            </tr>
+            <tr>
+              <td><code>margin: 10px 20px;</code></td>
+              <td>بالا و پایین ۱۰، چپ و راست ۲۰ پیکسل</td>
+            </tr>
+            <tr>
+              <td><code>margin: 10px 20px 30px;</code></td>
+              <td>بالا ۱۰، چپ و راست ۲۰، پایین ۳۰ پیکسل</td>
+            </tr>
+            <tr>
+              <td><code>margin: 10px 20px 30px 40px;</code></td>
+              <td>بالا، راست، پایین، چپ؛ به همین ترتیب</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="try-it">امتحان کن</h2>
+      <p>
+        عرض، padding، border و box-sizing را تغییر بده. دقت کن که تغییر
+        <code>box-sizing</code> چه اثری روی عرض بیرونی جعبه دارد.
+      </p>
+
+      <div class="demo" data-title="آزمایش مدل جعبه‌ای" data-height="320">
+        <textarea>
+<style>
+  .box {
+    width: 260px;
+    padding: 20px;
+    border: 6px solid #3478a3;
+    margin: 12px auto;
+    background: #e6f5ff;
+    box-sizing: content-box;
+  }
+</style>
+
+<div class="box">
+  محتوای جعبه
+</div>
+</textarea>
+      </div>
+
+      <h2 id="summary">خلاصه‌ی درس</h2>
+      <ul>
+        <li>مدل جعبه‌ای از محتوا، padding، border و margin تشکیل شده است.</li>
+        <li><code>padding</code> فاصله‌ی محتوا تا کادر را تعیین می‌کند.</li>
+        <li><code>margin</code> فاصله‌ی بیرونی عنصر را تنظیم می‌کند.</li>
+        <li>در <code>content-box</code>، padding و border به عرض تعیین‌شده اضافه می‌شوند.</li>
+        <li>در <code>border-box</code>، عرض تعیین‌شده شامل padding و border است.</li>
+      </ul>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>با تمرین‌های این درس، اندازه و فاصله‌ی جعبه‌ها را کنترل کن.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

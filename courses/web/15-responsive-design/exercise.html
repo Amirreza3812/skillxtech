@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین طراحی ریسپانسیو | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="15-responsive-design" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: طراحی ریسپانسیو</h1>
+          <p class="lead">
+            کدها را ویرایش کن و در عرض‌های مختلف پیش‌نمایش، رفتار صفحه را
+            بررسی کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>تنظیم viewport</h3>
+            <p>
+              یک صفحه‌ی HTML ساده داری. متا تگ مناسب viewport را داخل
+              <code>&lt;head&gt;</code> قرار بده تا عرض صفحه با عرض دستگاه
+              هماهنگ شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>name="viewport"</code> و
+                <code>content="width=device-width, initial-scale=1"</code>
+                استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+              <textarea>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- متا تگ viewport را اینجا اضافه کن -->
+
+  <title>صفحه‌ی آزمایشی</title>
+</head>
+<body>
+  <h1>صفحه‌ی من</h1>
+  <p>این صفحه را برای نمایش در موبایل آماده کن.</p>
+</body>
+</html>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>جلوگیری از بیرون زدن تصویر</h3>
+            <p>
+              تصویر را طوری استایل بده که از عرض والدش بزرگ‌تر نشود و نسبت
+              ابعادش حفظ شود. کد تصویر آزمایشی را نگه دار یا آدرس تصویر را
+              با تصویر دلخواه خودت عوض کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای محدود کردن عرض از <code>max-width</code> و برای حفظ
+                نسبت ابعاد از <code>height: auto</code> استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="360">
+              <textarea>
+<style>
+  .image-box {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px;
+    border: 1px solid #ccd2dd;
+  }
+
+  .image-box img {
+    /* تصویر را با عرض والد سازگار کن */
+  }
+</style>
+
+<div class="image-box">
+  <img
+    src="https://placehold.co/700x350"
+    alt="تصویر آزمایشی"
+  >
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>چیدمان کارت‌ها در صفحه‌های مختلف</h3>
+            <p>
+              در صفحه‌ی باریک، کارت‌ها باید زیر هم باشند. از عرض ۶۵۰ پیکسل به
+              بالا، آن‌ها را در دو ستون نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                مقدار پایه‌ی <code>grid-template-columns</code> را یک ستون
+                بگذار و در یک <code>@media (min-width: 650px)</code> آن را
+                به دو ستون تغییر بده.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="420">
+              <textarea>
+<style>
+  .cards {
+    display: grid;
+    gap: 12px;
+
+    /* چیدمان پایه‌ی صفحه‌ی باریک */
+  }
+
+  .card {
+    padding: 18px;
+    border: 1px solid #ccd2dd;
+    border-radius: 10px;
+    background: #f7f8fb;
+    font-family: sans-serif;
+  }
+
+  @media (min-width: 650px) {
+    .cards {
+      /* چیدمان دو ستونی را تنظیم کن */
+    }
+  }
+</style>
+
+<section class="cards">
+  <article class="card">کارت اول</article>
+  <article class="card">کارت دوم</article>
+  <article class="card">کارت سوم</article>
+  <article class="card">کارت چهارم</article>
+</section>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بررسی یک صفحه در اندازه‌های مختلف</h3>
+            <p>
+              در نمونه‌ی زیر، عرض پنجره‌ی پیش‌نمایش را کم و زیاد کن. سپس
+              بررسی کن که آیا متن خوانا می‌ماند، کارت‌ها در عرض کم زیر هم
+              می‌آیند و اسکرول افقی ناخواسته ایجاد نمی‌شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                این تمرین بیشتر برای بررسی و مشاهده است. اگر ایرادی دیدی،
+                قواعد CSS نمونه را ویرایش کن و نتیجه را دوباره بسنج.
+              </p>
+            </details>
+
+            <div class="demo" data-title="بررسی ریسپانسیو بودن" data-height="440">
+              <textarea>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 16px;
+    font-family: sans-serif;
+    background: #f3f5f9;
+  }
+
+  .layout {
+    width: 100%;
+    max-width: 850px;
+    margin-inline: auto;
+  }
+
+  .layout-header {
+    margin-bottom: 16px;
+  }
+
+  .layout-header h1 {
+    margin-top: 0;
+  }
+
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .layout-card {
+    padding: 16px;
+    border: 1px solid #d8dee9;
+    border-radius: 10px;
+    background: white;
+  }
+
+  @media (min-width: 650px) {
+    .layout-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+</style>
+
+<main class="layout">
+  <header class="layout-header">
+    <h1>دوره‌های آموزشی</h1>
+    <p>عرض صفحه را کم و زیاد کن و چیدمان را بررسی کن.</p>
+  </header>
+
+  <section class="layout-grid">
+    <article class="layout-card">
+      <h2>HTML</h2>
+      <p>ساختار صفحه‌های وب.</p>
+    </article>
+    <article class="layout-card">
+      <h2>CSS</h2>
+      <p>ظاهر و چیدمان صفحه.</p>
+    </article>
+    <article class="layout-card">
+      <h2>JavaScript</h2>
+      <p>تعامل و رفتار صفحه.</p>
+    </article>
+  </section>
+</main>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

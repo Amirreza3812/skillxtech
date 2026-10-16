@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین متغیرهای CSS | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="20-css-variables" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: متغیرهای CSS</h1>
+          <p class="lead">
+            متغیرها را تعریف کن و از آن‌ها برای یک‌دست کردن استایل‌ها کمک بگیر.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>تعریف رنگ‌های اصلی</h3>
+            <p>
+              برای <code>:root</code> دو متغیر تعریف کن: یکی برای رنگ اصلی با
+              نام <code>--color-primary</code> و دیگری برای رنگ متن با نام
+              <code>--color-text</code>. سپس از آن‌ها برای عنوان و دکمه استفاده
+              کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                متغیرها را در <code>:root</code> تعریف کن و در قوانین CSS با
+                <code>var(--color-primary)</code> و
+                <code>var(--color-text)</code> بخوان.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<style>
+  /* متغیرها را اینجا تعریف کن */
+
+  h2 {
+    /* رنگ عنوان را با متغیر تنظیم کن */
+  }
+
+  button {
+    /* رنگ پس‌زمینه‌ی دکمه را با متغیر تنظیم کن */
+    color: white;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 6px;
+  }
+</style>
+
+<h2>به صفحه‌ی من خوش آمدی</h2>
+<button>شروع</button>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>استفاده از فاصله‌ی مشترک</h3>
+            <p>
+              متغیری به نام <code>--card-padding</code> بساز و مقدار آن را
+              <code>20px</code> قرار بده. از آن برای فاصله‌ی داخلی دو کارت استفاده
+              کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای هر دو کارت، مقدار <code>padding</code> را با
+                <code>var(--card-padding)</code> تعیین کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<style>
+  :root {
+    /* متغیر فاصله را تعریف کن */
+  }
+
+  .card {
+    /* فاصله‌ی داخلی را از متغیر بگیر */
+    margin: 10px 0;
+    border: 1px solid #9ca3af;
+    border-radius: 8px;
+  }
+</style>
+
+<div class="card">
+  <h3>کارت اول</h3>
+  <p>این کارت از فاصله‌ی مشترک استفاده می‌کند.</p>
+</div>
+
+<div class="card">
+  <h3>کارت دوم</h3>
+  <p>این کارت هم همان مقدار را به کار می‌برد.</p>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت کارت با مقدار محلی</h3>
+            <p>
+              دو کارت بساز. هر دو از متغیرهای رنگی پیش‌فرض استفاده کنند، اما
+              کارت دوم با کلاس <code>dark-card</code> رنگ پس‌زمینه و متن مخصوص
+              خودش را داشته باشد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                مقدارهای پیش‌فرض را در <code>:root</code> بگذار. سپس متغیرها را
+                داخل <code>.dark-card</code> دوباره تعریف کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="280">
+              <textarea>
+<style>
+  :root {
+    --card-background: #f3f4f6;
+    --card-text: #111827;
+  }
+
+  .card {
+    background-color: var(--card-background);
+    color: var(--card-text);
+    padding: 16px;
+    margin: 10px 0;
+    border-radius: 10px;
+  }
+
+  .dark-card {
+    /* مقدارهای محلی را اینجا تعریف کن */
+  }
+</style>
+
+<div class="card">
+  <h3>کارت روشن</h3>
+  <p>این کارت از مقدارهای پیش‌فرض استفاده می‌کند.</p>
+</div>
+
+<div class="card dark-card">
+  <h3>کارت تیره</h3>
+  <p>این کارت مقدارهای محلی خودش را دارد.</p>
+</div>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>افزودن مقدار جایگزین</h3>
+            <p>
+              قانون <code>.notice</code> را طوری کامل کن که رنگ متن از
+              <code>--notice-color</code> گرفته شود و اگر متغیر تعریف نشده بود،
+              رنگ <code>#92400e</code> به کار برود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                مقدار جایگزین را بعد از ویرگول داخل <code>var()</code> بنویس:
+                <code>var(--notice-color, مقدار)</code>.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="200">
+              <textarea>
+<style>
+  .notice {
+    color: /* متغیر و مقدار جایگزین را بنویس */;
+    background: #fef3c7;
+    padding: 14px;
+    border-radius: 8px;
+  }
+</style>
+
+<p class="notice">این پیام باید رنگ متن مشخصی داشته باشد.</p>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

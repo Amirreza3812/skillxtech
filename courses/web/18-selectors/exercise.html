@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تمرین انتخابگرهای CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body data-course="web" data-lesson="18-selectors" data-root="../../../">
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: انتخابگرهای CSS</h1>
+        <p class="lead">
+          انتخابگرهای هر تمرین را کامل کن و نتیجه را در پیش‌نمایش بررسی کن.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+      <ol class="tasks">
+        <li class="task">
+          <h3>گروه‌بندی انتخابگرها</h3>
+          <p>
+            با یک قانون مشترک، رنگ همه‌ی تیترهای <code>h2</code> و
+            <code>h3</code> را بنفش کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>دو انتخابگر را با ویرگول از هم جدا کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="190">
+            <textarea>
+<style>
+  h2,
+  h3 {
+    color: purple;
+  }
+</style>
+
+<h2>تیتر دوم</h2>
+<h3>تیتر سوم</h3>
+<p>این پاراگراف نباید بنفش شود.</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>انتخاب فرزند مستقیم</h3>
+          <p>
+            فقط پاراگرافی را که مستقیماً فرزند <code>.box</code> است قرمز کن.
+            پاراگرافی که داخل <code>div</code> قرار دارد نباید قرمز شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>از انتخابگر <code>.box &gt; p</code> استفاده کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+            <textarea>
+<style>
+  .box > p {
+    color: red;
+  }
+</style>
+
+<div class="box">
+  <p>این پاراگراف فرزند مستقیم box است.</p>
+  <div>
+    <p>این پاراگراف داخل div قرار دارد.</p>
+  </div>
+</div>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>انتخاب پاراگراف بلافاصله بعد از تیتر</h3>
+          <p>
+            پس‌زمینه‌ی پاراگرافی را که بلافاصله بعد از <code>h2</code> آمده
+            زرد کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>برای همسایه‌ی بلافاصله بعدی از علامت <code>+</code> استفاده کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+            <textarea>
+<style>
+  h2 + p {
+    background: #fff2a8;
+  }
+</style>
+
+<h2>عنوان بخش</h2>
+<p>این پاراگراف بلافاصله بعد از عنوان است.</p>
+<p>این پاراگراف بلافاصله بعد از عنوان نیست.</p>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>بررسی specificity</h3>
+          <p>
+            هر دو قانون را نگه دار و کاری کن متن به‌دلیل اختصاصی‌تر بودن
+            انتخابگر شناسه، سبز نمایش داده شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              انتخابگر کلاس و شناسه را با هم مقایسه کن. قانون شناسه را حذف
+              نکن و از <code>!important</code> استفاده نکن.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+            <textarea>
+<style>
+  .message {
+    color: blue;
+  }
+
+  #notice {
+    color: green;
+  }
+</style>
+
+<p class="message" id="notice">کدام قانون برنده می‌شود؟</p>
+</textarea>
+          </div>
+        </li>
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

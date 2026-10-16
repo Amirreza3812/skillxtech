@@ -43,25 +43,25 @@
         {
           "id": "02-css-basics",
           "title": "مبانی CSS",
-          "summary": "clss id style",
+          "summary": "آشنایی با selectorها، کلاس و شناسه، و روش‌های افزودن CSS به صفحه",
           "status": "ready"
         },
         {
           "id": "03-hover-transition-shadows",
           "title": "شبه کلاس ها",
-          "summary": "آموزش  استفاده از شبه کلاس ها  و زیبا سازی آن",
+          "summary": "استفاده از شبه‌کلاس‌هایی مثل :hover همراه با transition و سایه برای تعاملی‌تر کردن رابط",
           "status": "ready"
         },
         {
           "id": "04-chrome-devtools",
           "title": "Chrome Devtools",
-          "summary": "آموزش  استفاده ابزار کروم",
+          "summary": "بررسی و ویرایش HTML و CSS، پیدا کردن خطاها و آزمایش تغییرات در مرورگر",
           "status": "ready"
         },
         {
           "id": "05-text-style",
           "title": "TextStyle",
-          "summary": "استایل دادن به متن ها",
+          "summary": "تنظیم فونت، اندازه، رنگ، فاصله‌ی خطوط و تراز متن",
           "status": "ready"
         },
         {
@@ -72,14 +72,14 @@
         },
         {
           "id": "07-forms",
-          "title": "فرم ها",
-          "summary": "استفاده حرفه ای تر از فرم ها",
+          "title": "ساخت و استایل‌دهی فرم‌ها",
+          "summary": "آشنایی با ورودی‌های فرم، برچسب‌ها و استایل‌دهی اجزای فرم",
           "status": "ready"
         },
         {
           "id": "08-css-display-property",
           "title": "پراپرتی دیسپلی",
-          "summary": "المنت های ما در صفحه چه گونه نمایش داده میشوند؟",
+          "summary": "تفاوت block، inline، inline-block، و none",
           "status": "ready"
         },
         {
@@ -91,37 +91,74 @@
         {
           "id": "10-nested-layouts-technique",
           "title": "تکنیک استفاده از چینش های تو در تو",
-          "summary": "مهم ترین درس برای یک طراح رابط گرافیکی و بسری شدن",
+          "summary": "ساخت چیدمان با عناصر تو‌در‌تو — ترکیب عناصر بلوکی و inline-block برای ساخت بخش‌های یک صفحه",
           "status": "ready"
         },
         {
           "id": "11-css-grid",
-          "title": "استفاده از display:grid;",
-          "summary": "چه جوری display المنت هارو بهتر مدیریت کنیم؟",
+          "title": " ساخت چیدمان با CSS Grid ",
+          "summary": "ساخت ردیف‌ها و ستون‌ها با grid-template، gap، واحد fr و repeat()",
           "status": "ready"
         },
         {
           "id": "12-flex-box",
-          "title": "استفاده از flexbox",
-          "summary": "چه جوری display المنت هارو بهتر مدیریت کنیم؟",
+          "title": "ساخت چیدمان با Flexbox",
+          "summary": "چیدمان و تراز عناصر با محور اصلی، محور فرعی، فاصله و wrap",
           "status": "ready"
         },
         {
           "id": "13-nested-flex-box",
-          "title": "flexbox تو در تو",
-          "summary": "با flexbox تو در تو یه قدم طراحیمون رو ببریم جلو",
+          "title": " ساخت چیدمان‌های تو‌در‌تو با Flexbox",
+          "summary": "ترکیب چند کانتینر Flexbox با تنظیمات مستقل برای ساخت رابط‌های پیچیده‌تر",
           "status": "ready"
         },
         {
           "id": "14-css-position",
-          "title": "position یک المنت در صفحه",
-          "summary": "چه جوری یک المنت رو با استفاده از position مدیریت کنیم؟",
+          "title": "موقعیت‌دهی عناصر با CSS",
+          "summary": "آشنایی با static، relative، absolute، fixed و sticky",
           "status": "ready"
         },
         {
-          "id": "14-css-position",
-          "title": "position یک المنت در صفحه",
-          "summary": "چه جوری یک المنت رو با استفاده از position مدیریت کنیم؟",
+          "id": "15-responsive-design",
+          "title": "طراحی ریسپانسیو با CSS",
+          "summary": "ساخت صفحه‌هایی که در موبایل، تبلت و دسکتاپ خوب نمایش داده می‌شوند",
+          "status": "ready"
+        },
+        {
+          "id": "16-digital-units",
+          "title": "واحدهای CSS و اندازه‌گذاری منعطف",
+          "summary": "شناخت px، %، rem، em، vw و کاربرد هرکدام در layout",
+          "status": "ready"
+        },
+        {
+          "id": "17-media-queries",
+          "title": "تغییر چیدمان با Media Query",
+          "summary": "استفاده از breakpointها و رویکرد mobile-first برای تغییر layout",
+          "status": "ready"
+        },
+        {
+          "id": "18-selectors",
+          "title": "Selectorها و ترکیب آن‌ها",
+          "summary": "کار با combinatorها، selectorهای گروهی و specificity",
+          "status": "ready"
+        },
+        {
+          "id": "19-css-box-model",
+          "title": "مدل جعبه‌ای در CSS",
+          "summary": "درک content، padding، border و margin و کنترل اندازه‌ی عناصر با box-sizing",
+          "status": "ready"
+        },
+
+        {
+          "id": "20-css-variables",
+          "title": "متغیرهای CSS",
+          "summary": "تعریف و استفاده از custom properties برای مدیریت رنگ‌ها، فاصله‌ها و تم",
+          "status": "ready"
+        },
+        {
+          "id": "21-final-projects",
+          "title": "ساخت صفحه‌ی ریسپانسیو",
+          "summary": "ترکیب HTML، selectorها، Flexbox، Grid و media query در یک صفحه‌ی کامل",
           "status": "ready"
         },
         {

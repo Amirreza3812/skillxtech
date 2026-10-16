@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>متغیرهای CSS | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="20-css-variables" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>متغیرهای CSS</h1>
+          <p class="lead">
+            یاد می‌گیریم مقدارهای پرتکرار مثل رنگ، فاصله و اندازه را یک‌جا تعریف
+            کنیم و در بخش‌های مختلف استایل‌ها به کار ببریم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="why">چرا از متغیرهای CSS استفاده کنیم؟</h2>
+        <p>
+          ممکن است یک رنگ یا فاصله در بخش‌های زیادی از صفحه تکرار شود. اگر بخواهیم
+          آن مقدار را عوض کنیم، بدون متغیر باید تک‌تک محل‌ها را پیدا کنیم. متغیر
+          CSS کمک می‌کند مقدار را یک‌بار تعریف کنیم و هرجا لازم بود از آن استفاده
+          کنیم.
+        </p>
+        <p>
+          نام متغیرهای CSS با دو خط تیره آغاز می‌شود؛ برای مثال
+          <code>--main-color</code>. برای خواندن مقدار آن از تابع
+          <code>var()</code> استفاده می‌کنیم.
+        </p>
+
+        <div class="callout tip">
+          <p class="callout-title">نام‌گذاری خوانا</p>
+          <p>
+            نامی انتخاب کن که کاربرد مقدار را نشان دهد؛ مثل
+            <code>--color-primary</code> یا <code>--space-large</code>، نه نامی
+            مثل <code>--blue2</code>.
+          </p>
+        </div>
+
+        <h2 id="define">تعریف متغیر در <code>:root</code></h2>
+        <p>
+          برای متغیرهایی که قرار است در سراسر صفحه در دسترس باشند، معمولاً آن‌ها
+          را در انتخابگر <code>:root</code> تعریف می‌کنیم. این انتخابگر به ریشه‌ی
+          سند HTML اشاره دارد.
+        </p>
+
+        <pre class="code"><code>:root {
+  --color-primary: #2563eb;
+  --color-text: #1f2937;
+  --space-medium: 16px;
+}</code></pre>
+
+        <p>
+          هر تعریف از نام متغیر، دونقطه، مقدار و نقطه‌ویرگول تشکیل می‌شود. چون
+          نام‌ها با <code>--</code> شروع می‌شوند، با ویژگی‌های معمول CSS اشتباه
+          گرفته نمی‌شوند.
+        </p>
+
+        <h2 id="use">استفاده از متغیر با <code>var()</code></h2>
+        <p>
+          مقدار تعریف‌شده را داخل <code>var()</code> می‌گذاریم. در این نمونه،
+          رنگ متن و پس‌زمینه‌ی دکمه از متغیرها گرفته شده‌اند:
+        </p>
+
+        <pre class="code"><code>:root {
+  --color-primary: #2563eb;
+  --color-text: #1f2937;
+}
+
+h1 {
+  color: var(--color-text);
+}
+
+button {
+  background-color: var(--color-primary);
+}</code></pre>
+
+        <div class="demo" data-title="امتحان کن" data-height="300">
+          <textarea>
+<style>
+  :root {
+    --color-primary: #2563eb;
+    --color-text: #1f2937;
+    --space-card: 20px;
+  }
+
+  .card {
+    color: var(--color-text);
+    padding: var(--space-card);
+    border: 2px solid var(--color-primary);
+    border-radius: 12px;
+  }
+
+  .card button {
+    color: white;
+    background-color: var(--color-primary);
+    border: 0;
+    padding: 8px 14px;
+    border-radius: 6px;
+  }
+</style>
+
+<div class="card">
+  <h2>کارت نمونه</h2>
+  <p>رنگ و فاصله‌ی این کارت با متغیرهای CSS تنظیم شده‌اند.</p>
+  <button>ادامه</button>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="fallback">مقدار جایگزین</h2>
+        <p>
+          اگر متغیری تعریف نشده باشد، می‌توانیم در <code>var()</code> یک مقدار
+          جایگزین بنویسیم. مقدار بعد از ویرگول، زمانی استفاده می‌شود که متغیر
+          پیدا نشود:
+        </p>
+
+        <pre class="code"><code>.notice {
+  color: var(--notice-color, #92400e);
+}</code></pre>
+
+        <div class="callout note">
+          <p class="callout-title">نکته</p>
+          <p>
+            مقدار جایگزین فقط وقتی به کار می‌رود که متغیر در دسترس نباشد؛ نه
+            زمانی که مقدار متغیر با سلیقه‌ی ما متفاوت است.
+          </p>
+        </div>
+
+        <h2 id="scope">محدوده‌ی دسترسی متغیرها</h2>
+        <p>
+          متغیری که داخل <code>:root</code> تعریف می‌شود، معمولاً در همه‌ی صفحه
+          قابل استفاده است. اما اگر آن را داخل یک کلاس تعریف کنیم، آن متغیر در
+          همان عنصر و فرزندانش در دسترس خواهد بود.
+        </p>
+
+        <pre class="code"><code>.dark-card {
+  --card-background: #1f2937;
+  --card-text: #f9fafb;
+
+  background-color: var(--card-background);
+  color: var(--card-text);
+}</code></pre>
+
+        <p>
+          این ویژگی برای ساخت بخش‌هایی با ظاهر متفاوت مفید است؛ مثلاً می‌توانیم
+          متغیرهای یک کارت تیره را فقط در همان کارت تعریف کنیم.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="300">
+          <textarea>
+<style>
+  :root {
+    --card-background: #f3f4f6;
+    --card-text: #111827;
+  }
+
+  .card {
+    background: var(--card-background);
+    color: var(--card-text);
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+  }
+
+  .dark-card {
+    --card-background: #1f2937;
+    --card-text: #f9fafb;
+  }
+</style>
+
+<div class="card">
+  <h3>کارت روشن</h3>
+  <p>از مقدارهای پیش‌فرض استفاده می‌کند.</p>
+</div>
+
+<div class="card dark-card">
+  <h3>کارت تیره</h3>
+  <p>مقدار متغیرها در این کارت بازنویسی شده است.</p>
+</div>
+</textarea>
+        </div>
+
+        <h2 id="common">کاربردهای رایج</h2>
+        <p>متغیرها برای یک‌دست نگه داشتن طراحی صفحه کاربرد زیادی دارند:</p>
+        <ul>
+          <li>رنگ‌های اصلی، فرعی و رنگ متن</li>
+          <li>فاصله‌های پرتکرار بین بخش‌ها و اجزا</li>
+          <li>اندازه‌ی گوشه‌های گرد یا سایه‌ها</li>
+          <li>مقدارهایی که می‌خواهیم برای یک بخش یا تم خاص بازنویسی کنیم</li>
+        </ul>
+
+        <div class="callout warn">
+          <p class="callout-title">اشتباه رایج</p>
+          <p>
+            نام متغیر باید با دو خط تیره شروع شود. تعریف
+            <code>color-primary</code> به‌تنهایی یک متغیر CSS نمی‌سازد؛ از
+            <code>--color-primary</code> استفاده کن.
+          </p>
+        </div>
+
+        <h2 id="summary">خلاصه</h2>
+        <ul>
+          <li>نام متغیرهای CSS با <code>--</code> آغاز می‌شود.</li>
+          <li>برای تعریف متغیرهای عمومی معمولاً از <code>:root</code> استفاده می‌کنیم.</li>
+          <li>برای خواندن مقدار یک متغیر از <code>var(--نام-متغیر)</code> کمک می‌گیریم.</li>
+          <li>می‌توان برای متغیر، مقدار جایگزین تعیین کرد.</li>
+          <li>متغیرهای محلی در عنصر و فرزندانش در دسترس هستند.</li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>با چند تمرین، متغیرهای CSS را در عمل به کار ببر.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

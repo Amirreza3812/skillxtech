@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media Query در CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body
+  data-course="web"
+  data-lesson="17-media-queries"
+  data-root="../../../"
+>
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>Media Query در CSS</h1>
+        <p class="lead">
+          یاد می‌گیری با استفاده از Media Query، ظاهر صفحه را برای اندازه‌های
+          مختلف نمایشگر تغییر بدهی و چیدمانی واکنش‌گرا بسازی.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+      <h2 id="what-is-media-query">Media Query چیست؟</h2>
+      <p>
+        Media Query روشی در CSS است که به کمک آن می‌توانیم برای شرایط مختلف،
+        مثل عرض صفحه یا جهت نمایشگر، قانون‌های متفاوتی بنویسیم. برای مثال،
+        ممکن است کارت‌ها در صفحه‌ی بزرگ کنار هم باشند، اما در صفحه‌ی کوچک
+        زیر یکدیگر قرار بگیرند.
+      </p>
+
+      <div class="callout note">
+        <p class="callout-title">پیش‌نیاز مهم</p>
+        <p>
+          برای اینکه مرورگر صفحه را با عرض واقعی دستگاه نمایش دهد، سند HTML باید
+          شامل تگ viewport باشد:
+        </p>
+        <pre class="code"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+      </div>
+
+      <h2 id="basic-syntax">ساختار پایه</h2>
+      <p>
+        قانون‌های داخل <code>@media</code> فقط زمانی اجرا می‌شوند که شرط نوشته‌شده
+        برقرار باشد. در نمونه‌ی زیر، رنگ پس‌زمینه از عرض ۶۰۰ پیکسل به بالا عوض
+        می‌شود:
+      </p>
+
+      <pre class="code"><code>.box {
+  background: lightblue;
+}
+
+@media (min-width: 600px) {
+  .box {
+    background: lightgreen;
+  }
+}</code></pre>
+
+      <p>
+        شرط <code>min-width: 600px</code> یعنی عرض صفحه باید حداقل ۶۰۰ پیکسل باشد.
+        شرط <code>max-width: 600px</code> یعنی عرض صفحه حداکثر ۶۰۰ پیکسل باشد.
+      </p>
+
+      <div class="callout warn">
+        <p class="callout-title">توجه به مرزها</p>
+        <p>
+          در شرط‌های <code>min-width</code> و <code>max-width</code> مقدار مرزی
+          هم شامل شرط می‌شود. برای جلوگیری از هم‌پوشانی قانون‌ها، مرزها را با
+          دقت انتخاب کن.
+        </p>
+      </div>
+
+      <h2 id="mobile-first">روش Mobile First</h2>
+      <p>
+        در روش Mobile First، ابتدا استایل ساده و مناسب صفحه‌ی کوچک را می‌نویسیم؛
+        سپس با <code>min-width</code> برای صفحه‌های بزرگ‌تر تغییرات لازم را
+        اضافه می‌کنیم.
+      </p>
+
+      <pre class="code"><code>/* استایل پایه: صفحه‌های کوچک */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* صفحه‌های بزرگ‌تر */
+@media (min-width: 700px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}</code></pre>
+
+      <p>
+        این روش کمک می‌کند استایل پایه برای موبایل قابل استفاده باشد و فقط
+        تغییرات لازم برای صفحه‌های بزرگ‌تر را اضافه کنیم.
+      </p>
+
+      <h2 id="breakpoints">انتخاب Breakpoint</h2>
+      <p>
+        Breakpoint نقطه‌ای از عرض صفحه است که در آن چیدمان تغییر می‌کند. لازم
+        نیست برای مدل‌های خاص گوشی یا تبلت عددهای زیادی حفظ کنی. ابتدا محتوای
+        صفحه را بررسی کن و هرجا چیدمان دیگر مناسب نبود، یک breakpoint اضافه کن.
+      </p>
+      <p>
+        برای نمونه، اگر کارت‌ها در عرض کم فشرده شده‌اند، می‌توانی از یک ستون
+        به دو ستون تغییرشان بدهی. مقدار breakpoint به محتوای همان صفحه بستگی
+        دارد.
+      </p>
+
+      <h2 id="live-demo">امتحان کن</h2>
+      <p>
+        عرض کادر پیش‌نمایش را تغییر بده. وقتی عرض به ۶۰۰ پیکسل یا بیشتر برسد،
+        کارت‌ها کنار هم نمایش داده می‌شوند.
+      </p>
+
+      <div class="demo" data-title="تغییر چیدمان با Media Query" data-height="300">
+        <textarea>
+<style>
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    font-family: sans-serif;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 10px;
+    background: #dceeff;
+    text-align: center;
+  }
+
+  @media (min-width: 600px) {
+    .cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      background: #dff5df;
+    }
+  }
+</style>
+
+<div class="cards">
+  <div class="card">کارت اول</div>
+  <div class="card">کارت دوم</div>
+</div>
+</textarea>
+      </div>
+
+      <h2 id="more-conditions">شرط‌های دیگر</h2>
+      <p>
+        Media Query فقط برای عرض صفحه نیست. برای مثال، با
+        <code>orientation</code> می‌توان جهت نمایشگر را بررسی کرد. شرط‌های
+        مختلف را هم می‌توان با <code>and</code> ترکیب کرد:
+      </p>
+
+      <pre class="code"><code>/* صفحه‌ای با عرض حداقل 700px و حالت افقی */
+@media (min-width: 700px) and (orientation: landscape) {
+  .banner {
+    min-height: 50vh;
+  }
+}</code></pre>
+
+      <div class="callout tip">
+        <p class="callout-title">روش بررسی</p>
+        <p>
+          در مرورگر، ابزارهای توسعه‌دهنده را باز کن و حالت نمایش موبایل یا
+          تغییر اندازه‌ی صفحه را به کار ببر. سپس بررسی کن که محتوا در عرض‌های
+          مختلف خوانا و قابل استفاده باشد.
+        </p>
+      </div>
+
+      <h2 id="summary">خلاصه‌ی درس</h2>
+      <ul>
+        <li>Media Query اجازه می‌دهد CSS را بر اساس شرایط صفحه تغییر بدهی.</li>
+        <li><code>min-width</code> برای عرض برابر یا بزرگ‌تر از مقدار تعیین‌شده است.</li>
+        <li><code>max-width</code> برای عرض برابر یا کوچک‌تر از مقدار تعیین‌شده است.</li>
+        <li>در روش Mobile First، ابتدا استایل موبایل و سپس استایل صفحه‌های بزرگ‌تر را می‌نویسیم.</li>
+        <li>Breakpoint را با توجه به نیاز چیدمان انتخاب کن، نه فقط نام دستگاه.</li>
+      </ul>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>در تمرین‌ها، چیدمان‌ها را برای عرض‌های مختلف تنظیم کن.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav
+        class="lesson-nav"
+        id="lesson-nav"
+        aria-label="درس قبل و بعد"
+      ></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

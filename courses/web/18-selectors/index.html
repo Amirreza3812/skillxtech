@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>انتخابگرهای پیشرفته در CSS | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body data-course="web" data-lesson="18-selectors" data-root="../../../">
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>انتخابگرهای پیشرفته در CSS</h1>
+        <p class="lead">
+          در این درس با انتخابگرهای ترکیبی، گروه‌بندی انتخابگرها و مفهوم
+          specificity آشنا می‌شوی تا بتوانی عناصر دقیق‌تری را هدف بگیری.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+      <h2 id="selector-review">مرور انتخابگرها</h2>
+      <p>
+        انتخابگر مشخص می‌کند کدام عنصرهای HTML با یک قانون CSS هدف قرار بگیرند.
+        برای مثال، انتخابگر نوعی <code>p</code> همه‌ی پاراگراف‌ها را انتخاب
+        می‌کند، کلاس با نقطه نوشته می‌شود و شناسه با علامت <code>#</code>.
+      </p>
+
+      <pre class="code"><code>p {
+  color: #333;
+}
+
+.note {
+  color: darkblue;
+}
+
+#main-title {
+  color: darkgreen;
+}</code></pre>
+
+      <h2 id="group-selectors">گروه‌بندی انتخابگرها</h2>
+      <p>
+        وقتی چند انتخابگر به یک مجموعه از قانون‌های یکسان نیاز دارند، آن‌ها را
+        با ویرگول جدا می‌کنیم. این کار از تکرار CSS جلوگیری می‌کند.
+      </p>
+
+      <pre class="code"><code>h1,
+h2,
+h3 {
+  font-family: sans-serif;
+  color: #234;
+}</code></pre>
+
+      <div class="callout tip">
+        <p class="callout-title">نکته</p>
+        <p>
+          ویرگول یعنی هر انتخابگر جداگانه انتخاب شود. مثلاً
+          <code>h1, p</code> هم تیترها و هم پاراگراف‌ها را انتخاب می‌کند.
+        </p>
+      </div>
+
+      <h2 id="combinators">انتخابگرهای ترکیبی</h2>
+      <p>
+        انتخابگرهای ترکیبی کمک می‌کنند عنصرها را با توجه به جایگاهشان در ساختار
+        HTML انتخاب کنیم.
+      </p>
+
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>انتخابگر</th>
+              <th>معنا</th>
+              <th>نمونه</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.card p</code></td>
+              <td>همه‌ی پاراگراف‌های داخل عنصر دارای کلاس card</td>
+              <td>فرزند در هر عمقی</td>
+            </tr>
+            <tr>
+              <td><code>.card &gt; p</code></td>
+              <td>پاراگراف‌هایی که فرزند مستقیم card هستند</td>
+              <td>فقط یک سطح پایین‌تر</td>
+            </tr>
+            <tr>
+              <td><code>h2 + p</code></td>
+              <td>پاراگراف بلافاصله بعد از h2</td>
+              <td>همسایه‌ی بعدی</td>
+            </tr>
+            <tr>
+              <td><code>h2 ~ p</code></td>
+              <td>پاراگراف‌های بعد از h2 با همان والد</td>
+              <td>همسایه‌های بعدی</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="descendant-child">فرزند در هر عمق و فرزند مستقیم</h2>
+      <p>
+        فاصله‌ی خالی بین دو انتخابگر، همه‌ی عنصرهای منطبق در هر عمقی را انتخاب
+        می‌کند. علامت <code>&gt;</code> فقط فرزند مستقیم را انتخاب می‌کند.
+      </p>
+
+      <pre class="code"><code>/* همه‌ی pهای داخل card، حتی اگر داخل عنصر دیگری باشند */
+.card p {
+  color: #315b7d;
+}
+
+/* فقط pهایی که مستقیماً داخل card هستند */
+.card > p {
+  font-weight: 700;
+}</code></pre>
+
+      <h2 id="siblings">انتخابگرهای همسایه</h2>
+      <p>
+        علامت <code>+</code> عنصر بلافاصله پس از عنصر اول را هدف می‌گیرد.
+        علامت <code>~</code> همه‌ی همسایه‌های بعدی منطبق را انتخاب می‌کند؛
+        در هر دو حالت، عنصرها باید یک والد مشترک داشته باشند.
+      </p>
+
+      <pre class="code"><code>/* پاراگراف بلافاصله پس از h2 */
+h2 + p {
+  margin-top: 0;
+}
+
+/* همه‌ی پاراگراف‌های بعد از h2 با همان والد */
+h2 ~ p {
+  color: #555;
+}</code></pre>
+
+      <h2 id="specificity">Specificity یا میزان اختصاصی بودن</h2>
+      <p>
+        اگر چند قانون متفاوت روی یک عنصر اثر بگذارند، مرورگر برای انتخاب قانون
+        برنده specificity را در نظر می‌گیرد. به‌طور ساده، انتخابگر شناسه از
+        کلاس اختصاصی‌تر است و کلاس از انتخابگر نوعی مانند <code>p</code>
+        اختصاصی‌تر است.
+      </p>
+
+      <pre class="code"><code>p {
+  color: black;
+}
+
+.message {
+  color: blue;
+}
+
+#intro {
+  color: darkgreen;
+}</code></pre>
+
+      <p>
+        اگر هر سه قانون روی یک عنصر اعمال شوند، قانون شناسه معمولاً برنده
+        می‌شود. وقتی specificity برابر باشد، قانونی که دیرتر در CSS آمده است
+        برنده می‌شود.
+      </p>
+
+      <div class="callout warn">
+        <p class="callout-title">از !important بی‌دلیل استفاده نکن</p>
+        <p>
+          <code>!important</code> ترتیب عادی اولویت را مختل می‌کند و پیدا کردن
+          علت اعمال نشدن استایل‌ها را دشوار می‌سازد. بهتر است انتخابگرها را
+          ساده و قابل پیش‌بینی نگه داری.
+        </p>
+      </div>
+
+      <h2 id="try-it">امتحان کن</h2>
+      <p>
+        قانون‌های CSS را تغییر بده. مثلاً انتخابگر فرزند مستقیم را با انتخابگر
+        همه‌ی فرزندها مقایسه کن یا specificity انتخابگرها را تغییر بده.
+      </p>
+
+      <div class="demo" data-title="آزمایش انتخابگرها" data-height="330">
+        <textarea>
+<style>
+  .card p {
+    color: #176b87;
+  }
+
+  .card > p {
+    font-weight: bold;
+  }
+
+  h2 + p {
+    background: #fff2cc;
+  }
+
+  .message {
+    color: blue;
+  }
+
+  #special {
+    color: darkgreen;
+  }
+</style>
+
+<div class="card">
+  <h2>کارت نمونه</h2>
+  <p>این پاراگراف فرزند مستقیم کارت است.</p>
+  <div>
+    <p>این پاراگراف داخل یک div قرار دارد.</p>
+  </div>
+</div>
+
+<p class="message" id="special">کلاس و شناسه هر دو روی این متن اعمال می‌شوند.</p>
+</textarea>
+      </div>
+
+      <h2 id="summary">خلاصه‌ی درس</h2>
+      <ul>
+        <li>با ویرگول می‌توان چند انتخابگر را برای قانون‌های یکسان گروه‌بندی کرد.</li>
+        <li>فاصله، همه‌ی فرزندهای منطبق در هر عمقی را انتخاب می‌کند.</li>
+        <li><code>&gt;</code> فقط فرزند مستقیم را انتخاب می‌کند.</li>
+        <li><code>+</code> همسایه‌ی بلافاصله بعدی و <code>~</code> همسایه‌های بعدی را انتخاب می‌کند.</li>
+        <li>در برخورد قانون‌ها، specificity و سپس ترتیب قرارگیری قانون‌ها اهمیت دارد.</li>
+      </ul>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>با تمرین انتخابگرها، عناصر دقیق‌تری را در صفحه هدف بگیر.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>
