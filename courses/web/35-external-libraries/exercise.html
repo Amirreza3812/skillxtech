@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین کتابخانه‌های خارجی | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="35-external-libraries" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: کتابخانه‌های خارجی</h1>
+        <p class="lead">
+          کتابخانه را بارگذاری کن، از قابلیت آن استفاده کن و نتیجه را در صفحه نمایش بده.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>بارگذاری یک کتابخانه</h3>
+          <p>
+            یک صفحه‌ی HTML بساز و کتابخانه‌ی Day.js را از CDN به آن اضافه کن.
+            پس از بارگذاری کتابخانه، با <code>console.log()</code> نتیجه‌ی
+            <code>dayjs().format()</code> را در کنسول چاپ کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              ابتدا تگ <code>script</code> مربوط به CDN را بنویس؛ بعد از آن تگ
+              <code>script</code> خودت را قرار بده و تابع <code>dayjs()</code>
+              را صدا بزن.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+<textarea>
+<!-- تگ script برای Day.js را اضافه کن -->
+
+<script>
+  // نتیجه‌ی dayjs().format() را در کنسول چاپ کن
+
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>نمایش تاریخ در صفحه</h3>
+          <p>
+            یک عنصر <code>p</code> با شناسه‌ی <code>today</code> بساز. با استفاده
+            از Day.js تاریخ را با قالب <code>YYYY-MM-DD</code> تولید کن و داخل
+            آن عنصر قرار بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              عنصر را با <code>document.querySelector("#today")</code> انتخاب
+              کن و مقدار <code>textContent</code> آن را تغییر بده.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+<textarea>
+<p id="today"></p>
+
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script>
+  // تاریخ را با قالب YYYY-MM-DD بساز
+  // نتیجه را داخل #today قرار بده
+
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر قالب تاریخ</h3>
+          <p>
+            در مثال قبلی، قالب تاریخ را طوری تغییر بده که ابتدا ماه، سپس روز و در
+            پایان سال نمایش داده شود. نتیجه را در همان عنصر صفحه قرار بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              ترتیب حروف قالب را به <code>MM/DD/YYYY</code> تغییر بده و نتیجه را
+              دوباره در <code>textContent</code> قرار بده.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+<textarea>
+<p id="today"></p>
+
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+<script>
+  const formattedDate = dayjs().format("YYYY-MM-DD");
+  document.querySelector("#today").textContent = formattedDate;
+
+  // قالب را به MM/DD/YYYY تغییر بده
+
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>عیب‌یابی ترتیب بارگذاری</h3>
+          <p>
+            در دو تگ <code>script</code> زیر، کد خودت پیش از کتابخانه اجرا می‌شود.
+            ترتیب تگ‌ها را اصلاح کن تا ابتدا کتابخانه بارگذاری شود و سپس
+            <code>dayjs()</code> در کنسول اجرا شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              تگ بارگذاری کتابخانه را بالاتر از تگ اسکریپت خودت قرار بده.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+<textarea>
+<script>
+  console.log(dayjs().format());
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</textarea>
+          </div>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>متن‌ها در JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="24-strings" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>متن‌ها در JavaScript</h1>
+          <p class="lead">
+            در این درس با رشته‌ها آشنا می‌شویم، متن‌ها را به هم وصل می‌کنیم و با
+            template literal مقدار متغیرها را داخل متن قرار می‌دهیم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="what-is-string">رشته یا String چیست؟</h2>
+        <p>
+          رشته (String) نوعی داده برای نگهداری متن است؛ مثل نام، پیام، عنوان
+          صفحه یا نشانی ایمیل. برای اینکه JavaScript متوجه شود بخشی از کد یک متن
+          است، آن را داخل کوتیشن قرار می‌دهیم.
+        </p>
+
+        <pre class="code"><code>const courseName = "طراحی وب";
+const greeting = 'سلام!';
+const message = `به دوره خوش آمدی`;</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            برای تعریف رشته می‌توانی از کوتیشن تکی (<code>' '</code>)، کوتیشن
+            دوتایی (<code>" "</code>) یا بک‌تیک (<code>` `</code>) استفاده کنی.
+            کوتیشن آغاز و پایان رشته باید از یک نوع باشد.
+          </p>
+        </div>
+
+        <h2 id="joining-strings">چسباندن رشته‌ها با عملگر +</h2>
+        <p>
+          عملگر <code>+</code> می‌تواند دو رشته را به هم وصل کند. اگر چند بخش
+          متن داشته باشیم، می‌توانیم آن‌ها را به همین روش ترکیب کنیم.
+        </p>
+
+        <pre class="code"><code>const firstName = "سارا";
+const greeting = "سلام " + firstName + "!";
+console.log(greeting);</code></pre>
+
+        <p>خروجی در کنسول:</p>
+        <pre class="code"><code>سلام سارا!</code></pre>
+
+        <div class="callout note">
+          <p class="callout-title">یادآوری</p>
+          <p>
+            برای دیدن خروجی <code>console.log()</code>، کنسول مرورگر را باز کن.
+            در Chrome می‌توانی از منوی مرورگر وارد
+            <strong>More tools &gt; Developer tools</strong> شوی و زبانهٔ
+            <strong>Console</strong> را انتخاب کنی.
+          </p>
+        </div>
+
+        <h2 id="template-literals">Template literal و جای‌گذاری متغیر</h2>
+        <p>
+          بک‌تیک‌ها امکان دیگری برای ساخت رشته فراهم می‌کنند که به آن template
+          literal می‌گویند. با نوشتن <code>${...}</code> می‌توانیم مقدار یک
+          متغیر یا نتیجهٔ یک عبارت را داخل متن قرار دهیم.
+        </p>
+
+        <pre class="code"><code>const firstName = "سارا";
+const age = 20;
+
+const introduction = `اسم من ${firstName} است و ${age} سال دارم.`;
+console.log(introduction);</code></pre>
+
+        <p>خروجی:</p>
+        <pre class="code"><code>اسم من سارا است و 20 سال دارم.</code></pre>
+
+        <p>
+          داخل <code>${...}</code> فقط متغیر نمی‌نویسیم؛ یک عبارت هم می‌تواند
+          قرار بگیرد:
+        </p>
+
+        <pre
+          class="code"
+        ><code>const result = `حاصل جمع 2 و 3 برابر ${2 + 3} است.`;
+console.log(result);</code></pre>
+
+        <p>خروجی:</p>
+        <pre class="code"><code>حاصل جمع 2 و 3 برابر 5 است.</code></pre>
+
+        <h2 id="multiline-strings">رشته‌های چندخطی</h2>
+        <p>
+          رشته‌ای که با بک‌تیک نوشته شده باشد می‌تواند چند خط داشته باشد. خط
+          جدیدی که در کد می‌نویسیم، در متن رشته هم حفظ می‌شود.
+        </p>
+
+        <pre class="code"><code>const message = `خط اول
+خط دوم
+خط سوم`;
+
+console.log(message);</code></pre>
+
+        <div class="callout warn">
+          <p class="callout-title">مراقب باش</p>
+          <p>
+            برای نوشتن template literal از بک‌تیک استفاده کن، نه کوتیشن تکی یا
+            دوتایی. این دو روش، عبارت‌های <code>${...}</code> را به‌عنوان
+            جای‌گذاری متغیر پردازش نمی‌کنند.
+          </p>
+        </div>
+
+        <h2 id="string-length-and-index">طول رشته و دسترسی به کاراکترها</h2>
+        <p>
+          ویژگی <code>length</code> تعداد کاراکترهای رشته را برمی‌گرداند. برای
+          دسترسی به یک کاراکتر نیز می‌توانیم شمارهٔ جایگاه آن را داخل کروشه
+          بنویسیم. شماره‌گذاری از صفر آغاز می‌شود.
+        </p>
+
+        <pre class="code"><code>const word = "Hello";
+
+console.log(word.length); // 5
+console.log(word[0]);     // H
+console.log(word[1]);     // e</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            اگر طول رشته ۵ باشد، جایگاه‌های کاراکترها از ۰ تا ۴ هستند؛ بنابراین
+            جایگاه آخر برابر است با
+            <code>length - 1</code>.
+          </p>
+        </div>
+
+        <h2 id="try-it">امتحان کن</h2>
+        <p>
+          نام، سن و شهر را در کد تغییر بده. ببین چطور با template literal یک
+          معرفی کوتاه می‌سازیم.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="300">
+          <textarea>
+<h2>معرفی من</h2>
+<p id="introduction"></p>
+<p id="city-message"></p>
+
+<script>
+  const firstName = "سارا";
+  const age = 20;
+  const city = "تهران";
+
+  document.querySelector("#introduction").textContent =
+    `اسم من ${firstName} است و ${age} سال دارم.`;
+
+  document.querySelector("#city-message").textContent =
+    `من در شهر ${city} زندگی می‌کنم.`;
+</script>
+</textarea
+          >
+        </div>
+
+        <h2 id="summary">خلاصه</h2>
+        <ul>
+          <li>رشته‌ها برای نگهداری متن استفاده می‌شوند.</li>
+          <li>رشته را می‌توان با کوتیشن تکی، کوتیشن دوتایی یا بک‌تیک نوشت.</li>
+          <li>با <code>+</code> می‌توان رشته‌ها را به هم وصل کرد.</li>
+          <li>
+            template literal با بک‌تیک نوشته می‌شود و از
+            <code>${...}</code> برای جای‌گذاری مقدار استفاده می‌کند.
+          </li>
+          <li>
+            با <code>length</code> طول رشته و با شمارهٔ جایگاه به کاراکترهای آن
+            دسترسی داریم.
+          </li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>حالا چند تمرین دربارهٔ رشته‌ها انجام بده.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

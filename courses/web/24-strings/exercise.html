@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین متن‌ها در JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="24-strings" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: متن‌ها در JavaScript</h1>
+          <p class="lead">
+            تمرین‌ها را به‌ترتیب انجام بده و کد هر کادر را برای دیدن نتیجه تغییر
+            بده.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت پیام خوشامدگویی</h3>
+            <p>
+              متغیری به نام <code>firstName</code> بساز و نام خودت را در آن قرار
+              بده. سپس با template literal پیام خوشامدگویی را داخل پاراگراف
+              نمایش بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                مقدار متغیر را داخل <code>${firstName}</code> قرار بده و رشته را
+                با بک‌تیک بنویس.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<p id="message"></p>
+
+<script>
+  const firstName = "نام خودت";
+
+  document.querySelector("#message").textContent =
+    `سلام ${firstName}! به دوره خوش آمدی.`;
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>محاسبهٔ طول رشته</h3>
+            <p>
+              مقدار <code>word</code> را به یک کلمهٔ انگلیسی تغییر بده. طول آن و
+              کاراکتر اولش را در صفحه نمایش بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از ویژگی <code>word.length</code> برای طول رشته و
+                <code>word[0]</code> برای کاراکتر اول استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<p id="length-result"></p>
+<p id="first-character"></p>
+
+<script>
+  const word = "JavaScript";
+
+  document.querySelector("#length-result").textContent =
+    `طول کلمه: ${word.length}`;
+
+  document.querySelector("#first-character").textContent =
+    `کاراکتر اول: ${word[0]}`;
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت کارت معرفی</h3>
+            <p>
+              با متغیرهای نام، موضوع موردعلاقه و شهر، یک معرفی چندخطی بساز و آن
+              را در صفحه نمایش بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای نوشتن رشتهٔ چندخطی از بک‌تیک استفاده کن. می‌توانی مقدار
+                متغیرها را با <code>${...}</code> داخل متن قرار بدهی.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="280">
+              <textarea>
+<div style="padding: 16px; border: 1px solid #ccc; border-radius: 8px;">
+  <h2>کارت معرفی</h2>
+  <p id="profile"></p>
+</div>
+
+<script>
+  const name = "آرمان";
+  const favoriteTopic = "طراحی وب";
+  const city = "شیراز";
+
+  document.querySelector("#profile").textContent =
+    `نام: ${name}
+علاقه‌مندی: ${favoriteTopic}
+شهر: ${city}`;
+</script>
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

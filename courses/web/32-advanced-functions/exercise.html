@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین توابع پیشرفته — پارت اول | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="32-advanced-functions"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: توابع پیشرفته — پارت اول</h1>
+          <p class="lead">
+            تعریف تابع، محدوده‌ی متغیرها و callback را با کدنویسی تمرین کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>نوشتن function expression</h3>
+            <p>
+              یک تابع به نام <code>getArea</code> در متغیری با
+              <code>const</code> ذخیره کن. تابع باید دو پارامتر برای طول و عرض
+              بگیرد و مساحت را با <code>return</code> برگرداند. سپس آن را
+              فراخوانی و نتیجه را در کنسول نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                بعد از <code>const getArea =</code> یک تابع با کلمه‌ی
+                <code>function</code> بنویس. حاصل‌ضرب دو پارامتر را
+                <code>return</code> کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+const getArea = function (width, height) {
+  // مساحت را برگردان
+};
+
+// تابع را اجرا کن و نتیجه را نمایش بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بررسی محدوده‌ی متغیر</h3>
+            <p>
+              تابعی به نام <code>makeMessage</code> بنویس که داخل خودش متغیر
+              <code>message</code> را تعریف و آن را در کنسول نمایش دهد. سپس
+              توضیح بده چرا نمی‌توان همان متغیر را بیرون از تابع استفاده کرد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                متغیر را داخل بدنه‌ی تابع با <code>const</code> تعریف کن و
+                دستور <code>console.log(message)</code> را یک‌بار داخل تابع و
+                یک‌بار بیرون آن امتحان کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+function makeMessage() {
+  const message = "پیامی از داخل تابع";
+  // پیام را اینجا نمایش بده
+}
+
+makeMessage();
+
+// این خط را برای بررسی محدوده امتحان کن:
+// console.log(message);
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت تابعی که callback می‌گیرد</h3>
+            <p>
+              تابعی به نام <code>runCallback</code> بساز که یک تابع را به‌عنوان
+              پارامتر دریافت کند و آن را اجرا کند. سپس تابع دیگری به نام
+              <code>sayWelcome</code> تعریف کن و آن را به
+              <code>runCallback</code> بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                هنگام فرستادن تابع، نام آن را بدون پرانتز بنویس. داخل
+                <code>runCallback</code>، پارامتر دریافتی را با پرانتز اجرا
+                کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+function sayWelcome() {
+  console.log("خوش آمدی!");
+}
+
+function runCallback(callback) {
+  // تابع دریافتی را اجرا کن
+}
+
+// تابع sayWelcome را به runCallback بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>callback همراه مقدار</h3>
+            <p>
+              تابعی به نام <code>formatPrice</code> بنویس که یک عدد را بگیرد و
+              متن قیمت را در کنسول نمایش دهد. سپس تابع
+              <code>showValue</code> را طوری بنویس که عدد و callback را دریافت
+              کند و آن عدد را به callback بفرستد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                داخل <code>showValue</code>، callback را با آرگومان عدد
+                فراخوانی کن: <code>callback(value)</code>.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+function formatPrice(price) {
+  console.log("قیمت:", price, "تومان");
+}
+
+function showValue(value, callback) {
+  // عدد را به callback بده
+}
+
+// تابع را با یک عدد و formatPrice اجرا کن
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

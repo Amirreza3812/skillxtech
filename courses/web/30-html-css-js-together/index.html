@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ترکیب HTML و CSS و JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="30-html-css-js-together"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>ترکیب HTML و CSS و JavaScript</h1>
+          <p class="lead">
+            یاد می‌گیریم HTML را برای ساختار صفحه، CSS را برای ظاهر و JavaScript
+            را برای رفتارهای تعاملی به کار ببریم و این سه را به هم متصل کنیم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="three-languages">سه زبان، سه نقش</h2>
+        <p>
+          یک صفحه‌ی وب معمولاً از سه بخش مکمل ساخته می‌شود. <code>HTML</code>
+          عناصر صفحه را تعریف می‌کند، <code>CSS</code> ظاهر آن‌ها را می‌سازد و
+          <code>JavaScript</code> به صفحه رفتار و واکنش اضافه می‌کند.
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>فناوری</th>
+                <th>نقش</th>
+                <th>نمونه</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>HTML</code></td>
+                <td>ساختار و محتوا</td>
+                <td>عنوان، دکمه و پاراگراف</td>
+              </tr>
+              <tr>
+                <td><code>CSS</code></td>
+                <td>ظاهر و چیدمان</td>
+                <td>رنگ، اندازه و فاصله</td>
+              </tr>
+              <tr>
+                <td><code>JavaScript</code></td>
+                <td>رفتار و تعامل</td>
+                <td>واکنش به کلیک دکمه</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout note">
+          <p class="callout-title">یک تشبیه ساده</p>
+          <p>
+            HTML شبیه اسکلت ساختمان، CSS شبیه طراحی و رنگ‌آمیزی آن و JavaScript
+            شبیه بخش‌هایی است که با استفاده از آن‌ها می‌توان کاری انجام داد.
+          </p>
+        </div>
+
+        <h2 id="connect-css">اتصال فایل CSS</h2>
+        <p>
+          برای اینکه فایل CSS جداگانه به صفحه متصل شود، از عنصر
+          <code>&lt;link&gt;</code> در بخش <code>&lt;head&gt;</code> استفاده
+          می‌کنیم. مقدار <code>href</code> باید مسیر درست فایل CSS باشد.
+        </p>
+
+        <pre class="code"><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;</code></pre>
+
+        <p>
+          اگر فایل HTML و پوشه‌ی <code>css</code> هم‌سطح باشند، مسیر
+          <code>css/style.css</code> از محل فایل HTML شروع می‌شود.
+        </p>
+
+        <h2 id="connect-js">اتصال فایل JavaScript</h2>
+        <p>
+          فایل JavaScript را می‌توان با عنصر <code>&lt;script&gt;</code> به
+          صفحه متصل کرد. قرار دادن آن نزدیک پایان <code>&lt;body&gt;</code>
+          باعث می‌شود عناصر صفحه پیش از اجرای اسکریپت خوانده شوند.
+        </p>
+
+        <pre class="code"><code>&lt;body&gt;
+  &lt;h1&gt;صفحه‌ی من&lt;/h1&gt;
+
+  &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            مسیر فایل در ویژگی <code>src</code> نسبت به فایل HTML نوشته
+            می‌شود؛ مثلاً اگر فایل در پوشه‌ی <code>js</code> باشد، مسیر
+            <code>js/main.js</code> است.
+          </p>
+        </div>
+
+        <h2 id="connect-files">سه فایل را به هم متصل کنیم</h2>
+        <p>
+          در یک پروژه‌ی کوچک می‌توانیم فایل HTML را در ریشه‌ی پروژه و فایل‌های
+          CSS و JavaScript را در پوشه‌های جداگانه قرار دهیم:
+        </p>
+
+        <pre class="code"><code>my-page/
+├── index.html
+├── css/
+│   └── style.css
+└── js/
+    └── main.js</code></pre>
+
+        <p>در فایل <code>index.html</code>، هر دو فایل را به این شکل متصل کن:</p>
+
+        <pre class="code"><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;button id="message-button"&gt;نمایش پیام&lt;/button&gt;
+  &lt;p id="message"&gt;هنوز دکمه را نزده‌ای.&lt;/p&gt;
+
+  &lt;script src="js/main.js"&gt;&lt;/script&gt;
+&lt;/body&gt;</code></pre>
+
+        <p>
+          حالا CSS می‌تواند ظاهر عناصر را تغییر دهد و JavaScript می‌تواند با
+          پیدا کردن آن‌ها در DOM، به رویدادها پاسخ دهد.
+        </p>
+
+        <h2 id="interactive-example">ساخت یک تعامل ساده</h2>
+        <p>
+          در نمونه‌ی زیر، با کلیک روی دکمه، متن پاراگراف عوض می‌شود و یک کلاس
+          CSS نیز به آن اضافه می‌شود. کد را اجرا و سپس بخش‌های مختلف آن را
+          تغییر بده.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="360">
+          <textarea>
+<style>
+  body {
+    font-family: sans-serif;
+    padding: 16px;
+  }
+
+  button {
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+  }
+
+  .highlight {
+    color: #166534;
+    font-weight: bold;
+  }
+</style>
+
+<button id="message-button">نمایش پیام</button>
+<p id="message">هنوز دکمه را نزده‌ای.</p>
+
+<script>
+  const button = document.querySelector("#message-button");
+  const message = document.querySelector("#message");
+
+  button.addEventListener("click", function () {
+    message.textContent = "آفرین! سه فناوری با هم کار کردند.";
+    message.classList.add("highlight");
+  });
+</script>
+</textarea>
+        </div>
+
+        <h2 id="follow-the-code">کد را مرحله‌به‌مرحله دنبال کنیم</h2>
+        <p>
+          ابتدا HTML دکمه و پاراگراف را می‌سازد. ویژگی‌های
+          <code>id</code> به JavaScript کمک می‌کنند هر عنصر را پیدا کند.
+          سپس <code>querySelector()</code> هر دو عنصر را انتخاب می‌کند.
+        </p>
+        <p>
+          <code>addEventListener("click", ...)</code> می‌گوید هنگام کلیک روی
+          دکمه، تابع داخل آن اجرا شود. تابع متن پاراگراف را با
+          <code>textContent</code> عوض می‌کند و با
+          <code>classList.add()</code> کلاس <code>highlight</code> را به آن
+          اضافه می‌کند. در نهایت CSS ظاهر این کلاس را مشخص می‌کند.
+        </p>
+
+        <div class="callout warn">
+          <p class="callout-title">اشتباه رایج در مسیر فایل‌ها</p>
+          <p>
+            اگر فایل CSS یا JavaScript بارگذاری نشود، مسیر
+            <code>href</code> یا <code>src</code> را بررسی کن. نام پوشه‌ها و
+            فایل‌ها باید دقیقاً با ساختار پروژه مطابقت داشته باشد.
+          </p>
+        </div>
+
+        <h2 id="summary">جمع‌بندی</h2>
+        <p>
+          HTML ساختار، CSS ظاهر و JavaScript رفتار صفحه را مدیریت می‌کنند. فایل
+          CSS با <code>&lt;link&gt;</code> و فایل JavaScript با
+          <code>&lt;script&gt;</code> متصل می‌شود. JavaScript می‌تواند عناصر
+          HTML را انتخاب کند، به رویدادهایی مثل کلیک گوش دهد و با تغییر متن یا
+          کلاس‌ها، صفحه را به‌روز کند.
+        </p>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>با تمرین‌های این درس، سه بخش یک صفحه‌ی وب را به هم وصل کن.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

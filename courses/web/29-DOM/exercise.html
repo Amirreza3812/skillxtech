@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین آشنایی با DOM | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="29-DOM" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: آشنایی با DOM</h1>
+        <p class="lead">کدهای جاوااسکریپت را در کادرها بنویس و اجرا کن.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>انتخاب عنوان صفحه</h3>
+          <p>
+            عنصر <code>h1</code> را با <code>document.querySelector()</code>
+            پیدا کن و متن آن را با <code>textContent</code> در کنسول نمایش بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>برای انتخاب تگ عنوان می‌توانی از انتخاب‌گر <code>"h1"</code> استفاده کنی.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+<textarea>
+<h1>سلام به DOM</h1>
+
+<script>
+// عنوان را پیدا کن و متنش را در کنسول نمایش بده
+
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر متن با کلیک</h3>
+          <p>
+            وقتی کاربر روی دکمه کلیک می‌کند، متن پاراگراف را به
+            <code>متن با جاوااسکریپت تغییر کرد!</code> تغییر بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>پاراگراف و دکمه را با انتخاب‌گر مناسب پیدا کن و برای دکمه از <code>addEventListener("click", ...)</code> استفاده کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="280">
+<textarea>
+<p id="message">متن اولیه</p>
+<button id="change-button">تغییر متن</button>
+
+<script>
+// عناصر را پیدا کن و رویداد کلیک را تنظیم کن
+
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر کلاس CSS</h3>
+          <p>
+            با کلیک روی دکمه، کلاس <code>highlight</code> را به پاراگراف اضافه
+            یا از آن حذف کن. از <code>classList.toggle()</code> استفاده کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ابتدا یک قانون CSS برای <code>.highlight</code> بنویس؛ سپس با <code>classList.toggle("highlight")</code> آن را جابه‌جا کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="300">
+<textarea>
+<style>
+  .highlight {
+    color: white;
+    background: #2563eb;
+    padding: 12px;
+    border-radius: 8px;
+  }
+</style>
+
+<p id="message">ظاهر این متن با دکمه تغییر می‌کند.</p>
+<button id="toggle-button">تغییر ظاهر</button>
+
+<script>
+// با کلیک روی دکمه کلاس highlight را جابه‌جا کن
+
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر عنوان با یک ورودی</h3>
+          <p>
+            یک فیلد متنی و یک دکمه بساز. با کلیک روی دکمه، متن واردشده در فیلد
+            را به‌عنوان متن عنوان <code>h1</code> قرار بده. اگر فیلد خالی بود،
+            عنوان را تغییر نده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>مقدار ورودی را از ویژگی <code>value</code> بخوان و با <code>if</code> بررسی کن که خالی نباشد.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="320">
+<textarea>
+<h1 id="page-title">عنوان فعلی</h1>
+<input id="title-input" type="text" placeholder="عنوان جدید">
+<button id="update-button">ثبت عنوان</button>
+
+<script>
+// عناصر را پیدا کن
+// با کلیک روی دکمه، عنوان را از مقدار ورودی به‌روزرسانی کن
+
+</script>
+</textarea>
+          </div>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

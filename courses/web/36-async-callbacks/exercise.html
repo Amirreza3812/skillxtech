@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین callbackهای ناهمگام | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="36-async-callbacks" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: callbackهای ناهمگام</h1>
+        <p class="lead">
+          هر تمرین را اجرا کن و تفاوت زمان اجرای دستورهای معمولی و callbackها را بررسی کن.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>پیش‌بینی ترتیب اجرا</h3>
+          <p>
+            پیش از اجرای کد، ترتیب پیام‌ها را حدس بزن. سپس کد را اجرا کن و ترتیب
+            واقعی را در خروجی کنسول بررسی کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              <code>setTimeout()</code> callback را برای بعد برنامه‌ریزی می‌کند؛
+              دستورهای بعد از آن فوراً ادامه پیدا می‌کنند.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+<textarea>
+<script>
+  console.log("الف");
+
+  setTimeout(function () {
+    console.log("ج");
+  }, 500);
+
+  console.log("ب");
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>ساخت تابع زمان‌دار</h3>
+          <p>
+            تابعی به نام <code>showReminder</code> بنویس که پیام
+            «زمان استراحت کوتاه!» را در کنسول چاپ کند. آن را طوری برنامه‌ریزی کن
+            که پس از دو ثانیه اجرا شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              تابع را با <code>function showReminder() { ... }</code> تعریف کن،
+              سپس نام آن را بدون پرانتز به <code>setTimeout()</code> بده.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+<textarea>
+<script>
+  // تابع showReminder را تعریف کن
+
+  // آن را پس از 2000 میلی‌ثانیه اجرا کن
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>فرستادن آرگومان به callback</h3>
+          <p>
+            تابعی به نام <code>sayHello</code> بنویس که نامی بگیرد و در کنسول
+            پیام «سلام، [نام]!» را چاپ کند. با <code>setTimeout()</code> کاری کن
+            که تابع پس از یک ثانیه با نام «نیما» اجرا شود.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              آرگومان‌های callback را پس از مقدار تأخیر بنویس:
+              <code>setTimeout(تابع, تأخیر, آرگومان)</code>.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+<textarea>
+<script>
+  function sayHello(name) {
+    // پیام خوش‌آمدگویی را چاپ کن
+  }
+
+  // sayHello را پس از یک ثانیه با نام «نیما» اجرا کن
+</script>
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر متن صفحه با callback</h3>
+          <p>
+            دکمه‌ای با شناسه‌ی <code>start</code> و پاراگرافی با شناسه‌ی
+            <code>status</code> بساز. با کلیک روی دکمه، متن پاراگراف را فوراً
+            به «در حال انجام...» تغییر بده و پس از 1.5 ثانیه آن را به «انجام شد!»
+            تغییر بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              برای کلیک از <code>addEventListener("click", ...)</code> استفاده کن.
+              دستور تغییر متن دوم را داخل callback مربوط به
+              <code>setTimeout()</code> قرار بده.
+            </p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="260">
+<textarea>
+<button id="start">شروع</button>
+<p id="status">آماده</p>
+
+<script>
+  const button = document.querySelector("#start");
+  const status = document.querySelector("#status");
+
+  // با کلیک، متن را فوراً تغییر بده
+
+  // بعد از 1500 میلی‌ثانیه، متن را به «انجام شد!» تغییر بده
+</script>
+</textarea>
+          </div>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

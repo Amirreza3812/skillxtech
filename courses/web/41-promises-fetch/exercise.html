@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین Promise و Fetch | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="41-promises-fetch" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: Promise و Fetch</h1>
+          <p class="lead">
+            نتیجه‌های غیرهم‌زمان را مدیریت کن و پاسخ‌های fetch را بررسی کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت یک Promise موفق</h3>
+            <p>
+              با <code>new Promise()</code> یک Promise بساز که با
+              <code>resolve()</code> پیام موفقیت را برگرداند. با
+              <code>then()</code> پیام را در کنسول نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                تابع سازنده‌ی Promise، تابعی با دو پارامتر
+                <code>resolve</code> و <code>reject</code> دریافت می‌کند.
+                برای این تمرین <code>resolve("انجام شد")</code> را فراخوانی کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="210">
+              <textarea>
+// یک Promise بساز
+const task = new Promise((resolve, reject) => {
+  // Promise را با یک پیام موفق تمام کن
+});
+
+// نتیجه‌ی موفق را با then در کنسول نمایش بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>مدیریت خطا با catch</h3>
+            <p>
+              یک Promise بساز که با <code>reject()</code> خطایی را اعلام کند.
+              سپس با <code>catch()</code> پیام خطا را در کنسول نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                می‌توانی بنویسی
+                <code>reject(new Error("عملیات ناموفق بود"))</code> و در تابع
+                <code>catch</code> مقدار <code>error.message</code> را چاپ کنی.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+const task = new Promise((resolve, reject) => {
+  // یک خطا ایجاد کن
+});
+
+task
+  .then((result) => {
+    console.log(result);
+  })
+  .catch((error) => {
+    // پیام خطا را نمایش بده
+  });
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>خواندن پاسخ JSON</h3>
+            <p>
+              با <code>fetch()</code> داده‌ی آزمایشی زیر را دریافت کن و عنوان
+              آن را در کنسول نمایش بده:
+              <code>https://jsonplaceholder.typicode.com/todos/1</code>.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                پاسخ را با <code>response.json()</code> به داده‌ی قابل‌استفاده
+                تبدیل کن، سپس در مرحله‌ی بعد به ویژگی <code>data.title</code>
+                دسترسی داشته باش.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => {
+    // پاسخ را به JSON تبدیل و برگردان
+  })
+  .then((data) => {
+    // عنوان را در کنسول نمایش بده
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بررسی response.ok</h3>
+            <p>
+              درخواست قبلی را طوری تغییر بده که پیش از خواندن JSON،
+              <code>response.ok</code> را بررسی کند. اگر پاسخ موفق نبود، با
+              <code>throw new Error()</code> خطایی پرتاب کن تا در
+              <code>catch()</code> مدیریت شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                اگر <code>response.ok</code> برابر با <code>false</code> بود،
+                درون شرط <code>if</code> خطا پرتاب کن؛ در غیر این صورت
+                <code>response.json()</code> را برگردان.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="250">
+              <textarea>
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then((response) => {
+    // اگر response.ok درست نبود، خطا پرتاب کن
+
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data.title);
+  })
+  .catch((error) => {
+    console.error("خطا:", error.message);
+  });
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>نمایش وضعیت درخواست در صفحه</h3>
+            <p>
+              کد زیر را کامل کن تا عنوان دریافت‌شده در صفحه نمایش داده شود و
+              وضعیت بارگذاری نیز به‌روزرسانی شود. در صورت خطا، پیام مناسبی در
+              صفحه قرار بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                در مرحله‌ی موفقیت، <code>data.title</code> را در
+                <code>title.textContent</code> قرار بده. در
+                <code>catch()</code> پیام خطا را در
+                <code>status.textContent</code> بنویس.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+              <textarea>
+<button id="load" type="button">دریافت عنوان</button>
+<p id="status">آماده</p>
+<p id="title"></p>
+
+<script>
+  const button = document.querySelector("#load");
+  const status = document.querySelector("#status");
+  const title = document.querySelector("#title");
+
+  button.addEventListener("click", () => {
+    status.textContent = "در حال بارگذاری...";
+
+    fetch("https://jsonplaceholder.typicode.com/todos/1")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`خطای HTTP: ${response.status}`);
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        // عنوان و وضعیت موفقیت را نمایش بده
+      })
+      .catch((error) => {
+        // پیام خطا را در صفحه نمایش بده
+      });
+  });
+</script>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

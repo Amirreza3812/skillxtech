@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>متغیرها در JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="25-variables"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>متغیرها در JavaScript</h1>
+          <p class="lead">
+            یاد می‌گیریم داده‌ها را در متغیرها ذخیره کنیم، با
+            <code>let</code> و <code>const</code> آشنا شویم و برای متغیرها
+            نام‌های خوانا انتخاب کنیم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="what-is-variable">متغیر چیست؟</h2>
+        <p>
+          متغیر نامی است که به یک مقدار داده می‌شود تا بتوانیم آن مقدار را
+          در برنامه نگه داریم و بعداً از آن استفاده کنیم. برای مثال، می‌توانیم
+          نام دانشجو یا تعداد امتیازهای یک بازی را در متغیر ذخیره کنیم.
+        </p>
+
+        <pre class="code"><code>const studentName = "سارا";
+let score = 10;
+
+console.log(studentName);
+console.log(score);</code></pre>
+
+        <p>
+          در این مثال، <code>studentName</code> و <code>score</code> نام
+          متغیرها هستند و رشتهٔ <code>"سارا"</code> و عدد <code>10</code>
+          مقدارهای ذخیره‌شده در آن‌ها هستند.
+        </p>
+
+        <h2 id="declare-variable">تعریف متغیر</h2>
+        <p>
+          برای تعریف متغیر در JavaScript معمولاً از کلمه‌های کلیدی
+          <code>const</code> یا <code>let</code> استفاده می‌کنیم. بعد از
+          آن‌ها نام متغیر و در صورت نیاز مقدار اولیه را می‌نویسیم.
+        </p>
+
+        <pre class="code"><code>const courseName = "طراحی وب";
+let lessonNumber = 25;</code></pre>
+
+        <p>
+          علامت <code>=</code> در اینجا مقدار سمت راست را به متغیر سمت چپ
+          نسبت می‌دهد. به این کار مقداردهی یا assignment می‌گوییم.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">نکته</p>
+          <p>
+            در JavaScript علامت <code>=</code> برای مقداردهی است؛ برای بررسی
+            برابر بودن دو مقدار از روش‌های مقایسه استفاده می‌کنیم که در درس
+            شرط‌ها با آن‌ها آشنا می‌شویم.
+          </p>
+        </div>
+
+        <h2 id="let-and-const">تفاوت let و const</h2>
+        <p>
+          از <code>let</code> برای متغیری استفاده می‌کنیم که قرار است مقدارش
+          دوباره تغییر کند. از <code>const</code> برای نامی استفاده می‌کنیم
+          که قرار نیست دوباره به مقدار دیگری نسبت داده شود.
+        </p>
+
+        <pre class="code"><code>let score = 10;
+score = 15;
+
+const courseName = "طراحی وب";
+
+console.log(score);      // 15
+console.log(courseName); // طراحی وب</code></pre>
+
+        <p>
+          چون امتیاز ممکن است تغییر کند، آن را با <code>let</code> تعریف
+          کردیم. نام دوره را تغییر نمی‌دهیم، پس برای آن از
+          <code>const</code> استفاده کردیم.
+        </p>
+
+        <div class="callout tip">
+          <p class="callout-title">روش پیشنهادی</p>
+          <p>
+            اگر مقدار متغیر قرار نیست عوض شود، <code>const</code> انتخاب
+            خوبی است. هر جا لازم شد مقدار متغیر را دوباره تغییر بدهی، از
+            <code>let</code> استفاده کن.
+          </p>
+        </div>
+
+        <h2 id="changing-values">تغییر مقدار متغیر</h2>
+        <p>
+          متغیری که با <code>let</code> تعریف شده باشد می‌تواند مقدار جدید
+          بگیرد. هنگام تغییر مقدار، دوباره کلمهٔ <code>let</code> را
+          نمی‌نویسیم؛ فقط نام متغیر و مقدار تازه را می‌آوریم.
+        </p>
+
+        <pre class="code"><code>let city = "تهران";
+city = "شیراز";
+
+console.log(city); // شیراز</code></pre>
+
+        <p>
+          اما اگر بخواهیم متغیر تعریف‌شده با <code>const</code> را دوباره
+          مقداردهی کنیم، JavaScript خطا می‌دهد:
+        </p>
+
+        <pre class="code"><code>const country = "ایران";
+country = "ترکیه"; // خطا: امکان مقداردهی دوباره به const وجود ندارد</code></pre>
+
+        <div class="callout warn">
+          <p class="callout-title">مراقب باش</p>
+          <p>
+            متغیر <code>const</code> باید هنگام تعریف مقدار اولیه بگیرد.
+            همچنین نمی‌توانی بعداً آن را به مقدار دیگری نسبت بدهی.
+          </p>
+        </div>
+
+        <h2 id="without-initial-value">تعریف متغیر بدون مقدار اولیه</h2>
+        <p>
+          می‌توانیم متغیری را با <code>let</code> تعریف کنیم و بعداً به آن
+          مقدار بدهیم. تا پیش از مقداردهی، مقدار آن <code>undefined</code>
+          است؛ یعنی هنوز مقداری به آن اختصاص نداده‌ایم.
+        </p>
+
+        <pre class="code"><code>let favoriteColor;
+
+console.log(favoriteColor); // undefined
+
+favoriteColor = "آبی";
+console.log(favoriteColor); // آبی</code></pre>
+
+        <p>
+          تعریف <code>const</code> بدون مقدار اولیه مجاز نیست، چون مقدار
+          آن باید همان ابتدا مشخص شود.
+        </p>
+
+        <h2 id="naming-variables">نام‌گذاری متغیرها</h2>
+        <p>
+          نام متغیر باید طوری انتخاب شود که هدف آن را روشن کند. در JavaScript
+          نام متغیر معمولاً با حروف انگلیسی نوشته می‌شود و برای نام‌های چند
+          کلمه‌ای، روش camelCase رایج است.
+        </p>
+
+        <pre class="code"><code>const studentName = "سارا";
+let totalScore = 0;</code></pre>
+
+        <p>چند قانون مهم برای نام‌گذاری:</p>
+        <ul>
+          <li>نام متغیر می‌تواند شامل حروف، عدد، زیرخط و علامت دلار باشد.</li>
+          <li>نام متغیر نباید با عدد شروع شود.</li>
+          <li>فاصله در نام متغیر مجاز نیست.</li>
+          <li>حروف بزرگ و کوچک متفاوت‌اند؛ <code>score</code> با <code>Score</code> یکی نیست.</li>
+          <li>از نام‌هایی استفاده کن که معنی مقدار را مشخص کنند.</li>
+        </ul>
+
+        <pre class="code"><code>// نام‌های خوانا
+const firstName = "سارا";
+let itemCount = 3;
+
+// نام‌های نامناسب یا غیرمجاز
+// const 1name = "سارا";     // شروع با عدد
+// const first name = "سارا"; // وجود فاصله</code></pre>
+
+        <h2 id="try-it">امتحان کن</h2>
+        <p>
+          مقدارهای نمونه را تغییر بده و دکمه را بزن تا یک جمله با مقدار
+          متغیرها ساخته شود.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="260">
+          <textarea>
+<label for="student-name">نام:</label>
+<input id="student-name" value="سارا">
+
+<label for="lesson-count">تعداد درس‌های تمام‌شده:</label>
+<input id="lesson-count" type="number" value="5">
+
+<button id="show-result" type="button">نمایش نتیجه</button>
+<p id="result"></p>
+
+<script>
+  const nameInput = document.querySelector("#student-name");
+  const countInput = document.querySelector("#lesson-count");
+  const result = document.querySelector("#result");
+
+  document.querySelector("#show-result").addEventListener("click", function () {
+    const studentName = nameInput.value;
+    let completedLessons = countInput.value;
+
+    result.textContent =
+      `${studentName}، تا حالا ${completedLessons} درس را تمام کرده‌ای.`;
+  });
+</script>
+</textarea
+          >
+        </div>
+
+        <h2 id="summary">خلاصه</h2>
+        <ul>
+          <li>متغیر نامی برای نگهداری و استفادهٔ دوباره از یک مقدار است.</li>
+          <li><code>let</code> برای متغیری است که مقدارش می‌تواند تغییر کند.</li>
+          <li><code>const</code> برای متغیری است که دوباره مقداردهی نمی‌شود.</li>
+          <li>متغیر <code>const</code> باید هنگام تعریف مقدار اولیه داشته باشد.</li>
+          <li>نام‌های روشن و معنادار، خواندن کد را آسان‌تر می‌کنند.</li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>حالا چند تمرین دربارهٔ تعریف و استفاده از متغیرها انجام بده.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

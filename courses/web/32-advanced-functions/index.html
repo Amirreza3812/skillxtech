@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>توابع پیشرفته — پارت اول | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="32-advanced-functions"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>توابع پیشرفته — پارت اول</h1>
+          <p class="lead">
+            با شکل‌های مختلف تعریف تابع، محدوده‌ی دسترسی متغیرها و ارسال تابع
+            به‌عنوان ورودی آشنا می‌شویم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="function-review">مرور کوتاه توابع</h2>
+        <p>
+          تابع مجموعه‌ای از دستورهاست که برای انجام یک کار مشخص نام‌گذاری
+          می‌کنیم. با فراخوانی تابع، دستورهای داخل آن اجرا می‌شوند. تابع‌ها
+          کمک می‌کنند کد را سازمان‌دهی کنیم و از تکرار بی‌مورد جلوگیری کنیم.
+        </p>
+
+        <pre class="code"><code>function greet(name) {
+  return "سلام " + name;
+}
+
+const message = greet("سارا");
+console.log(message);</code></pre>
+
+        <h2 id="function-declaration">تعریف تابع با function declaration</h2>
+        <p>
+          شکل آشنای تعریف تابع را <code>function declaration</code> می‌نامند.
+          در این روش، نام تابع پس از کلمه‌ی <code>function</code> می‌آید.
+        </p>
+
+        <pre class="code"><code>function multiply(a, b) {
+  return a * b;
+}
+
+console.log(multiply(4, 3)); // 12</code></pre>
+
+        <p>
+          در این مثال، <code>a</code> و <code>b</code> پارامتر هستند. هنگام
+          فراخوانی تابع، مقدارهای <code>4</code> و <code>3</code> به‌ترتیب
+          آرگومان‌های تابع می‌شوند.
+        </p>
+
+        <h2 id="function-expression">عبارت تابع یا function expression</h2>
+        <p>
+          تابع را می‌توان در یک متغیر هم ذخیره کرد. وقتی تابع به‌صورت یک مقدار
+          ساخته و به متغیر نسبت داده می‌شود، به این الگو
+          <code>function expression</code> می‌گویند.
+        </p>
+
+        <pre class="code"><code>const multiply = function (a, b) {
+  return a * b;
+};
+
+console.log(multiply(4, 3)); // 12</code></pre>
+
+        <p>
+          در این شکل، تابع را از طریق نام متغیر فراخوانی می‌کنیم. خود عبارت
+          تابع در این نمونه نام جداگانه‌ای ندارد؛ به همین دلیل معمولاً به آن
+          تابع بی‌نام هم می‌گویند.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">دو شکل تعریف تابع</p>
+          <p>
+            هم <code>function declaration</code> و هم
+            <code>function expression</code> برای ساخت تابع به کار می‌روند.
+            در این درس مهم است بتوانی هر دو شکل را بخوانی و تفاوت نوشتاری‌شان
+            را تشخیص بدهی.
+          </p>
+        </div>
+
+        <h2 id="scope">محدوده‌ی دسترسی متغیرها</h2>
+        <p>
+          محدوده‌ی دسترسی یا <code>scope</code> مشخص می‌کند متغیر را در کدام
+          بخش‌های کد می‌توان استفاده کرد. متغیری که داخل تابع با
+          <code>let</code> یا <code>const</code> ساخته می‌شود، معمولاً فقط در
+          همان تابع قابل استفاده است.
+        </p>
+
+        <pre class="code"><code>function showMessage() {
+  const message = "سلام!";
+  console.log(message); // قابل دسترسی است
+}
+
+showMessage();
+
+// اینجا message در دسترس نیست</code></pre>
+
+        <p>
+          متغیرهای تعریف‌شده داخل یک بلوک با آکولاد، مانند
+          <code>if</code> یا حلقه، نیز محدود به همان بلوک هستند.
+        </p>
+
+        <pre class="code"><code>if (true) {
+  const status = "آماده";
+  console.log(status); // قابل دسترسی است
+}
+
+// status بیرون از بلوک قابل استفاده نیست</code></pre>
+
+        <div class="callout warn">
+          <p class="callout-title">محدوده‌ی متغیر را رعایت کن</p>
+          <p>
+            اگر متغیری را داخل تابع یا بلوک تعریف کرده‌ای، بیرون از آن بخش
+            نمی‌توانی به آن دسترسی داشته باشی. متغیرها را تا جای ممکن در
+            کوچک‌ترین محدوده‌ی لازم تعریف کن.
+          </p>
+        </div>
+
+        <h2 id="callback-intro">تابع به‌عنوان ورودی تابع دیگر</h2>
+        <p>
+          در JavaScript، تابع یک مقدار است؛ بنابراین می‌توان آن را به تابع
+          دیگری به‌عنوان آرگومان فرستاد. تابعی که به تابع دیگری داده می‌شود تا
+          آن تابع در زمان مناسب اجرا کند، <code>callback</code> نام دارد.
+        </p>
+
+        <pre class="code"><code>function sayHello() {
+  console.log("سلام!");
+}
+
+function runTask(task) {
+  task();
+}
+
+runTask(sayHello);</code></pre>
+
+        <p>
+          در فراخوانی <code>runTask(sayHello)</code>، تابع
+          <code>sayHello</code> را بدون پرانتز می‌فرستیم؛ یعنی خود تابع را
+          ارسال می‌کنیم. داخل <code>runTask</code>، دستور
+          <code>task()</code> تابع دریافت‌شده را اجرا می‌کند.
+        </p>
+
+        <div class="callout tip">
+          <p class="callout-title">ارسال تابع یا اجرای تابع؟</p>
+          <p>
+            نوشتن <code>sayHello</code> به معنی فرستادن خود تابع است؛ نوشتن
+            <code>sayHello()</code> آن را همان‌جا اجرا می‌کند و نتیجه‌اش را
+            برمی‌گرداند.
+          </p>
+        </div>
+
+        <h2 id="callback-parameter">callback همراه پارامتر</h2>
+        <p>
+          تابع دریافت‌کننده می‌تواند هنگام اجرای callback، مقداری هم به آن
+          بدهد. در مثال زیر، <code>processNumber</code> عدد را به تابع
+          <code>showDouble</code> می‌فرستد.
+        </p>
+
+        <pre class="code"><code>function showDouble(number) {
+  console.log(number * 2);
+}
+
+function processNumber(number, callback) {
+  callback(number);
+}
+
+processNumber(5, showDouble); // 10</code></pre>
+
+        <h2 id="demo">دیدن callback در عمل</h2>
+        <p>
+          کد را اجرا کن و مقدار ورودی و نتیجه را تغییر بده. تابع
+          <code>printResult</code> به‌عنوان callback به تابع
+          <code>calculate</code> فرستاده می‌شود.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="340">
+          <textarea>
+function printResult(result) {
+  console.log("نتیجه:", result);
+}
+
+function calculate(a, b, callback) {
+  const sum = a + b;
+  callback(sum);
+}
+
+calculate(7, 5, printResult);
+</textarea>
+        </div>
+
+        <h2 id="arrow-brief">یک اشاره‌ی کوتاه به arrow function</h2>
+        <p>
+          در JavaScript شکل خلاصه‌تری برای نوشتن تابع وجود دارد که
+          <code>arrow function</code> نامیده می‌شود. فعلاً کافی است بدانی ممکن
+          است آن را در کدهای دیگر ببینی؛ در این بخش روی تعریف‌های تابعی که
+          یاد گرفتیم تمرکز می‌کنیم.
+        </p>
+
+        <pre class="code"><code>const double = (number) =&gt; {
+  return number * 2;
+};</code></pre>
+
+        <h2 id="summary">جمع‌بندی</h2>
+        <p>
+          تابع را می‌توان با <code>function declaration</code> تعریف کرد یا
+          آن را در یک متغیر قرار داد و به شکل <code>function expression</code>
+          نوشت. محدوده‌ی دسترسی تعیین می‌کند متغیر در کجا قابل استفاده است.
+          همچنین می‌توان تابع را به تابع دیگری فرستاد؛ تابعی که به این شکل
+          دریافت می‌شود، callback نام دارد.
+        </p>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>با تمرین‌های این درس، تعریف تابع و callback را امتحان کن.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

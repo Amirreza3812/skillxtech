@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ماژول‌ها در جاوااسکریپت | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body
+  data-course="web"
+  data-lesson="34-modules"
+  data-root="../../../"
+>
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>ماژول‌ها در جاوااسکریپت</h1>
+        <p class="lead">
+          یاد می‌گیریم کد جاوااسکریپت را میان فایل‌ها تقسیم کنیم و با
+          <code>export</code> و <code>import</code> بخش‌های موردنیاز را به هم وصل کنیم.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+      <h2 id="why-modules">چرا از ماژول استفاده می‌کنیم؟</h2>
+      <p>
+        وقتی برنامه بزرگ‌تر می‌شود، نگه‌داشتن همه‌ی کدها در یک فایل دشوار است.
+        ماژول‌ها کمک می‌کنند برنامه را به فایل‌های کوچک‌تر تقسیم کنیم؛ هر فایل
+        می‌تواند مسئولیت مشخصی داشته باشد و کدهای لازم را در اختیار فایل‌های دیگر بگذارد.
+      </p>
+      <p>
+        برای مثال، می‌توانیم توابع مربوط به محاسبات را در یک فایل و کد مربوط به
+        صفحه را در فایل دیگری بنویسیم. این کار خوانایی و نگه‌داری پروژه را بهتر می‌کند.
+      </p>
+
+      <div class="callout tip">
+        <p class="callout-title">نکته</p>
+        <p>
+          در این درس، <code>math.js</code> و <code>main.js</code> نام فایل‌های نمونه‌اند.
+          برای اجرای آن‌ها باید هر دو فایل در پروژه وجود داشته باشند.
+        </p>
+      </div>
+
+      <h2 id="named-export">خروجی نام‌دار با export</h2>
+      <p>
+        برای آن‌که فایل دیگری بتواند یک تابع، متغیر یا مقدار ثابت را استفاده کند،
+        آن را با <code>export</code> صادر می‌کنیم. نمونه‌ی زیر در فایل
+        <code>math.js</code> قرار می‌گیرد:
+      </p>
+
+      <pre class="code"><code>export function add(a, b) {
+  return a + b;
+}
+
+export const taxRate = 0.09;</code></pre>
+
+      <p>
+        می‌توان چند مقدار را هم در انتهای فایل صادر کرد. در این شکل، نام‌هایی که
+        صادر می‌شوند باید در فهرست <code>export</code> نوشته شوند:
+      </p>
+
+      <pre class="code"><code>function subtract(a, b) {
+  return a - b;
+}
+
+const appName = "ماشین حساب";
+
+export { subtract, appName };</code></pre>
+
+      <div class="callout note">
+        <p class="callout-title">یادت باشد</p>
+        <p>
+          در خروجی نام‌دار، هر مقدار با همان نامی که صادر شده وارد می‌شود؛ مگر آن‌که
+          هنگام import برایش نام مستعار تعریف کنیم.
+        </p>
+      </div>
+
+      <h2 id="named-import">وارد کردن خروجی نام‌دار با import</h2>
+      <p>
+        در فایل دیگری مثل <code>main.js</code>، از مسیر نسبی فایل مبدأ استفاده می‌کنیم.
+        پسوند <code>.js</code> را هم می‌نویسیم:
+      </p>
+
+      <pre class="code"><code>import { add, taxRate } from "./math.js";
+
+console.log(add(4, 3));
+console.log(taxRate);</code></pre>
+
+      <p>
+        آکولادها در این مثال بخشی از دستور import هستند و نام‌ها باید با نام‌های
+        صادرشده یکی باشند. برای انتخاب نام متفاوت می‌توان از <code>as</code> استفاده کرد:
+      </p>
+
+      <pre class="code"><code>import { add as sum } from "./math.js";
+
+console.log(sum(4, 3));</code></pre>
+
+      <div class="callout warn">
+        <p class="callout-title">مسیر فایل را دقیق بنویس</p>
+        <p>
+          مسیر <code>./math.js</code> یعنی فایل <code>math.js</code> در همان پوشه‌ی
+          فایل فعلی قرار دارد. اگر فایل در پوشه‌ی دیگری باشد، مسیر را متناسب با ساختار
+          پروژه تغییر بده.
+        </p>
+      </div>
+
+      <h2 id="default-export">خروجی پیش‌فرض</h2>
+      <p>
+        هر فایل می‌تواند یک خروجی پیش‌فرض داشته باشد. این روش زمانی مفید است که فایل
+        یک مقدار یا کارکرد اصلی دارد:
+      </p>
+
+      <pre class="code"><code>export default function greet(name) {
+  return `سلام ${name}`;
+}</code></pre>
+
+      <p>
+        خروجی پیش‌فرض را بدون آکولاد وارد می‌کنیم. نامی که هنگام import انتخاب می‌کنیم
+        لازم نیست با نام تابع در فایل اصلی یکسان باشد:
+      </p>
+
+      <pre class="code"><code>import sayHello from "./greet.js";
+
+console.log(sayHello("سارا"));</code></pre>
+
+      <p>
+        یک فایل می‌تواند چند خروجی نام‌دار داشته باشد، اما فقط یک خروجی پیش‌فرض
+        می‌تواند داشته باشد.
+      </p>
+
+      <h2 id="html-modules">استفاده از ماژول در HTML</h2>
+      <p>
+        برای آن‌که مرورگر فایل جاوااسکریپت اصلی را به‌صورت ماژول اجرا کند، ویژگی
+        <code>type="module"</code> را به تگ <code>script</code> اضافه می‌کنیم:
+      </p>
+
+      <pre class="code"><code>&lt;script type="module" src="./js/main.js"&gt;&lt;/script&gt;</code></pre>
+
+      <p>
+        سپس در <code>main.js</code> می‌توانیم مقادیر را از فایل‌های دیگر وارد کنیم:
+      </p>
+
+      <pre class="code"><code>// js/main.js
+import { add } from "./math.js";
+
+console.log(add(2, 5));</code></pre>
+
+      <div class="callout tip">
+        <p class="callout-title">پروژه را از سرور اجرا کن</p>
+        <p>
+          ماژول‌های مرورگر را با بازکردن مستقیم فایل HTML از نوع
+          <code>file://</code> اجرا نکن. پروژه را با یک وب‌سرور محلی اجرا کن تا
+          مرورگر فایل‌های ماژول را درست بارگذاری کند.
+        </p>
+      </div>
+
+      <h2 id="try-modules">امتحان کن</h2>
+      <p>
+        در مثال زیر، هر دو فایل را کنار هم در یک پوشه قرار بده. فایل HTML فقط
+        <code>main.js</code> را بارگذاری می‌کند؛ این فایل تابع را از
+        <code>math.js</code> وارد می‌کند و نتیجه را در صفحه نمایش می‌دهد.
+      </p>
+
+      <pre class="code"><code>&lt;!-- index.html --&gt;
+&lt;p id="result"&gt;در حال محاسبه...&lt;/p&gt;
+&lt;script type="module" src="./main.js"&gt;&lt;/script&gt;
+
+// math.js
+export function multiply(a, b) {
+  return a * b;
+}
+
+// main.js
+import { multiply } from "./math.js";
+
+document.querySelector("#result").textContent =
+  `حاصل: ${multiply(6, 7)}`;</code></pre>
+
+      <div class="callout note">
+        <p class="callout-title">ساختار فایل‌ها</p>
+        <p>
+          در این مثال، <code>index.html</code>، <code>main.js</code> و
+          <code>math.js</code> همگی باید در یک پوشه باشند تا مسیرهای نوشته‌شده
+          در کد درست عمل کنند.
+        </p>
+      </div>
+
+      <h2 id="summary">جمع‌بندی</h2>
+      <p>
+        ماژول‌ها کد را میان فایل‌ها تقسیم می‌کنند. با <code>export</code> مقادیر را
+        در دسترس فایل‌های دیگر می‌گذاریم و با <code>import</code> از آن‌ها استفاده
+        می‌کنیم. خروجی نام‌دار با آکولاد وارد می‌شود، اما خروجی پیش‌فرض بدون آکولاد.
+        برای اجرای ماژول جاوااسکریپت در صفحه، از
+        <code>&lt;script type="module"&gt;</code> استفاده می‌کنیم.
+      </p>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>با چند تمرین، export و import را در فایل‌های جداگانه به کار ببر.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav
+        class="lesson-nav"
+        id="lesson-nav"
+        aria-label="درس قبل و بعد"
+      ></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

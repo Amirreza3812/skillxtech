@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین توابع پیشرفته — پارت دوم | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="33-advanced-functions-p2"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: توابع پیشرفته — پارت دوم</h1>
+          <p class="lead">
+            callbackها و متدهای <code>forEach()</code>، <code>map()</code> و
+            <code>filter()</code> را تمرین کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>اجرای callback</h3>
+            <p>
+              تابعی به نام <code>runTwice</code> بنویس که یک callback دریافت
+              کند و آن را دو بار اجرا کند. سپس تابعی بساز که یک پیام در کنسول
+              نمایش دهد و آن را به <code>runTwice</code> بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                callback را داخل تابع دو بار با پرانتز فراخوانی کن. هنگام
+                فرستادن تابع، نام آن را بدون پرانتز بنویس.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+function showMessage() {
+  console.log("این پیام را ببین!");
+}
+
+function runTwice(callback) {
+  // callback را دو بار اجرا کن
+}
+
+// تابع showMessage را به runTwice بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>کار با forEach()</h3>
+            <p>
+              آرایه‌ای از نام‌ها بساز و با <code>forEach()</code> برای هر
+              نام یک پیام خوشامدگویی در کنسول نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                به <code>forEach()</code> یک تابع معمولی بده. مقدار هر عضو
+                آرایه به پارامتر تابع می‌رسد.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+const names = ["نرگس", "علی", "پویا"];
+
+names.forEach(function (name) {
+  // پیام خوشامدگویی را نمایش بده
+});
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تبدیل اعضا با map()</h3>
+            <p>
+              آرایه‌ای از دماها بر حسب درجه‌ی سانتی‌گراد بساز. با
+              <code>map()</code> آرایه‌ی تازه‌ای ایجاد کن که در آن هر دما دو
+              برابر شده باشد. آرایه‌ی تازه و آرایه‌ی اصلی را در کنسول نمایش
+              بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                callback داخل <code>map()</code> باید مقدار تبدیل‌شده را با
+                <code>return</code> برگرداند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+const temperatures = [12, 18, 25];
+
+const doubledTemperatures = temperatures.map(function (temperature) {
+  // مقدار تبدیل‌شده را برگردان
+});
+
+console.log(doubledTemperatures);
+console.log(temperatures);
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>انتخاب اعضا با filter()</h3>
+            <p>
+              از آرایه‌ی امتیازها، آرایه‌ی تازه‌ای بساز که فقط امتیازهای
+              بزرگ‌تر یا مساوی ۶۰ را داشته باشد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                callback داخل <code>filter()</code> باید بررسی کند که هر
+                امتیاز از ۶۰ بزرگ‌تر یا مساوی است یا نه.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+const scores = [42, 78, 55, 91, 60];
+
+const passingScores = scores.filter(function (score) {
+  // شرط قبولی را برگردان
+});
+
+console.log(passingScores);
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ترکیب filter() و map()</h3>
+            <p>
+              آرایه‌ای از اشیای محصول بساز که هر شیء ویژگی‌های
+              <code>name</code> و <code>price</code> داشته باشد. محصول‌هایی
+              را که قیمتشان کمتر از ۱۰۰ است جدا کن و سپس آرایه‌ای از نام‌های
+              همان محصول‌ها بساز.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                ابتدا <code>filter()</code> را برای بررسی قیمت به کار ببر،
+                سپس روی نتیجه <code>map()</code> اجرا کن تا نام هر محصول را
+                برگردانی.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="360">
+              <textarea>
+const products = [
+  { name: "دفتر", price: 80 },
+  { name: "کیف", price: 250 },
+  { name: "مداد", price: 20 }
+];
+
+const affordableNames = products
+  .filter(function (product) {
+    // محصول‌های ارزان‌تر از 100 را نگه دار
+  })
+  .map(function (product) {
+    // نام محصول را برگردان
+  });
+
+console.log(affordableNames);
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

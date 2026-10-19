@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>بولین‌ها و شرط‌ها در JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="26-booleans-and-if-statements"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>بولین‌ها و شرط‌ها در JavaScript</h1>
+          <p class="lead">
+            با مقدارهای بولین و عملگرهای مقایسه آشنا می‌شویم و یاد می‌گیریم
+            با دستورهای <code>if</code> و <code>else</code> بر اساس شرط‌ها
+            تصمیم بگیریم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="booleans">مقدارهای بولین</h2>
+        <p>
+          نوع دادهٔ بولین (Boolean) فقط دو مقدار دارد:
+          <code>true</code> و <code>false</code>. این مقدارها برای نشان دادن
+          درست یا نادرست بودن یک وضعیت استفاده می‌شوند.
+        </p>
+
+        <pre class="code"><code>const isLoggedIn = true;
+const hasFinishedLesson = false;
+
+console.log(isLoggedIn);
+console.log(hasFinishedLesson);</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            <code>true</code> و <code>false</code> مقدارهای بولین هستند؛
+            آن‌ها را داخل کوتیشن ننویس. مقدار <code>"true"</code> یک رشته
+            است، نه بولین.
+          </p>
+        </div>
+
+        <h2 id="comparison-operators">مقایسهٔ مقدارها</h2>
+        <p>
+          عملگرهای مقایسه دو مقدار را بررسی می‌کنند و نتیجه‌ای بولین،
+          یعنی <code>true</code> یا <code>false</code>، برمی‌گردانند.
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>عملگر</th>
+                <th>معنی</th>
+                <th>نمونه</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>&gt;</code></td>
+                <td>بزرگ‌تر از</td>
+                <td><code>8 &gt; 5</code> نتیجهٔ <code>true</code> دارد.</td>
+              </tr>
+              <tr>
+                <td><code>&lt;</code></td>
+                <td>کوچک‌تر از</td>
+                <td><code>3 &lt; 2</code> نتیجهٔ <code>false</code> دارد.</td>
+              </tr>
+              <tr>
+                <td><code>&gt;=</code></td>
+                <td>بزرگ‌تر یا مساوی</td>
+                <td><code>5 &gt;= 5</code> نتیجهٔ <code>true</code> دارد.</td>
+              </tr>
+              <tr>
+                <td><code>&lt;=</code></td>
+                <td>کوچک‌تر یا مساوی</td>
+                <td><code>4 &lt;= 3</code> نتیجهٔ <code>false</code> دارد.</td>
+              </tr>
+              <tr>
+                <td><code>===</code></td>
+                <td>مساوی از نظر مقدار و نوع</td>
+                <td><code>5 === 5</code> نتیجهٔ <code>true</code> دارد.</td>
+              </tr>
+              <tr>
+                <td><code>!==</code></td>
+                <td>نامساوی از نظر مقدار یا نوع</td>
+                <td><code>5 !== 3</code> نتیجهٔ <code>true</code> دارد.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <pre class="code"><code>const age = 18;
+
+console.log(age >= 18); // true
+console.log(age < 18);  // false</code></pre>
+
+        <div class="callout warn">
+          <p class="callout-title">از === استفاده کن</p>
+          <p>
+            برای بررسی برابری معمولاً از <code>===</code> استفاده کن.
+            این عملگر هم مقدار و هم نوع داده را مقایسه می‌کند.
+            عملگر <code>==</code> ممکن است پیش از مقایسه نوع داده‌ها را
+            تبدیل کند و نتیجهٔ غیرمنتظره بدهد.
+          </p>
+        </div>
+
+        <h2 id="if-statement">دستور if</h2>
+        <p>
+          با <code>if</code> می‌توانیم بگوییم اگر یک شرط درست بود، کد مشخصی
+          اجرا شود. شرط داخل پرانتز می‌آید و کدی که باید اجرا شود داخل
+          آکولاد قرار می‌گیرد.
+        </p>
+
+        <pre class="code"><code>const age = 20;
+
+if (age >= 18) {
+  console.log("اجازهٔ ورود داری.");
+}</code></pre>
+
+        <p>
+          اگر شرط نتیجهٔ <code>true</code> بدهد، کد داخل آکولاد اجرا می‌شود.
+          اگر نتیجه <code>false</code> باشد، آن بخش اجرا نمی‌شود.
+        </p>
+
+        <h2 id="if-else">دستور if و else</h2>
+        <p>
+          با <code>else</code> می‌توانیم مشخص کنیم اگر شرط درست نبود، چه کدی
+          اجرا شود.
+        </p>
+
+        <pre class="code"><code>const age = 16;
+
+if (age >= 18) {
+  console.log("اجازهٔ ورود داری.");
+} else {
+  console.log("برای ورود هنوز کم‌سن هستی.");
+}</code></pre>
+
+        <h2 id="else-if">بررسی چند حالت با else if</h2>
+        <p>
+          وقتی چند حالت داریم، می‌توانیم از <code>else if</code> استفاده
+          کنیم. JavaScript شرط‌ها را از بالا به پایین بررسی می‌کند و اولین
+          شرط درست را اجرا می‌کند.
+        </p>
+
+        <pre class="code"><code>const score = 82;
+
+if (score >= 90) {
+  console.log("عالی");
+} else if (score >= 70) {
+  console.log("خوب");
+} else if (score >= 50) {
+  console.log("قابل قبول");
+} else {
+  console.log("نیاز به تمرین بیشتر");
+}</code></pre>
+
+        <div class="callout note">
+          <p class="callout-title">ترتیب شرط‌ها مهم است</p>
+          <p>
+            شرط‌های خاص‌تر یا بزرگ‌تر را معمولاً بالاتر قرار بده. وقتی یک
+            شرط درست پیدا شود، بقیهٔ شاخه‌های همان ساختار بررسی نمی‌شوند.
+          </p>
+        </div>
+
+        <h2 id="logical-operators">ترکیب شرط‌ها</h2>
+        <p>
+          گاهی برای تصمیم‌گیری باید بیش از یک شرط را بررسی کنیم. این سه
+          عملگر منطقی کاربرد زیادی دارند:
+        </p>
+
+        <ul>
+          <li>
+            <code>&amp;&amp;</code> (و): هر دو شرط باید درست باشند.
+          </li>
+          <li>
+            <code>||</code> (یا): درست بودن دست‌کم یکی از شرط‌ها کافی است.
+          </li>
+          <li>
+            <code>!</code> (نقیض): نتیجهٔ بولین را برعکس می‌کند.
+          </li>
+        </ul>
+
+        <pre class="code"><code>const age = 22;
+const hasTicket = true;
+
+if (age >= 18 && hasTicket) {
+  console.log("می‌توانی وارد شوی.");
+}
+
+const isWeekend = false;
+console.log(!isWeekend); // true</code></pre>
+
+        <h2 id="try-it">امتحان کن</h2>
+        <p>
+          مقدار سن را تغییر بده و نتیجهٔ بررسی شرط را در صفحه ببین.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="260">
+          <textarea>
+<label for="age-input">سن:</label>
+<input id="age-input" type="number" value="18">
+<button id="check-age" type="button">بررسی سن</button>
+<p id="age-result"></p>
+
+<script>
+  const ageInput = document.querySelector("#age-input");
+  const result = document.querySelector("#age-result");
+
+  document.querySelector("#check-age").addEventListener("click", function () {
+    const age = Number(ageInput.value);
+
+    if (age >= 18) {
+      result.textContent = "سن شما ۱۸ یا بیشتر است.";
+    } else {
+      result.textContent = "سن شما کمتر از ۱۸ است.";
+    }
+  });
+</script>
+</textarea
+          >
+        </div>
+
+        <h2 id="summary">خلاصه</h2>
+        <ul>
+          <li>نوع بولین دو مقدار <code>true</code> و <code>false</code> دارد.</li>
+          <li>عملگرهای مقایسه نتیجهٔ بولین تولید می‌کنند.</li>
+          <li><code>if</code> کد را فقط وقتی اجرا می‌کند که شرط درست باشد.</li>
+          <li>از <code>else</code> برای حالت جایگزین و از <code>else if</code> برای بررسی حالت‌های بیشتر استفاده می‌کنیم.</li>
+          <li><code>&amp;&amp;</code>، <code>||</code> و <code>!</code> برای ترکیب یا برعکس‌کردن شرط‌ها هستند.</li>
+        </ul>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>حالا چند تمرین دربارهٔ بولین‌ها و شرط‌ها انجام بده.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

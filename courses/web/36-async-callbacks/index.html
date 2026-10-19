@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تابع‌های callback ناهمگام | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body data-course="web" data-lesson="36-async-callbacks" data-root="../../../">
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تابع‌های callback ناهمگام</h1>
+        <p class="lead">
+          با تفاوت اجرای همگام و ناهمگام آشنا می‌شویم و می‌بینیم چطور یک تابع
+          callback می‌تواند پس از پایان یک کار اجرا شود.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+      <h2 id="callback-review">مرور callback</h2>
+      <p>
+        callback تابعی است که آن را به‌عنوان آرگومان به تابع دیگری می‌دهیم تا آن
+        تابع در زمان مناسب اجرا کند. برای نمونه، تابع <code>forEach()</code> برای
+        هر عضو آرایه callback را اجرا می‌کند.
+      </p>
+
+      <pre class="code"><code>const names = ["آوا", "سام"];
+
+names.forEach(function (name) {
+  console.log(name);
+});</code></pre>
+
+      <p>
+        این callback همگام است: اجرای <code>forEach()</code> تا زمانی ادامه دارد
+        که callbackهای اعضای آرایه اجرا شوند.
+      </p>
+
+      <div class="callout note">
+        <p class="callout-title">callback همیشه ناهمگام نیست</p>
+        <p>
+          تابع callback ممکن است همگام یا ناهمگام باشد. زمان اجرا به تابعی بستگی
+          دارد که callback را دریافت کرده است.
+        </p>
+      </div>
+
+      <h2 id="sync-async">همگام و ناهمگام</h2>
+      <p>
+        در اجرای همگام، دستورها یکی‌یکی و به‌ترتیب اجرا می‌شوند؛ دستور بعدی پس از
+        پایان دستور فعلی اجرا خواهد شد. در اجرای ناهمگام، بعضی کارها برای اجرا در
+        آینده برنامه‌ریزی می‌شوند و جاوااسکریپت می‌تواند در این فاصله سراغ دستورهای
+        بعدی برود.
+      </p>
+
+      <pre class="code"><code>console.log("اول");
+
+setTimeout(function () {
+  console.log("callback زمان‌دار");
+}, 1000);
+
+console.log("دوم");</code></pre>
+
+      <p>
+        ابتدا «اول» و «دوم» چاپ می‌شوند؛ سپس، پس از سپری‌شدن زمان، callback زمان‌دار
+        اجرا می‌شود. <code>setTimeout()</code> اجرای تابع را برای بعد برنامه‌ریزی
+        می‌کند و منتظر پایان آن نمی‌ماند. <citation src="1"></citation>
+      </p>
+
+      <div class="callout tip">
+        <p class="callout-title">زمان دقیق را تضمین نکن</p>
+        <p>
+          مقدار <code>1000</code> میلی‌ثانیه در <code>setTimeout()</code> به معنی
+          «اجرا پس از حداقل این تأخیر، وقتی مرورگر فرصت داشته باشد» است؛ نه تضمین
+          اجرای دقیقاً در همان لحظه.
+        </p>
+      </div>
+
+      <h2 id="settimeout">ساخت callback ناهمگام با setTimeout</h2>
+      <p>
+        تابع را به <code>setTimeout()</code> می‌دهیم تا پس از تأخیر مشخص اجرا شود.
+        تأخیر بر حسب میلی‌ثانیه است؛ مثلاً <code>2000</code> برابر با دو ثانیه است.
+      </p>
+
+      <pre class="code"><code>function showMessage() {
+  console.log("دو ثانیه گذشت");
+}
+
+setTimeout(showMessage, 2000);</code></pre>
+
+      <p>
+        نام تابع را بدون پرانتز می‌دهیم: <code>showMessage</code>. اگر
+        <code>showMessage()</code> بنویسیم، تابع همان لحظه اجرا می‌شود و نتیجه‌ی
+        اجرای آن به <code>setTimeout()</code> داده می‌شود.
+      </p>
+
+      <div class="callout warn">
+        <p class="callout-title">کد را به‌صورت رشته نفرست</p>
+        <p>
+          به <code>setTimeout()</code> تابع بده، نه رشته‌ای مانند
+          <code>"console.log('سلام')"</code>. استفاده از تابع خواناتر و امن‌تر است.
+        </p>
+      </div>
+
+      <h2 id="execution-order">بررسی ترتیب اجرا</h2>
+      <p>
+        کد زیر را اجرا کن و ترتیب پیام‌ها را در خروجی ببین. دستورهای معمولی
+        پیش از callback زمان‌دار اجرا می‌شوند:
+      </p>
+
+      <div class="demo" data-title="امتحان کن" data-height="260">
+<textarea>
+<p>برای دیدن ترتیب پیام‌ها، خروجی کنسول را بررسی کن.</p>
+<script>
+  console.log("۱. شروع");
+
+  setTimeout(function () {
+    console.log("۳. callback اجرا شد");
+  }, 1000);
+
+  console.log("۲. دستور بعدی");
+</script>
+</textarea>
+      </div>
+
+      <h2 id="callback-arguments">فرستادن آرگومان به callback</h2>
+      <p>
+        می‌توان پس از زمان تأخیر، آرگومان‌های بیشتری به
+        <code>setTimeout()</code> داد. این آرگومان‌ها هنگام فراخوانی به callback
+        می‌رسند:
+      </p>
+
+      <pre class="code"><code>function greet(name) {
+  console.log(`سلام ${name}`);
+}
+
+setTimeout(greet, 1000, "آوا");</code></pre>
+
+      <p>
+        در این مثال، <code>greet</code> پس از تأخیر با آرگومان
+        <code>"آوا"</code> اجرا می‌شود.
+      </p>
+
+      <h2 id="real-example">نمونه‌ی تعاملی در صفحه</h2>
+      <p>
+        در این نمونه، با کلیک روی دکمه یک پیام زمان‌دار برنامه‌ریزی می‌شود. callback
+        بعد از یک ثانیه متن عنصر صفحه را تغییر می‌دهد.
+      </p>
+
+      <div class="demo" data-title="امتحان کن" data-height="300">
+<textarea>
+<button id="show-message">نمایش پیام پس از یک ثانیه</button>
+<p id="message">هنوز پیامی نمایش داده نشده است.</p>
+
+<script>
+  const button = document.querySelector("#show-message");
+  const message = document.querySelector("#message");
+
+  button.addEventListener("click", function () {
+    message.textContent = "منتظر بمان...";
+
+    setTimeout(function () {
+      message.textContent = "پیام نمایش داده شد!";
+    }, 1000);
+  });
+</script>
+</textarea>
+      </div>
+
+      <h2 id="summary">جمع‌بندی</h2>
+      <p>
+        callback تابعی است که به تابع دیگری می‌دهیم تا آن را اجرا کند. callback
+        می‌تواند همگام یا ناهمگام باشد. <code>setTimeout()</code> نمونه‌ای از
+        عملیات ناهمگام است: callback را برای اجرا پس از تأخیر برنامه‌ریزی می‌کند،
+        اما جلوی اجرای دستورهای بعدی را نمی‌گیرد.
+      </p>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>در تمرین‌ها callbackهای زمان‌دار را بنویس و ترتیب اجرا را پیش‌بینی کن.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

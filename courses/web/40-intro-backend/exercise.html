@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین آشنایی با بک‌اند | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="40-intro-backend" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: آشنایی با بک‌اند</h1>
+          <p class="lead">
+            نقش اجزای یک وب‌سایت را مشخص کن و مسیر درخواست و پاسخ را توضیح بده.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>فرانت‌اند یا بک‌اند؟</h3>
+            <p>
+              برای هر مورد مشخص کن بیشتر به فرانت‌اند مربوط است یا بک‌اند:
+              چیدمان دکمه‌ی ورود، بررسی اطلاعات حساب در سرور، نمایش نام کاربر
+              در صفحه و خواندن اطلاعات حساب از پایگاه داده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                رابطی که در مرورگر دیده می‌شود معمولاً فرانت‌اند است. پردازش
+                درخواست و کار با داده‌های سرور معمولاً به بک‌اند مربوط می‌شود.
+              </p>
+            </details>
+            <div class="demo" data-title="جای یادداشت" data-height="180">
+              <textarea>
+فرانت‌اند:
+- 
+
+بک‌اند:
+- 
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>مرتب‌کردن مراحل درخواست و پاسخ</h3>
+            <p>
+              مراحل زیر را به ترتیب درست شماره‌گذاری کن: سرور درخواست را
+              دریافت و بررسی می‌کند؛ کاربر دکمه‌ای را می‌زند؛ فرانت‌اند نتیجه را
+              نمایش می‌دهد؛ مرورگر درخواستی می‌فرستد؛ سرور پاسخی می‌فرستد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                فرایند از کاری که کاربر انجام می‌دهد شروع می‌شود و با نمایش پاسخ
+                در رابط کاربری پایان می‌یابد.
+              </p>
+            </details>
+            <div class="demo" data-title="جای یادداشت" data-height="190">
+              <textarea>
+۱.
+۲.
+۳.
+۴.
+۵.
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>نقش پایگاه داده</h3>
+            <p>
+              در یک فروشگاه اینترنتی، محصولات و سفارش‌ها باید نگهداری شوند.
+              توضیح بده پایگاه داده چه کاری انجام می‌دهد و بک‌اند چه نقشی در
+              ارتباط میان فرانت‌اند و این داده‌ها دارد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                پایگاه داده داده‌ها را نگه می‌دارد. بک‌اند می‌تواند درخواست
+                فرانت‌اند را بررسی کند، داده‌ی لازم را بخواند یا تغییر دهد و
+                پاسخ مناسب برگرداند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای پاسخ" data-height="200">
+              <textarea>
+پاسخ:
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ایمن‌ماندن اطلاعات محرمانه</h3>
+            <p>
+              یک برنامه به کلید محرمانه‌ای برای ارتباط با یک سرویس نیاز دارد.
+              چرا قراردادن این کلید در فایل JavaScript فرانت‌اند خطرناک است و
+              بهتر است کجا مدیریت شود؟
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                کدی که به مرورگر می‌رسد می‌تواند بررسی شود. اطلاعات محرمانه را
+                در کد قابل‌دسترسی برای کاربران قرار نده؛ آن‌ها را در محیط امن
+                سمت سرور مدیریت کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای پاسخ" data-height="180">
+              <textarea>
+پاسخ:
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>شبیه‌سازی پاسخ سمت کاربر</h3>
+            <p>
+              کد زیر را کامل کن تا با کلیک روی دکمه، پیام داخل ورودی در صفحه
+              نمایش داده شود. این مثال فقط پاسخ را در مرورگر شبیه‌سازی می‌کند و
+              به سرور واقعی وصل نمی‌شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                ورودی را با <code>document.querySelector()</code> بگیر، برای
+                دکمه رویداد <code>click</code> ثبت کن و متن نتیجه را با
+                <code>textContent</code> تنظیم کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="290">
+              <textarea>
+<label for="message">پیام:</label>
+<input id="message" value="درود">
+<button id="send" type="button">نمایش پیام</button>
+<p id="result"></p>
+
+<script>
+  const input = document.querySelector("#message");
+  const button = document.querySelector("#send");
+  const result = document.querySelector("#result");
+
+  button.addEventListener("click", () => {
+    // متن ورودی را در نتیجه نمایش بده
+  });
+</script>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

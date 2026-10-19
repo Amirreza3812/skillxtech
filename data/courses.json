@@ -162,16 +162,136 @@
           "status": "ready"
         },
         {
-          "id": "04-javascript-basics",
+          "id": "22-javascript-basics",
           "title": "مبانی JavaScript",
-          "summary": "متغیر، شرط و حلقه",
-          "status": "soon"
+          "summary": "آشنایی اولیه با جاوااسکریپت",
+          "status": "ready"
         },
         {
-          "id": "05-dom",
-          "title": "DOM",
-          "summary": "تغییر دادن صفحه با JavaScript",
-          "status": "soon"
+          "id": "23-numbers-math",
+          "title": "اعداد و ریاضی در جاوااسکریپت",
+          "summary": "محاسبات ساده و اعداد",
+          "status": "ready"
+        },
+        {
+          "id": "24-strings",
+          "title": "متن‌ها در JavaScript",
+          "summary": "ساخت و ترکیب متن‌ها، template literalها و چند متد پرکاربرد رشته‌ها",
+          "status": "ready"
+        },
+        {
+          "id": "25-variables",
+          "title": "متغیرها در JavaScript",
+          "summary": "تعریف متغیر با let و const، تغییر مقدار و نام‌گذاری خوانا",
+          "status": "ready"
+        },
+        {
+          "id": "26-booleans-and-if-statements",
+          "title": "شرط ها و بولین ها",
+          "summary": "کار با true و false و تصمیم‌گیری با if، else و عملگرهای مقایسه",
+          "status": "ready"
+        },
+        {
+          "id": "27-functions",
+          "title": "توابع",
+          "summary": "ساخت و فراخوانی تابع، پارامترها و بازگرداندن مقدار با return",
+          "status": "ready"
+        },
+        {
+          "id": "28-objects",
+          "title": "آبجکت ها",
+          "summary": "ذخیرهٔ داده‌های مرتبط در آبجکت و دسترسی به ویژگی‌ها و متدها",
+          "status": "ready"
+        },
+        {
+          "id": "29-DOM",
+          "title": "آشنایی با DOM",
+          "summary": "شناخت درخت DOM و انتخاب عناصر صفحه با جاوااسکریپت",
+          "status": "ready"
+        },
+        {
+          "id": "30-html-css-js-together",
+          "title": "همکاری HTML، CSS و JavaScript",
+          "summary": "ساخت یک قابلیت تعاملی با اتصال ساختار، ظاهر و رفتار صفحه",
+          "status": "ready"
+        },
+        {
+          "id": "31-arrays-loops",
+          "title": "آرایه‌ها و حلقه‌ها",
+          "summary": "نگهداری مجموعه‌ای از داده‌ها و پیمایش آن‌ها با حلقه‌ها و متدهای پایه",
+          "status": "ready"
+        },
+        {
+          "id": "32-advanced-functions",
+          "title": "توابع پیشرفته ـ بخش اول",
+          "summary": "بررسی دقیق‌تر پارامترها، return، scope و توابع arrow",
+          "status": "ready"
+        },
+        {
+          "id": "33-advanced-functions-p2",
+          "title": "توابع پیشرفته ـ بخش دوم",
+          "summary": "آشنایی با callback، closure و کاربرد تابع‌ها در متدهای آرایه",
+          "status": "ready"
+        },
+        {
+          "id": "34-modules",
+          "title": "ماژول‌ها",
+          "summary": "تقسیم کد به فایل‌های جدا و استفاده از export و import",
+          "status": "ready"
+        },
+        {
+          "id": "35-external-libraries",
+          "title": "کتابخانه‌های خارجی",
+          "summary": "آشنایی با کتابخانه‌ها و روش افزودن و استفاده از آن‌ها در پروژه",
+          "status": "ready"
+        },
+        {
+          "id": "36-async-callbacks",
+          "title": "کال‌بک‌ها و برنامه‌نویسی ناهم‌زمان",
+          "summary": "آشنایی با عملیات ناهم‌زمان و نقش callbackها در دریافت نتیجه",
+          "status": "ready"
+        },
+        {
+          "id": "37-testing-frameworks",
+          "title": "آشنایی با تست و فریم‌ورک‌های تست",
+          "summary": "دلیل تست‌کردن کد و آشنایی مقدماتی با ابزارها و فریم‌ورک‌های تست",
+          "status": "ready"
+        },
+        {
+          "id": "38-classes",
+          "title": "کلاس‌ها در JavaScript",
+          "summary": "ساخت کلاس، constructor و نمونه‌سازی با new",
+          "status": "ready"
+        },
+        {
+          "id": "39-inheritance",
+          "title": "ارث‌بری در JavaScript",
+          "summary": "گسترش کلاس‌ها با extends و استفاده از super",
+          "status": "ready"
+        },
+        {
+          "id": "40-intro-backend",
+          "title": "مقدمه‌ای بر برنامه‌نویسی Backend",
+          "summary": "شنایی با نقش سرور، درخواست و پاسخ و جایگاه بک‌اند در یک وب‌سایت",
+          "status": "ready"
+        },
+        {
+          "id": "41-promises-fetch",
+          "title": "Promise و دریافت داده با Fetch",
+          "summary": "آشنایی با Promise و ارسال درخواست برای دریافت داده از سرور",
+          "status": "ready"
+        },
+        {
+          "id": "42-async-await",
+          "title": "کدنویسی ناهمگام با async و await",
+          "summary": "خواناتر کردن کد ناهمگام و مدیریت خطا در درخواست‌ها",
+          "status": "ready"
+        },
+        {
+          "id": "43-next-step",
+          "title": "قدم بعدی پس از این دوره",
+          "summary": "مرور مسیر یادگیری و معرفی پروژه‌ها و موضوعات پیشنهادی برای ادامه",
+          "status": "ready"
         }
       ]
     },
@@ -185,6 +305,26 @@
           "id": "01-variables",
           "title": "متغیرها",
           "summary": "ذخیره کردن عدد و متن",
+          "status": "soon"
+        }
+      ]
+    },
+    {
+      "id": "code-with-ai",
+      "title": "برنامه نویسی با هوش مصنوعی",
+      "description": "ساخت یک بک اند فروشگاهی",
+      "color": "#ff8800",
+      "lessons": [
+        {
+          "id": "01",
+          "title": "",
+          "summary": "",
+          "status": "soon"
+        },
+        {
+          "id": "02",
+          "title": "",
+          "summary": "",
           "status": "soon"
         }
       ]

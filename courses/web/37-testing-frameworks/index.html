@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>چارچوب‌های تست | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+</head>
+<body data-course="web" data-lesson="37-testing-frameworks" data-root="../../../">
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="../../../index.html">بازگشت به داشبورد</a>
+        <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>چارچوب‌های تست</h1>
+        <p class="lead">
+          یاد می‌گیریم تست خودکار چیست، یک تابع را با Vitest آزمایش کنیم و نتیجه‌ی
+          تست‌ها را از ترمینال بخوانیم.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="فهرست درس">
+      <p class="toc-title">در این درس</p>
+      <ul id="toc"></ul>
+    </aside>
+
+    <article class="lesson">
+      <h2 id="why-test">چرا کد را تست می‌کنیم؟</h2>
+      <p>
+        وقتی تابعی می‌نویسیم، می‌توانیم چند ورودی به آن بدهیم و نتیجه را دستی بررسی
+        کنیم. اما با بزرگ‌ترشدن پروژه، این بررسی وقت‌گیر می‌شود و ممکن است بعضی حالت‌ها
+        را فراموش کنیم. تست خودکار کمک می‌کند رفتار مورد انتظار را در کد ثبت کنیم تا
+        ابزار تست آن را بررسی کند.
+      </p>
+      <p>
+        در این درس از Vitest استفاده می‌کنیم. Vitest یک چارچوب تست جاوااسکریپت است؛
+        تست‌ها را در فایل‌هایی می‌نویسیم و با دستور ترمینال اجرا می‌کنیم.
+        <citation src="1,4"></citation>
+      </p>
+
+      <div class="callout note">
+        <p class="callout-title">تست چه چیزی را بررسی می‌کند؟</p>
+        <p>
+          تست معمولاً یک ورودی مشخص را به کد می‌دهد و بررسی می‌کند خروجی با نتیجه‌ی
+          مورد انتظار برابر باشد.
+        </p>
+      </div>
+
+      <h2 id="first-test">اجزای یک تست</h2>
+      <p>
+        یک تست ساده سه بخش اصلی دارد: تابعی که می‌خواهیم بررسی کنیم، مقدار مورد انتظار،
+        و بررسی‌ای که نتیجه‌ی واقعی را با انتظارمان مقایسه می‌کند.
+      </p>
+
+      <pre class="code"><code>// sum.js
+export function sum(a, b) {
+  return a + b;
+}</code></pre>
+
+      <p>
+        در فایل تست، تابع را وارد می‌کنیم. سپس با <code>test()</code> یک مورد تست
+        تعریف می‌کنیم و با <code>expect()</code> نتیجه را بررسی می‌کنیم:
+      </p>
+
+      <pre class="code"><code>// sum.test.js
+import { expect, test } from "vitest";
+import { sum } from "./sum.js";
+
+test("جمع دو عدد را برمی‌گرداند", () =&gt; {
+  expect(sum(1, 2)).toBe(3);
+});</code></pre>
+
+      <p>
+        نام تست توضیح می‌دهد چه رفتاری را بررسی می‌کنیم. در این مثال،
+        <code>toBe(3)</code> انتظار دارد نتیجه دقیقاً برابر با عدد
+        <code>3</code> باشد. Vitest هم از <code>it()</code> به‌عنوان نام دیگری
+        برای تعریف تست پشتیبانی می‌کند. <citation src="2"></citation>
+      </p>
+
+      <div class="callout tip">
+        <p class="callout-title">بنویس که چه چیزی را می‌سنجی</p>
+        <p>
+          نام‌هایی مثل «تست یک» اطلاعات کمی می‌دهند. نامی روشن، مانند
+          «جمع دو عدد را برمی‌گرداند»، کمک می‌کند بفهمیم تست چه رفتاری را بررسی می‌کند.
+        </p>
+      </div>
+
+      <h2 id="assertions">بررسی‌های expect</h2>
+      <p>
+        متدهای زنجیره‌شده به <code>expect()</code> را matcher می‌نامند. برای مقایسه‌ی
+        مقدار دقیق می‌توان از <code>toBe()</code> استفاده کرد:
+      </p>
+
+      <pre class="code"><code>expect(sum(2, 3)).toBe(5);
+expect("سلام").toBe("سلام");</code></pre>
+
+      <p>
+        اگر نتیجه با مقدار مورد انتظار یکی نباشد، تست شکست می‌خورد. ابزار تست گزارش
+        می‌دهد کدام تست شکست خورده و چه مقداری را انتظار داشته‌ایم.
+        <citation src="2"></citation>
+      </p>
+
+      <h2 id="setup">راه‌اندازی Vitest</h2>
+      <p>
+        برای اجرای نمونه‌های این درس به Node.js و npm نیاز داری. در پوشه‌ی پروژه،
+        Vitest را به‌عنوان وابستگی توسعه نصب کن:
+      </p>
+
+      <pre class="code"><code>npm install -D vitest</code></pre>
+
+      <p>
+        سپس در بخش <code>scripts</code> فایل <code>package.json</code>، دستور
+        <code>test</code> را تعریف کن:
+      </p>
+
+      <pre class="code"><code>{
+  "scripts": {
+    "test": "vitest"
+  }
+}</code></pre>
+
+      <p>
+        حالا با اجرای دستور زیر، Vitest فایل‌های تست پروژه را پیدا و اجرا می‌کند:
+      </p>
+
+      <pre class="code"><code>npm run test</code></pre>
+
+      <p>
+        فایل‌های تست به‌طور پیش‌فرض باید در نامشان <code>.test.</code> یا
+        <code>.spec.</code> داشته باشند؛ برای نمونه، <code>sum.test.js</code>.
+        <citation src="1"></citation>
+      </p>
+
+      <div class="callout warn">
+        <p class="callout-title">این دستور در کادر تمرین اجرا نمی‌شود</p>
+        <p>
+          Vitest یک ابزار پروژه‌ای است و باید از ترمینال، در پوشه‌ی پروژه‌ای که
+          Node.js و Vitest در آن نصب شده‌اند اجرا شود. کادرهای تعاملی این درس برای
+          اجرای JavaScript ساده در مرورگرند، نه اجرای Vitest.
+        </p>
+      </div>
+
+      <h2 id="test-more-cases">تست چند حالت</h2>
+      <p>
+        یک تابع ممکن است برای ورودی‌های مختلف رفتار متفاوتی داشته باشد. بهتر است
+        حالت‌های مهم را با تست‌های جداگانه بررسی کنیم:
+      </p>
+
+      <pre class="code"><code>import { expect, test } from "vitest";
+import { sum } from "./sum.js";
+
+test("دو عدد مثبت را جمع می‌کند", () =&gt; {
+  expect(sum(2, 3)).toBe(5);
+});
+
+test("عدد صفر را هم درست جمع می‌کند", () =&gt; {
+  expect(sum(0, 4)).toBe(4);
+});
+
+test("عدد منفی را هم درست جمع می‌کند", () =&gt; {
+  expect(sum(-2, 5)).toBe(3);
+});</code></pre>
+
+      <p>
+        هر تست باید رفتار مشخصی را بررسی کند. وقتی تستی شکست می‌خورد، نام آن کمک
+        می‌کند سریع‌تر بفهمیم کدام حالت درست کار نمی‌کند.
+      </p>
+
+      <h2 id="organize-tests">گروه‌بندی با describe</h2>
+      <p>
+        اگر چند تست مربوط به یک تابع یا بخش باشند، می‌توان آن‌ها را با
+        <code>describe()</code> زیر یک عنوان گروه‌بندی کرد:
+      </p>
+
+      <pre class="code"><code>import { describe, expect, test } from "vitest";
+import { sum } from "./sum.js";
+
+describe("تابع sum", () =&gt; {
+  test("دو عدد مثبت را جمع می‌کند", () =&gt; {
+    expect(sum(2, 3)).toBe(5);
+  });
+
+  test("عدد منفی را هم جمع می‌کند", () =&gt; {
+    expect(sum(-2, 5)).toBe(3);
+  });
+});</code></pre>
+
+      <p>
+        <code>describe()</code> تست‌های مرتبط را منظم می‌کند؛ هر تست داخل آن همچنان
+        با <code>test()</code> تعریف می‌شود. <citation src="2"></citation>
+      </p>
+
+      <h2 id="browser-demo">امتحان کن: ایده‌ی یک بررسی ساده</h2>
+      <p>
+        مثال زیر Vitest نیست؛ فقط ایده‌ی اصلی تست را در مرورگر نشان می‌دهد: یک مقدار
+        واقعی را با نتیجه‌ی مورد انتظار مقایسه می‌کنیم و پیام موفقیت یا شکست می‌دهیم.
+      </p>
+
+      <div class="demo" data-title="امتحان کن" data-height="260">
+<textarea>
+<p id="result"></p>
+
+<script>
+  function sum(a, b) {
+    return a + b;
+  }
+
+  const actual = sum(2, 3);
+  const expected = 5;
+  const result = document.querySelector("#result");
+
+  if (actual === expected) {
+    result.textContent = "موفق: نتیجه همان مقدار مورد انتظار است.";
+  } else {
+    result.textContent = `شکست: انتظار ${expected} داشتیم، اما ${actual} دریافت شد.`;
+  }
+</script>
+</textarea>
+      </div>
+
+      <div class="callout note">
+        <p class="callout-title">تفاوت مثال با چارچوب تست</p>
+        <p>
+          در پروژه‌ی واقعی، Vitest تست‌ها را اجرا و گزارش را در ترمینال نمایش می‌دهد.
+          نمونه‌ی بالا فقط مقایسه‌ی مقدارها را در مرورگر نشان می‌دهد و جایگزین
+          راه‌اندازی Vitest نیست.
+        </p>
+      </div>
+
+      <h2 id="summary">جمع‌بندی</h2>
+      <p>
+        تست خودکار رفتار مورد انتظار برنامه را بررسی می‌کند. در Vitest، با
+        <code>test()</code> تست تعریف می‌کنیم، با <code>expect()</code> نتیجه را
+        می‌سنجیم و می‌توانیم تست‌های مرتبط را با <code>describe()</code> گروه‌بندی
+        کنیم. Vitest را در پروژه نصب می‌کنیم، تست‌ها را در فایل‌هایی مانند
+        <code>sum.test.js</code> می‌نویسیم و با <code>npm run test</code> اجرا می‌کنیم.
+      </p>
+
+      <section class="next-step">
+        <div>
+          <h2>آماده‌ای؟</h2>
+          <p>در تمرین‌ها یک تابع می‌سازیم و رفتارهایش را با تست بررسی می‌کنیم.</p>
+        </div>
+        <a class="btn" href="exercise.html">برو به تمرین</a>
+      </section>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

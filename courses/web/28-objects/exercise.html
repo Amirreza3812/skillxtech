@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین آبجکت‌ها در جاوااسکریپت | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="28-objects" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: آبجکت‌ها در جاوااسکریپت</h1>
+        <p class="lead">تمرین‌ها را به‌ترتیب انجام بده و کدت را در کادرها اجرا کن.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>ساخت آبجکت کتاب</h3>
+          <p>
+            آبجکتی به نام <code>book</code> بساز که ویژگی‌های
+            <code>title</code>، <code>author</code> و <code>pages</code> داشته
+            باشد. برای آن‌ها مقدارهای دلخواه تعیین کن و آبجکت را در کنسول نمایش بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>ویژگی‌ها را داخل آکولاد بنویس و بین هر ویژگی و مقدارش دونقطه قرار بده.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+<textarea>
+// آبجکت book را اینجا بساز و نمایش بده
+
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>خواندن ویژگی‌ها</h3>
+          <p>
+            آبجکتی به نام <code>student</code> بساز که ویژگی‌های
+            <code>name</code> و <code>grade</code> داشته باشد. سپس مقدار هر دو
+            ویژگی را جداگانه در کنسول نمایش بده؛ یک بار از نگارش نقطه‌ای و برای
+            یکی از ویژگی‌ها از نگارش براکتی استفاده کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>برای نگارش نقطه‌ای بنویس <code>student.name</code> و برای نگارش براکتی بنویس <code>student["grade"]</code>.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+<textarea>
+// آبجکت student را بساز
+// ویژگی‌های آن را در کنسول نمایش بده
+
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تغییر و افزودن ویژگی</h3>
+          <p>
+            آبجکتی به نام <code>profile</code> بساز که ویژگی
+            <code>name</code> داشته باشد. سپس نام را تغییر بده و یک ویژگی
+            <code>city</code> به آبجکت اضافه کن. آبجکت نهایی را نمایش بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>برای تغییر مقدار از <code>profile.name = "..."</code> و برای افزودن ویژگی از <code>profile.city = "..."</code> استفاده کن.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="200">
+<textarea>
+// آبجکت profile را بساز
+// name را تغییر بده و city را اضافه کن
+
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>ساخت متد</h3>
+          <p>
+            آبجکتی به نام <code>user</code> بساز که ویژگی <code>name</code> و
+            متد <code>greet</code> داشته باشد. متد باید پیامی شامل نام کاربر در
+            کنسول نمایش دهد. سپس متد را اجرا کن.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>داخل متد می‌توانی از <code>this.name</code> برای دسترسی به نام همان آبجکت استفاده کنی.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="220">
+<textarea>
+// آبجکت user و متد greet را بساز
+// سپس متد را اجرا کن
+
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>آبجکت به‌عنوان ورودی تابع</h3>
+          <p>
+            آبجکتی به نام <code>product</code> بساز که ویژگی‌های
+            <code>name</code> و <code>price</code> داشته باشد. سپس تابعی به نام
+            <code>showProduct</code> بنویس که آبجکت را دریافت کند و نام محصول و
+            قیمتش را در کنسول نمایش دهد.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>تابع را با یک پارامتر تعریف کن و داخل آن به ویژگی‌ها با نگارش نقطه‌ای دسترسی بگیر.</p>
+          </details>
+          <div class="demo" data-title="جای کدنویسی" data-height="240">
+<textarea>
+// آبجکت product را بساز
+// تابع showProduct را تعریف و اجرا کن
+
+</textarea>
+          </div>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

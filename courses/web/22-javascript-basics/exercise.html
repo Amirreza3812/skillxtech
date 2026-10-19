@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین آشنایی با JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="22-javascript-basics"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: آشنایی با JavaScript</h1>
+          <p class="lead">
+            مثال‌ها را اجرا کن، کدها را تغییر بده و شکل‌های مختلف نام‌گذاری را
+            تشخیص بده.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>نمایش یک پیام</h3>
+            <p>
+              کد را طوری کامل کن که با اجرای آن، پیام
+              <code>دارم JavaScript یاد می‌گیرم!</code> در پنجره‌ی مرورگر
+              نمایش داده شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>alert()</code> استفاده کن و متن پیام را داخل کوتیشن
+                قرار بده.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+<script>
+  // کد خودت را اینجا بنویس
+
+</script>
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>انجام یک محاسبه</h3>
+            <p>
+              عددهای کد را تغییر بده تا حاصل جمع دو عدد دلخواهت در صفحه
+              نمایش داده شود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                نتیجه‌ی جمع را در متغیر <code>result</code> قرار بده. سپس متن
+                عنصر را با <code>textContent</code> تغییر بده.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<p id="answer">نتیجه اینجا نمایش داده می‌شود.</p>
+
+<script>
+  const result = 7 + 3;
+
+  document.querySelector("#answer").textContent =
+    "نتیجه برابر است با " + result;
+</script>
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تغییر متن صفحه</h3>
+            <p>
+              متن داخل پاراگراف را با JavaScript به «من متن را تغییر دادم»
+              تبدیل کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                پاراگراف را با <code>document.querySelector("#notice")</code>
+                پیدا کن و مقدار <code>textContent</code> آن را تغییر بده.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<p id="notice">متن اولیه</p>
+
+<script>
+  // متن پاراگراف را با JavaScript تغییر بده
+
+</script>
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تشخیص شیوه‌ی نام‌گذاری</h3>
+            <p>
+              برای هر نام، در کامنت کنار آن بنویس که از کدام روش استفاده شده:
+              <code>camelCase</code>، <code>snake_case</code>،
+              <code>PascalCase</code> یا <code>kebab-case</code>.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                به حروف بزرگ و جداکننده‌ها توجه کن: زیرخط، خط تیره یا حرف بزرگ
+                میان کلمه‌ها.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+userName
+user_name
+UserName
+user-name
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>نوشتن یک مثال کوتاه</h3>
+            <p>
+              یک پاراگراف HTML با شناسه‌ی <code>greeting</code> بساز. بعد با
+              JavaScript متن آن را به یک سلام دلخواه تغییر بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                اول پاراگراف را بنویس، بعد داخل تگ <code>&lt;script&gt;</code>
+                آن را با <code>querySelector()</code> پیدا کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<!-- HTML و JavaScript خودت را اینجا بنویس -->
+
+              </textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

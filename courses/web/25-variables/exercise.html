@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین متغیرها در JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="25-variables"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: متغیرها در JavaScript</h1>
+          <p class="lead">
+            تمرین‌ها را انجام بده و برای هر مقدار از نام متغیر مناسب استفاده کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت کارت مشخصات</h3>
+            <p>
+              متغیرهایی برای نام و شهر بساز و یک جمله با مقدار آن‌ها در صفحه
+              نمایش بده. برای متغیرهایی که قرار نیست تغییر کنند از
+              <code>const</code> استفاده کن.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای ساخت جمله از template literal و
+                <code>${variableName}</code> استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<h2>مشخصات من</h2>
+<p id="profile"></p>
+
+<script>
+  const studentName = "نام خودت";
+  const city = "نام شهر خودت";
+
+  document.querySelector("#profile").textContent =
+    `اسم من ${studentName} است و در شهر ${city} زندگی می‌کنم.`;
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تغییر مقدار متغیر</h3>
+            <p>
+              مقدار متغیر <code>score</code> را از ۰ شروع کن. سپس مقدارش را
+              به ۱۰ و بعد به ۱۵ تغییر بده و مقدار نهایی را در صفحه نشان بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                چون مقدار <code>score</code> تغییر می‌کند، آن را با
+                <code>let</code> تعریف کن. هنگام مقداردهی دوباره،
+                <code>let</code> را تکرار نکن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<p id="score-result"></p>
+
+<script>
+  let score = 0;
+  score = 10;
+  score = 15;
+
+  document.querySelector("#score-result").textContent =
+    `امتیاز نهایی: ${score}`;
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>انتخاب نوع متغیر مناسب</h3>
+            <p>
+              در کد زیر، مقدار <code>temperature</code> قرار است تغییر کند
+              اما <code>city</code> ثابت می‌ماند. کد را کامل کن و دمای جدید
+              را در صفحه نمایش بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای مقدار قابل تغییر از <code>let</code> و برای مقداری
+                که دوباره مقداردهی نمی‌شود از <code>const</code> استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<p id="weather-result"></p>
+
+<script>
+  const city = "تهران";
+  let temperature = 18;
+
+  temperature = 22;
+
+  document.querySelector("#weather-result").textContent =
+    `دمای جدید در ${city}: ${temperature} درجه`;
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>اصلاح نام متغیرها</h3>
+            <p>
+              نام‌های مبهم زیر را با نام‌های معنادار و به روش camelCase
+              جایگزین کن. سپس مقدارها را در یک جمله نمایش بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای نام چندکلمه‌ای، کلمهٔ اول را با حرف کوچک شروع کن و
+                ابتدای کلمه‌های بعدی را بزرگ بنویس؛ مانند
+                <code>studentName</code>.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<p id="naming-result"></p>
+
+<script>
+  const studentName = "آرمان";
+  const favoriteCourse = "JavaScript";
+
+  document.querySelector("#naming-result").textContent =
+    `${studentName} به یادگیری ${favoriteCourse} علاقه دارد.`;
+</script>
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

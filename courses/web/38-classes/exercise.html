@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین کلاس‌ها در جاوااسکریپت | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="38-classes"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: کلاس‌ها در جاوااسکریپت</h1>
+          <p class="lead">
+            کلاس بساز، از آن نمونه ایجاد کن و با ویژگی‌ها و متدهای نمونه‌ها کار کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت کلاس کتاب</h3>
+            <p>
+              کلاسی به نام <code>Book</code> بساز. سازنده باید عنوان و نام
+              نویسنده را بگیرد و آن‌ها را به‌عنوان ویژگی‌های نمونه ذخیره کند.
+              سپس دو نمونه‌ی متفاوت بساز و عنوان هر دو را در کنسول نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                پارامترها را به <code>constructor()</code> بده و با
+                <code>this.title</code> و <code>this.author</code> ذخیره کن.
+                برای ساخت هر نمونه از <code>new Book(...)</code> استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+class Book {
+  // سازنده را کامل کن
+}
+
+// دو نمونه بساز
+
+// عنوان هر کتاب را در کنسول نمایش بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>اضافه‌کردن متد</h3>
+            <p>
+              به کلاس <code>Book</code> متدی به نام <code>describe()</code>
+              اضافه کن که جمله‌ای شامل عنوان کتاب و نام نویسنده برگرداند.
+              متد را برای یکی از نمونه‌ها فراخوانی و نتیجه را در کنسول نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                داخل متد از <code>this.title</code> و
+                <code>this.author</code> استفاده کن. متد باید با
+                <code>return</code> یک رشته برگرداند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+  }
+
+  // متد describe را اینجا بنویس
+}
+
+const book = new Book("عنوان کتاب", "نام نویسنده");
+
+// متد را اجرا و نتیجه را نمایش بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>نمونه‌ها مستقل هستند</h3>
+            <p>
+              کلاسی به نام <code>Counter</code> بنویس که شمارنده‌ی هر نمونه را
+              از صفر آغاز کند. متدی به نام <code>increment()</code> بساز که
+              شمارنده‌ی همان نمونه را یک واحد افزایش دهد. دو نمونه ایجاد کن،
+              متد را دو بار برای نمونه‌ی اول و یک بار برای نمونه‌ی دوم اجرا کن،
+              سپس مقدار هر دو را نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                در سازنده بنویس <code>this.count = 0</code>. در متد از
+                <code>this.count += 1</code> استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+class Counter {
+  constructor() {
+    // مقدار اولیه
+  }
+
+  increment() {
+    // افزایش شمارنده
+  }
+}
+
+const firstCounter = new Counter();
+const secondCounter = new Counter();
+
+// متدها را فراخوانی کن
+
+// مقدار هر شمارنده را نمایش بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>کلاس محصول</h3>
+            <p>
+              کلاسی به نام <code>Product</code> بساز که نام و قیمت محصول را
+              بگیرد. متدی به نام <code>discountedPrice(percent)</code> بنویس
+              که قیمت پس از تخفیف را برگرداند. برای نمونه، قیمت محصولی با
+              ۲۰ درصد تخفیف را محاسبه و نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                قیمت پس از تخفیف برابر است با
+                <code>this.price * (1 - percent / 100)</code>. متد را با
+                آرگومان <code>20</code> فراخوانی کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+class Product {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  discountedPrice(percent) {
+    // قیمت پس از تخفیف را برگردان
+  }
+}
+
+const product = new Product("کیف", 500000);
+
+// قیمت با ۲۰ درصد تخفیف را نمایش بده
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

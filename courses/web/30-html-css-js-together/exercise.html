@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین ترکیب HTML و CSS و JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="30-html-css-js-together"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: ترکیب HTML و CSS و JavaScript</h1>
+          <p class="lead">
+            در هر تمرین، ساختار HTML را بساز، ظاهرش را با CSS تنظیم کن و با
+            JavaScript به صفحه رفتار تعاملی بده.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>اتصال سه بخش</h3>
+            <p>
+              یک صفحه با عنوان، یک پاراگراف و یک دکمه بساز. یک قانون CSS اضافه
+              کن که دکمه را رنگی کند و فایل JavaScript را به صفحه متصل کن تا
+              هنگام بارگذاری، پیامی را با <code>console.log()</code> نمایش دهد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                CSS را داخل تگ <code>&lt;style&gt;</code> و JavaScript را داخل
+                تگ <code>&lt;script&gt;</code> بنویس. هر سه عنصر می‌توانند در
+                یک فایل HTML باشند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<style>
+  /* قانون CSS را اینجا بنویس */
+</style>
+
+<h1>عنوان صفحه</h1>
+<p>متن صفحه</p>
+<button>دکمه</button>
+
+<script>
+  // پیام خود را در کنسول نمایش بده
+</script>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تغییر متن با کلیک</h3>
+            <p>
+              دکمه‌ای بساز که با کلیک روی آن، متن یک پاراگراف تغییر کند. از
+              <code>document.querySelector()</code> برای انتخاب عناصر و از
+              <code>addEventListener()</code> برای تشخیص کلیک استفاده کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                به دکمه و پاراگراف <code>id</code> بده. داخل تابع رویداد، مقدار
+                <code>textContent</code> پاراگراف را تغییر بده.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="280">
+              <textarea>
+<button id="change-button">تغییر متن</button>
+<p id="change-message">متن اولیه</p>
+
+<script>
+  // عناصر را انتخاب کن
+
+  // برای کلیک روی دکمه رویداد تعریف کن
+</script>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>تغییر ظاهر با کلاس</h3>
+            <p>
+              با کلیک روی دکمه، کلاس <code>active</code> را به یک پیام اضافه کن.
+              در CSS، برای این کلاس رنگ متن و رنگ پس‌زمینه‌ی متفاوتی تعیین کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>classList.add("active")</code> در تابع کلیک استفاده
+                کن. تعریف کلاس <code>.active</code> را در بخش CSS بنویس.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="300">
+              <textarea>
+<style>
+  .active {
+    /* ظاهر پیام را تغییر بده */
+  }
+</style>
+
+<button id="style-button">تغییر ظاهر</button>
+<p id="style-message">روی دکمه کلیک کن.</p>
+
+<script>
+  // عناصر را انتخاب کن
+
+  // هنگام کلیک، کلاس active را اضافه کن
+</script>
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت دکمه‌ی روشن و خاموش</h3>
+            <p>
+              یک دکمه بساز که با هر کلیک، کلاس <code>active</code> را روی یک
+              کارت روشن یا خاموش کند. متن دکمه را هم با استفاده از JavaScript
+              متناسب با وضعیت کارت تغییر بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای روشن و خاموش کردن کلاس از
+                <code>classList.toggle("active")</code> استفاده کن. وضعیت کلاس
+                را با <code>classList.contains("active")</code> بررسی کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="340">
+              <textarea>
+<style>
+  .card {
+    padding: 16px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+  }
+
+  .card.active {
+    background: #dcfce7;
+    border-color: #16a34a;
+  }
+</style>
+
+<button id="toggle-button">روشن کردن کارت</button>
+<div class="card" id="card">کارت من</div>
+
+<script>
+  // عناصر را انتخاب کن
+
+  // با هر کلیک کلاس کارت و متن دکمه را به‌روز کن
+</script>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

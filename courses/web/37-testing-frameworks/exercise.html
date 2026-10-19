@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تمرین چارچوب‌های تست | طراحی وب</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../shared/css/lesson.css">
+</head>
+<body data-course="web" data-lesson="37-testing-frameworks" data-root="../../../">
+
+  <header class="masthead">
+    <div class="topbar">
+      <div class="wrap">
+        <a href="index.html">بازگشت به درس</a>
+        <a href="../../../index.html">داشبورد</a>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="wrap">
+        <p class="hero-course" id="crumb-course">طراحی وب</p>
+        <h1>تمرین: چارچوب‌های تست</h1>
+        <p class="lead">
+          فایل‌های تمرین را در یک پروژه‌ی Node.js بساز و تست‌ها را از ترمینال اجرا کن.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page single">
+    <article class="lesson">
+      <ol class="tasks">
+
+        <li class="task">
+          <h3>تعریف تابع و تست آن</h3>
+          <p>
+            در فایل <code>multiply.js</code> تابع <code>multiply(a, b)</code> را
+            صادر کن تا حاصل‌ضرب دو ورودی را برگرداند. سپس در
+            <code>multiply.test.js</code> تستی بنویس که بررسی کند
+            <code>multiply(3, 4)</code> برابر با <code>12</code> است.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              در فایل تست، <code>expect</code> و <code>test</code> را از
+              <code>vitest</code> وارد کن و تابع را از <code>./multiply.js</code>
+              وارد کن.
+            </p>
+          </details>
+          <div class="demo" data-title="طرح کد تابع" data-height="220">
+<textarea>
+// multiply.js
+export function multiply(a, b) {
+  // حاصل‌ضرب را برگردان
+}
+
+// multiply.test.js
+import { expect, test } from "vitest";
+import { multiply } from "./multiply.js";
+
+// یک تست برای multiply(3, 4) بنویس
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>تست چند ورودی</h3>
+          <p>
+            برای تابع <code>multiply</code> تست‌های جداگانه بنویس که حاصل
+            <code>multiply(2, 5)</code>، <code>multiply(0, 8)</code> و
+            <code>multiply(-2, 3)</code> را بررسی کنند.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              برای هر حالت از یک <code>test()</code> جدا استفاده کن و مقدار مورد
+              انتظار را با <code>toBe()</code> بررسی کن.
+            </p>
+          </details>
+          <div class="demo" data-title="الگوی تست‌ها" data-height="240">
+<textarea>
+import { expect, test } from "vitest";
+import { multiply } from "./multiply.js";
+
+test("حالت اول", () => {
+  // expect(...).toBe(...);
+});
+
+test("حالت دوم", () => {
+  // یک حالت دیگر را بررسی کن
+});
+
+test("حالت سوم", () => {
+  // یک حالت دیگر را بررسی کن
+});
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>گروه‌بندی تست‌ها</h3>
+          <p>
+            تست‌های تابع <code>multiply</code> را با <code>describe()</code>
+            زیر عنوان «تابع multiply» گروه‌بندی کن. دست‌کم دو تست داخل گروه قرار بده.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              <code>describe</code> را هم از <code>vitest</code> وارد کن و
+              تست‌ها را داخل callback آن بنویس.
+            </p>
+          </details>
+          <div class="demo" data-title="الگوی گروه‌بندی" data-height="240">
+<textarea>
+import { describe, expect, test } from "vitest";
+import { multiply } from "./multiply.js";
+
+describe("تابع multiply", () => {
+  test("حالت اول", () => {
+    // یک بررسی بنویس
+  });
+
+  test("حالت دوم", () => {
+    // بررسی دیگری بنویس
+  });
+});
+</textarea>
+          </div>
+        </li>
+
+        <li class="task">
+          <h3>اجرای تست‌ها</h3>
+          <p>
+            Vitest را به‌عنوان وابستگی توسعه نصب کن، در فایل
+            <code>package.json</code> اسکریپت <code>test</code> را اضافه کن و
+            تست‌ها را از ترمینال اجرا کن. نام فایل تست باید شامل
+            <code>.test.</code> یا <code>.spec.</code> باشد.
+          </p>
+          <details>
+            <summary>راهنمایی</summary>
+            <p>
+              دستور نصب: <code>npm install -D vitest</code>. سپس در بخش
+              <code>scripts</code> بنویس <code>"test": "vitest"</code> و اجرا کن:
+              <code>npm run test</code>.
+            </p>
+          </details>
+          <div class="demo" data-title="نمونه‌ی package.json" data-height="200">
+<textarea>
+{
+  "scripts": {
+    // اسکریپت test را اینجا اضافه کن
+  },
+  "devDependencies": {
+    // پس از نصب، Vitest به این بخش اضافه می‌شود
+  }
+}
+</textarea>
+          </div>
+        </li>
+
+      </ol>
+
+      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+    </article>
+  </div>
+
+  <script src="../../../shared/js/lesson.js"></script>
+</body>
+</html>

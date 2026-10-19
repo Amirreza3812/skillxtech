@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین اعداد و محاسبات در JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="23-numbers-math"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: اعداد و محاسبات در JavaScript</h1>
+          <p class="lead">
+            عملگرهای ریاضی را امتحان کن و نتیجه‌ی محاسبات اعشاری را بررسی کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>محاسبه با عملگرها</h3>
+            <p>
+              مقدارهای <code>first</code> و <code>second</code> را تغییر بده و
+              نتیجه‌ی جمع، تفریق، ضرب و تقسیم را در صفحه نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای نمایش چند نتیجه می‌توانی مقدارهای مختلف را با
+                <code>+</code> و متن ترکیب کنی.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+<p id="operations"></p>
+
+<script>
+  const first = 12;
+  const second = 4;
+
+  document.querySelector("#operations").textContent =
+    "جمع: " + (first + second) +
+    " | تفریق: " + (first - second) +
+    " | ضرب: " + (first * second) +
+    " | تقسیم: " + (first / second);
+</script>
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>باقی‌مانده و توان</h3>
+            <p>
+              کد را تغییر بده تا باقی‌مانده‌ی تقسیم 17 بر 5 و حاصل 3 به توان 4
+              را در صفحه نشان دهد.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای باقی‌مانده از <code>%</code> و برای توان از
+                <code>**</code> استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<p id="remainder-and-power"></p>
+
+<script>
+  const remainder = 17 % 5;
+  const power = 3 ** 4;
+
+  document.querySelector("#remainder-and-power").textContent =
+    "باقی‌مانده: " + remainder + " | توان: " + power;
+</script>
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بررسی محاسبه‌ی اعشاری</h3>
+            <p>
+              کد را اجرا کن و نتیجه‌ی <code>0.1 + 0.2</code> را ببین. سپس
+              نتیجه را با <code>toFixed(2)</code> برای نمایش دو رقم اعشار
+              قالب‌بندی کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                <code>toFixed(2)</code> را روی نتیجه‌ی محاسبه اجرا کن و خروجی
+                را در یک پاراگراف نمایش بده.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<p id="decimal-result"></p>
+
+<script>
+  const result = 0.1 + 0.2;
+
+  document.querySelector("#decimal-result").textContent =
+    "با دو رقم اعشار: " + result.toFixed(2);
+</script>
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>آزمایش ابزارهای Math</h3>
+            <p>
+              کد را طوری تغییر بده که با <code>Math.floor()</code> عدد
+              <code>6.8</code> را رو به پایین گرد کند و با
+              <code>Math.max()</code> بزرگ‌ترین عدد از بین
+              <code>4</code>، <code>9</code> و <code>2</code> را پیدا کند.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                هر دو متد را داخل متن نتیجه قرار بده تا مقدارهایشان در صفحه
+                نمایش داده شوند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<p id="math-result"></p>
+
+<script>
+  const roundedDown = Math.floor(6.8);
+  const largest = Math.max(4, 9, 2);
+
+  document.querySelector("#math-result").textContent =
+    "رو به پایین: " + roundedDown +
+    " | بزرگ‌ترین عدد: " + largest;
+</script>
+              </textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>توضیح نتیجه‌ی 0.1 + 0.2</h3>
+            <p>
+              در یک کامنت JavaScript، با زبان خودت توضیح بده چرا نتیجه‌ی
+              <code>0.1 + 0.2</code> ممکن است دقیقاً برابر <code>0.3</code>
+              نمایش داده نشود.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                در پاسخ به نمایش عددهای اعشاری در سیستم دودویی اشاره کن.
+                کامنت تک‌خطی JavaScript با <code>//</code> شروع می‌شود.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+// توضیح خودت را اینجا بنویس
+              </textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

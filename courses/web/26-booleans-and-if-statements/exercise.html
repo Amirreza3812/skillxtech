@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین بولین‌ها و شرط‌ها | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="26-booleans-and-if-statements"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: بولین‌ها و شرط‌ها</h1>
+          <p class="lead">
+            شرط‌ها را تغییر بده، حالت‌های مختلف را امتحان کن و نتیجه را ببین.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>بررسی مثبت یا منفی بودن عدد</h3>
+            <p>
+              مقدار <code>number</code> را تغییر بده. اگر عدد بزرگ‌تر از صفر بود
+              پیام «مثبت»، اگر کوچک‌تر از صفر بود پیام «منفی» و در غیر این صورت
+              پیام «صفر» نمایش بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای حالت سوم، بعد از <code>if</code> و <code>else if</code> از
+                <code>else</code> استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+<p id="number-result"></p>
+
+<script>
+  const number = -4;
+  const result = document.querySelector("#number-result");
+
+  if (number > 0) {
+    result.textContent = "عدد مثبت است.";
+  } else if (number < 0) {
+    result.textContent = "عدد منفی است.";
+  } else {
+    result.textContent = "عدد صفر است.";
+  }
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بررسی قبولی</h3>
+            <p>
+              اگر نمره برابر یا بیشتر از ۱۰ بود، پیام «قبول شدی» و در غیر این
+              صورت پیام «نیاز به تلاش بیشتر» نمایش بده.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای بررسی «بزرگ‌تر یا مساوی» از عملگر
+                <code>&gt;=</code> استفاده کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+<p id="grade-result"></p>
+
+<script>
+  const grade = 12;
+
+  if (grade >= 10) {
+    document.querySelector("#grade-result").textContent = "قبول شدی.";
+  } else {
+    document.querySelector("#grade-result").textContent =
+      "نیاز به تلاش بیشتر داری.";
+  }
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>رده‌بندی امتیاز</h3>
+            <p>
+              با استفاده از <code>if</code>، <code>else if</code> و
+              <code>else</code>، امتیاز را در یکی از این گروه‌ها قرار بده: ۹۰ به
+              بالا «عالی»، ۷۰ به بالا «خوب»، ۵۰ به بالا «قابل قبول» و کمتر از آن
+              «نیاز به تمرین».
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                شرط‌ها را از امتیازهای بالاتر به پایین‌تر بررسی کن. مقدار
+                <code>score</code> را برای دیدن نتیجه‌های مختلف تغییر بده.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="270">
+              <textarea>
+<p id="score-result"></p>
+
+<script>
+  const score = 76;
+  const result = document.querySelector("#score-result");
+
+  if (score >= 90) {
+    result.textContent = "عالی";
+  } else if (score >= 70) {
+    result.textContent = "خوب";
+  } else if (score >= 50) {
+    result.textContent = "قابل قبول";
+  } else {
+    result.textContent = "نیاز به تمرین";
+  }
+</script>
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ترکیب دو شرط</h3>
+            <p>
+              فقط وقتی پیام «اجازهٔ ورود داری» نمایش بده که سن حداقل ۱۸ باشد و
+              متغیر <code>hasTicket</code> هم درست باشد.
+            </p>
+
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای درست بودن هم‌زمان هر دو شرط از عملگر
+                <code>&amp;&amp;</code> استفاده کن. سن یا وضعیت بلیت را تغییر
+                بده و حالت‌های مختلف را بررسی کن.
+              </p>
+            </details>
+
+            <div class="demo" data-title="جای کدنویسی" data-height="240">
+              <textarea>
+<p id="entry-result"></p>
+
+<script>
+  const age = 20;
+  const hasTicket = true;
+
+  if (age >= 18 && hasTicket) {
+    document.querySelector("#entry-result").textContent =
+      "اجازهٔ ورود داری.";
+  } else {
+    document.querySelector("#entry-result").textContent =
+      "شرایط ورود کامل نیست.";
+  }
+</script>
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

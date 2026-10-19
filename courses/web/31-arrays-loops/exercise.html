@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین آرایه‌ها و حلقه‌ها | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="31-arrays-loops"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: آرایه‌ها و حلقه‌ها</h1>
+          <p class="lead">
+            آرایه‌ها را تغییر بده و با حلقه‌ها مقدارهایشان را در کنسول یا صفحه
+            نمایش بده.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت آرایه و دسترسی به اعضا</h3>
+            <p>
+              آرایه‌ای با نام <code>cities</code> بساز و نام سه شهر را در آن
+              قرار بده. عضو اول، عضو سوم و تعداد اعضای آرایه را در کنسول
+              نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای عضو اول از <code>cities[0]</code>، برای عضو سوم از
+                <code>cities[2]</code> و برای تعداد از
+                <code>cities.length</code> استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+const cities = ["تهران", "شیراز", "تبریز"];
+
+// عضو اول را نمایش بده
+
+// عضو سوم را نمایش بده
+
+// تعداد شهرها را نمایش بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>اضافه و حذف‌کردن عضو</h3>
+            <p>
+              آرایه‌ای از چند خوراکی بساز. یک خوراکی با
+              <code>push()</code> به انتهای آن اضافه کن، سپس عضو آخر را با
+              <code>pop()</code> حذف کن و آرایه‌ی نهایی را نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                <code>push()</code> و <code>pop()</code> را روی نام آرایه صدا
+                بزن و بعد با <code>console.log()</code> نتیجه را ببین.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+const foods = ["نان", "پنیر"];
+
+// یک عضو اضافه کن
+
+// عضو آخر را حذف کن
+
+// آرایه‌ی نهایی را نمایش بده
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>پیمایش آرایه با for</h3>
+            <p>
+              آرایه‌ای از عددها بساز و با حلقه‌ی <code>for</code> همه‌ی
+              اعضای آن را در کنسول نمایش بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                شمارنده را از صفر شروع کن و تا وقتی از
+                <code>numbers.length</code> کوچک‌تر است، ادامه بده. مقدار هر
+                دور را با <code>numbers[i]</code> بخوان.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="260">
+              <textarea>
+const numbers = [4, 8, 12, 16];
+
+for (let i = 0; i < numbers.length; i++) {
+  // عضو فعلی را نمایش بده
+}
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت فهرست در صفحه</h3>
+            <p>
+              از آرایه‌ی نام‌ها استفاده کن و برای هر نام یک عنصر
+              <code>&lt;li&gt;</code> بساز. عنصرهای ساخته‌شده را به
+              <code>&lt;ul&gt;</code> صفحه اضافه کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                با <code>document.createElement("li")</code> عنصر بساز، متنش
+                را با <code>textContent</code> تعیین کن و با
+                <code>append()</code> به فهرست اضافه کن. برای پیمایش آرایه
+                می‌توانی از <code>for...of</code> استفاده کنی.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="320">
+              <textarea>
+<ul id="names-list"></ul>
+
+<script>
+  const names = ["آرمان", "سارا", "مینا"];
+  const list = document.querySelector("#names-list");
+
+  // روی نام‌ها حلقه بزن
+  // برای هر نام یک li بساز و به فهرست اضافه کن
+</script>
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

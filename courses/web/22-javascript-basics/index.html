@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>آشنایی با JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="22-javascript-basics"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>آشنایی با JavaScript</h1>
+          <p class="lead">
+            در این درس با کاربرد JavaScript آشنا می‌شوی، چند دستور ساده را
+            امتحان می‌کنی و با شکل‌های رایج نام‌گذاری و ESLint آشنا می‌شوی.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="what-is-javascript">JavaScript چیست؟</h2>
+        <p>
+          تا اینجا با HTML ساختار صفحه را ساختیم و با CSS ظاهر آن را تغییر
+          دادیم. JavaScript زبانی است که به صفحه رفتار و تعامل اضافه می‌کند؛
+          مثلاً می‌تواند پیامی نشان دهد، محاسبه کند یا محتوای صفحه را تغییر دهد.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">هدف این درس</p>
+          <p>
+            این درس فقط یک آشنایی اولیه است. محاسبات، تغییر محتوای صفحه و دیگر
+            قابلیت‌های JavaScript را در درس‌های بعدی جداگانه و عمیق‌تر یاد
+            می‌گیریم.
+          </p>
+        </div>
+
+        <h2 id="first-javascript">اولین دستور JavaScript</h2>
+        <p>
+          دستور <code>alert()</code> یک پنجره‌ی کوچک در مرورگر باز می‌کند و
+          پیام داخل آن را نشان می‌دهد. برای امتحان کردنش، این کد را در کادر
+          زیر تغییر بده یا اجرا کن:
+        </p>
+
+        <div class="demo" data-title="امتحان کن: نمایش پیام" data-height="180">
+          <textarea>
+<script>
+  alert("سلام! این پیام با JavaScript ساخته شده است.");
+</script>
+          </textarea>
+        </div>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            <code>alert()</code> پیام را در پنجره‌ی مرورگر نشان می‌دهد؛ نه در
+            کنسول. پنجره‌ی پیام را ببند تا بتوانی دوباره با صفحه کار کنی.
+          </p>
+        </div>
+
+        <h2 id="javascript-and-math">JavaScript و محاسبات ساده</h2>
+        <p>
+          JavaScript می‌تواند عملیات ریاضی ساده انجام دهد. علامت‌های آشنای
+          جمع، تفریق، ضرب و تقسیم در این مثال‌ها به کار رفته‌اند:
+        </p>
+
+        <div class="demo" data-title="امتحان کن: محاسبه در صفحه" data-height="220">
+          <textarea>
+<p id="math-result">نتیجه اینجا نمایش داده می‌شود.</p>
+
+<script>
+  const result = 10 + 5;
+  document.querySelector("#math-result").textContent =
+    "نتیجه‌ی ۱۰ + ۵ برابر است با " + result;
+</script>
+          </textarea>
+        </div>
+
+        <p>چند عملگر رایج ریاضی در JavaScript:</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>عملگر</th>
+                <th>معنا</th>
+                <th>مثال</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>+</code></td>
+                <td>جمع</td>
+                <td><code>10 + 5</code></td>
+              </tr>
+              <tr>
+                <td><code>-</code></td>
+                <td>تفریق</td>
+                <td><code>10 - 5</code></td>
+              </tr>
+              <tr>
+                <td><code>*</code></td>
+                <td>ضرب</td>
+                <td><code>10 * 5</code></td>
+              </tr>
+              <tr>
+                <td><code>/</code></td>
+                <td>تقسیم</td>
+                <td><code>10 / 5</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="changing-page-content">تغییر محتوای صفحه</h2>
+        <p>
+          JavaScript می‌تواند یک عنصر HTML را پیدا کند و متن آن را تغییر دهد.
+          در مثال زیر، <code>querySelector()</code> عنصر دارای شناسه‌ی
+          <code>message</code> را پیدا می‌کند و <code>textContent</code> متنش
+          را عوض می‌کند.
+        </p>
+
+        <div class="demo" data-title="امتحان کن: تغییر متن" data-height="220">
+          <textarea>
+<p id="message">این متن هنوز تغییر نکرده است.</p>
+
+<script>
+  document.querySelector("#message").textContent =
+    "متن با JavaScript تغییر کرد!";
+</script>
+          </textarea>
+        </div>
+
+        <div class="callout warn">
+          <p class="callout-title">یادت باشد</p>
+          <p>
+            در این درس فقط نمونه‌ای از تغییر متن می‌بینی. پیدا کردن عناصر صفحه
+            و تغییر دادنشان را در درس‌های بعدی با جزئیات بیشتری تمرین می‌کنیم.
+          </p>
+        </div>
+
+        <h2 id="syntax-and-case">سینتکس و شیوه‌های نام‌گذاری</h2>
+        <p>
+          سینتکس یعنی قواعدی که باید هنگام نوشتن کد رعایت شوند. برای مثال،
+          رشته‌ی متنی در JavaScript معمولاً داخل کوتیشن قرار می‌گیرد:
+        </p>
+
+        <pre class="code"><code>alert("سلام");</code></pre>
+
+        <p>
+          برای نام‌گذاری در کد، شکل‌های مختلفی وجود دارد. این‌ها را فعلاً در
+          حد تشخیص دادن یاد می‌گیریم:
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>نام روش</th>
+                <th>نمونه</th>
+                <th>شکل نوشتن</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>camelCase</td>
+                <td><code>userName</code></td>
+                <td>کلمه‌ی اول با حرف کوچک و کلمه‌های بعدی با حرف بزرگ شروع می‌شوند.</td>
+              </tr>
+              <tr>
+                <td>snake_case</td>
+                <td><code>user_name</code></td>
+                <td>کلمه‌ها با زیرخط <code>_</code> جدا می‌شوند.</td>
+              </tr>
+              <tr>
+                <td>PascalCase</td>
+                <td><code>UserName</code></td>
+                <td>هر کلمه با حرف بزرگ شروع می‌شود.</td>
+              </tr>
+              <tr>
+                <td>kebab-case</td>
+                <td><code>user-name</code></td>
+                <td>کلمه‌ها با خط تیره <code>-</code> جدا می‌شوند.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout tip">
+          <p class="callout-title">نکته</p>
+          <p>
+            در JavaScript معمولاً برای نام متغیرها و تابع‌ها از
+            <code>camelCase</code> استفاده می‌کنیم. در این مرحله مهم‌تر این
+            است که بتوانی شکل‌های مختلف را تشخیص بدهی.
+          </p>
+        </div>
+
+        <h2 id="what-is-eslint">ESLint چیست؟</h2>
+        <p>
+          ESLint ابزاری برای بررسی کد JavaScript است. می‌تواند بعضی اشتباه‌های
+          نوشتاری یا ناهماهنگی با قواعد کدنویسی پروژه را گزارش کند تا پیدا
+          کردن و مرتب کردن مشکلات آسان‌تر شود.
+        </p>
+        <p>
+          ESLint خودش برنامه را نمی‌نویسد و همه‌ی خطاهای منطقی را هم پیدا
+          نمی‌کند؛ بیشتر مثل یک بررسی‌کننده‌ی کمکی برای کد عمل می‌کند.
+        </p>
+
+        <h2 id="summary">جمع‌بندی</h2>
+        <p>
+          JavaScript به صفحه رفتار و تعامل اضافه می‌کند. در این درس دیدیم که
+          می‌توان با <code>alert()</code> پیامی نمایش داد، محاسبه‌ای ساده
+          انجام داد و متن یک عنصر صفحه را تغییر داد. همچنین با مفهوم سینتکس،
+          روش‌های نام‌گذاری و ابزار ESLint آشنا شدیم. این‌ها مقدمه‌ای هستند
+          برای درس‌های بعدی.
+        </p>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>چند تمرین کوتاه برای مرور مفاهیم این درس انجام بده.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

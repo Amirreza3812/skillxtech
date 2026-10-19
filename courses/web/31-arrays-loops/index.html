@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>آرایه‌ها و حلقه‌ها | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="31-arrays-loops"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>آرایه‌ها و حلقه‌ها</h1>
+          <p class="lead">
+            در این درس یاد می‌گیریم چند مقدار را در یک آرایه نگه داریم، به
+            اعضای آن دسترسی پیدا کنیم و با حلقه‌ها روی اعضا تکرار انجام دهیم.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="array-intro">آرایه چیست؟</h2>
+        <p>
+          آرایه نوعی مقدار است که می‌تواند چند مقدار را به ترتیب در خود نگه
+          دارد. برای نمونه، به‌جای ساختن یک متغیر جدا برای هر نام، می‌توانیم
+          نام‌ها را در یک آرایه قرار دهیم.
+        </p>
+
+        <pre class="code"><code>const fruits = ["سیب", "موز", "پرتقال"];</code></pre>
+
+        <p>
+          اعضای آرایه داخل کروشه‌ی <code>[]</code> نوشته می‌شوند و با ویرگول از
+          هم جدا هستند. اعضا می‌توانند رشته، عدد، مقدار بولی یا حتی نوع‌های
+          دیگری از داده باشند.
+        </p>
+
+        <h2 id="index">شماره‌ی جایگاه یا index</h2>
+        <p>
+          برای خواندن یک عضو از آرایه، از شماره‌ی جایگاه آن استفاده می‌کنیم.
+          شماره‌گذاری از <code>0</code> شروع می‌شود: عضو اول اندیس
+          <code>0</code>، عضو دوم اندیس <code>1</code> و همین‌طور ادامه دارد.
+        </p>
+
+        <pre class="code"><code>const fruits = ["سیب", "موز", "پرتقال"];
+
+console.log(fruits[0]); // سیب
+console.log(fruits[1]); // موز</code></pre>
+
+        <div class="callout warn">
+          <p class="callout-title">یادت باشد</p>
+          <p>
+            اندیس از صفر شروع می‌شود؛ بنابراین در آرایه‌ای با سه عضو، اندیس
+            آخر <code>2</code> است، نه <code>3</code>.
+          </p>
+        </div>
+
+        <h2 id="length">تعداد اعضای آرایه</h2>
+        <p>
+          ویژگی <code>length</code> تعداد اعضای آرایه را نشان می‌دهد. برای
+          دسترسی به آخرین عضو می‌توانیم از اندیس
+          <code>array.length - 1</code> استفاده کنیم.
+        </p>
+
+        <pre class="code"><code>const colors = ["آبی", "سبز", "قرمز"];
+
+console.log(colors.length); // 3
+console.log(colors[colors.length - 1]); // قرمز</code></pre>
+
+        <h2 id="change-add">تغییر و اضافه‌کردن اعضا</h2>
+        <p>
+          اگر آرایه با <code>const</code> تعریف شده باشد، نمی‌توان متغیر را
+          دوباره به آرایه‌ی دیگری نسبت داد؛ اما می‌توان اعضای همان آرایه را
+          تغییر داد.
+        </p>
+
+        <pre class="code"><code>const tasks = ["مطالعه", "تمرین"];
+
+tasks[0] = "مطالعه‌ی JavaScript";
+tasks.push("مرور");
+
+console.log(tasks);</code></pre>
+
+        <p>
+          متد <code>push()</code> یک یا چند عضو را به انتهای آرایه اضافه
+          می‌کند. برای حذف عضو آخر، از <code>pop()</code> استفاده می‌شود.
+        </p>
+
+        <pre class="code"><code>const numbers = [10, 20, 30];
+
+numbers.push(40); // [10, 20, 30, 40]
+numbers.pop();    // حذف 40</code></pre>
+
+        <div class="callout note">
+          <p class="callout-title">نکته درباره‌ی const</p>
+          <p>
+            <code>const</code> مانع انتساب دوباره‌ی خود متغیر می‌شود؛ اما
+            تغییر محتوای یک آرایه یا شیء تعریف‌شده با <code>const</code> ممکن
+            است.
+          </p>
+        </div>
+
+        <h2 id="for-loop">حلقه‌ی for</h2>
+        <p>
+          وقتی می‌خواهیم کاری را چند بار تکرار کنیم، از حلقه استفاده می‌کنیم.
+          حلقه‌ی <code>for</code> معمولاً سه بخش دارد: مقدار آغازین، شرط ادامه
+          و تغییر مقدار شمارنده.
+        </p>
+
+        <pre class="code"><code>for (let i = 0; i &lt; 3; i++) {
+  console.log(i);
+}</code></pre>
+
+        <p>
+          این حلقه از <code>i = 0</code> شروع می‌شود، تا وقتی
+          <code>i &lt; 3</code> درست باشد اجرا می‌شود و بعد از هر دور
+          <code>i</code> را یک واحد افزایش می‌دهد.
+        </p>
+
+        <h2 id="loop-array">پیمایش آرایه با for</h2>
+        <p>
+          با استفاده از اندیس و ویژگی <code>length</code> می‌توانیم تک‌تک
+          اعضای آرایه را بخوانیم. این روش وقتی مفید است که به شماره‌ی اندیس
+          هم نیاز داشته باشیم.
+        </p>
+
+        <pre class="code"><code>const fruits = ["سیب", "موز", "پرتقال"];
+
+for (let i = 0; i &lt; fruits.length; i++) {
+  console.log(fruits[i]);
+}</code></pre>
+
+        <h2 id="for-of">حلقه‌ی for...of</h2>
+        <p>
+          اگر فقط به مقدار هر عضو نیاز داشته باشیم و اندیس برایمان مهم نباشد،
+          حلقه‌ی <code>for...of</code> خواناتر است.
+        </p>
+
+        <pre class="code"><code>const fruits = ["سیب", "موز", "پرتقال"];
+
+for (const fruit of fruits) {
+  console.log(fruit);
+}</code></pre>
+
+        <div class="callout tip">
+          <p class="callout-title">کدام حلقه را انتخاب کنم؟</p>
+          <p>
+            برای دسترسی مستقیم به مقدارها، <code>for...of</code> انتخاب ساده‌ای
+            است. اگر به اندیس نیاز داری یا می‌خواهی از شمارنده استفاده کنی،
+            <code>for</code> گزینه‌ی مناسبی است.
+          </p>
+        </div>
+
+        <h2 id="demo">نمایش اعضای آرایه در صفحه</h2>
+        <p>
+          در این نمونه، JavaScript روی اعضای آرایه حلقه می‌زند و برای هر کدام
+          یک عنصر جدید در صفحه می‌سازد.
+        </p>
+
+        <div class="demo" data-title="امتحان کن" data-height="380">
+          <textarea>
+<h2>فهرست کارها</h2>
+<ul id="task-list"></ul>
+
+<script>
+  const tasks = ["تمرین HTML", "یادگیری CSS", "مرور JavaScript"];
+  const list = document.querySelector("#task-list");
+
+  for (const task of tasks) {
+    const item = document.createElement("li");
+    item.textContent = task;
+    list.append(item);
+  }
+</script>
+</textarea>
+        </div>
+
+        <p>
+          در کد بالا، <code>createElement("li")</code> یک عنصر فهرست می‌سازد،
+          <code>textContent</code> متن آن را تعیین می‌کند و
+          <code>append()</code> آن را به فهرست اضافه می‌کند.
+        </p>
+
+        <h2 id="common-mistakes">اشتباه‌های رایج</h2>
+        <ul>
+          <li>
+            تلاش برای خواندن اندیسی که وجود ندارد؛ مثلاً
+            <code>fruits[fruits.length]</code>.
+          </li>
+          <li>
+            فراموش‌کردن اینکه اندیس آرایه از صفر شروع می‌شود.
+          </li>
+          <li>
+            نوشتن شرطی نادرست در حلقه که باعث تکرار بی‌پایان می‌شود.
+          </li>
+          <li>
+            فراموش‌کردن افزایش شمارنده در حلقه‌ی <code>for</code>.
+          </li>
+        </ul>
+
+        <h2 id="summary">جمع‌بندی</h2>
+        <p>
+          آرایه‌ها برای نگهداری مجموعه‌ای مرتب از مقدارها به کار می‌روند.
+          اندیس اعضا از صفر شروع می‌شود و <code>length</code> تعداد آن‌ها را
+          نشان می‌دهد. با <code>push()</code> و <code>pop()</code> می‌توان
+          اعضای انتهایی را اضافه یا حذف کرد. حلقه‌های <code>for</code> و
+          <code>for...of</code> کمک می‌کنند روی اعضای آرایه تکرار انجام دهیم.
+        </p>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>با تمرین‌های زیر آرایه بساز و روی اعضای آن حلقه بزن.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

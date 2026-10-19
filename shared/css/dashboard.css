@@ -8,7 +8,7 @@
   --accent: #2f5bea;
   --chalk: #f5d04c;
   --radius: 10px; */
-  --paper: #f1f2f3;
+  --paper: #f1f1f1;
   --surface: #ffffff;
   --ink: #14263a;
   --muted: #5b6b7b;
@@ -17,6 +17,9 @@
   --chalk: #f5d04c;
   --radius: 10px;
 }
+/* .some{
+  color: #ff8800;
+} */
 
 /* :root {
   --paper: #111820;   /* پس‌زمینه اصلی 

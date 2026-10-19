@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین ارث‌بری در جاوااسکریپت | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body data-course="web" data-lesson="39-inheritance" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
+      </div>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: ارث‌بری در جاوااسکریپت</h1>
+          <p class="lead">
+            کلاس‌های فرزند بساز، ویژگی‌های والد را به ارث ببر و متدها را بازنویسی کن.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت کلاس فرزند</h3>
+            <p>
+              کلاسی به نام <code>Animal</code> بساز که متدی به نام
+              <code>speak()</code> داشته باشد. سپس کلاسی به نام
+              <code>Dog</code> تعریف کن که از <code>Animal</code> ارث می‌برد.
+              یک نمونه‌ی سگ بساز و متد <code>speak()</code> را روی آن اجرا کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                تعریف کلاس فرزند با <code>class Dog extends Animal</code> آغاز
+                می‌شود. اگر <code>Dog</code> خودش متد
+                <code>speak()</code> نداشته باشد، از متد والد استفاده می‌کند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+class Animal {
+  speak() {
+    return "صدایی تولید می‌کند.";
+  }
+}
+
+// کلاس Dog را از Animal مشتق کن
+
+// یک نمونه‌ی Dog بساز و speak() را اجرا کن
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>استفاده از سازنده‌ی والد</h3>
+            <p>
+              کلاسی به نام <code>Person</code> بساز که سازنده‌اش نام را دریافت
+              و ذخیره کند. سپس کلاس <code>Student</code> را از آن مشتق کن.
+              سازنده‌ی <code>Student</code> باید نام و رشته‌ی تحصیلی را بگیرد؛
+              نام را با <code>super()</code> به والد بفرست و رشته را در ویژگی
+              <code>major</code> ذخیره کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                داخل سازنده‌ی <code>Student</code> ابتدا
+                <code>super(name)</code> را بنویس، سپس
+                <code>this.major = major</code> را مقداردهی کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="250">
+              <textarea>
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+class Student extends Person {
+  constructor(name, major) {
+    // سازنده‌ی والد را فراخوانی کن
+    // ویژگی major را مقداردهی کن
+  }
+}
+
+const student = new Student("نیما", "طراحی وب");
+console.log(student.name);
+console.log(student.major);
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>بازنویسی متد</h3>
+            <p>
+              کلاس <code>Shape</code> را با متدی به نام
+              <code>describe()</code> بساز. سپس کلاس <code>Circle</code> را از
+              آن مشتق کن و متد <code>describe()</code> را در آن بازنویسی کن تا
+              پیام متفاوتی برگرداند. متد را روی یک نمونه‌ی <code>Circle</code>
+              اجرا کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                کافی است در کلاس <code>Circle</code> متدی هم‌نام با متد والد
+                تعریف کنی. اجرای <code>circle.describe()</code> نسخه‌ی کلاس
+                فرزند را فراخوانی می‌کند.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="230">
+              <textarea>
+class Shape {
+  describe() {
+    return "یک شکل هندسی است.";
+  }
+}
+
+class Circle extends Shape {
+  // متد describe را بازنویسی کن
+}
+
+const circle = new Circle();
+console.log(circle.describe());
+</textarea>
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>استفاده از متد والد</h3>
+            <p>
+              در کلاس <code>Employee</code> متدی به نام
+              <code>describe()</code> بنویس که نام کارمند را توصیف کند. سپس
+              کلاس <code>Manager</code> را از آن مشتق کن و متد
+              <code>describe()</code> را بازنویسی کن. در نسخه‌ی فرزند، متن
+              متد والد را با <code>super.describe()</code> دریافت کن و به آن
+              توضیحی درباره‌ی نقش مدیر اضافه کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                در متد کلاس فرزند از عبارتی مانند
+                <code>return `${super.describe()} او مدیر است.`</code>
+                استفاده کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="270">
+              <textarea>
+class Employee {
+  constructor(name) {
+    this.name = name;
+  }
+
+  describe() {
+    return `${this.name} کارمند است.`;
+  }
+}
+
+class Manager extends Employee {
+  describe() {
+    // متن والد را با super.describe() بگیر
+    // و توضیح مدیر را به آن اضافه کن
+  }
+}
+
+const manager = new Manager("رها");
+console.log(manager.describe());
+</textarea>
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>

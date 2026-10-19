@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>اعداد و محاسبات در JavaScript | طراحی وب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+
+  <body
+    data-course="web"
+    data-lesson="23-numbers-math"
+    data-root="../../../"
+  >
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="../../../index.html">بازگشت به داشبورد</a>
+          <a class="to-exercise" href="exercise.html">تمرین این درس</a>
+        </div>
+      </div>
+
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>اعداد و محاسبات در JavaScript</h1>
+          <p class="lead">
+            با نوع داده‌ی عددی در JavaScript، عملگرهای ریاضی و دلیل بعضی
+            خطاهای ظاهری در محاسبات اعشاری آشنا می‌شوی.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap page">
+      <aside class="toc" aria-label="فهرست درس">
+        <p class="toc-title">در این درس</p>
+        <ul id="toc"></ul>
+      </aside>
+
+      <article class="lesson">
+        <h2 id="numbers-in-javascript">عددها در JavaScript</h2>
+        <p>
+          در JavaScript، عددهای صحیح و اعشاری از یک نوع داده‌ی کلی به نام
+          <code>Number</code> هستند. برای نمونه، <code>12</code> و
+          <code>3.5</code> هر دو عدد هستند و می‌توان با آن‌ها محاسبه انجام داد.
+        </p>
+
+        <div class="demo" data-title="امتحان کن: محاسبات ساده" data-height="220">
+          <textarea>
+<p id="result"></p>
+
+<script>
+  const firstNumber = 12;
+  const secondNumber = 3;
+
+  document.querySelector("#result").textContent =
+    "جمع: " + (firstNumber + secondNumber);
+</script>
+          </textarea>
+        </div>
+
+        <h2 id="math-operators">عملگرهای ریاضی</h2>
+        <p>
+          این عملگرها برای انجام محاسبات رایج استفاده می‌شوند:
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>عملگر</th>
+                <th>عملیات</th>
+                <th>نمونه</th>
+                <th>نتیجه</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>+</code></td>
+                <td>جمع</td>
+                <td><code>8 + 2</code></td>
+                <td><code>10</code></td>
+              </tr>
+              <tr>
+                <td><code>-</code></td>
+                <td>تفریق</td>
+                <td><code>8 - 2</code></td>
+                <td><code>6</code></td>
+              </tr>
+              <tr>
+                <td><code>*</code></td>
+                <td>ضرب</td>
+                <td><code>8 * 2</code></td>
+                <td><code>16</code></td>
+              </tr>
+              <tr>
+                <td><code>/</code></td>
+                <td>تقسیم</td>
+                <td><code>8 / 2</code></td>
+                <td><code>4</code></td>
+              </tr>
+              <tr>
+                <td><code>%</code></td>
+                <td>باقی‌مانده‌ی تقسیم</td>
+                <td><code>8 % 3</code></td>
+                <td><code>2</code></td>
+              </tr>
+              <tr>
+                <td><code>**</code></td>
+                <td>توان</td>
+                <td><code>2 ** 3</code></td>
+                <td><code>8</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          ترتیب انجام عمل‌ها هم اهمیت دارد. می‌توانی برای مشخص کردن ترتیب،
+          مثل ریاضی از پرانتز استفاده کنی:
+        </p>
+
+        <pre class="code"><code>const result = (2 + 3) * 4;</code></pre>
+
+        <h2 id="floating-point-problem">چرا 0.1 + 0.2 دقیقاً 0.3 نمی‌شود؟</h2>
+        <p>
+          این محاسبه را در JavaScript امتحان کن:
+        </p>
+
+        <div class="demo" data-title="امتحان کن: محاسبه‌ی اعشاری" data-height="220">
+          <textarea>
+<p id="float-result"></p>
+
+<script>
+  const result = 0.1 + 0.2;
+
+  document.querySelector("#float-result").textContent = result;
+</script>
+          </textarea>
+        </div>
+
+        <p>
+          ممکن است نتیجه را به شکل
+          <code>0.30000000000000004</code> ببینی، نه دقیقاً
+          <code>0.3</code>. این معمولاً به معنی خراب بودن محاسبه یا اشتباه
+          نوشتن کد نیست.
+        </p>
+
+        <p>
+          رایانه‌ها عددها را با بیت‌ها نگه می‌دارند و از نمایش دودویی استفاده
+          می‌کنند. همان‌طور که بعضی کسرها در مبنای ده‌دهی نمایش پایان‌پذیر
+          ندارند، بعضی عددهای اعشاری در مبنای دودویی هم نمایش دقیقی ندارند.
+          در این حالت، مقدار ذخیره‌شده تقریب نزدیکی از عدد موردنظر است.
+        </p>
+
+        <div class="callout note">
+          <p class="callout-title">ارتباط با درس مبانی</p>
+          <p>
+            برای توضیح بیشتر درباره‌ی نمایش دودویی عددها، این پیوند را بعداً
+            به درس مبانی اضافه کن:
+            <a href="">درس مبانی درباره‌ی سیستم اعداد باینری</a>
+          </p>
+        </div>
+
+        <div class="callout warn">
+          <p class="callout-title">این مشکل فقط مخصوص JavaScript نیست</p>
+          <p>
+            بسیاری از زبان‌های برنامه‌نویسی از روش‌های مشابهی برای نمایش
+            عددهای اعشاری استفاده می‌کنند؛ بنابراین ممکن است این تقریب را در
+            زبان‌های دیگر هم ببینی.
+          </p>
+        </div>
+
+        <h2 id="rounding-decimals">نمایش تعداد رقم اعشار</h2>
+        <p>
+          برای نمایش عدد با تعداد مشخصی رقم اعشار، می‌توان از
+          <code>toFixed()</code> استفاده کرد. این متد نتیجه را به شکل متن
+          برمی‌گرداند؛ پس اگر بخواهی دوباره با نتیجه محاسبه کنی، باید به این
+          نکته توجه داشته باشی.
+        </p>
+
+        <div class="demo" data-title="امتحان کن: گرد کردن برای نمایش" data-height="240">
+          <textarea>
+<p id="rounded-result"></p>
+
+<script>
+  const result = 0.1 + 0.2;
+  const displayedResult = result.toFixed(2);
+
+  document.querySelector("#rounded-result").textContent =
+    "با دو رقم اعشار: " + displayedResult;
+</script>
+          </textarea>
+        </div>
+
+        <div class="callout tip">
+          <p class="callout-title">برای چه کاری مناسب است؟</p>
+          <p>
+            <code>toFixed()</code> برای قالب‌بندی و نمایش عدد، مثلاً در رابط
+            کاربری، مفید است. این کار به معنی تغییر شیوه‌ی ذخیره‌ی همه‌ی
+            محاسبات داخلی به عدد اعشاری دقیق نیست.
+          </p>
+        </div>
+
+        <h2 id="math-object">چند ابزار از Math</h2>
+        <p>
+          JavaScript شیئی به نام <code>Math</code> دارد که چند ابزار آماده
+          برای کار با عددها در اختیارمان می‌گذارد. در این درس فقط با چند نمونه
+          آشنا می‌شویم:
+        </p>
+
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>دستور</th>
+                <th>کاربرد</th>
+                <th>نمونه‌ی نتیجه</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>Math.round(4.6)</code></td>
+                <td>گرد کردن به نزدیک‌ترین عدد صحیح</td>
+                <td><code>5</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.floor(4.9)</code></td>
+                <td>گرد کردن رو به پایین</td>
+                <td><code>4</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.ceil(4.1)</code></td>
+                <td>گرد کردن رو به بالا</td>
+                <td><code>5</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.max(2, 8, 5)</code></td>
+                <td>پیدا کردن بزرگ‌ترین مقدار</td>
+                <td><code>8</code></td>
+              </tr>
+              <tr>
+                <td><code>Math.min(2, 8, 5)</code></td>
+                <td>پیدا کردن کوچک‌ترین مقدار</td>
+                <td><code>2</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="demo" data-title="امتحان کن: ابزارهای Math" data-height="220">
+          <textarea>
+<p id="math-tools"></p>
+
+<script>
+  const rounded = Math.round(4.6);
+  const largest = Math.max(2, 8, 5);
+
+  document.querySelector("#math-tools").textContent =
+    "گرد شده: " + rounded + " | بزرگ‌ترین عدد: " + largest;
+</script>
+          </textarea>
+        </div>
+
+        <h2 id="summary">جمع‌بندی</h2>
+        <p>
+          در JavaScript می‌توان با عملگرهایی مثل <code>+</code>،
+          <code>-</code>، <code>*</code> و <code>/</code> محاسبه انجام داد.
+          عددهای اعشاری به‌دلیل نحوه‌ی نمایش دودویی ممکن است دقیقاً همان‌طور
+          که انتظار داریم ذخیره نشوند؛ برای نمونه، حاصل
+          <code>0.1 + 0.2</code> ممکن است با <code>0.3</code> تفاوت کوچکی
+          داشته باشد. برای نمایش عدد با تعداد رقم اعشار مشخص می‌توان از
+          <code>toFixed()</code> کمک گرفت و برای عملیات رایج نیز ابزارهایی
+          مثل <code>Math.round()</code> در دسترس هستند.
+        </p>
+
+        <section class="next-step">
+          <div>
+            <h2>آماده‌ای؟</h2>
+            <p>با چند تمرین کوتاه، محاسبات و عددهای اعشاری را مرور کن.</p>
+          </div>
+          <a class="btn" href="exercise.html">برو به تمرین</a>
+        </section>
+
+        <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
+      </article>
+    </div>
+
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
+</html>
