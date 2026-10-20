@@ -57,15 +57,18 @@
             </details>
             <div class="demo" data-title="جای کدنویسی" data-height="260">
               <textarea>
-function showMessage() {
-  console.log("این پیام را ببین!");
-}
+                <script>
 
-function runTwice(callback) {
-  // callback را دو بار اجرا کن
-}
-
-// تابع showMessage را به runTwice بده
+                  function showMessage() {
+                    console.log("این پیام را ببین!");
+                  }
+                  
+                  function runTwice(callback) {
+                    // callback را دو بار اجرا کن
+                  }
+                  
+                  // تابع showMessage را به runTwice بده
+                  </script>
 </textarea>
             </div>
           </li>
@@ -85,11 +88,14 @@ function runTwice(callback) {
             </details>
             <div class="demo" data-title="جای کدنویسی" data-height="240">
               <textarea>
-const names = ["نرگس", "علی", "پویا"];
+                <script>
 
-names.forEach(function (name) {
-  // پیام خوشامدگویی را نمایش بده
-});
+                  const names = ["نرگس", "علی", "پویا"];
+                  
+                  names.forEach(function (name) {
+                    // پیام خوشامدگویی را نمایش بده
+                  });
+                  </script>
 </textarea>
             </div>
           </li>
@@ -111,14 +117,17 @@ names.forEach(function (name) {
             </details>
             <div class="demo" data-title="جای کدنویسی" data-height="260">
               <textarea>
-const temperatures = [12, 18, 25];
+                <script>
 
-const doubledTemperatures = temperatures.map(function (temperature) {
-  // مقدار تبدیل‌شده را برگردان
-});
-
-console.log(doubledTemperatures);
-console.log(temperatures);
+                  const temperatures = [12, 18, 25];
+                  
+                  const doubledTemperatures = temperatures.map(function (temperature) {
+                    // مقدار تبدیل‌شده را برگردان
+                  });
+                  
+                  console.log(doubledTemperatures);
+                  console.log(temperatures);
+                  </script>
 </textarea>
             </div>
           </li>
@@ -138,13 +147,16 @@ console.log(temperatures);
             </details>
             <div class="demo" data-title="جای کدنویسی" data-height="240">
               <textarea>
-const scores = [42, 78, 55, 91, 60];
+                <script>
 
-const passingScores = scores.filter(function (score) {
-  // شرط قبولی را برگردان
-});
-
-console.log(passingScores);
+                  const scores = [42, 78, 55, 91, 60];
+                  
+                  const passingScores = scores.filter(function (score) {
+                    // شرط قبولی را برگردان
+                  });
+                  
+                  console.log(passingScores);
+                  </script>
 </textarea>
             </div>
           </li>
@@ -167,21 +179,24 @@ console.log(passingScores);
             </details>
             <div class="demo" data-title="جای کدنویسی" data-height="360">
               <textarea>
-const products = [
-  { name: "دفتر", price: 80 },
-  { name: "کیف", price: 250 },
-  { name: "مداد", price: 20 }
-];
+                <script>
 
-const affordableNames = products
-  .filter(function (product) {
-    // محصول‌های ارزان‌تر از 100 را نگه دار
-  })
-  .map(function (product) {
-    // نام محصول را برگردان
-  });
-
-console.log(affordableNames);
+                  const products = [
+                    { name: "دفتر", price: 80 },
+                    { name: "کیف", price: 250 },
+                    { name: "مداد", price: 20 }
+                  ];
+                  
+                  const affordableNames = products
+                  .filter(function (product) {
+                    // محصول‌های ارزان‌تر از 100 را نگه دار
+                  })
+                  .map(function (product) {
+                    // نام محصول را برگردان
+                  });
+                  
+                  console.log(affordableNames);
+                  </script>
 </textarea>
             </div>
           </li>

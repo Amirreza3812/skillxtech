@@ -32,8 +32,8 @@
           <p class="hero-course" id="crumb-course">طراحی وب</p>
           <h1>توابع پیشرفته — پارت دوم</h1>
           <p class="lead">
-            یاد می‌گیریم تابعی را به‌عنوان ورودی به تابع دیگری بدهیم و از
-            متدهای آرایه برای پیمایش، تبدیل و فیلترکردن داده‌ها استفاده کنیم.
+            یاد می‌گیریم تابعی را به‌عنوان ورودی به تابع دیگری بدهیم و از متدهای
+            آرایه برای پیمایش، تبدیل و فیلترکردن داده‌ها استفاده کنیم.
           </p>
         </div>
       </div>
@@ -50,8 +50,8 @@
         <p>
           تابعی که تابع دیگری را به‌عنوان ورودی دریافت کند یا یک تابع را
           برگرداند، تابع مرتبه‌بالا نامیده می‌شود. در پارت قبل دیدیم که تابع
-          می‌تواند آرگومان تابع دیگری باشد؛ در این درس همین ایده را در
-          کاربردهای بیشتری می‌بینیم.
+          می‌تواند آرگومان تابع دیگری باشد؛ در این درس همین ایده را در کاربردهای
+          بیشتری می‌بینیم.
         </p>
 
         <pre class="code"><code>function runTask(task) {
@@ -65,16 +65,16 @@ function sayHello() {
 runTask(sayHello);</code></pre>
 
         <p>
-          در این نمونه، <code>runTask</code> یک تابع دریافت می‌کند و آن را
-          اجرا می‌کند؛ پس <code>runTask</code> تابع مرتبه‌بالاست و
+          در این نمونه، <code>runTask</code> یک تابع دریافت می‌کند و آن را اجرا
+          می‌کند؛ پس <code>runTask</code> تابع مرتبه‌بالاست و
           <code>sayHello</code> نقش callback را دارد.
         </p>
 
         <h2 id="for-each">پیمایش آرایه با forEach()</h2>
         <p>
           متد <code>forEach()</code> تابعی می‌گیرد و آن را برای هر عضو آرایه
-          اجرا می‌کند. این متد برای انجام کاری با هر عضو مناسب است؛ مثلاً
-          نمایش اعضا در کنسول.
+          اجرا می‌کند. این متد برای انجام کاری با هر عضو مناسب است؛ مثلاً نمایش
+          اعضا در کنسول.
         </p>
 
         <pre class="code"><code>const names = ["سارا", "آرمان", "مینا"];
@@ -85,25 +85,25 @@ names.forEach(function (name) {
 
         <p>
           تابعی که به <code>forEach()</code> داده‌ایم برای هر عضو اجرا می‌شود.
-          در هر بار اجرا، پارامتر <code>name</code> مقدار یکی از اعضای آرایه
-          را می‌گیرد.
+          در هر بار اجرا، پارامتر <code>name</code> مقدار یکی از اعضای آرایه را
+          می‌گیرد.
         </p>
 
         <div class="callout note">
           <p class="callout-title">forEach چه چیزی برمی‌گرداند؟</p>
           <p>
-            معمولاً از <code>forEach()</code> برای انجام یک کار با اعضا
-            استفاده می‌کنیم؛ این متد آرایه‌ی تازه‌ای از نتایج نمی‌سازد. اگر
-            می‌خواهی بر اساس اعضای آرایه، آرایه‌ی تازه‌ای بسازی، به
-            <code>map()</code> نگاه کن.
+            معمولاً از <code>forEach()</code> برای انجام یک کار با اعضا استفاده
+            می‌کنیم؛ این متد آرایه‌ی تازه‌ای از نتایج نمی‌سازد. اگر می‌خواهی بر
+            اساس اعضای آرایه، آرایه‌ی تازه‌ای بسازی، به <code>map()</code> نگاه
+            کن.
           </p>
         </div>
 
         <h2 id="map">ساخت آرایه‌ی تازه با map()</h2>
         <p>
           متد <code>map()</code> روی اعضای آرایه کار می‌کند و از نتیجه‌ی
-          callback برای هر عضو، آرایه‌ی تازه‌ای می‌سازد. آرایه‌ی اصلی با این
-          روش تغییر نمی‌کند.
+          callback برای هر عضو، آرایه‌ی تازه‌ای می‌سازد. آرایه‌ی اصلی با این روش
+          تغییر نمی‌کند.
         </p>
 
         <pre class="code"><code>const prices = [10, 20, 30];
@@ -116,9 +116,9 @@ console.log(doubledPrices); // [20, 40, 60]
 console.log(prices);        // [10, 20, 30]</code></pre>
 
         <p>
-          مقدار <code>return</code> از callback، به عضو متناظر در آرایه‌ی
-          جدید تبدیل می‌شود. بنابراین بهتر است callback در
-          <code>map()</code> برای هر عضو یک مقدار برگرداند.
+          مقدار <code>return</code> از callback، به عضو متناظر در آرایه‌ی جدید
+          تبدیل می‌شود. بنابراین بهتر است callback در <code>map()</code> برای هر
+          عضو یک مقدار برگرداند.
         </p>
 
         <h2 id="filter">فیلترکردن آرایه با filter()</h2>
@@ -137,8 +137,8 @@ console.log(passingScores); // [82, 67, 95]</code></pre>
 
         <p>
           callback در <code>filter()</code> باید نتیجه‌ای مانند
-          <code>true</code> یا <code>false</code> بدهد. عضوهایی که نتیجه‌ی
-          شرط برایشان درست باشد، در آرایه‌ی جدید قرار می‌گیرند.
+          <code>true</code> یا <code>false</code> بدهد. عضوهایی که نتیجه‌ی شرط
+          برایشان درست باشد، در آرایه‌ی جدید قرار می‌گیرند.
         </p>
 
         <div class="table-scroll">
@@ -172,9 +172,8 @@ console.log(passingScores); // [82, 67, 95]</code></pre>
 
         <h2 id="callback-parameters">پارامترهای callback در متدهای آرایه</h2>
         <p>
-          callback این متدها می‌تواند علاوه بر مقدار عضو، اندیس آن را هم
-          دریافت کند. در صورت نیاز می‌توان پارامتر دوم را برای اندیس به کار
-          برد.
+          callback این متدها می‌تواند علاوه بر مقدار عضو، اندیس آن را هم دریافت
+          کند. در صورت نیاز می‌توان پارامتر دوم را برای اندیس به کار برد.
         </p>
 
         <pre class="code"><code>const colors = ["آبی", "سبز", "قرمز"];
@@ -190,29 +189,34 @@ colors.forEach(function (color, index) {
 
         <h2 id="demo">ترکیب متدها در یک نمونه</h2>
         <p>
-          در نمونه‌ی زیر، ابتدا محصول‌های موجود را با <code>filter()</code>
-          جدا می‌کنیم و سپس نام آن‌ها را با <code>map()</code> به یک آرایه‌ی
-          تازه تبدیل می‌کنیم.
+          در نمونه‌ی زیر، ابتدا محصول‌های موجود را با <code>filter()</code> جدا
+          می‌کنیم و سپس نام آن‌ها را با <code>map()</code> به یک آرایه‌ی تازه
+          تبدیل می‌کنیم.
         </p>
 
         <div class="demo" data-title="امتحان کن" data-height="440">
           <textarea>
-const products = [
-  { name: "دفتر", inStock: true },
-  { name: "مداد", inStock: false },
-  { name: "کتاب", inStock: true }
-];
+<div id="output"></div>
+<script>
+  const products = [
+    { name: "دفتر", inStock: true },
+    { name: "مداد", inStock: false },
+    { name: "کتاب", inStock: true }
+  ];
 
-const availableNames = products
-  .filter(function (product) {
-    return product.inStock;
-  })
-  .map(function (product) {
-    return product.name;
-  });
+  const availableNames = products
+    .filter(function (product) {
+      return product.inStock;
+    })
+    .map(function (product) {
+      return product.name;
+    });
 
-console.log(availableNames);
-</textarea>
+  document.querySelector("#output").textContent =
+    availableNames.join("، ");
+</script>
+  </textarea
+          >
         </div>
 
         <p>
@@ -248,8 +252,8 @@ console.log(availableNames);
 
         <h2 id="summary">جمع‌بندی</h2>
         <p>
-          توابع مرتبه‌بالا می‌توانند تابع دیگری را دریافت کنند یا برگردانند.
-          متد <code>forEach()</code> برای انجام کاری روی اعضای آرایه،
+          توابع مرتبه‌بالا می‌توانند تابع دیگری را دریافت کنند یا برگردانند. متد
+          <code>forEach()</code> برای انجام کاری روی اعضای آرایه،
           <code>map()</code> برای ساخت آرایه‌ای از مقادیر تبدیل‌شده و
           <code>filter()</code> برای ساخت آرایه‌ای از اعضای مطابق شرط به کار
           می‌روند. callback این متدها را با تابع معمولی هم می‌توان نوشت.

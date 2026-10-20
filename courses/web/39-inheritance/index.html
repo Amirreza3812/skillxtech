@@ -45,8 +45,8 @@
         <p>
           گاهی چند کلاس ویژگی‌ها یا رفتارهای مشترکی دارند. برای مثال،
           <code>Dog</code> و <code>Cat</code> هر دو نام دارند و می‌توانند صدا
-          تولید کنند. اگر این ویژگی‌ها را جداگانه در هر کلاس بنویسیم، بخشی از
-          کد تکرار می‌شود.
+          تولید کنند. اگر این ویژگی‌ها را جداگانه در هر کلاس بنویسیم، بخشی از کد
+          تکرار می‌شود.
         </p>
         <p>
           با ارث‌بری، ویژگی‌ها و متدهای مشترک را در یک کلاس پایه قرار می‌دهیم و
@@ -84,8 +84,8 @@ console.log(dog.speak());</code></pre>
 
         <p>
           در این مثال، کلاس <code>Dog</code> متد <code>speak()</code> را خودش
-          تعریف نکرده است؛ اما چون از <code>Animal</code> ارث می‌برد، نمونه‌ی
-          سگ می‌تواند آن متد را اجرا کند.
+          تعریف نکرده است؛ اما چون از <code>Animal</code> ارث می‌برد، نمونه‌ی سگ
+          می‌تواند آن متد را اجرا کند.
         </p>
 
         <h2 id="super-constructor">۳. سازنده‌ی والد و super</h2>
@@ -132,7 +132,8 @@ console.log(dog.breed);</code></pre>
         <p>
           کلاس فرزند می‌تواند متدی با همان نام متد والد تعریف کند. در این حالت،
           هنگام فراخوانی آن متد روی نمونه‌ی فرزند، نسخه‌ی تعریف‌شده در کلاس
-          فرزند اجرا می‌شود. به این کار «بازنویسی» یا <em>override</em> می‌گویند.
+          فرزند اجرا می‌شود. به این کار «بازنویسی» یا
+          <em>override</em> می‌گویند.
         </p>
 
         <pre class="code"><code>class Animal {
@@ -191,37 +192,39 @@ console.log(dog.describe());</code></pre>
 
         <div class="demo" data-title="ارث‌بری از کلاس" data-height="370">
           <textarea>
-class Vehicle {
-  constructor(brand) {
-    this.brand = brand;
+<div id="output"></div>
+<script>
+  class Vehicle {
+    constructor(brand) {
+      this.brand = brand;
+    }
+
+    describe() {
+      return `این وسیله از برند ${this.brand} است.`;
+    }
   }
 
-  describe() {
-    return `این وسیله از برند ${this.brand} است.`;
-  }
-}
+  class Car extends Vehicle {
+    constructor(brand, doors) {
+      super(brand);
+      this.doors = doors;
+    }
 
-class Car extends Vehicle {
-  constructor(brand, doors) {
-    super(brand);
-    this.doors = doors;
+    describe() {
+      return `${super.describe()} تعداد درها: ${this.doors}`;
+    }
   }
 
-  describe() {
-    return `${super.describe()} تعداد درها: ${this.doors}`;
-  }
-}
-
-const car = new Car("آریا", 4);
-console.log(car.describe());
-</textarea>
+  const car = new Car("آریا", 4);
+  document.querySelector("#output").textContent = car.describe();
+</script>
+  </textarea
+          >
         </div>
 
         <h2 id="common-mistakes">۷. اشتباه‌های رایج</h2>
         <ul>
-          <li>
-            برای ارث‌بری، کلاس والد را بعد از <code>extends</code> بنویس.
-          </li>
+          <li>برای ارث‌بری، کلاس والد را بعد از <code>extends</code> بنویس.</li>
           <li>
             اگر کلاس فرزند سازنده‌ی خودش را دارد، پیش از استفاده از
             <code>this</code>، سازنده‌ی والد را با <code>super()</code>
@@ -232,16 +235,16 @@ console.log(car.describe());
             <code>super.methodName()</code> یک متد والد را فراخوانی می‌کند.
           </li>
           <li>
-            اگر کلاس فرزند متدی همنام با متد والد داشته باشد، نسخه‌ی فرزند
-            هنگام فراخوانی روی نمونه‌ی فرزند اجرا می‌شود.
+            اگر کلاس فرزند متدی همنام با متد والد داشته باشد، نسخه‌ی فرزند هنگام
+            فراخوانی روی نمونه‌ی فرزند اجرا می‌شود.
           </li>
         </ul>
 
         <h2 id="summary">۸. جمع‌بندی</h2>
         <p>
           با <code>extends</code> یک کلاس را از کلاس دیگری مشتق می‌کنیم. کلاس
-          فرزند می‌تواند متدهای والد را به ارث ببرد، متدهای خودش را اضافه کند
-          یا متدهای والد را بازنویسی کند. در سازنده‌ی فرزند، برای اجرای سازنده‌ی
+          فرزند می‌تواند متدهای والد را به ارث ببرد، متدهای خودش را اضافه کند یا
+          متدهای والد را بازنویسی کند. در سازنده‌ی فرزند، برای اجرای سازنده‌ی
           والد از <code>super()</code> استفاده می‌کنیم و برای فراخوانی متد والد
           می‌نویسیم <code>super.methodName()</code>.
         </p>

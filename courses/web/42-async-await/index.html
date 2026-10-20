@@ -136,27 +136,37 @@ showMessage();</code></pre>
           </p>
         </div>
 
-        <div class="demo" data-title="امتحان کن: ترتیب اجرای کد" data-height="260">
-          <textarea>
-function waitForMessage() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("۲. پیام بعد از یک ثانیه آماده شد");
-    }, 1000);
-  });
-}
+     <div class="demo" data-title="امتحان کن: ترتیب اجرای کد" data-height="260">
+  <textarea>
+<div id="output" style="white-space: pre-line;"></div>
+<script>
+  const output = document.querySelector("#output");
 
-async function showMessage() {
-  console.log("۱. تابع شروع شد");
-  const message = await waitForMessage();
-  console.log(message);
-  console.log("۳. تابع تمام شد");
-}
+  function showLine(text) {
+    output.textContent += text + "\n";
+  }
 
-showMessage();
-console.log("این خط پیش از آماده‌شدن پیام اجرا می‌شود");
-</textarea>
-        </div>
+  function waitForMessage() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("۲. پیام بعد از یک ثانیه آماده شد");
+      }, 1000);
+    });
+  }
+
+  async function showMessage() {
+    showLine("۱. تابع شروع شد");
+    const message = await waitForMessage();
+    showLine(message);
+    showLine("۳. تابع تمام شد");
+  }
+
+  showMessage();
+  showLine("این خط پیش از آماده‌شدن پیام اجرا می‌شود");
+</script>
+  </textarea>
+</div>
+
 
         <h2 id="error-handling">مدیریت خطا با try...catch</h2>
         <p>

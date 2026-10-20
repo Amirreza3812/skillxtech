@@ -1,142 +1,165 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>تمرین ماژول‌ها در جاوااسکریپت | طراحی وب</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>تمرین ماژول‌ها در جاوااسکریپت | طراحی وب</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../shared/css/lesson.css">
-</head>
-<body data-course="web" data-lesson="34-modules" data-root="../../../">
-
-  <header class="masthead">
-    <div class="topbar">
-      <div class="wrap">
-        <a href="index.html">بازگشت به درس</a>
-        <a href="../../../index.html">داشبورد</a>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../../shared/css/lesson.css" />
+  </head>
+  <body data-course="web" data-lesson="34-modules" data-root="../../../">
+    <header class="masthead">
+      <div class="topbar">
+        <div class="wrap">
+          <a href="index.html">بازگشت به درس</a>
+          <a href="../../../index.html">داشبورد</a>
+        </div>
       </div>
-    </div>
-    <div class="hero">
-      <div class="wrap">
-        <p class="hero-course" id="crumb-course">طراحی وب</p>
-        <h1>تمرین: ماژول‌ها در جاوااسکریپت</h1>
-        <p class="lead">
-          تمرین‌ها را با ساخت فایل‌های جداگانه انجام بده و مسیرهای import را بررسی کن.
-        </p>
+      <div class="hero">
+        <div class="wrap">
+          <p class="hero-course" id="crumb-course">طراحی وب</p>
+          <h1>تمرین: ماژول‌ها در جاوااسکریپت</h1>
+          <p class="lead">
+            تمرین‌ها را با ساخت فایل‌های جداگانه انجام بده و مسیرهای import را
+            بررسی کن.
+          </p>
+        </div>
       </div>
+    </header>
+
+    <div class="wrap page single">
+      <article class="lesson">
+        <ol class="tasks">
+          <li class="task">
+            <h3>ساخت یک خروجی نام‌دار</h3>
+            <p>
+              در فایل <code>calculator.js</code> تابعی به نام
+              <code>multiply</code> بنویس که دو عدد بگیرد و حاصل‌ضرب آن‌ها را
+              برگرداند. تابع را به‌صورت خروجی نام‌دار صادر کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                تعریف تابع را با <code>export function</code> شروع کن و نتیجه را
+                با <code>return</code> برگردان.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+                <script>
+
+                  // calculator.js
+                  // تابع multiply را تعریف و صادر کن
+                </script>
+
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>وارد کردن تابع</h3>
+            <p>
+              در فایل <code>main.js</code>، تابع <code>multiply</code> را از
+              <code>calculator.js</code> وارد کن و حاصل‌ضرب 8 و 5 را در کنسول
+              چاپ کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                چون خروجی نام‌دار است، نام تابع را داخل آکولاد بنویس. اگر دو
+                فایل کنار هم هستند، مسیر import برابر
+                <code>"./calculator.js"</code> است.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+                <script>
+
+                  // main.js
+                  // تابع multiply را وارد کن
+                  // حاصل‌ضرب 8 و 5 را چاپ کن
+                </script>
+
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>ساخت خروجی پیش‌فرض</h3>
+            <p>
+              در فایل <code>greeting.js</code> یک تابع به نام <code>greet</code>
+              بنویس که نامی بگیرد و جمله‌ی «سلام، [نام]!» را برگرداند. تابع را
+              به‌صورت خروجی پیش‌فرض صادر کن.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                از <code>export default</code> استفاده کن. برای ساخت جمله
+                می‌توانی از template literal استفاده کنی.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="180">
+              <textarea>
+                <script>
+
+                  // greeting.js
+                  // تابع greet را به‌صورت خروجی پیش‌فرض صادر کن
+                </script>
+
+</textarea
+              >
+            </div>
+          </li>
+
+          <li class="task">
+            <h3>اتصال فایل ماژول به HTML</h3>
+            <p>
+              یک فایل HTML بساز که عنصر <code>p</code> با شناسه‌ی
+              <code>message</code> داشته باشد و فایل <code>main.js</code> را
+              به‌عنوان ماژول بارگذاری کند. در <code>main.js</code> تابع
+              <code>greet</code> را وارد کن و پیام خوش‌آمدگویی را داخل همان عنصر
+              قرار بده.
+            </p>
+            <details>
+              <summary>راهنمایی</summary>
+              <p>
+                برای بارگذاری فایل از
+                <code>&lt;script type="module" src="./main.js"&gt;</code>
+                استفاده کن. در جاوااسکریپت، عنصر را با
+                <code>document.querySelector("#message")</code> انتخاب کن.
+              </p>
+            </details>
+            <div class="demo" data-title="جای کدنویسی" data-height="220">
+              <textarea>
+  <script>
+
+    // main.js
+    // تابع greet را وارد کن
+    // متن عنصر #message را تغییر بده
+  </script>
+
+</textarea
+              >
+            </div>
+          </li>
+        </ol>
+
+        <nav
+          class="lesson-nav"
+          id="lesson-nav"
+          aria-label="درس قبل و بعد"
+        ></nav>
+      </article>
     </div>
-  </header>
 
-  <div class="wrap page single">
-    <article class="lesson">
-      <ol class="tasks">
-
-        <li class="task">
-          <h3>ساخت یک خروجی نام‌دار</h3>
-          <p>
-            در فایل <code>calculator.js</code> تابعی به نام
-            <code>multiply</code> بنویس که دو عدد بگیرد و حاصل‌ضرب آن‌ها را
-            برگرداند. تابع را به‌صورت خروجی نام‌دار صادر کن.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>
-              تعریف تابع را با <code>export function</code> شروع کن و نتیجه را
-              با <code>return</code> برگردان.
-            </p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="180">
-<textarea>
-// calculator.js
-// تابع multiply را تعریف و صادر کن
-
-</textarea>
-          </div>
-        </li>
-
-        <li class="task">
-          <h3>وارد کردن تابع</h3>
-          <p>
-            در فایل <code>main.js</code>، تابع <code>multiply</code> را از
-            <code>calculator.js</code> وارد کن و حاصل‌ضرب 8 و 5 را در کنسول چاپ کن.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>
-              چون خروجی نام‌دار است، نام تابع را داخل آکولاد بنویس.
-              اگر دو فایل کنار هم هستند، مسیر import برابر
-              <code>"./calculator.js"</code> است.
-            </p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="180">
-<textarea>
-// main.js
-// تابع multiply را وارد کن
-// حاصل‌ضرب 8 و 5 را چاپ کن
-
-</textarea>
-          </div>
-        </li>
-
-        <li class="task">
-          <h3>ساخت خروجی پیش‌فرض</h3>
-          <p>
-            در فایل <code>greeting.js</code> یک تابع به نام <code>greet</code>
-            بنویس که نامی بگیرد و جمله‌ی «سلام، [نام]!» را برگرداند. تابع را به‌صورت
-            خروجی پیش‌فرض صادر کن.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>
-              از <code>export default</code> استفاده کن. برای ساخت جمله می‌توانی
-              از template literal استفاده کنی.
-            </p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="180">
-<textarea>
-// greeting.js
-// تابع greet را به‌صورت خروجی پیش‌فرض صادر کن
-
-</textarea>
-          </div>
-        </li>
-
-        <li class="task">
-          <h3>اتصال فایل ماژول به HTML</h3>
-          <p>
-            یک فایل HTML بساز که عنصر <code>p</code> با شناسه‌ی
-            <code>message</code> داشته باشد و فایل <code>main.js</code> را
-            به‌عنوان ماژول بارگذاری کند. در <code>main.js</code> تابع
-            <code>greet</code> را وارد کن و پیام خوش‌آمدگویی را داخل همان عنصر قرار بده.
-          </p>
-          <details>
-            <summary>راهنمایی</summary>
-            <p>
-              برای بارگذاری فایل از
-              <code>&lt;script type="module" src="./main.js"&gt;</code>
-              استفاده کن. در جاوااسکریپت، عنصر را با
-              <code>document.querySelector("#message")</code> انتخاب کن.
-            </p>
-          </details>
-          <div class="demo" data-title="جای کدنویسی" data-height="220">
-<textarea>
-// main.js
-// تابع greet را وارد کن
-// متن عنصر #message را تغییر بده
-
-</textarea>
-          </div>
-        </li>
-
-      </ol>
-
-      <nav class="lesson-nav" id="lesson-nav" aria-label="درس قبل و بعد"></nav>
-    </article>
-  </div>
-
-  <script src="../../../shared/js/lesson.js"></script>
-</body>
+    <script src="../../../shared/js/lesson.js"></script>
+  </body>
 </html>

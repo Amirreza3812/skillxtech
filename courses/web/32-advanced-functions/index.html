@@ -49,8 +49,8 @@
         <h2 id="function-review">مرور کوتاه توابع</h2>
         <p>
           تابع مجموعه‌ای از دستورهاست که برای انجام یک کار مشخص نام‌گذاری
-          می‌کنیم. با فراخوانی تابع، دستورهای داخل آن اجرا می‌شوند. تابع‌ها
-          کمک می‌کنند کد را سازمان‌دهی کنیم و از تکرار بی‌مورد جلوگیری کنیم.
+          می‌کنیم. با فراخوانی تابع، دستورهای داخل آن اجرا می‌شوند. تابع‌ها کمک
+          می‌کنند کد را سازمان‌دهی کنیم و از تکرار بی‌مورد جلوگیری کنیم.
         </p>
 
         <pre class="code"><code>function greet(name) {
@@ -62,8 +62,8 @@ console.log(message);</code></pre>
 
         <h2 id="function-declaration">تعریف تابع با function declaration</h2>
         <p>
-          شکل آشنای تعریف تابع را <code>function declaration</code> می‌نامند.
-          در این روش، نام تابع پس از کلمه‌ی <code>function</code> می‌آید.
+          شکل آشنای تعریف تابع را <code>function declaration</code> می‌نامند. در
+          این روش، نام تابع پس از کلمه‌ی <code>function</code> می‌آید.
         </p>
 
         <pre class="code"><code>function multiply(a, b) {
@@ -92,18 +92,18 @@ console.log(multiply(4, 3)); // 12</code></pre>
 console.log(multiply(4, 3)); // 12</code></pre>
 
         <p>
-          در این شکل، تابع را از طریق نام متغیر فراخوانی می‌کنیم. خود عبارت
-          تابع در این نمونه نام جداگانه‌ای ندارد؛ به همین دلیل معمولاً به آن
-          تابع بی‌نام هم می‌گویند.
+          در این شکل، تابع را از طریق نام متغیر فراخوانی می‌کنیم. خود عبارت تابع
+          در این نمونه نام جداگانه‌ای ندارد؛ به همین دلیل معمولاً به آن تابع
+          بی‌نام هم می‌گویند.
         </p>
 
         <div class="callout note">
           <p class="callout-title">دو شکل تعریف تابع</p>
           <p>
             هم <code>function declaration</code> و هم
-            <code>function expression</code> برای ساخت تابع به کار می‌روند.
-            در این درس مهم است بتوانی هر دو شکل را بخوانی و تفاوت نوشتاری‌شان
-            را تشخیص بدهی.
+            <code>function expression</code> برای ساخت تابع به کار می‌روند. در
+            این درس مهم است بتوانی هر دو شکل را بخوانی و تفاوت نوشتاری‌شان را
+            تشخیص بدهی.
           </p>
         </div>
 
@@ -147,9 +147,9 @@ showMessage();
 
         <h2 id="callback-intro">تابع به‌عنوان ورودی تابع دیگر</h2>
         <p>
-          در JavaScript، تابع یک مقدار است؛ بنابراین می‌توان آن را به تابع
-          دیگری به‌عنوان آرگومان فرستاد. تابعی که به تابع دیگری داده می‌شود تا
-          آن تابع در زمان مناسب اجرا کند، <code>callback</code> نام دارد.
+          در JavaScript، تابع یک مقدار است؛ بنابراین می‌توان آن را به تابع دیگری
+          به‌عنوان آرگومان فرستاد. تابعی که به تابع دیگری داده می‌شود تا آن تابع
+          در زمان مناسب اجرا کند، <code>callback</code> نام دارد.
         </p>
 
         <pre class="code"><code>function sayHello() {
@@ -164,9 +164,9 @@ runTask(sayHello);</code></pre>
 
         <p>
           در فراخوانی <code>runTask(sayHello)</code>، تابع
-          <code>sayHello</code> را بدون پرانتز می‌فرستیم؛ یعنی خود تابع را
-          ارسال می‌کنیم. داخل <code>runTask</code>، دستور
-          <code>task()</code> تابع دریافت‌شده را اجرا می‌کند.
+          <code>sayHello</code> را بدون پرانتز می‌فرستیم؛ یعنی خود تابع را ارسال
+          می‌کنیم. داخل <code>runTask</code>، دستور <code>task()</code> تابع
+          دریافت‌شده را اجرا می‌کند.
         </p>
 
         <div class="callout tip">
@@ -180,8 +180,8 @@ runTask(sayHello);</code></pre>
 
         <h2 id="callback-parameter">callback همراه پارامتر</h2>
         <p>
-          تابع دریافت‌کننده می‌تواند هنگام اجرای callback، مقداری هم به آن
-          بدهد. در مثال زیر، <code>processNumber</code> عدد را به تابع
+          تابع دریافت‌کننده می‌تواند هنگام اجرای callback، مقداری هم به آن بدهد.
+          در مثال زیر، <code>processNumber</code> عدد را به تابع
           <code>showDouble</code> می‌فرستد.
         </p>
 
@@ -204,25 +204,29 @@ processNumber(5, showDouble); // 10</code></pre>
 
         <div class="demo" data-title="امتحان کن" data-height="340">
           <textarea>
-function printResult(result) {
-  console.log("نتیجه:", result);
-}
+<div id="output"></div>
+<script>
+  function printResult(result) {
+    document.querySelector("#output").textContent = `نتیجه: ${result}`;
+  }
 
-function calculate(a, b, callback) {
-  const sum = a + b;
-  callback(sum);
-}
+  function calculate(a, b, callback) {
+    const sum = a + b;
+    callback(sum);
+  }
 
-calculate(7, 5, printResult);
-</textarea>
+  calculate(7, 5, printResult);
+</script>
+  </textarea
+          >
         </div>
 
         <h2 id="arrow-brief">یک اشاره‌ی کوتاه به arrow function</h2>
         <p>
           در JavaScript شکل خلاصه‌تری برای نوشتن تابع وجود دارد که
           <code>arrow function</code> نامیده می‌شود. فعلاً کافی است بدانی ممکن
-          است آن را در کدهای دیگر ببینی؛ در این بخش روی تعریف‌های تابعی که
-          یاد گرفتیم تمرکز می‌کنیم.
+          است آن را در کدهای دیگر ببینی؛ در این بخش روی تعریف‌های تابعی که یاد
+          گرفتیم تمرکز می‌کنیم.
         </p>
 
         <pre class="code"><code>const double = (number) =&gt; {
@@ -231,8 +235,8 @@ calculate(7, 5, printResult);
 
         <h2 id="summary">جمع‌بندی</h2>
         <p>
-          تابع را می‌توان با <code>function declaration</code> تعریف کرد یا
-          آن را در یک متغیر قرار داد و به شکل <code>function expression</code>
+          تابع را می‌توان با <code>function declaration</code> تعریف کرد یا آن
+          را در یک متغیر قرار داد و به شکل <code>function expression</code>
           نوشت. محدوده‌ی دسترسی تعیین می‌کند متغیر در کجا قابل استفاده است.
           همچنین می‌توان تابع را به تابع دیگری فرستاد؛ تابعی که به این شکل
           دریافت می‌شود، callback نام دارد.

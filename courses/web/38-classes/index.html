@@ -14,11 +14,7 @@
     <link rel="stylesheet" href="../../../shared/css/lesson.css" />
   </head>
 
-  <body
-    data-course="web"
-    data-lesson="38-classes"
-    data-root="../../../"
-  >
+  <body data-course="web" data-lesson="38-classes" data-root="../../../">
     <header class="masthead">
       <div class="topbar">
         <div class="wrap">
@@ -47,14 +43,14 @@
       <article class="lesson">
         <h2 id="why-classes">۱. چرا به کلاس نیاز داریم؟</h2>
         <p>
-          در درس اشیا دیدیم که می‌توانیم داده‌های مرتبط را در یک شیء کنار هم
-          نگه داریم. اگر چند شیء با ساختار مشابه بخواهیم، ساختن هرکدام به‌صورت
-          دستی باعث تکرار کد می‌شود.
+          در درس اشیا دیدیم که می‌توانیم داده‌های مرتبط را در یک شیء کنار هم نگه
+          داریم. اگر چند شیء با ساختار مشابه بخواهیم، ساختن هرکدام به‌صورت دستی
+          باعث تکرار کد می‌شود.
         </p>
         <p>
           کلاس راهی برای تعریف یک قالب مشترک است. از روی آن قالب می‌توانیم
-          نمونه‌های جداگانه بسازیم؛ هر نمونه داده‌های خودش را دارد، اما ساختار
-          و رفتار کلی آن‌ها مشترک است.
+          نمونه‌های جداگانه بسازیم؛ هر نمونه داده‌های خودش را دارد، اما ساختار و
+          رفتار کلی آن‌ها مشترک است.
         </p>
 
         <div class="callout note">
@@ -116,8 +112,8 @@ console.log(userTwo.name); // آرمان</code></pre>
 
         <h2 id="methods">۴. تعریف متد برای نمونه‌ها</h2>
         <p>
-          متدها توابعی هستند که داخل کلاس تعریف می‌شوند و رفتار نمونه‌ها را
-          مشخص می‌کنند. برای نوشتن متد، نام و پارامترهای آن را می‌نویسیم و بدنه‌ی
+          متدها توابعی هستند که داخل کلاس تعریف می‌شوند و رفتار نمونه‌ها را مشخص
+          می‌کنند. برای نوشتن متد، نام و پارامترهای آن را می‌نویسیم و بدنه‌ی
           تابع را داخل آکولاد قرار می‌دهیم.
         </p>
         <p>
@@ -147,23 +143,27 @@ console.log(user.introduce());</code></pre>
 
         <div class="demo" data-title="کلاس و نمونه‌ها" data-height="340">
           <textarea>
-class Product {
-  constructor(name, price) {
-    this.name = name;
-    this.price = price;
+<div id="output"></div>
+<script>
+  class Product {
+    constructor(name, price) {
+      this.name = name;
+      this.price = price;
+    }
+
+    describe() {
+      return `${this.name}: ${this.price} تومان`;
+    }
   }
 
-  describe() {
-    return `${this.name}: ${this.price} تومان`;
-  }
-}
+  const firstProduct = new Product("دفتر", 80000);
+  const secondProduct = new Product("مداد", 20000);
 
-const firstProduct = new Product("دفتر", 80000);
-const secondProduct = new Product("مداد", 20000);
-
-console.log(firstProduct.describe());
-console.log(secondProduct.describe());
-</textarea>
+  document.querySelector("#output").textContent =
+    `${firstProduct.describe()} | ${secondProduct.describe()}`;
+</script>
+  </textarea
+          >
         </div>
 
         <h2 id="common-mistakes">۶. اشتباه‌های رایج</h2>
@@ -173,12 +173,12 @@ console.log(secondProduct.describe());
             <code>new User("سارا")</code> درست است.
           </li>
           <li>
-            نام کلاس را طبق قرارداد با حرف بزرگ شروع کن تا از نام متغیرها
-            متمایز باشد.
+            نام کلاس را طبق قرارداد با حرف بزرگ شروع کن تا از نام متغیرها متمایز
+            باشد.
           </li>
           <li>
-            در متدها برای دسترسی به ویژگی نمونه از <code>this</code> استفاده
-            کن؛ مثلاً <code>this.name</code>.
+            در متدها برای دسترسی به ویژگی نمونه از <code>this</code> استفاده کن؛
+            مثلاً <code>this.name</code>.
           </li>
           <li>
             هر نمونه ویژگی‌های خودش را دارد؛ تغییر ویژگی یک نمونه، ویژگی نمونه‌ی
