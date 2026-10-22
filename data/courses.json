@@ -336,7 +336,7 @@
       "id": "todo-list",
       "title": "لیست کارها",
       "summary": "ترکیب HTML، CSS و JavaScript در یک برنامه کوچک",
-      "status": "soon"
+      "status": "ready"
     },
     {
       "id": "snake-game",
